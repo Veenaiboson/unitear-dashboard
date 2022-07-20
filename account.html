@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png">
+    <title>UniteAR</title>
+    <link rel="stylesheet" href="resources/editor_new/css/bootstrapv4.3.1.min.css">
+    <script src="resources/editor_new/js/jqueryv3.4.0.min.js"></script>
+    <script src="resources/editor_new/js/popperv1.14.7.min.js"></script>
+    <script src="resources/editor_new/js/bootstrapv4.3.1.min.js"></script>
+    <link href="resources/editor_new/css/font_lato_swap.css" rel="stylesheet">
+    <link rel="stylesheet" href="resources/editor_new/css/fontawesome_v5.8.2.css" >
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/editor_new/css/style.css">
+	<!--code added by Vishnu M R-2021-07-29-->
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<!--code added by Vishnu M R-2021-07-29-->
+    <link rel="stylesheet" href="resources/editor_new/css/fontawesomev4.7.0.min.css">
+    <script src="resources/editor_new/js/checkout.js"></script>
+    <script src="resources/editor_new/js/vue_v2.6.14.js"></script>
+    <link href="resources/editor_new/css/vue-slider-component.css " rel="stylesheet ">
+    <script src="resources/editor_new/js/vue-slider-component.umd.min.js"></script>
+    <script src="resources/editor_new/js/main.js "></script>
+    <script src="resources/editor_new/js/vue-upload-componentv2.8.20.js"></script>
+    <script type="text/javascript" src="resources/editor_new/js/vue-snotifyv3.2.1.min.js"></script>
+    <link href="resources/editor_new/css/vue-snotify3.2.1.css" rel="stylesheet" >
+    <!--<script type="text/javascript" src="<?=base_url("resources/editor/");?>js/profile_vue.js"></script>-->
+        
+    <style>
+    [v-cloak] {
+        display: none;
+    }
+    .error_log{
+        color: red;
+        font-size: 12px;
+        }
+    .no-noty {
+        text-align: center;
+        padding: 30px 10px;
+        font-size: 14px;
+    }
+    .no-noty img {
+        padding-bottom: 5px;
+    }
+    .video-modal {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        background-color: #000000a8;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+    
+    .video-modal video {
+        max-width: 600px;
+    }
+    .ut-video {
+        width: 900px;
+        height: 507px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .btn-secondary {
+        color: #333333;
+        background-color: white;
+        border-color: #D4D4D4;
+    }
+    .btn-secondary:hover {
+        color: #333333;
+        background-color: #F2F5FA;
+        border-color: #D4D4D4;
+    }
+    .dropdown-menu.show a{
+        padding: 5px 15px;
+    }
+    .videomodal-close {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        width: 30px;
+        cursor: pointer;
+    }
+
+    /*code added by Vishnu M R-2021-07-29*/
+    .goog-te-banner-frame{
+        display:none;
+    }
+
+    .btn-primary {
+        border-radius: 20px;
+    }
+    /*code added by Vishnu M R-2021-07-29*/
+	.login-error {
+        color: red;
+        font-size: 12px;
+        text-align: left;
+    }
+    .error-input {
+        border: 1px solid red !important;
+    }  
+
+    select option:enabled {
+        color: #000;
+        font-weight: bold;
+    }
+    .emty-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+    }
+    .app-modal {
+        background-color: #00000066;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+    }
+
+    .app-modal-content {
+        max-width: 460px;
+        background-color: white;
+        padding: 35px 25px;
+        text-align: center;
+        position: relative;
+        border-radius: 6px;
+    }
+
+    .h3-modal {
+        font-size: 23px;
+    }
+
+    .app-modal-close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        cursor: pointer;
+    }
+
+    .btn-app-modal {
+        background-color: #08f;
+        padding: 10px 35px;
+        border-radius: 5px;
+        border: 1px solid #08f;
+        color: white;
+        font-size: 16px;
+        line-height: 1;
+    }
+    .link-hover:hover{
+        color: #FF0000!important;
+    }
+    .flex-column {
+        border-left: 1px solid #ebebeb;
+        border-right: 1px solid #ebebeb;
+        border-top: 1px solid #ebebeb;
+        border-bottom: 1px solid #ebebeb;
+        min-height:250px;
+    }
+    .vert-tab .nav-link {
+        display: block;
+        padding: .5rem 1rem;
+        color: grey;
+        font-weight:500;
+    }
+    .role-settings {
+        margin-top: 15px;
+        border-bottom: 1px solid silver;
+    }
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 49px;
+        height: 27px;
+    }
+    
+    .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    .drop-width{
+        width: 250px!important;
+        left: -95px!important;
+    }
+    .slider-toggle {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    
+    .slider-toggle:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    
+    input:checked + .slider-toggle {
+        background-color:#2680EB;
+    }
+    
+    input:focus + .slider-toggle {
+        box-shadow: 0 0 1px #2196F3;
+    }
+    
+    input:checked + .slider-toggle:before {
+        -webkit-transform: translateX(21px);
+        -ms-transform: translateX(21px);
+        transform: translateX(21px);
+    }
+    
+    /* Rounded sliders */
+    .slider-toggle.round {
+        border-radius: 34px;
+    }
+    .roll-tab{
+        margin-top: 40px;
+    }
+    
+    .slider-toggle.round:before {
+        border-radius: 50%;
+    }
+    .vert-tab .nav-link.active {
+        display: block;
+        padding: 15px 15px;
+        color: #08f;
+        border-left: 2px solid #08f;
+        background-color: #F4F5FB;
+    }
+    .link-p{
+        color:red;
+        text-decoration: underline;
+    }
+    .chips.chips-initial {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 4px 15px;
+    }
+    .chip {
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 30px;
+        padding: 4px 15px;
+        border-radius: 6px;
+        background-color:#F5F5F5;
+        margin: 5px 5px; 
+        display: inline-block;
+        outline: none;
+    }
+    .chip:focus { 
+        background-color: #51c5c2;
+        color: #fff;
+    }
+    .switch-container{
+        padding: 70px 35px;
+        border: 1px solid #f1f1f1;
+        border-radius: 5px;
+    }
+    .closebtn {
+        cursor: pointer;
+    }
+    .chips.chips-initial input.chip-input {
+        display: inline-block ;
+        float: none;
+        width: 120px;
+        min-width: 30px;
+        border:none;
+        outline: none;
+    }
+    .input-right{
+        position:absolute;
+        right: 10px;
+        top: 12px;
+        width: 16px;
+        opacity: 0;
+    }
+    .right-answ .shery-img{
+        opacity: 1;
+    }
+    .wrong-answ .thetu-img{
+        opacity: 1;
+    }
+    .full-nav li {
+        border-bottom: 1px solid #C9C9C9
+    }
+    .nav-tabs {
+        border-bottom: 1px solid #dee2e6;
+    }
+    .form-control-sp {
+        
+        background-color: #F4F5F9;}
+        .full-nav .nav-link {
+        display: block;
+        padding: 10px 30px;
+        font-size: 18px;
+    }
+    .ref-close{
+        position: absolute;
+        right: -30px;
+        top: 9px;
+    }
+    .active_newmenu{
+        border-right: none;
+        background-color: #3A3F44;
+    }
+    .cursor-add{
+        cursor: pointer;
+    }
+    </style>
+
+   
+</head>
+<body>
+    <div id="app" >
+        <header class="header">
+            <div class="ar-platform">
+                <div class=" df-center">
+
+                     <div class="logo" >
+                        <img @click="mobile_menu = true; " style="cursor:pointer;" src="resources/editor_new/img/burg.png" alt="" class="img-fluid pr-3 menu-sm-show">
+                        <a href="./login.html">
+                            <img src="resources/editor_new/img/logo-2.png" alt="">
+                        </a>
+                      <!--  <div class="added-menu menu-sm-hide">
+                            <a href="<?=base_url('editor')?>" class="active">My Projects</a>
+                   
+                            <a href="#" @click="check_app_factory_access();">AR App Creator 
+                                <span class="new-item-fact">New</span>
+                            </a>
+                        </div>-->
+
+                    </div> 
+                    <div class="new-dash-menu menu-sm-hide" >
+                        <!-- <img @click="mobile_menu = true; " style="cursor:pointer;" src="<?=base_url('resources/editor_new/')?>img/hum.svg" alt="" class="img-fluid pr-3 "> -->
+                        <a href="./login.html">
+                            <div class="dash-logo">
+                            <img src="resources/editor_new/img/white-new-logo.svg" alt="">
+                            </div>
+                        </a>
+                        <div class="">
+                        
+                            <a href="#" @click="campaign_category=1;change_project_category();">
+                                <div class="new-menu-item " :class="{ active_newmenu: campaign_category == 1 }" >
+                                    <span>
+                                        <img src="resources/editor_new/img/m-1.png" alt="">
+                                    </span>
+                                    <p>IMAGE-BASED AR</p>
+                                </div>
+                            </a>
+                            <a href="#" @click="campaign_category=2;change_project_category();" >
+                                <div class="new-menu-item"  :class="{ active_newmenu: campaign_category == 2 }"  >
+                                    <span>
+                                        <img src="resources/editor_new/img/m-2.png" alt="">
+                                    </span>
+                                    <p>GROUND-PLANE AR</p>
+                                </div>
+                            </a>
+                            <a href="#"  @click="basic_or_advance_appfactory ? campaign_category=3 : campaign_category=4;change_project_category();" >
+                                <div class="new-menu-item" :class="{ active_newmenu: campaign_category == 3 || campaign_category == 4}">
+                                        <img src="resources/editor_new/img/m-3.png" alt="">
+                                    </span>
+                                    <p>AR APP CREATOR</p>
+                                </div>
+                            </a>
+                            <!-- <a href="<?=base_url('editor')?>" class="active">My Projects</a>
+                            
+                            <a href="#" @click="check_app_factory_access();">AR App Creator 
+                               
+                            </a> -->
+                        </div>
+
+                    </div>
+                    <div class="menu">
+						<!-- <button type="button" class="btn btn-primary" onclick="Cookiebot.renew();">GDPR Compilance</button>
+						<a href="<?=base_url('cookie-declaration');?>" target="_blank">
+                                 <button type="button" class="btn btn-primary">Cookie Declaration</button>
+                    </a> -->
+						<a href="./book_your_session.html" class="menu-sm-hide">
+                        <button type="button" class="btn btn-primary">Book Your Demo</button>
+                    </a>
+						<div id="google_translate_element"></div>
+                       
+						
+						<div class="dropdown menu-sm-hide" v-if="user_as_team_member_status">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							{{switch_team_name}}
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a v-for="each_team in switch_team_list" class="dropdown-item" href="#" v-on:click="switch_team_id=each_team.id;change_team();">{{each_team.team_name}}</a>
+							</div>
+						</div>
+						
+                        <a href="#" class="noty"
+                            v-on:click="notification_read_status=true;change_notification_read_status()">
+                            <img src="resources/editor_new/img/noty-bell.svg" class="menu-sm-hide" alt="">
+                            <img src="resources/editor_new/img/white-bell.png" class="menu-sm-show" alt="">
+                            <span v-if="read_entire_status">{{read_count}}</span>
+                        </a>
+
+
+                        <a href="#" class="user menu-sm-hide">
+                            <img style=""
+                                src="resources/editor_new/img/businessman-avatar-icon-01-.svg"
+                                alt="">
+                        </a>
+                        <div class="my-menu">
+                            <ul>
+                                <li> <a href="./pricing.html"> Upgrade Plan</a></li>
+                                <li> <a href="./account.html"> My Account </a></li>
+                                <li> <a href="./team.html"> Team </a></li>
+                                <li onclick="Cookiebot.renew();"> <a href="#"> GDPR Compilance </a></li>
+                                <li> <a href="./cookie_declaration.html"> Cookie Declaration </a></li>
+                                <!-- <li> <a href="<?=base_url('editor/book-your-session');?>"> Book Your Demo </a></li> -->
+                                <li> <a onclick="logout()"> Log out </a></li>
+                            </ul>
+                            <div class="arrow-up">
+
+                            </div>
+                        </div>
+                        <div class="my-noty">
+                            <ul>
+                                <div v-if="no_of_notification_records>0" class="ul-first">
+                                    <div class="row ">
+                                        <div class="col">
+                                            <span>Notifications</span>
+                                        </div>
+                                        <div class="col text-right" @click="delete_notification(0)">
+                                            <span class="blue-text">Clear all</span>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <li v-if="no_of_notification_records<=0">
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <!-- <p class="noty-head green-text">Payment was successful!</p>-->
+                                                <div class="no-noty">
+                                                    <img
+                                                        src="resources/editor_new/img/notification.png">
+                                                    <p class="">No messages</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li v-else v-for="single_notification in notification">
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <!-- <p class="noty-head green-text">Payment was successful!</p>-->
+                                                <p class="noty-p">{{single_notification.message}}</p>
+                                            </div>
+                                            <div class="col-2" v-on:click="delete_notification(single_notification.id)">
+                                                <img src="resources/editor_new/img/close.svg" alt=""
+                                                    class="img-fluid mt-2"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <!-- <li>
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p class="noty-head red-text">Warning! Payment failed</p>
+                                                <p class="noty-p">Your payment process failed, Please update your payment details.</p>
+                                            </div>
+                                            <div class="col-2"><img src="<?=base_url('resources/editor_new/')?>img/close.svg" alt="" class="img-fluid mt-2"></div>
+                                        </div>
+                                    </a>
+                                </li>-->
+                            </ul>
+                            <div class="arrow-up">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="menuid" v-if="mobile_menu" class="menu mobile-menu">
+                <div class="flex-menu">
+                    
+                    <div class="menu-item"  @click="campaign_category=1;change_project_category();"><a href="#" :class="{ active: campaign_category == 1 }">IMAGE-BASED AR</a></div>
+                    <div class="menu-item"  @click="campaign_category=2;change_project_category();"><a href="#" :class="{ active: campaign_category == 2 }" >Ground-Plane AR</a></div>
+                    <div class="menu-item" @click="campaign_category=3;change_project_category();"><a href="#" :class="{ active: campaign_category == 3 }">ar app creator</a></div>
+                    <div class="menu-item"><a href="./account.html" class="">my account</a></div>
+
+                    <div class="menu-item"> <a href="./team.html" class=""> Team </a></div>
+                   
+                    <div class="menu-item"><a onclick="logout()">log out</a></div>
+                    <div class="menu-item"><a href="./pricing.html" class="sign-up fill-bg">upgrade now</a></div>
+                    <div class="menu-item"><a href="./book_your_session.html" class="sign-up">Book Your Demo</a></div>
+                
+                    
+                </div> <span @click="mobile_menu = false;" class="menu-close"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="28.991" height="28.992" viewBox="0 0 28.991 28.992">
+                        <g id="Group_3625" data-name="Group 3625" transform="translate(1423.406 -3230.063) rotate(45)">
+                            <rect id="Rectangle_540" data-name="Rectangle 540" width="36" height="5" rx="2"
+                                transform="translate(1280 3288)" fill="#fff"></rect>
+                            <rect id="Rectangle_541" data-name="Rectangle 541" width="36" height="5" rx="2"
+                                transform="translate(1300.5 3272.5) rotate(90)" fill="#fff"></rect>
+                        </g>
+                    </svg></span>
+            </div>
+        </header>
+        <section>
+
+
+            <!-- sample comment -->
+            
+            
+            <div class="account-sec">
+            
+                <div class=" mt-4">
+            
+                    <ul class="nav nav-tabs  full-nav" role="tablist" id="myTab">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home">Account Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " data-toggle="tab" href="#menu1">Your Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " data-toggle="tab" href="#menu2">My Bills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu3">Invite Referrals</a>
+                        </li>
+                       
+            
+                    </ul>
+            
+            
+            
+                </div>
+                <div class="tab-content mt-3">
+                    <div id="home" class=" tab-pane active">
+                        <div class="">
+                            <div class="head-account">
+                                <div class="row">
+                                    <div class="col-md-6 left-sm-center">
+                                   
+                                    </div>
+                                    <div class="col-md-6">
+                                    <div class="right-sm-center">
+                                       
+                                    </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="vert-tab sm-new-hide">
+                                        <div class=" mt-3">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item">
+                                                    <a data-toggle="tab" href="#" @click="tracking_data = 1"  class="nav-link  active ">IMAGE-TRACKING AR  </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a data-toggle="tab" href="#" @click="tracking_data = 2" class="nav-link   ">GROUND-TRACKING AR</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a data-toggle="tab" href="#" @click="tracking_data = 3" class="nav-link   ">AR APP CREATOR </a>
+                                                </li>
+                                                
+                                            </ul>
+                                        </div> 
+                                    </div>
+                                    <div class="form-group mt-3 mb-3 sm-new-show" >
+                                        <select name="" class="form-control" id="" v-model="tracking_data">
+                                            <option value="1">IMAGE-TRACKING AR</option>
+                                            <option value="2">GROUND-TRACKING AR</option>
+                                            <option value="3">AR APP CREATOR</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-9 ">
+                                    <div class="row mt-3" v-if="tracking_data == 1">
+                                        <div class="col-lg-4">
+                                            <div class="account-show-box">
+                                                <p>Target Images</p>
+                                                <hr>
+                                                <div class="account-rate">
+                                                    <h3>385</h3>
+                                                    <h4>/3000</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-lg-3">
+                                            <div class="account-show-box">
+                                                <p>projects</p>
+                                                <hr>
+                                                <div class="account-rate">
+                                                    <h3>220</h3>
+                                                    <h4>/300</h4>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                        <div class="col-lg-4">
+                                            <div class="account-show-box">
+                                                <p>storage</p>
+                                                <hr>
+                                                <div class="account-rate">
+                                                    <h3>3.05 GB</h3>
+                                                    <h4>/10 GB</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="account-show-box">
+                                                <p>plan views</p>
+                                                <hr>
+                                                <div class="account-rate">
+                                                    <h3>9458</h3>
+                                                    <h4>/3000000</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3" v-if="tracking_data == 2">
+                                        <!-- <div class="col-lg-3">
+                                            <div class="account-show-box">
+                                                <p>projects</p>
+                                                <hr>
+                                                <div class="account-rate">
+                                                    <h3><?=$ground_storage_details_size?></h3>
+                                                    <h4>/<?=$active_package['package_storage_limit']?></h4>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                        <div class="col-lg-4">
+                                            <div class="account-show-box">
+                                                <p>storage</p>
+                                                <hr>
+                                                <div class="account-rate">
+                                                    <h3>1.06 GB</h3>
+                                                    <h4>/10 GB</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="account-show-box">
+                                                <p>plan views</p>
+                                                <hr>
+                                                <div class="account-rate">
+                                                    <h3>140</h3>
+                                                    <h4>/3000000</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="row mt-3" v-if="tracking_data == 3">
+                                   
+                                        <div class="col-lg-4">
+                                            <div class="account-show-box">
+                                                <img src="resources/editor_new/img/android-svg.svg" alt="">
+                                                <p>android apps</p>
+                                                <hr>
+                                                <div class="account-rate">
+                                                    <h3>180</h3>
+                                                    <h4>/1</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-4">
+                                            <div class="account-show-box">
+                                            <img src="resources/editor_new/img/Apple-svg.svg" alt="">
+                                                <p>iOS apps</p>
+                                                <hr>
+                                                <div class="account-rate">
+                                                    <h3>42</h3>
+                                                    <h4>/1</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     
+            
+                                    </div>
+                                  
+                                </div>
+                                <div class="mt-5 pl-2">
+                                    <!-- <a href="<?=base_url('contact');?>" class="link-hover" style="color:black;font-style:italic;text-decoration: underline;">Cancel Subscription</a> -->
+                                   
+                                        <a href="#" v-on:click="cancel_subscription_modal=true,reason_for_cancellation=''" class="link-hover" style="color:black;text-decoration: underline;">Cancel Subscription</a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="menu1" class=" tab-pane fade">
+                        <div class="container-fluid">
+                            <div class="row mt-5">
+                                <div class="col-lg-3">
+                                    <div class="profile-data">
+                                    <img :src="profile.user_image!=''?profile.user_image:'resources/editor_new/img/pro.svg'" class="img-fluid" alt=""> 
+                                    
+                                                <div class="btn-pro"@click="openFile()"style="cursor: pointer;">
+                                                   
+                                                    <file-upload
+                                                    ref="upload"
+                                                    v-model="files"
+                                                    :post-action="upload_url" 
+            
+                                                    @input-file="inputFile"
+                                                    @input-filter="inputFilter"
+                                                    v-show="true"
+                                                    accept=".jpg,.jpeg,.png"
+                                                    ></file-upload>		
+            
+            
+            
+                                                    <p>Update photo</p><i class="fa fa-circle-o-notch fa-spin" v-if="photo_upload_button_loader"></i>
+                                                </div>
+                                                <p v-if="profile.user_image!=''" class="remove-pic" @click="remove_profile_pic();" style="cursor: pointer;font-size:14px;">Remove Photo <i class="fa fa-circle-o-notch fa-spin" v-if="photo_remove_button_loader"></i></p>
+                                                <hr>
+                                                <div class="profile-nav">
+                                                    <ul class="nav flex-column">
+                                                        <li class="nav-item">
+                                                            <a data-toggle="tab" href="#" @click="profile_sec = 1"  class="nav-link  active ">Profile  </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a data-toggle="tab" href="#" @click="profile_sec = 2" class="nav-link   ">Password</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a data-toggle="tab" href="#" @click="profile_sec = 3" class="nav-link   ">Permissions </a>
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div v-if="profile_sec == 1">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                            
+                                                <div class="form-group">
+                                                    <p>Full Name</p>
+                                                    <input type="text" @keyup="update_profile_name(false);" class="form-control" id="user_name_1" v-model="profile.update_user_name">
+                                                    <p class="login-error">{{user_name_error}}</p> 
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <p>Company / Institution Name</p>
+                                                    <input type="text" class="form-control" onkeyup="check_whether_string_is_empty()" v-model="profile_company_name_account_page" >
+                                                    <span class="error_log">{{profile_company_name_account_page_error}}</span>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <p>Company Size</p>
+                                                    <select name="" id="profile_company_size_id_account_page" class="form-control" v-model="profile_company_size_account_page">
+                                                        <option value="">Select...</option>
+                                                        <option value="1-50">1-50</option>
+                                                        <option value="50-100">50-100</option>
+                                                        <option value="100-500">100-500</option>
+                                                        <option value=">500">>500</option>
+                                                    </select>
+                                                    <span class="error_log">{{profile_company_size_account_page_error}}</span>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <p>Email</p>
+                                                    <p class="form-control">{{profile.user_email}}</p>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <p>Industry</p>
+                                                    <select name="" id="profile_purpose_id_account_page" class="form-control" v-model="profile_purpose_account_page">
+                                                        <option value="">Select...</option>
+                                                       
+                                                    </select>
+                                                    <span class="error_log">{{profile_purpose_account_page_error}}</span>
+                                                </div>
+                                                
+                                                <!--code added by Vishnu M R-2020-12-10-->
+                                                <div class="form-group" v-if="profile_customer_industry_account_page_div">
+                                                    <p>Your Industry</p>
+                                                    <input type="text" class="form-control" v-model="profile_customer_industry_account_page">
+                                                    <span class="error_log">{{profile_customer_industry_account_page_error}}</span>
+                                                </div>
+                                                <!--code added by Vishnu M R-2020-12-10-->
+                                                
+                                                
+                                                <!--code commented by Vishnu M R-2021-01-12-->
+                                                <!-- <div class="form-group">
+                                                    <p>Role</p>
+                                                    <select name="" id="profile_category_id_account_page" class="form-control" v-model="profile_category_account_page">
+                                                        <option value="">Select...</option>
+                                                        <?php
+                                                        if($profile_category!=null)
+                                                        { 
+                                                            foreach($profile_category as $single_category)
+                                                            {
+                                                        ?>
+                                                                <option value="<?=$single_category['category_id']?>"><?=$single_category['category_name']?></option>
+                                                        <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                    <span class="error_log">{{profile_category_account_page_error}}</span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <p>Website</p>
+                                                    <input type="text" class="form-control" v-model="profile_website_account_page">
+                                                    <span class="error_log">{{profile_website_account_page_error}}</span>
+                                                </div>  --> 
+                                                <!--code commented by Vishnu M R-2021-01-12-->
+                                                
+                                                <!--code commented by Vishnu M R-2021-02-08-->
+                                                <!-- <div class="form-group">
+                                                    <p>Do you need a Product Demo ?</p>
+                                                    <select name="" id="" class="form-control" v-model="profile_demo_status_account_page">
+                                                        <option value="">Select...</option>
+                                                        <option value="1">Yes</option>
+                                                        <option value="2">No</option>
+                                                        <option value="3">I will try myself</option>
+                                                    </select>
+                                                    <span class="error_log">{{profile_demo_status_account_page_error}}</span>
+                                                </div> -->
+                                                <!--code commented by Vishnu M R-2021-02-08-->
+                                                
+                                            </div>
+                                        </div>
+                                        <p class="error_log">{{profile_update_status}}</p>
+                                        <div class="row">
+                                            <div class="col-lg-6 mt-3 left-sm-center">
+                                                <button class="btn-moreview" @click="update_profile_and_onboard()">Save Changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div v-if="profile_sec == 2">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div>
+                                                        <h3 class="pass-head">Update Password</h3>
+                                                        <div class="form-group text-left ">
+                                                            <label for="">Old Password</label>
+                                                            <input type="password" v-model="old_password" class="form-control">
+                                                        </div>
+                                                        <div class="form-group text-left ">
+                                                            <label for="">New Password</label>
+                                                            <input type="password" v-model="new_password"class="form-control">
+                                                        </div>
+                                                        <div class="form-group text-left ">
+                                                            <label for="">Confirm Password</label>
+                                                            <input type="password" v-model="confirm_password"class="form-control">
+                                                        </div>
+                                                        <p class="error_log">{{reset_password_message}}<p>
+                                                        <div class="">
+            
+                                                            <button class=" btn-moreview" v-on:click="reset_password();">Change Password</button>
+            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div v-if="profile_sec == 3">
+                                        <div class="container-fluid">
+                                            <div class="row mt-5">
+                                                <div class="col-lg-1"></div>
+                                                <div class="col-md-9">
+                                                    <div class="switch-container">
+                                                    <div class=" ">
+                                                            <div>
+                                                                <label class="switch">
+                                                                    <input type="checkbox" v-model="account_settings.monthly_bill" v-on:click="change_settings(account_settings.monthly_bill?account_settings.monthly_bill=false:account_settings.monthly_bill=true);">
+                                                                    <span class="check-slider round"></span>
+                                                                
+                                                                </label>
+                                                                <span class="setti-data">Send monthly bill to your email</span>
+                                                            </div>
+                                                            <div>
+                                                                <label class="switch">
+                                                                    <input type="checkbox" v-model="account_settings.news_letter"
+                                                                    v-on:click="change_settings(account_settings.news_letter?account_settings.news_letter=false:account_settings.news_letter=true);">
+                                                                    <span class="check-slider round"></span>
+                                                                
+                                                                </label>
+                                                                <span class="setti-data">Send news letter to your email</span>
+                                                            </div>
+                                                            <div>
+                                                                <label class="switch">
+                                                                    <input type="checkbox" v-model="account_settings.notification"
+                                                                    v-on:click="change_settings(account_settings.notification?account_settings.notification=false:account_settings.notification=true);"
+                                                                    >
+                                                                    <span class="check-slider round"></span>
+                                                                
+                                                                </label>
+                                                                <span class="setti-data">Activate Notification</span>
+            
+                                                            </div>
+                                                        
+                                                            <div>
+                                                                <label class="switch">
+                                                                    <input type="checkbox" v-model="account_settings.save_popup"
+                                                                    v-on:click="change_settings(account_settings.save_popup?account_settings.save_popup=false:account_settings.save_popup=true);">
+                                                                    <span class="check-slider round"></span>
+                                                                
+                                                                </label>
+                                                                <span class="setti-data">Activate save popup on target image-based AR editor</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="menu2" class=" tab-pane fade">
+                    <div class="container-fluid">
+                                <p>Invoices</p>
+                                <div class="table-responsive ">
+                                    <table class="table min-w500 table-bordered">
+                                        <thead class="thead-dark">
+                            
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Plan</th>
+                                                <th>Amount</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>10 Sep 2021 - 10 Sep 2022</td>
+                                                <td>Enterprise Package</td>
+                                                <td>$3231</td>
+                                                <td class="act">Paid</td>
+                                                <td><form method="post" action="editor/download_invoice"><input type="text" name="package_id" style="display:none" value=""><input type="text" name="payment_date" style="display:none" value=""><input type="text" name="purchase_id" style="display:none" value=""><button type="submit" class="btn-download">Download</button></form></td>
+                                            </tr>
+                                            <tr>
+                                                <td>10 Sep 2021 - 10 Sep 2022</td>
+                                                <td>Premium Package</td>
+                                                <td>$640.8</td>
+                                                <td class="act">Paid</td>
+                                                <td><form method="post" action="editor/download_invoice"><input type="text" name="package_id" style="display:none" value=""><input type="text" name="payment_date" style="display:none" value=""><input type="text" name="purchase_id" style="display:none" value=""><button type="submit" class="btn-download">Download</button></form></td>
+                                            </tr>
+                                            <tr>
+                                                <td>08 Jul 2021 - 08 Jul 2022</td>
+                                                <td>Ultimate Package</td>
+                                                <td>$744</td>
+                                                <td class="act">Paid</td>
+                                                <td><form method="post" action="editor/download_invoice"><input type="text" name="package_id" style="display:none" value=""><input type="text" name="payment_date" style="display:none" value=""><input type="text" name="purchase_id" style="display:none" value=""><button type="submit" class="btn-download">Download</button></form></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01 Jul 2021 - 01 Jul 2022</td>
+                                                <td>Starter Package</td>
+                                                <td>$468</td>
+                                                <td class="act">Paid</td>
+                                                <td><form method="post" action="editor/download_invoice"><input type="text" name="package_id" style="display:none" value=""><input type="text" name="payment_date" style="display:none" value=""><input type="text" name="purchase_id" style="display:none" value=""><button type="submit" class="btn-download">Download</button></form></td>
+                                            </tr>
+                                            <tr>
+                                                <td>22 Jun 2021 - 22 Jun 2022</td>
+                                                <td>Enterprise Package</td>
+                                                <td>$1248</td>
+                                                <td class="act">Paid</td>
+                                                <td><form method="post" action="editor/download_invoice"><input type="text" name="package_id" style="display:none" value=""><input type="text" name="payment_date" style="display:none" value=""><input type="text" name="purchase_id" style="display:none" value=""><button type="submit" class="btn-download">Download</button></form></td>
+                                            </tr>
+                                            <tr>
+                                                <td>23 Sep 2019 - 23 Oct 2019</td>
+                                                <td>Ultimate Package</td>
+                                                <td>$.00</td>
+                                                <td class="act">Paid</td>
+                                                <td><form method="post" action="editor/download_invoice"><input type="text" name="package_id" style="display:none" value=""><input type="text" name="payment_date" style="display:none" value=""><input type="text" name="purchase_id" style="display:none" value=""><button type="submit" class="btn-download">Download</button></form></td>
+                                            </tr>
+                                         
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                    </div>
+                    <div id="menu3" class=" tab-pane fade">
+                        <div class="container-fluid">
+                            <div class="refr">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="refr-head">
+                                            <h2>Invite your friends & Get 90% Discount</h2>
+                                            <p>Invite friends who aren't on UniteAR yet. When they sign up using your <br> invitation you'll get 10 coins per person.</p>
+                                        </div>
+                                     <div class="row">
+                                         <div class="col-md-8">
+                                            <div>
+                                                <div class="">
+                                                   
+                                                <div v-for="(refferal_email,index) in refferal_emails" :key="index">   
+                                                    <div class="form-group">
+                                                        <input type="text"@keyup="form_validation(refferal_email)" v-model="refferal_email.email"class="form-control">
+                                                        <p class="error_log">{{refferal_email.error!='Enter email address'?refferal_email.error:''}}<p>
+                                                        <div v-if="refferal_email.error==''">
+                                                        <img src="resources/editor_new/img/close-2.svg" class="ref-close" alt=""@click="remove_refferal_email_template(index)">
+                                                        <img src="resources/editor_new/img/shery.svg" class="shery" alt="">
+                                                        </div>
+                                                        <div v-else>
+                                                        <img v-if="refferal_email.id!=0"src="resources/editor_new/img/close-2.svg" class="ref-close" alt="" @click="remove_refferal_email_template(refferal_email.id)">
+                                                        <img v-if="refferal_email.error!='Enter email address'"src="resources/editor_new/img/thet.svg" class="thet" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>     
+                                                  <!--  <div class="form-group">
+                                                        <input type="text" class="form-control">
+                                                        <img src="<?=base_url('resources/editor_new/')?>img/close-2.svg" class="ref-close" alt="">
+                                                        <img src="<?=base_url('resources/editor_new/')?>img/thet.svg" class="thet" alt="">
+                                                    </div>-->
+                                                    <div class="row">
+                                                        <div class="col-12">{{refferal_email_message}}</div>
+                                                        <div class="col-6">
+                                                            <p class="p-text cursor-add"@click="add_refferal_email_template()">Add Email +</p>
+                                                        </div>
+                                                        <div class="col-6">
+                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                         </div>
+                                     </div>
+                                        
+                                    <div class="row">
+                                        
+                                            <div class="col-5">
+                                                <button @click="form_submit($event);":disabled="whole_refferal_error_status"class=" btn-next">Send invite <i class="fa fa-circle-o-notch fa-spin" v-if="invite_button_loader"></i></button>
+                                                <!-- <button class="btn-next">Send Invite & Continue</button> -->
+                                            </div>
+                                    </div>
+            
+            
+            
+            
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="account-show-box2">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-lg-6 only-lg-border">
+                                                        <div class="coin-av">
+                                                            <img src="resources/editor_new/img/coins.svg" alt="">
+                                                            <h2>{{points}}</h2>
+                                                            <p>Coins Available</p>
+                                                            <p class="d-none">No Coins</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="coin-users">
+                                                            <p>Invited users</p>
+                                                            <p>5</p>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="coin-users">
+                                                            <p>Successful Referrals</p>
+                                                            <p style="font-weight: 700;
+                                                            font-size: 20px;">0</p>
+                                                            <span style="cursor:pointer;text-decoration:underline;" @click="suc_ref=true">More Details</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="">
+                                                
+                                                <div v-for="promo_code in promo_codes">
+                                                <div>
+                                                    <p class="mt-3 text-center">You Got a {{promo_code.discount}}% Discount Redeem Code</p>
+                                                    <div class="gift-box">
+                                                       <img src="resources/editor_new/img/gift-box.svg" class="w-100" alt="">
+                                                       <div class="gift-voucher" @click="copy_code(promo_code.promo_code)">
+                                                           <div>
+                                                               <p>Your Redeem Code</p>
+                                                               <h3>{{promo_code.promo_code}}</h3>
+                                                           </div>
+                                                           <span class="spalsh-msg splash-off">Copied Redeem Code</span>
+                                                       </div>
+                                                    </div>
+                                                    <input type="text" :value="promo_code.promo_code"style="display:none"  class="promo"id="myInput">
+                                                    <p class="mt-2 text-center">Click above to copy the redeem code</p>
+                                                </div>
+                                                <hr>
+                                                </div>
+                                                <div>
+                                                    <p class="mt-3 text-center">Learn more about <a href="#" class="text-blue" @click="coins_value = true">coins.</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </section>
+            <div class="app-modal" v-if="coins_value">
+                <div class="app-modal-content" style="max-width: 100%;width:524px" >
+                <div>
+                    
+                    <div class="app-modal-close" @click="coins_value = false" style="right: -11px;
+                    top: -11px;
+                    background-color: white;
+                    width: 30px;
+                    height: 30px;
+                    border: 1px solid silver;
+                    padding: 3px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;">
+                        <img src="resources/img/app-modal-close.svg"  alt="" style="width: 13px;">
+                    </div>
+                    <div>
+                        <h2 class="font-weight-bold pt-3">Coins</h2>
+                        <p class="coin-equal">1 Successful Referral = 10 Coins</p>
+                     
+                        <table class="table mt-4 table-bordered coin-table">
+                            <tr>
+                                <td>Coins</td>
+                                <td>Discount</td>
+                            </tr>
+                            <tr>
+                                <td>100</td>
+                                <td>25%</td>
+                            </tr>
+                            <tr>
+                                <td>250</td>
+                                <td>50%</td>
+                            </tr>
+                            <tr>
+                                <td>500 to 1000</td>
+                                <td>75%</td>
+                            </tr>
+                            <tr>
+                                <td>1000 to 5000</td>
+                                <td>85%</td>
+                            </tr>
+                            <!-- <tr>
+                                <td>1000 to 5000</td>
+                                <td>85%</td>
+                            </tr> -->
+                            <tr>
+                                <td>5000 to above</td>
+                                <td>90%</td>
+                            </tr>
+                        </table>
+                    </div>
+                
+                </div>
+                </div>
+                </div>
+            
+                <div class="app-modal" v-if="suc_ref" >
+                    <div class="app-modal-content" style="max-width: 100%;width:624px" >
+                    <div>
+                        
+                        <div class="app-modal-close" @click="suc_ref = false" style="right: -11px;
+                        top: -11px;
+                        background-color: white;
+                        width: 30px;
+                        height: 30px;
+                        border: 1px solid silver;
+                        padding: 3px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;">
+                            <img src="resources/img/app-modal-close.svg"  alt="" style="width: 13px;">
+                        </div>
+                        <div>
+                         
+                            <p class="font-weight-bold pt-3 text-left" style="font-size: 20px;">Successful Referrals</p>
+                            <!-- <p class="coin-equal">1 Successful Referral = 10 Coins</p> -->
+                         
+                            <div>
+                               
+            
+                            </div>
+                        </div>
+                    
+                    </div>
+                    </div>
+                    </div>
+        
+                    <div class="new-projet" v-show="profileSettings">
+                        <div class="new-project-content relative p-50">
+                            <div class="text-center relative">
+                                <h3 class="font-weight-bold">Update your profile settings</h3>
+                                <p class="text-left fs-14 pb-2"></p>
+                                
+                                <div>
+                                    <div>
+                                        <!-- <div class="form-group text-left name-up">
+                                        
+                                          
+                                            <label for="" class="mt-2 w-100">Industry</label>
+                                            <select name="" id="profile_purpose_id_account_page" class="form-control" v-model="profile_purpose_account_page">
+                                                <option value="">Select...</option>
+                                                
+                                                
+                                                
+                                                   
+                                                
+                                                   
+                                                    <option value="single_purpose['purpose_id']">single_purpose['purpose_name']</option>
+                                               
+                                            </select>
+                                            <span class="error_log">{{profile_purpose_account_page_error}}</span>
+                                            
+                                          
+                                            <label for="" class="mt-2 w-100">Role</label>
+                                            <select name="" id="profile_category_id_account_page" class="form-control" v-model="profile_category_account_page">
+                                                <option value="">Select...</option>
+                                                <?php
+                                                if($profile_category!=null)
+                                                { 
+                                                    foreach($profile_category as $single_category)
+                                                    {
+                                                ?>
+                                                        <option value="<?=$single_category['category_id']?>"><?=$single_category['category_name']?></option>
+                                                <?php
+                                                    }
+                                                }
+                                                ?>
+                                            </select>
+                                            <span class="error_log">{{profile_category_account_page_error}}</span>
+                                            
+                                            <label for="" class="mt-2 w-100">Company name/Institution name</label>
+                                            <input type="text" class="form-control" v-model="profile_company_name_account_page">
+                                            <span class="error_log">{{profile_company_name_account_page_error}}</span>
+                                            
+                                            <label for="" class="mt-2 w-100">Website</label>
+                                            <input type="text" class="form-control" v-model="profile_website_account_page">
+                                            <span class="error_log">{{profile_website_account_page_error}}</span>
+                                            
+                                            <label for="" class="mt-2 w-100">Do you need a Product Demo?</label>
+                                            <select name="" id="" class="form-control" v-model="profile_demo_status_account_page">
+                                                <option value="">Select...</option>
+                                                <option value="1">Yes</option>
+                                                <option value="2">No</option>
+                                             
+                                            </select>
+                                            <span class="error_log">{{profile_demo_status_account_page_error}}</span>
+                                            
+                                            <div class="mobile-btn-full">
+                                                <button class="btn-next mt-2" @click="update_profile_data();">Update</button>
+                                                <button class="btn-next mt-2 ml-3" @click="profileSettings=false" style="color:#08F;background-color:white;border:1px solid #08F">Cancel</button>
+                                            </div>
+                                            
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        
+                        
+                        <div class="new-projet " v-if="updateName ">
+                        <div class="new-project-content relative ">
+                            <div class="text-center relative ">
+                                <h3 class="font-weight-bold ">Update your name </h3>
+                        
+                                <div class="form-group text-left name-up">
+                                    <label for="">Name</label>
+                                    <input type="text" @keyup="update_profile_name(false);" class="form-control" id="user_name" v-model="profile.update_user_name">
+                                    <p class="login-error">{{user_name_error}}</p>               
+                                </div>
+                                <div class="form-group text-right ">
+                                    <span class="blue-text pr-4 " @click="updateName=false">Cancel</span>
+                        
+                                    <button class=" btn-moreview"  v-on:click="update_profile_name(true);">Update</button>
+                                </div>
+                            </div>
+                            <img src="resources/editor_new/img/close.svg " alt=" " class="ar-close " @click="updateName=false">
+                        
+                        </div>
+                        </div>
+                        <div class="new-projet " v-if="add_more_view_modal">
+                        <div class="new-project-content relative ">
+                            <div class="text-center relative ">
+                                <h3>Choose your view count </h3>
+                                <p>This will add more views to your package <br> based on your budget. </p>
+                                <div>
+                                    <div class="row mt-4 ">
+                                        <div class="col-lg-12 ">
+                                            <div class="change-cost ">
+                                                <div class="row ">
+                                                    <div class="col text-left ">
+                                                        <p>Views</p>
+                                                    </div>
+                                                    <div class="col text-right ">
+                                                        <input class="scan-count" style="width: 70px;"type="number"v-model="add_more_scan_count"min="1" max="10000" @keyup="validate_scancount();" @keydown="validate_scancount_keydown();"/>
+                                                    </div>
+                                                </div>
+                                                <vue-slider v-model="add_more_scan_count" :min="0" :max="10000 "></vue-slider>
+                                                <div class="row ">
+                                                    <div class="col text-left ">
+                                                        <p>0</p>
+                                                    </div>
+                                                    <div class="col text-right ">
+                                                        <p>10000</p>
+                                                    </div>
+                                                </div>
+                                                <p class="mt-4 ">Total Cost</p>
+                                                <h1 class="blue-text font-weight-bold fs-44 ">${{Math.ceil(0.05*add_more_scan_count)>500?500:Math.ceil(0.05*add_more_scan_count)}}</h1>
+                                               
+                                                <button id="more_view_button"class=" btn-moreview "@click="pay_razor();">Purchase Views</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                            <img src="resources/editor_new/img/close.svg " alt=" " class="ar-close " @click="add_more_view_modal=false">
+                        
+                        </div>
+                        </div>
+                        <!--Appfactory package error modal-->
+                        <div class="app-modal"v-if="package_error_modal">
+                        <div class="app-modal-content">
+                        <div>
+                            <div style="text-align:center;">
+                                <img src="resources/img/warning.svg" alt="">
+                            </div>
+                            <div>
+                                <img src="resources/img/app-modal-close.svg" class="app-modal-close" alt=""@click="package_error_modal=false">
+                            </div>
+                            <div>
+                                <h3 class="h3-modal pt-3">Update your package</h3>
+                                <p>Your package doesn't support App factory. Please choose an appropriate pricing plan based on your budget and create your own branded AR App.</p>
+                                <a href="./pricing.html"><button class="btn-app-modal">Choose a price plan</button></a>
+                            </div>
+                        
+                        </div>
+                        </div>
+                        </div>
+                        <!--Appfactory package error modal-->
+                        
+                        <!-----------Cancel subscription------------->
+                        <div class="new-projet" v-if="cancel_subscription_modal">
+                        <div class="new-project-content relative" style="width: 640px;max-width:100%">
+                        <div class="slider-box text-center">
+                        <img src="resources/editor/img/img-b.svg" alt="">
+                        <p class="font-weight-bold mt-4" style="font-size: 22px;">Cancel Subscription</p>
+                        <p>Are you sure you want to cancel your subscription?</p>
+                        
+                        
+                        <!--code added by Vishnu M R-->
+                        <label for="">Reason For Cancellation</label>
+                        
+                        <textarea class="form-control" style="max-height:60px" v-model="reason_for_cancellation"></textarea>
+                        <p class="error_log">{{reason_for_cancellation_error}}<p>
+                        <!--code added by Vishnu M R-->
+                        
+                        
+                        <div class="row mt-3">
+                            <div class="col-lg-6">
+                            
+                                <!--code commented by Vishnu M R-->
+                                
+                                <!-- <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=ST66DCLNET8Q8"> <button class="btn-grey w-100 " >Yes Cancel Subscription</button></a> -->
+                                
+                                <!--code commented by Vishnu M R-->
+                                
+                                <button class="btn-grey w-100" @click="cancel_subscription()">Yes,Cancel Subscription</button>
+                            </div>
+                            <div class="col-lg-6 mt-3">
+                                <button class="btn-moreview w-100" @click="cancel_subscription_modal=false;">Close</button>
+                            </div>
+                        </div>
+                        
+                        </div>
+                        </div>
+                        </div>
+                        <!-----------Cancel subscription------------->	
+                        
+                        
+                        <!--code added by Vishnu M R-->
+                        
+                        <!--Modal to show when mail to cancel subscription is send-->
+                        
+                        <div class="new-projet" v-if="subscription_cancel_mail_success_modal">
+                        <div class="new-project-content relative">
+                        <div class="slider-box text-center">
+                        <img src="resources/editor/img/img-b.svg" alt="">
+                        <p class="font-weight-bold mt-4"></p>
+                        <p>{{subscription_cancel_mail_message}}</p>
+                        
+                        <button class="btn-moreview w-100" @click="subscription_cancel_mail_success_modal=false">Close</button>
+                        </div>
+                        </div>
+                        </div>
+                        
+                        <!--Modal to show when mail to cancel subscription is send-->
+                        
+                        
+                        <input type="hidden" id="camp" value="">
+                        
+                        <vue-snotify></vue-snotify>	
+                        
+                        <!--Modal to show loader-->
+                        <div class="new-projet" v-if="show_loader">
+                            <div class="new-project-content relative">
+                                <div class="slider-box text-center">
+                                    <div style="text-align:center">
+                                        <img src="resources/img/loader.gif">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Modal to show loader-->
+                        
+                        <!--code added by Vishnu M R-->		
+                        
+                        
+                        </div>
+</div>
+
+    
+
+    
+    <!--code added by Vishnu M R-->
+    <!--google translator-->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+        var base_url='http://localhost/unitear-editor-live/';
+        var user_id='9741';
+        var base_urls_8082='http://localhost:8082/';
+        var base_urls_8084='http://localhost:8084/';
+        var base_urls_8087='http://localhost:8087/';
+        var base_urls_8088='http://localhost:8088/';//campaign
+        var base_urls_8094='http://localhost:8094/';
+        var base_urls_8095='http://localhost:8095/';
+        var base_url_8099='http://localhost:8099/';
+        var base_urls_8097='http://localhost:8097/';
+        var base_urls_8081='http://localhost:8081/';
+        var base_urls_8089='http://localhost:8089/';//invite
+        var base_urls_8090='http://localhost:8090/';//profile
+        //code added by Vishnu M R
+        var profile_data=JSON.stringify({"user_profile_data_id":"2329","user_id":"9741","user_profile_purpose_id":"4","user_profile_category_id":"2","user_profile_demo_status":"2","oncreate":"2020-08-11 12:20:43","onupdate":"2022-05-10 10:54:13","user_profile_industry_id":"16","user_profile_customer_industry":"customer","user_profile_role_id":"21","user_profile_company_name":"Parvathyvvv","user_profile_website":"","user_profile_company_size":"112233","purpose_name":"Other Industry","category_name":"Developer"})
+        window._mfq = window._mfq || [];
+        (function() {
+            var mf = document.createElement("script");
+            mf.type = "text/javascript"; mf.defer = true;
+            mf.src = "//cdn.mouseflow.com/projects/37271122-389e-4a05-be11-7759f2a91fc6.js";
+            document.getElementsByTagName("head")[0].appendChild(mf);
+        })();
+      
+	
+   
+</script>
+<script type="text/javascript" src="resources/editor/js/package_vue.js"></script>
+    <!--google translator-->
+    <!--code added by Vishnu M R--> 
+    <script>
+          datas.points='20';
+         //code added by Vishnu M R
+    $("#profile_purpose_id_account_page").on('change', function(){
+        // console.log(this.value);
+        if(this.value != "")
+        {
+			// code commented by Vishnu M R-2021-01-12
+            // app.disable_options();
+			
+			datas.profile_purpose_account_page_error="";
+			
+			if(parseInt(this.value) == 16)
+			{
+				datas.profile_customer_industry_account_page_div=true;
+			}
+			else
+			{
+				datas.profile_customer_industry_account_page_div=false;
+			}
+        }
+		else
+		{
+			datas.profile_purpose_account_page_error="Please select a Industry.";
+		}
+    })
+	
+	function check_whether_string_is_empty()
+	{
+		// console.log(datas.profile_company_name_account_page);
+		if (!datas.profile_company_name_account_page.replace(/\s/g,'').length) 
+		{
+			datas.profile_company_name_account_page_error="Please fill Company name.";
+		}
+		else
+		{
+			datas.profile_company_name_account_page_error="";
+		}
+	}
+	
+	$("#profile_company_size_id_account_page").on('change', function(){
+        // console.log(this.value);
+        if(this.value != "")
+        {
+			datas.profile_company_size_account_page_error="";
+		}
+		else
+		{
+			datas.profile_company_size_account_page_error="Please select a Company size.";
+		}
+	})
+	
+    //code added by Vishnu M R
+    $(document).ready(function() {
+        $('a[data-toggle="tab "]').on('show.bs.tab', function(e) {
+            localStorage.setItem('activeTab', $(e.target).attr('href'));
+        });
+        var activeTab = localStorage.getItem('activeTab');
+        if (activeTab) {
+            $('#myTab a[href=" ' + activeTab + ' "]').tab('show');
+        }
+    });
+       // Insert new chip
+    $("#chip-input").keyup(function(event) {
+        var data = this.value;
+        if (event.keyCode === 13) {
+            //alert(data);
+            $( '<div class="chip"> '+data+' <span class="closebtn" >&times;</span></div>' ).insertBefore(this);
+            $(this).val(null);
+        }
+    });
+
+    // Remove chip
+    $(document).on('click','.closebtn',function() {
+        //alert('test');
+        $(this).parent().remove();
+    });
+    function copyFunction(element) {
+        var copyText =element.next(".promo");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+        alert("Copied the text: " + copyText.value);
+        var $this = $(".spalsh-msg").removeClass('splash-off');
+            window.setTimeout(function(){
+                $this.addClass('splash-off');
+            }, 1000); //<-- Delay in milliseconds
+    }
+    </script>
+</body>
+</html>
