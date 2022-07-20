@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4786fdfe-e8fb-4e25-94da-93fbc9f9f7cc" data-blockingmode="auto" type="text/javascript"></script>
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png">
+    <title>Unitear My profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" href="resources/editor_new/css/bootstrapv4.1.3.min.css">
+	    <script src="resources/editor_new/js/jqueryv3.3.1.min.js"></script>
+	    <script src="resources/editor_new/js/popperv1.14.3.min.js"></script>
+	    <script src="resources/editor_new/js/bootstrapv4.1.3.min.js"></script>
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	    <!--<script type="text/javascript" src="resources/editor/js/main.js"></script>-->
+	 
+	    <link rel="stylesheet" type="text/css" href="resources/editor/css/style.css">
+		<link rel="stylesheet" type="text/css" href="resources/editor/css/responsive.css">
+	    <link rel="stylesheet" type="text/css" href="resources/css/extra.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <!--<script src="https://unpkg.com/vue-upload-component"></script>-->
+        <script src="https://unpkg.com/vue-upload-component@2.8.20/dist/vue-upload-component.js"></script>
+	   <style>
+        .unitear-loader {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background-color: white;
+            z-index: 99999;
+        }
+        .unitear-loader-gif {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto
+        }
+        .unitear-loader-gif img {
+            width: 100%;
+        }
+        .pagination{
+            align-items: center;
+            justify-content: center;
+            padding: 44px;
+        }
+	
+            .popup-main{
+                position: fixed;
+                background-color: #9c9c9c;
+                left: 0;
+                right:0;
+                top:0;
+                bottom:0;
+                z-index: 10000;
+                display: none;
+            }
+            .popup-main2{
+                position: absolute;
+                background-color: white;
+                left: 0;
+                right:0;
+                top:0;
+                bottom:0;
+                z-index: 10000;
+                display: none;
+                overflow: scroll;
+            }
+            
+            .popup-view{
+                max-width: 600px;
+                margin: auto;
+                min-height: 450px;
+                background-color: white;
+                position:relative;
+                top: 50%;
+                margin-top: -225px;
+                padding: 30px 70px;
+                  }
+
+            .popup-view2{
+                max-width: 600px;
+                margin: auto;
+                min-height: 450px;
+                background-color: white;
+                position:relative;
+                top: 50%;
+                margin-top: -280px;
+                padding: 15px 30px 0px 30px;
+            } 
+            .popup-view3{
+                width: 100%;
+                margin: auto;
+                height: 100%;
+                background-color: white;
+                position:relative;
+              
+               
+                padding: 15px 30px 30px 30px;
+            }
+            .p-img{
+                display: block;
+                margin: auto;
+            }
+            .h3-pb{
+                font-size: 33px!important;
+                font-weight: 700;
+            }
+            .h4-pb{
+                font-size: 21px!important;
+                font-weight: 700;
+            }
+            .h5-p{
+                font-size: 16px!important;
+            }
+            .popup-btn{
+                background-color: #0088FF;
+                padding: 6px 20px;
+                border-radius: 20px;
+                color: white;
+                min-width: 200px;
+            }
+            .close-p{
+                position: absolute;
+                 right: 40px;
+                 cursor: pointer;
+            }
+            .popup-main p{
+                font-size: 18px;
+            }
+            .link-p{
+                font-size: 14px!important;
+                text-align: center;
+            }
+            .red{
+                color: #FF0000;
+            }
+            .p-grey{
+                color:grey;
+                font-size: 13px!important;
+            }
+            .bg-red{
+                background-color: red;
+               padding-top: 10px;
+            }
+            .bg-grey{
+                background-color: #535353;
+                padding-top: 10px;
+            }
+            .row2{
+                margin-left: -30px;
+                margin-right: -30px;
+                color:white;
+            }
+            .cancel-btn{
+                padding: 6px 20px;
+                width: 170px;
+                display: block;
+                margin: auto;
+                border:1px solid grey;
+                background-color:white;
+            }
+            .delete-btn{
+                padding: 6px 20px;
+                width: 170px;
+                display: block;
+                margin: auto;
+                background-color:red;
+                color: white; 
+            }
+			.notification{
+				overflow:auto;
+			}
+			.notification hr{
+				margin-top: 5px;
+                margin-bottom: 5px;
+                border: 0;
+                width: 100%;
+                border-top: 1px solid rgba(0,0,0,.1);
+			}
+		.text .img2{
+			float: right;
+            width: 21px;
+		}	
+		
+		.text .img1{
+			width: 32px;
+			margin-top: -24px !important;
+		}
+		
+		
+        #overlay {
+            position: fixed;
+            display: block;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 2;
+            cursor: pointer;
+        }
+        .message-text img{
+            float:right;
+            height: 45px;
+        }
+    .message-text{
+        display:none;
+        right: -200px;
+        bottom: 81px;
+        position: absolute;
+        background: #3b6ec8;
+        color: #fff;
+        padding: 10px;
+        width: 200px;
+        z-index:9099;
+        -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+        -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+        animation-name: example;
+    }	
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes example {
+    0%   {right:0px; }
+    
+    100% {right:33px;}
+    }
+
+    /* Standard syntax */
+    @keyframes example {
+    0%   {right:-200px; }
+    20% {right:33px;}
+    80% {right:33px;}
+    100% {right:-200px;}
+    }
+            
+       
+    @keyframes bar-fill {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(350%);
+            }
+        }
+        
+    @-webkit-keyframes bar-fill {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(350%);
+        }
+    }
+
+    @-moz-keyframes bar-fill {
+        0% {
+            transform: translateX(-100%);
+        }
+        
+        100% {
+            transform: translateX(350%);
+        }
+    }
+
+
+    @-o-keyframes bar-fill {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(350%);
+        }
+    }
+
+
+    .bar-graph {
+        list-style: none;
+        margin: 50px auto;
+        width: 100%;
+    }
+    .bar-wrap {
+        -moz-border-radius: 10px 10px 10px 10px;
+        -webkit-border-radius: 10px 10px 10px 10px;
+        -ms-border-radius: 10px 10px 10px 10px;
+        border-radius: 10px 10px 10px 10px;
+        background-color:#e8e8e8;
+        border: 1px solid 1px solid #e8e8e8;
+        margin-bottom: 10px;
+        max-width: 100%;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .bar-fill {
+        -moz-border-radius: 10px 10px 10px 10px;
+        -webkit-border-radius: 10px 10px 10px 10px;
+        -ms-border-radius: 10px 10px 10px 10px;
+        border-radius: 10px 10px 10px 10px;
+        -moz-animation: bar-fill 1.5s infinite;
+        -webkit-animation: bar-fill 1.5s infinite;
+        -ms-animation: bar-fill 1.5s infinite;
+        animation: bar-fill 1.5s infinite;
+        background-color: #0088ff;
+        display: block;
+        height: 13px;
+        width: 40px;
+        transform: translateX(-100%);
+        transition-timing-function: ease-in-out;
+    }
+    .dropdown-item {
+        display: block;
+        width: 100%;
+        padding: 5px 20px !important;
+        clear: both;
+        font-weight: 400;
+        color: #0e0e0e!important;
+        text-align: left;
+        white-space: nowrap;
+        background-color: transparent;
+        border: 0;
+    }
+    .dropdown-item.active, .dropdown-item:active {
+        color: #fff!important;
+        text-decoration: none;
+        background-color: #007bff;
+    }
+</style>  	  		
+		
+ 
+</head>
+<body>
+<div class="unitear-loader loader1-img loader-img" style="display:none">
+        <div class="unitear-loader-gif">
+            <img src="resources/editor/images/loader_new.gif" alt="">
+        </div>
+</div>
+<div id="app">
+<!-----Expiry modal------------->
+<div v-if="trial_modal" v-model="trial_modal"  :class="'popup-main ' +show_expiry_modal_class" style="display:none;" id="popup-3">
+            <div class="popup-view " >
+                <span v-on:click="trial_modal=false;datas.show_expiry_modal_class='my-modal-display-hide';"class="close-p" data-dismiss="modal"><img src="resources/editor/img/p-close.svg" alt=""></span>
+                <img src="resources/editor/img/img-b.svg" class="img-fluid p-img" alt="">
+                <p class="h3-pb text-center">Your free trial has ended :-(</p>
+                <p class="text-center">The 14 days trial has just ended.
+                        Don't worry, all of your campaigns are safe.
+                        </p>
+                        <hr>
+                        <p class="text-center">If you're just forgotten to pick your package,
+                                then you can still do it here..!!</p>
+                <div class="text-center">
+                        <a href="pricing"><button class="btn popup-btn">UPGRADE PACKAGE</button></a>
+                </div>
+                        
+            </div>
+        </div>
+
+<!-----Expiry modal------------->
+<div style="position:fixed;position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    pointer-events: none;
+    bottom: 0;
+	z-index:9999;">
+<div class="message-text" >
+	
+   <div style="font-size: 17px;">Success !! <img src="resources/editor/images/tick.svg" class="img-fluid p-img" alt=""></div>
+   <div style="font-size: 14px;"class="profile-message">Profile updated</div>
+   
+</div>
+</div>
+
+<!-- DELETE Target MODAL-->
+ <div v-if="show_delete_target_modal"  v-model="show_delete_target_modal" :class="'popup-main '+show_delete_target_modal_class" style="display:none;">
+            <div class="popup-view " >
+                    <span v-on:click="show_delete_target_modal=false;show_delete_target_modal_class='my-modal-display-hide';"class="close-p" data-dismiss="modal"><img src="resources/editor/img/p-close.svg" alt=""></span>
+            
+            <img src="resources/editor/img/img-g.svg" class="img-fluid p-img nonloader-img" alt="">
+			<img src="resources/img/loader.gif" class="img-fluid p-img loader-img" alt="" style="display:none;">
+                <br>
+                <p class="h3-pb text-center mb-0">Delete a target image?</p>
+
+                <p class="text-center">You can't undo this function
+                </p>
+                <br>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-6">
+                            <button v-on:click="show_delete_target_modal=false;show_delete_target_modal_class='my-modal-display-hide';"class="btn cancel-btn">Cancel</button>
+                        </div>
+                        <div class="col-6">
+                                <button v-on:click="delete_target();"class="btn delete-btn">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- DELETE Target MODAL-->	
+<header>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-6">
+						<a href="editor"></a>	<img src="resources/editor/images/logo.svg" alt="" class="logo"></a>
+				</div>
+				<div class="col-6">
+					<div class="menu">
+					<?php
+					if((int)$days_left['user_type']==0)
+					{
+						// var_dump($days_left['days_left']);die;
+						$expiry_message="";
+						$days_remaining=(int)$days_left['days_left'];
+						if($days_remaining<=0)
+						{
+							$expiry_message="Trial period expired";
+						}
+						else if($days_remaining==1)
+						{
+							$expiry_message="Last day of trail";
+						}
+						else 
+						{
+							$expiry_message=$days_remaining." days left in trial";
+						}
+					?>
+							<a href="#" ><span><?=$expiry_message;?></span></a>
+					<?php
+					}
+					?>	
+							<a href="pricing' class="upplan none-400">Upgrade Plan</a>
+							<span class="noty">
+								<button  v-on:click="change_notification_read_status()">
+									<i class=""><img src="resources/editor/images/i-2.svg" alt=""></i>
+									<div v-model="read_entire_status "v-if="read_entire_status" class="blip"></div>
+								</button>
+							<div class="notification">
+									<i class="fas fa-times close mm" v-on:click="change_notification_read_status()"></i>
+									<div class="content">
+										<!-- <div class="profile-img"></div> -->
+										<div class="text" >
+											<h1>Messages</h1>
+											<div v-model="no_of_notification_records"v-if="no_of_notification_records<=0">
+											<p>No messages</p>
+											<hr>
+											</div>
+											<div v-else v-for="single_notification in notification">
+											<p>{{single_notification.message}}<img v-if="!single_notification.read_status" class="img1" src="resources/editor/img/new.png"/><img v-on:click="delete_notification(single_notification.id)"class="img2"src="resources/editor/img/cancel.png"/></p>
+											<hr>
+											</div>
+											
+											
+										</div>
+								</div>
+							</div>
+						</span>
+							<span class="dropdown">
+							<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class=""><img src="resources/editor/images/i-3.svg" alt=""></i></a>
+							<ul class="dropdown-menu drop ">
+							  	<li class="pl-1"> 
+										<div class="container-fluid">
+												<div class="row">
+														<div class="col-4 p-0">
+															<div class="dp-pro">
+															<img :src="profile.user_image!=''?profile.user_image:'resources/img/default-avatar.jpg'" class="img-fluid" alt="">
+															</div>
+														</div>
+														<div class="col-8">
+																<p class="p-0 m-0 user-name"></p>
+																<p class="mail m-0 "></p>
+																<a href="editor/package" class="m-0 account">My Account</a>
+														</div>
+													</div>
+													<hr>
+										</div>
+										
+									</li>
+									<li><a href="pricing">upgrade plan</a></li>
+							    <li><a href="editor/profile">My Profile</a></li>
+							   
+							    <li><a href="login/logout">Log Out</a></li>
+								</ul>
+							</span>
+					</div>
+					
+				
+				</div>
+			</div>
+			<div class="center-box">
+				<h3>Let’s Start</h3>
+				<p> The World’s Easiest AR Platform</p>
+				<button class="add_chapm" @click="start_campaign();">
+					<i class=" icon-add"><img src="resources/editor/images/i-1.svg" alt=""></i>
+					 Add new project</button>
+			</div>
+		</div>
+	</div>
+
+</header>
+			
+			
+<section class="for-footer">
+
+
+
+	<div class="container mt-5">
+		 <ul class="nav nav-tabs" role="tablist">
+		    <li class="nav-item">
+		      <a class="nav-link active" data-toggle="tab" href="#home">Profile Details</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" data-toggle="tab" href="#menu1">Password</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" data-toggle="tab" href="#menu2">Account</a>
+		    </li>
+		   
+		     
+		  </ul>
+		  
+		  <div class="clearfix"></div>
+
+		  <!-- Tab panes -->
+		  <div class="tab-content mb-5">
+		  
+		    <div id="home" class=" tab-pane active">
+		    	
+			     <div class="row mt-4">
+					<div class="col-lg-4">
+						
+						
+					</div>
+					<div class="col-lg-4">
+						
+							<div class="form-group row">
+								<div class="col-6">
+									<div class="box-avatar">
+											<span class="avatar-box">
+											
+											<img  v-bind:src="profile.user_image" class="img-fluid f-p" alt=""><img>
+											</span>
+											 
+											
+										
+									</div>
+									
+										
+								</div>
+								<div class="col-6 pl-0">
+									<div class="upload-avatar">
+											<span class="upload-span" v-on:click="openFile()">upload Your avatar</span>
+									<file-upload
+    ref="upload"
+    v-model="files"
+    :post-action="upload_url" 
+	class="upload-a" 
+    @input-file="inputFile"
+    @input-filter="inputFilter"
+	v-show="false"
+  ></file-upload>		
+											
+									</div>
+								<!-- <div class="mb-3" align="center"><h6>{{profile_pic_message}}</h6></div> -->
+								</div>
+							
+							</div>
+
+							<div class="form-group">
+							
+							<input type="text" name="name"class="form-input" v-model="profile.user_name"required="" value="">
+							  <label  class="label-form">Name:</label>
+						  </div>
+						  <div class="form-group">
+						    
+						    <input type="number" name="mobile"class="form-input" v-model="profile.user_phone"  >
+						    <label  class="label-form">Mobile:</label>
+						  </div>
+						  <div class="form-group">
+						  
+						   <input type="email" class="form-input" v-model="profile.user_email" disabled>
+						      <label  class="label-form" style="top:-12px!important;">E-mail:</label>
+						  </div>
+						  <div class="form-group mb-4">
+						   
+						    <input type="text" class="form-input" v-model="profile.user_country" disabled>
+						     <label class="label-form" style="top:-12px!important;">Country:</label>
+						  </div>
+						 <!-- <-- <div class="mb-3" align="center"><h5>{{profile_message}}</h5></div> --> -->
+						  <button  v-on:click="update_profile();"class="btn btn-info btn-block ">Submit</button>
+						
+					</div>
+					<div class="col-lg-4">
+						
+					</div>
+				</div>
+		    </div>
+		    <div id="menu1" class=" tab-pane fade">
+		      <div class="row mt-4">
+					<div class="col-lg-4">
+						</div>
+					<div class="col-lg-4">
+						
+							<div class="form-group">
+						  <i class="fas fa-eye l-eye " id="span" onclick="myFunction();"></i>
+							<input type="password" v-model="old_password"id="myInput" class="form-input"required=""  >
+							  <label  class="label-form">Old Password:</label>
+						  </div>
+						  <div class="form-group">
+						    <i class="fas fa-eye l-eye " id="span1" onclick="myFunction1();"></i>
+						    <input type="password" v-model="new_password"id="myInput1" class="form-input" required="" >
+						    <label  class="label-form">New Password:</label>
+						  </div>
+						  <div class="form-group mb-4">
+						  	 <i class="fas fa-eye l-eye " id="span3" onclick="myFunction3();"></i>
+						    <input type="password" v-model="confirm_password"id="myInput3" class="form-input" required="" >
+						      <label  class="label-form">Confirm Password:</label>
+						  </div>
+						  <div class="mb-3" align="center"><h5>{{reset_password_message}}</h5></div>
+						  
+						  <button  type="button"v-on:click="reset_password();"class="btn btn-info btn-block">Submit</button>
+						
+					</div>
+					
+					
+				</div>
+		    </div>
+		    <div id="menu2" class=" tab-pane fade ">
+		     	<div class="row mt-5">
+		     		<div class="col-lg-4">
+		     			
+		     		</div>
+		     		<div class="col-lg-4">
+		     			
+        				<div><p>	<button type="button" v-model="account_settings.monthly_bill":class="['btn', 'btn-toggle',account_settings.monthly_bill_active]" data-toggle="button" :aria-pressed="account_settings.monthly_bill" v-on:click="change_settings(account_settings.monthly_bill?account_settings.monthly_bill=false:account_settings.monthly_bill=true);"autocomplete="off">
+        				<div class="handle"></div><span class="para">Send monthly bill to your email</span></p></div>
+		     			
+        				<div><p>	<button type="button" v-model="account_settings.news_letter":class="['btn', 'btn-toggle',account_settings.news_letter_active]" v-on:click="change_settings(account_settings.news_letter?account_settings.news_letter=false:account_settings.news_letter=true);"data-toggle="button" :aria-pressed="account_settings.news_letter" autocomplete="off">
+        				<div class="handle"></div><span class="para">Send news letter to your email</span></p></div>
+        				
+        				<div><p>	<button type="button" v-model="account_settings.notification":class="['btn', 'btn-toggle',account_settings.notification_active]" v-on:click="change_settings(account_settings.notification?account_settings.notification=false:account_settings.notification=true);"data-toggle="button" :aria-pressed="account_settings.notification"autocomplete="off">
+        				<div class="handle"></div><span class="para">Activate Notification</span></p></div>
+        				<div>
+        					<p>	<button type="button" v-model="account_settings.sms" :class="['btn', 'btn-toggle',account_settings.sms_active]" v-on:click="change_settings(account_settings.sms?account_settings.sms=false:account_settings.sms=true);"data-toggle="button":aria-pressed="account_settings.sms" autocomplete="off">
+        				<div class="handle"></div><span class="para">Send SMS Alerts</span></p>
+								</div>
+								
+								<button class="btn btn-danger" data-toggle="modal" data-target="#popup-8">Delete Your Account</button>
+								
+		     		</div>
+		     		<div class="col-lg-4">
+		     			
+		     		</div>
+		     	</div>
+		    </div>
+		  </div>
+
+
+
+
+
+
+
+
+
+		
+	</div>
+</section>
+
+<!--Delete account Modal-->
+<div class="popup-main popup-main2 " id="popup-8">
+            <div class="popup-view popup-view2 " >
+                <span class="close-p" data-dismiss="modal"><img src="resources/editor/img/p-close.svg" alt=""></span>
+                <img src="resources/editor/img/img-f.svg" class="img-fluid p-img" alt="">
+               
+                <p class="h4-pb text-center mb-0">Are you sure you want to delete your account?</p>
+
+                <p class="text-center h5-p">We will only retain your user data for 30 days and then it will be permanently deleted. You can reactivate your account at any point with in 30 days of deactivation by logging back in. You can't able to create a new account using the same user credentials. 
+                </p>
+                <p class="link-p">Let us solve your issue before delete your account, Kindly Contact us</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-6 m-auto">
+                            <p class="p-grey">Type "DEACTIVATE" to confirm</p>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <input v-model="delete_account_text" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p v-model="delete_account_message"class=" text-align" style="color:red;">{{delete_account_message}}</p>
+             
+               <div class="">
+                   <div class="row row2">
+                       <div class="col-6  bg-grey m-auto">
+                        <p class="text-center" v-on:click="delete_account();">Deactivate</p>
+                       </div>
+                       <div class="col-6  bg-red m-auto">
+                           <p class="text-center" data-dismiss="modal">Cancel</p>
+                        </div>
+                   </div>
+               </div>
+            </div>
+        </div>
+
+
+<!--Delete account Modal-->
+
+<div v-if="show_target_upload_modal" v-model="show_target_upload_modal" :class="'modal show '+show_target_upload_modal_class" ref="targetUploader" id="targetUploader" style="padding-right: 15px;background: #000000c9;">
+	
+	<div class="modal-dialog modal-dialog2">
+		<div class="modal-content">
+
+	
+			<div class="modal-body modal-body2" style ="   height: 480px;"
+    >
+			<div class="container-fluid">
+						<div class="form-group row">
+								<div class="col-5">
+									<input type="text"v-on:focus="change_campaign_name()" v-on:keyup="check_campaign_name()"id="campaign_name"class="t-input" :value="current_campaign_name"v-model="current_campaign_name"placeholder="">
+								</div>
+								<div v-if="campaign_msg_status"  v-model="campaign_msg_status"class="col-7">
+									<p class="help floating"><i class="fas fa-caret-left"></i>Please add your project name</p>
+								</div>
+							</div>
+							<i @click="show_target_upload_modal=false;target_files=[];"class="fas fa-times nav-close" data-dismiss="modal"></i>
+				</div>
+				<div class="container-fluid">
+						
+
+							<i class="fas fa-times nav-close" data-dismiss="modal" v-on:click="show_target_upload_modal=false;target_files=[];"></i>
+				</div>
+			
+			<div class="container-fluid target-block" style="height: 285px;
+    overflow: auto;">
+				<div class="row">
+					<div class="col-md-3"  v-on:click="opentargetFile()">
+						<div class="target-file">
+								
+								<i class=""><img src="resources/editor/images/i-7.svg" alt=""/></i>
+								<p class="t-text">Add a target image</p>
+						</div>
+						
+					</div>
+
+				  <file-upload :thread="1" 
+												:data="{campaign_id:current_campaign_id}"
+												post-action="artarget/start_campaign' 
+												name="artarget" 
+												input-id="targetImageFileInputId" 
+												:multiple="true" ref="upload2"  
+												@input-filter="inputFilter2" 
+												:size="2*1024 * 1024" 
+												@input-file="inputFile2" 
+												v-model="target_files"
+												accept=".jpg,.jpeg,.png">
+                                  </file-upload> 	
+																
+					<div class="col-md-3" v-for="(file, index) in target_files" :key="file.id">
+							<div class="target">
+								<img :src="file.blob" alt="" class="img-fluid"/>
+							
+								<i class="dff" v-if="!file.success"v-on:click="removeFileupload(file)"><img src="resources/editor/images/i-9.svg" alt=""/></i>
+								<i class="dff"v-else v-on:click="if(JSON.parse(file.response).status){removeFile(JSON.parse(file.response).data.scan_target_id,file);}else{removeFileupload(file);}"><img src="resources/editor/images/i-9.svg" alt=""/></i>
+								<!--<i class="dff"  v-on:click="removeFile(file)"><img src="resources/editor/images/i-9.svg" alt=""/></i>-->
+								 <div class="show-progress text-center" v-if="!file.success || file.error">
+									 <template >
+									<div  v-if="file.progress!=100" class="progress">
+										<div class="progress-bar " :style="{'width':file.progress+'%'}">{{file.progress}}%</div>
+									</div>
+									<div v-else-if="file.progress==100 && !file.success" class="bar-graph w-100"> 
+									<div class="bar-wrap"><span class="bar-fill" style="width: 30%;"></span></div>
+									</div>
+									 </template>
+						<template v-if="file.error">
+						
+										<span class="bh " v-on:click="removeFileupload(file)"><img src="resources/editor/images/i-8.svg" alt=""/></span>
+									<div class="close-text">
+										<p class="mb-0">{{file.error}}</p>
+										<p class="mb-1"></p>
+									</div>
+						
+						</template>
+								</div> 
+								
+								
+								
+							
+
+							
+						</div>
+							
+					</div>
+					
+					
+					
+				</div>
+			</div>
+			<br/>
+			<div  class="next">
+			<button disabled v-on:click="view_campaign()"class="next-target my-disabled-button">Next</button>
+				
+			</div>
+			</div>
+
+			
+
+		</div>
+	</div>
+</div>
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<p class="f-t">Download & scan using UniteAR</p>
+				</div>
+				<div class="col-lg-4 text-center">
+					<a href="https://play.google.com/store/apps/details?id=com.ibosoninnov.unitear">
+						<img src="resources/editor/images/g-play.png" class="img-fluid f-pp" alt="">
+					</a>
+					<a href="https://itunes.apple.com/us/app/unitear/id1450089869?ls=1&mt=8">
+						<img src="resources/editor/images/i-store.png" alt="" class="img-fluid f-pp">
+					</a>
+				</div>
+				<div class="col-lg-5 f-link">
+				<a href="help">Help</a>	
+					 | 
+					<a href="contact">Contact Us</a> 
+						| 
+					<a href="terms">Terms & Conditions</a>	
+						 |
+					<a href="privacy-policy">Privacy policy</a>	  
+				</div>
+			</div>
+		</div>
+		</footer>
+	</div>	
+		
+	<script>
+        $('.form-input').each(function(){
+            if($(this).val()!=""){
+                $(this).find("label").css("top","-12px");
+                }
+            });
+ 
+    var click =true;
+    function clickme()
+    {
+        if(click)
+        {
+            $(".message-text").show();
+            click =false;
+        }
+        else{
+            $(".message-text").hide();
+            click =true;
+        }
+    }
+
+	var initialOpen = true;
+		var blip = document.querySelector('.blip')
+		var button = document.querySelector('button');
+		var notification = document.querySelector('.notification');
+		var close = document.querySelector('.close');
+		// var image = document.querySelector('.profile-img');
+		var text = document.querySelector('.text')
+		
+		function toggleNotification() {
+			if (initialOpen) {
+				initialOpen = false;
+				blip.classList.add('hide')
+			}
+			
+			if (notification.classList.contains('open')) {
+				// image.classList.toggle('show');
+				text.classList.toggle('show');
+				
+				setTimeout(function() {
+					notification.classList.toggle('open');
+				}, 50)
+			} else {
+				notification.classList.toggle('open');
+		
+				setTimeout(function() {
+					// image.classList.toggle('show');
+					text.classList.toggle('show');
+				}, 150)
+			}
+		}
+		
+    function on() {
+    document.getElementById("overlay").style.display = "block";
+    }
+
+    function off() {
+    document.getElementById("overlay").style.display = "none";
+    }
+
+	
+    function myFunction() {
+            var x = document.getElementById("myInput");
+                var y = document.getElementById("span");
+            if (x.type === "password") {
+                y.classList.add('black');
+                
+                x.type = "text";
+            
+            } else {
+                
+                x.type = "password";
+                y.classList.remove('black');
+
+            }
+            }
+
+    function myFunction1() {
+            var x = document.getElementById("myInput1");
+                var y = document.getElementById("span1");
+            if (x.type === "password") {
+                y.classList.add('black');
+                
+                x.type = "text";
+            
+            } else {
+                
+                x.type = "password";
+                y.classList.remove('black');
+
+            }
+            }
+    function myFunction3() {
+            var x = document.getElementById("myInput3");
+                var y = document.getElementById("span3");
+            if (x.type === "password") {
+                y.classList.add('black');
+                
+                x.type = "text";
+            
+            } else {
+                
+                x.type = "password";
+                y.classList.remove('black');
+
+            }
+            }
+
+
+</script>
+<script type="text/javascript" src="resources/editor/js/profile_vue.js"></script>
+</body>
+
+</html>

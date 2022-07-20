@@ -1,0 +1,299 @@
+<html lang="en">
+<head>
+	<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4786fdfe-e8fb-4e25-94da-93fbc9f9f7cc" data-blockingmode="auto" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png">
+    <title>UniteAR Onboarding</title>
+    <link rel="stylesheet" href="resources/editor_new/css/bootstrapv4.4.1.min.css">
+    <script src="resources/editor_new/js/jqueryv3.4.1.min.js"></script>
+    <script src="resources/editor_new/js/popperv1.16.0.min.js"></script>
+    <script src="resources/editor_new/js/bootsrapv4.4.1.min.js"></script>
+    <link rel="stylesheet" href="resources/onboard/css/start.css">
+    <script src="resources/editor_new/js/vue_v2.6.14.js"></script>
+    <style>
+        .error{
+            color: red;
+            padding-top: 5px;
+            display: block;
+            height: 30px;
+            text-align: left;
+        }
+
+        select option:enabled {
+            color: #000;
+            font-weight: bold;
+        }
+
+        [v-cloak] { display: none; }
+    
+    .cf2 {
+        overflow: hidden;
+        height: 200px;
+        border-radius: 6px;
+        position:relative;
+    }
+    .ar-label {
+        margin: 7px 0px 3px;
+        font-size: 19px;
+        font-weight: bold;
+        color: #08f;
+        text-transform: uppercase;
+    }
+    </style>
+	
+	
+    </head>
+ 
+<body>
+    <div class="" id="app" v-cloak>
+        <div class="row m-0">
+			<div  class=" onboard-left">
+				<div class="category">
+					<h3>Let’s set up your account so that it’s customized for your needs.This will only take a minute.</h3>
+						
+						<div class="in-nav">
+							<div class="mb-3">
+								<p class="float-left">Industry</p>
+                                <select name="" id="profile_purpose_id" class="form-control" v-model="profile_purpose">
+									<option value="">Select...</option>
+                                    <option value="Marketing & Advertising">Marketing & Advertising</option>
+								    <option value="Education">Education</option>
+									<option value="Print & Publishing">Print & Publishing</option>
+                                    <option value="Travel & Tourism">Travel & Tourism</option>
+                                    <option value="Packaging">Packaging</option>
+                                    <option value="Fashion">Fashion</option>
+                                    <option value="Manufacturing">Manufacturing</option>
+                                    <option value="Art">Art</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Real Estate">Real Estate</option>
+                                    <option value="Events & Exhibitions">Events & Exhibitions</option>
+                                    <option value="Design">Design</option>
+                                    <option value="IT">IT</option>
+                                    <option value="Training & Support">Training & Support</option>
+                                    <option value="Retail & E-commerce">Retail & E-commerce</option>
+                                    <option value="Other Industry">Other Industry</option>
+								</select>
+								<span class="error">{{profile_purpose_error}}</span>
+                            </div>
+							
+							<div class="mb-3" v-if="profile_customer_industry_div">
+                                <p class="float-left">Your Industry</p>
+                                <input type="text" class="form-control" v-model="profile_customer_industry">
+							    <span class="error">{{profile_customer_industry_error}}</span>
+                            </div>
+							
+							
+							<!--code commented by Vishnu M R 2021-01-12-->
+                            <!-- <div class="mb-3">
+                                <p class="float-left">Role</p> 
+                                <select name="" id="profile_category_id" class="form-control" v-model="profile_category">
+									<option value="">Select...</option>
+									<?php
+									if($profile_category!=null)
+									{ 
+										foreach($profile_category as $single_category)
+										{
+									?>
+											<option value="<?=$single_category['category_id']?>"><?=$single_category['category_name']?></option>
+									<?php
+										}
+									}
+									?>
+								</select>
+							    <span class="error">{{profile_category_error}}</span>
+                            </div>-->
+							
+							<div class="mb-3">
+                                <p class="float-left">Company / Institution name</p>
+                                <input type="text" class="form-control" placeholder="Enter your company/institution name" onkeyup="check_whether_company_name_entered()" v-model="profile_company_name">
+							    <span class="error">{{profile_company_name_error}}</span>
+                            </div> 
+							
+							<!--
+							<div class="mb-3">
+                                <p class="float-left">Website</p>
+                                <input type="text" class="form-control" v-model="profile_website">
+							    <span class="error">{{profile_website_error}}</span>
+                            </div> -->
+							
+							<!--code commented by Vishnu M R 2021-01-12-->
+                                  
+							<!-- <div class="mb-3">
+                                <p class="float-left">Do you need a Product Demo?</p>
+                                <select name="" id="profile_demo_status_id" class="form-control" v-model="profile_demo_status">
+									<option value="">Select...</option>
+									<option value="1">Yes</option>
+									<option value="2">No</option>
+								
+								</select>
+							    <span class="error">{{profile_demo_status_error}}</span>
+							</div> -->
+							
+							<div class="mb-3">
+                                <p class="float-left">Company size</p>
+                                <select id="profile_company_size_id" class="form-control" v-model="profile_company_size">
+									<option value="">Select...</option>
+									<option value="1-50">1-50</option>
+									<option value="50-100">50-100</option>
+									<option value="100-500">100-500</option>
+									<option value=">500">>500</option>
+								</select>
+								<span class="error">{{profile_company_size_error}}</span>
+                            </div>
+							
+							<div class="row mt-4">
+							
+								<!--code commented by Vishnu M R 2021-01-12-->
+								<!-- <div class="col-6" v-if="profile_demo_link_button">
+									<button class="btn-next" v-on:click="book_your_demo();">Click here to book your demo</button>
+									<span class="error">{{profile_demo_link_button_error}}</span>
+								</div> -->
+								<!--code commented by Vishnu M R 2021-01-12-->
+								
+                                <div class="col-12">
+								<button class="btn-next w-100" v-on:click="save_profile_data()">Continue   <div id="spinner" class="spinner-border d-none" role="status">
+                                </div></button>
+                                </div>
+								
+								<form style="display:none" action="./book_your_session.html" method="POST" id="onboard_form">
+									<input type="text" name="from_onboard" value="true"/>
+								</form>
+                            </div>
+                        </div>
+                </div>
+			</div>
+			<div class="onboard-right">
+				<img src="https://diui35v2plbz7.cloudfront.net/onboarding_preview/onboard-1.jpg" alt="" class="ar-onboard-right">
+			</div>
+        </div>
+	</div>
+	
+		<!-- Global site tag (gtag.js) - Google Ads: 806149778 -->
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-806149778"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'AW-806149778');
+		
+        
+		window._mfq = window._mfq || [];
+		(function() {
+			var mf = document.createElement("script");
+			mf.type = "text/javascript"; mf.defer = true;
+			mf.src = "//cdn.mouseflow.com/projects/37271122-389e-4a05-be11-7759f2a91fc6.js";
+			document.getElementsByTagName("head")[0].appendChild(mf);
+		})();
+	
+        var base_url='http://localhost/unitear-editor-live/';
+        var base_url_8099='http://localhost:8099/';   
+        var base_urls_8097='http://localhost:8097/';
+        var profile_data='';
+      
+        $("#profile_purpose_id").on('change', function(){
+            // console.log(this.value);
+            if(this.value != "")
+            {
+                
+                //code commented by Vishnu M R 2021-01-12
+                /* $("#profile_category_id option").prop('disabled', false);
+                app.disable_options(); */
+                
+                datas.profile_purpose_error="";
+                
+                if(parseInt(this.value) == 16)	//Others
+                {
+                    datas.profile_customer_industry_div=true;
+                }
+                else
+                {
+                    datas.profile_customer_industry_div=false;
+                }
+            }
+            else
+            {
+                datas.profile_purpose_error="Please select a Industry.";
+            }
+        })
+        
+        /*code commented by Vishnu M R-2021-02-08
+        $("#profile_category_id").on('change', function(){
+            // console.log(this.value);
+            if(this.value == "")
+            {
+                datas.profile_category_error="Please select a Role.";
+            }
+            else
+            {
+                disabled_options = $('#profile_category_id option:disabled').map(function(i,v) {
+                    return this.value;
+                }).get(); 
+                // console.log(disabled_options);
+                if(disabled_options.length > 0)
+                {
+                    // console.log(datas.profile_category);
+                    if(disabled_options.includes(datas.profile_category))
+                    {
+                        datas.profile_category_error="Role doesnot belong to selected Industry.";
+                    }
+                    else
+                    {
+                        datas.profile_category_error="";
+                    }
+                }
+                else
+                {
+                    datas.profile_category_error="";
+                }
+            }
+        })
+        
+        $('#profile_demo_status_id').on('change',function(){
+            // code commented by Vishnu M R 2021-01-12
+            // app.demo_button_data();
+            
+            if(this.value == "")
+            {
+                datas.profile_demo_status_error="Please select your choice.";
+            }
+            else
+            {
+                datas.profile_demo_status_error="";
+            }
+        }) */
+        
+        function check_whether_company_name_entered()
+        {
+            // console.log(datas.profile_company_name);
+            if (!datas.profile_company_name.replace(/\s/g,'').length) 
+            {
+                datas.profile_company_name_error="Please fill Company name.";
+            }
+            else
+            {
+                datas.profile_company_name_error="";
+            }
+        }
+        
+        $("#profile_company_size_id").on('change', function(){
+            if(this.value != "")
+            {
+                datas.profile_company_size_error="";
+            }
+            else
+            {
+                datas.profile_company_size_error="Please select Company size.";
+            }
+        })
+        
+        </script>	
+        <script type="text/javascript" src="resources/editor/js/onboard_vue.js"></script>
+
+</body>
+
+
+
+</html>

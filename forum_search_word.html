@@ -1,0 +1,459 @@
+<html  style="--fontBase:Lomino, LominoSubset, 'open-sans', sans-serif; --fontHeadline:Lomino, LominoSubset, 'open-sans', sans-serif;">
+    <head>
+        <!-- <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet"> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js"></script>
+        <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <link rel='stylesheet' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+      
+        <script src="js/jquery.monte.js"></script> 
+        <script  src="js/index.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/responsive.css"> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <style>
+            .btn-subscribe-header2 {
+             color: #fff;
+             background: #000;
+             border-radius: 20px;
+             position: absolute;
+             top: 3px;
+             right: 4px;
+             font-size: 16px;
+             font-weight: 500;
+             padding: 8px 30px;
+         }
+         .ui-autocomplete{
+         
+         display: -ms-flexbox;
+         display: flex;
+         -ms-flex-direction: column;
+         flex-direction: column;
+         padding-left: 0;
+         margin-bottom: 0;
+         position:relative;
+         z-index:9999;
+         
+         }
+         .ui-menu-item{
+         position: relative;
+         display: block;
+         padding: .75rem 1.25rem;
+         margin-bottom: -1px;
+         background-color: #fff;
+         border: 1px solid rgba(0,0,0,.125);
+         background-color:white;
+         text-align:left;
+         }
+         .ui-menu-item:first-child {
+         border-top-left-radius: .25rem;
+         border-top-right-radius: .25rem;
+         
+         }
+           
+             .unite-headbody {
+                 height: 340px;
+                 background-color: #fff;
+                 padding-top: 110px;
+             }
+         
+             .pagination a {
+                 padding: 2px 9px;
+                 margin-left: 10px;
+                 cursor: pointer;
+             }
+         
+             .pagination .current {
+                 background-color: #08f;
+                 border-radius: 50%;
+                 color: white !important;
+             }
+             .pagination{
+                 display: inline-flex;
+         
+             }
+             .com-he {
+             font-size: 18px;
+             color: #333;
+             font-weight: 600;
+             line-height: 24px;
+             margin: 0;
+             margin-top: 0;
+             padding: 0 0 10px;
+         }
+         .box-community2 {
+             padding: 15px 10px;
+             border-radius: 1px;
+             box-shadow: 0 0 3px #00000026;
+             margin-top: 2px;
+             color: #000;
+         }
+             
+             .mt-50{
+                 margin-top:50px;
+             }
+             </style>
+           
+    </head>
+    <body>
+            <!-- <div class="preloader" id="preloader">
+                    <div class="loader">
+                        <img src="img/index.gif" class="img-fluid" alt="">
+                    </div>
+                </div> -->
+            <!-- <div w3-include-html="header.html"></div>  -->
+
+			<section class="unite-headbody">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 text-center">
+                    <h3 class="white-head">Welcome to UniteAR Forum</h3>
+                    <div class="form-group mt-3">
+                         <!-- <form method="post" action="<?php echo base_url('forum/search_word');?>"> -->
+                         <input type="text" id="search_bar" name="search_bar" placeholder="Search questions, keywords, topics..."
+                                class="header-input-help">
+								<div id="search_container"></div>
+						    <button onclick="search_function()" class="btn btn-subscribe-header2"><i class="fas fa-search mr-2"></i>
+                                Search</button>
+
+                        <!-- </form> -->
+                    </div>
+                    <!-- <p style="color:black;">or check out the frequently asked questions down below.</p> -->
+                </div>
+                <!-- <div class="col-md-5">
+                <div>
+                    <img src="<?= base_url('resources/forum/')?>img/forum.svg" alt="" class="img-fluid floating-div md-none" style="margin-top: -10px;">
+                </div>
+            </div> -->
+            </div>
+        </div>
+    </section>
+  
+  
+           <!-- ---------------navigation end------------------------ -->
+
+        <section class="mt-50">
+            <div class="container ">
+              
+                <div class="fghj text-center">
+                    <a href="forum_new.html" class="new-forum-link">Create New</a>
+                </div>
+                <h3 >Search results for:  <span style="font-size:40px; margin-left:20px;">"<?php echo $keyword;?>"</span> </h3>
+                <hr>
+                <br>
+
+                <div class="row mt-2 mb-5">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <div class="pagination_list"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+				<a href=""
+                                class="new-forum-link mkl btn-hover">Add New Forum</a>
+                </div>
+            </div>
+
+
+                <section class="mb-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 mb-4 page_container">
+                           
+                                    <div class="box-community single-item ">
+                                        <div class="row">
+                                            <div class="col-sm-2 col-3">
+                                                <div class="">
+                                                    <img src="resources/forum/img/avatar2.png" class="img-fluid com-avatar">
+                                                   
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-7 col-9">
+                                                <div class=" dft">
+                                                <a href=><h2 class="com-he mt-1"></h2></a>
+                                                <span><img src="resources/forum/img/forum-11.svg" alt=""> Comments</span>
+                                                <!-- <span><img src="im/forum-2.svg" alt=""> 0 Likes</span> -->
+                                                <span><img src="resources/forum/img/forum-33.svg"> alt=""> Views</span>
+                                                <!-- <div>
+                                                    <a href="" class="tags"># unite ar </a>
+                                        <a href="" class="tags"># payment</a>
+                                                </div> -->
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 md-hide">
+                                                <div class="pt-2 sss">
+                                                                    
+                                                        <span></span>
+                                            
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                   
+                
+                                <!-- <ul class="pagination justify-content-end mt-5">
+                                    <li class="page-item"><a class="page-item-link" href="javascript:void(0);">Previous</a></li>
+                                    <li class="page-item"><a class="page-item-link active" href="javascript:void(0);">1</a></li>
+                                    <li class="page-item active"><a class="page-item-link" href="javascript:void(0);">2</a></li>
+                                    <li class="page-item"><a class="page-item-link" href="javascript:void(0);">3</a></li>
+                                    <li class="page-item"><a class="page-item-link" href="javascript:void(0);">4</a></li>
+                                    <li class="page-item"><a class="page-item-link" href="javascript:void(0);">Next</a></li>
+                                  </ul> -->
+
+								  <div class="col-md-12 text-right mt-4">
+                            <div class="pagination_list"></div>
+                        </div>
+                            </div>
+                            <div class="col-lg-4 ">
+                                <!-- <div class="text-center">
+                                        <a href="" style="    font-size: 18px;"> All Discussion</a>
+                                </div> -->
+                                
+                               <div class="box-community2 ">
+                                 <h5 class="post-p">Popular Posts</h5>
+                               </div>
+                                              
+                              
+                                   
+                              
+                            
+                                   
+                                <div class=" box-community mt-5">
+                                 <div>
+                                  <h5 class="post-p"> Popular Tags</h5>
+                                  </div>
+                                    
+                                    <hr>
+                                    <div class="text-center">
+                                   
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+
+
+        <!-- --------------------------------footer------------------------------ -->
+        
+         
+        <section class="sec-blue">
+             <div>
+                 <div class="text-center text-white">
+                     <h2 class="h2">Ready to get started?</h2>
+                     <p class="fs-20">Create your account and start building AR experiences</p>
+                     <a href=""  ><button class="btn-home btn-2 ">Try it now</button></a>
+                 </div>
+             </div>
+         </section>
+        <!-- --------------------------------footer------------------------------ -->
+        <!-- <div w3-include-html="footer.html"></div>  -->
+       
+
+
+
+
+
+        <!-- --------------------script--------------------->
+        <script>
+            $( function() {
+            // Single Select
+            $( "#search_bar" ).autocomplete({
+                
+                appendTo: "#search_container",
+             source: function( request, response ) {
+              // Fetch data
+              $.ajax({
+               url: "",
+               type: 'post',
+               dataType: "json",
+               data: {
+                search: request.term
+               },
+               success: function( data ) {
+                // console.log(data);
+                response( data );
+               }, 
+               error: function (textStatus, errorThrown) {
+                            callbackfn(errorThrown);
+                        }
+              });
+             },
+             select: function (event, ui) {
+              // Set selection
+              $('#search_bar').val(ui.item.label); // display the selected text
+              //$('#hidden_id').val(ui.item.post_id); // save selected id to input
+              call_selected_thread(ui.item.post_id);
+              // console.log(ui.item.post_id);
+              return false;
+             }
+            });
+            
+            function call_selected_thread(post_id){
+                location.replace("<?php echo base_url().'/forum/load_thread/'?>" + post_id);
+               // alert("here");
+            }
+            
+            function callbackfn(data)
+                 {
+                    // console.log("an error occured with ajax"+data);
+                 }
+            });
+           
+        function search_function() {
+        var search_word = $("#search_bar").val();
+       // alert(search_word);
+       if(!search_word=="")
+       location.replace("<?php echo base_url().'/forum/search_word/'?>" + search_word);
+       // alert("here");
+        //document.getElementById("demo").innerHTML = "Hello World";
+        }
+        $("#search_bar").keypress(function(event) { 
+                if (event.keyCode === 13) { 
+                    // $("#GFG_Button").click(); 
+                    // alert("dfd")
+                    search_function()
+                } 
+            }); 
+       	
+	//Pagination
+	(function($) {
+	var pagify = {
+		items: {},
+		container: null,
+		totalPages: 1,
+		perPage: 3,
+		currentPage: 0,
+		createNavigation: function() {
+			this.totalPages = Math.ceil(this.items.length / this.perPage);
+
+			$('.pagination', this.container.parent()).remove();
+			var pagination = $('<div class="pagination"></div>').append('<a class="nav prev disabled" data-next="false"><</a>');
+
+			for (var i = 0; i < this.totalPages; i++) {
+				var pageElClass = "page";
+				if (!i)
+					pageElClass = "page current";
+				var pageEl = '<a class="' + pageElClass + '" data-page="' + (
+				i + 1) + '">' + (
+				i + 1) + "</a>";
+				pagination.append(pageEl);
+			}
+			pagination.append('<a class="nav next" data-next="true">></a>');
+
+			$(".pagination_list").after(pagination);
+
+			var that = this;
+			$("body").off("click", ".nav");
+			this.navigator = $("body").on("click", ".nav", function() {
+				var el = $(this);
+				that.navigate(el.data("next"));
+			});
+
+			$("body").off("click", ".page");
+			this.pageNavigator = $("body").on("click", ".page", function() {
+				var el = $(this);
+				that.goToPage(el.data("page"));
+			});
+		},
+		navigate: function(next) {
+			// default perPage to 5
+			if (isNaN(next) || next === undefined) {
+				next = true;
+			}
+			$(".pagination .nav").removeClass("disabled");
+			if (next) {
+				this.currentPage++;
+				if (this.currentPage > (this.totalPages - 1))
+					this.currentPage = (this.totalPages - 1);
+				if (this.currentPage == (this.totalPages - 1))
+					$(".pagination .nav.next").addClass("disabled");
+				}
+			else {
+				this.currentPage--;
+				if (this.currentPage < 0)
+					this.currentPage = 0;
+				if (this.currentPage == 0)
+					$(".pagination .nav.prev").addClass("disabled");
+				}
+
+			this.showItems();
+		},
+		updateNavigation: function() {
+
+			var pages = $(".pagination .page");
+			pages.removeClass("current");
+			$('.pagination .page[data-page="' + (
+			this.currentPage + 1) + '"]').addClass("current");
+		},
+		goToPage: function(page) {
+
+			this.currentPage = page - 1;
+
+			$(".pagination .nav").removeClass("disabled");
+			if (this.currentPage == (this.totalPages - 1))
+				$(".pagination .nav.next").addClass("disabled");
+
+			if (this.currentPage == 0)
+				$(".pagination .nav.prev").addClass("disabled");
+			this.showItems();
+		},
+		showItems: function() {
+			this.items.hide();
+			var base = this.perPage * this.currentPage;
+			this.items.slice(base, base + this.perPage).show();
+
+			this.updateNavigation();
+		},
+		init: function(container, items, perPage) {
+			this.container = container;
+			this.currentPage = 0;
+			this.totalPages = 1;
+			this.perPage = perPage;
+			this.items = items;
+			this.createNavigation();
+			this.showItems();
+		}
+	};
+
+	// stuff it all into a jQuery method!
+	$.fn.pagify = function(perPage, itemSelector) {
+		var el = $(this);
+		var items = $(itemSelector, el);
+
+		// default perPage to 5
+		if (isNaN(perPage) || perPage === undefined) {
+			perPage = 3;
+		}
+
+		// don't fire if fewer items than perPage
+		if (items.length <= perPage) {
+			return true;
+		}
+
+		pagify.init(el, items, perPage);
+	};
+})(jQuery);
+
+$(".page_container").pagify(10, ".single-item");
+</script>	
+
+    
+
+
+    </body>
+</html>

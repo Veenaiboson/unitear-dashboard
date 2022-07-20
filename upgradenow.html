@@ -1,0 +1,191 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4786fdfe-e8fb-4e25-94da-93fbc9f9f7cc" data-blockingmode="auto" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png">
+    <title>UniteAR</title>
+    <link rel="stylesheet" href="resources/editor_new/css/bootstrapv4.3.1.min.css">
+    <script src="resources/editor_new/js/jqueryv3.4.0.min.js"></script>
+    <script src="resources/editor_new/js/popperv1.14.7.min.js"></script>
+    <script src="resources/editor_new/js/bootstrapv4.3.1.min.js"></script>
+    <link href="resources/editor_new/css/font_lato_swap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/editor_new/css/style.css">
+	<script src="resources/editor_new/js/vue_v2.6.14.js"></script>
+	<script src="resources/editor_new/js/main.js"></script>
+   
+    
+<style>
+        [v-cloak] { display: none; }
+
+        .cursor{
+            cursor:pointer;
+        }
+        .slider-range {
+                -webkit-appearance: none;
+                width: 100%;
+                height: 10px;
+                border-radius: 5px;
+                background: #d3d3d3;
+                outline: none;
+                opacity: 0.7;
+                -webkit-transition: .2s;
+                transition: opacity .2s;
+        }
+        
+        .slider-range:hover {
+            opacity: 1;
+        }
+        
+        .slider-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background:#08f;
+            cursor: pointer;
+        }
+        
+        .slider-range::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background:#08f;
+            cursor: pointer;
+        }
+        .team-home{
+            text-align:center;
+            height: calc(100vh - 70px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .img-team{
+            max-width:400px;
+            padding-bottom:20px;
+        }
+        .team-home h3{
+            font-size:35px;
+        }
+        .invite-head h3{
+            font-size:30px;
+            color:grey;
+        }
+        .form-control {
+            display: block;
+            width: 100%;
+            height: calc(1.5em + .75rem + 2px);
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff0;
+            background-clip: padding-box;
+            border: 1px solid #b4b9be;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+        p{
+            color:grey;
+        }
+        .member{
+            box-shadow:0px 0px 4px silver;
+            padding:8px;
+            margin-top:15px;
+            border-radius:10px;
+        }
+        .div-center{
+            display:flex;
+            align-items:center;
+            /* height:100%; */
+        }
+        .border-none{
+            border:none;
+        }
+        .btn-grey{
+            border:1px solid silver;
+            background-color:white;
+            color:grey;
+        }
+        .dropdown-item{
+            width: 250px;
+            text-align: center;
+        }
+</style>
+
+</head>
+<body>
+    <div id="app" v-cloak>
+        <section>
+            <!-- <div class="menu">
+				<div class="dropdown" v-if="switch_team_list && switch_team_list.length !=0">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							{{switch_team_name}}
+						</button> 
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">Change Team</a>
+                            <a v-for="each_team in switch_team_list" class="dropdown-item" href="#" v-on:click="switch_team_id=each_team.id;change_team();">{{each_team.team_name}}</a>
+						</div> 
+					</div> 
+            </div> -->
+
+
+            <!-- <div class="dashboard-sec"> -->
+            <div class="">
+                <div class="team-home ">
+                    <div>
+						<img src="resources/editor_new/img/upgrade.png" class="img-team" style="max-width:300px;" alt="">
+						<h3 style="font-size:26px;font-weight:bold;"></h3>
+						<p style="max-width: 457px;margin: 20px auto;"></p>
+						<a href="./pricing.html"><button class="btn-start "  style="max-width:250px;border-radius:4px;margin:auto;">
+						Upgrade Now
+						</button></a>
+						<br>
+
+                        <div class="dropdown" v-if="user_as_team_member_status">
+                            <p><b>OR</b></p>
+                            <button class="btn-start dropdown-toggle" style="max-width:250px;border-radius:4px;margin:auto;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Change Profile
+						    </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a v-for="each_team in switch_team_list" class="dropdown-item" href="#" v-on:click="switch_team_id=each_team.id;change_team();">{{each_team.team_name}}</a>
+						    </div> 
+                        </div>
+
+						<a onclick="logout()"> <button class="btn-start "  style="max-width:250px;border-radius:4px;margin:auto;background-color:#F2F5FA;color:#2680EB;border:none;">
+						Log out
+						</button></a>
+
+						<p style="margin-top:30px">If you have any question after your trial, please  <a href="contact">Contact Sales</a>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- --------------------home tab ended------------------- -->
+		</section>
+    </div>
+	<script>
+	var base_url='http://localhost/unitear-editor-live/';
+    var base_urls_8085='http://localhost:8085/'
+	var no_of_team_members='';
+	var user_current_email='';
+    var user_temp_email=''; 
+	</script>
+  
+
+	<script type="text/javascript" src="resources/editor/js/team.js"></script>
+	
+</body>
+
+
+</html>

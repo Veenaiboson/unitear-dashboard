@@ -1,0 +1,59 @@
+.pagination {
+    padding: 20px;
+    text-align: center;
+    display: block;
+    margin-bottom: 50px;
+}
+
+.current {
+    background-color: var(--blue);
+    color: white !important;
+}
+
+.pagination,
+.pagination * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.pagination a {
+    border: 1px solid silver;
+    padding: 8px 19px!important;
+    margin-left: 5px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.nav {
+    display: inline-block;
+}
+
+.pagination a.disabled {
+    opacity: .3;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.h1 {
+    font-size: 50px;
+    line-height: 68px;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 800px) {
+    .h1 {
+        font-size: 32px;
+        line-height: 34px;
+        font-weight: 600;
+    }
+    .casestudy-nav {
+        padding-top: 0px!important;
+    }
+    .ads {
+        /* margin: auto; */
+        padding: 0px 0!important;
+        /* text-align: center; */
+    }
+}

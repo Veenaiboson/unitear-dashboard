@@ -1,0 +1,36 @@
+
+.pagination {
+  padding: 20px;
+  text-align:center;
+  display:block;
+  margin-bottom:50px;
+}
+.current {
+  background-color: var(--blue);
+    color: white !important;
+}
+.pagination,
+.pagination * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.pagination a {
+      border: 1px solid silver;
+    padding: 8px 19px!important;
+    margin-left: 5px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.next{
+	display:inline-block;
+}
+.prev{
+	display:inline-block;
+}
+.pagination a.disabled {
+  opacity: .3;
+  pointer-events: none;
+  cursor: not-allowed;
+}

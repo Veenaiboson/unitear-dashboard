@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4786fdfe-e8fb-4e25-94da-93fbc9f9f7cc" data-blockingmode="auto" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png">
+    <title>UniteAR</title>
+    <link rel="stylesheet" href="resources/editor_new/css/bootstrapv4.3.1.min.css">
+    <script src="resources/editor_new/js/jqueryv3.4.0.min.js"></script>
+    <script src="resources/editor_new/js/popperv1.14.7.min.js"></script>
+    <script src="resources/editor_new/js/bootstrapv4.3.1.min.js"></script>
+    <link href="resources/editor_new/css/font_lato_swap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/editor_new/css/style.css">
+	<script src="resources/editor_new/js/vue_v2.6.14.js"></script>
+	<script src="resources/editor_new/js/main.js"></script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	
+    <style>
+    [v-cloak] {
+        display: none;
+    }
+
+    .no-noty {
+        text-align: center;
+        padding: 30px 10px;
+        font-size: 14px;
+    }
+
+    .no-noty img {
+        padding-bottom: 5px;
+    }
+    .video-modal {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        background-color: #000000a8;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+    
+    .video-modal video {
+        max-width: 600px;
+    }
+    .ut-video {
+        width: 900px;
+        height: 507px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .btn-secondary {
+        color: #333333;
+        background-color: white;
+        border-color: #D4D4D4;
+    }
+    .btn-secondary:hover {
+        color: #333333;
+        background-color: #F2F5FA;
+        border-color: #D4D4D4;
+    }
+    .dropdown-menu.show a{
+        padding: 5px 15px;
+    }
+    .videomodal-close {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        width: 30px;
+        cursor: pointer;
+    }
+
+    /*code added by Vishnu M R-2021-07-29*/
+    .goog-te-banner-frame{
+        display:none;
+    }
+
+    .btn-primary {
+        border-radius: 20px;
+    }
+    /*code added by Vishnu M R-2021-07-29*/
+	
+        .VuePagination__count {
+            display:none;
+        }
+        .c-j-right{
+        width: max-content;
+         float: right;
+        }
+        .embed-modal{
+             position: relative;
+         z-index: 9999;
+         background-color: white;
+         margin-left: 130px;
+         padding-top: 100px;
+         }
+    </style> 
+</head>
+
+
+<body>
+    <div id="app" v-cloak>
+        <header class="header">
+            <div class="ar-platform">
+                <div class=" df-center">
+
+                     <div class="logo" >
+                        <img @click="mobile_menu = true; " style="cursor:pointer;" src="resources/editor_new/img/burg.png" alt="" class="img-fluid pr-3 menu-sm-show">
+                        <a href="login">
+                            <img src="resources/editor_new/img/logo-2.png" alt="">
+                        </a>
+                      <!--  <div class="added-menu menu-sm-hide">
+                            <a href="editor" class="active">My Projects</a>
+                   
+                            <a href="#" @click="check_app_factory_access();">AR App Creator 
+                                <span class="new-item-fact">New</span>
+                            </a>
+                        </div>-->
+
+                    </div> 
+                    <div class="new-dash-menu menu-sm-hide" >
+                        <!-- <img @click="mobile_menu = true; " style="cursor:pointer;" src="resources/editor_new/img/hum.svg" alt="" class="img-fluid pr-3 "> -->
+                        <a href="login">
+                            <div class="dash-logo">
+                            <img src="resources/editor_new/img/white-new-logo.svg" alt="">
+                            </div>
+                        </a>
+                        <div class="">
+                        
+                            <a href="#" @click="campaign_category=1;change_project_category();">
+                                <div class="new-menu-item " :class="{ active_newmenu: campaign_category == 1 }" >
+                                    <span>
+                                        <img src="resources/editor_new/img/m-1.png" alt="">
+                                    </span>
+                                    <p>IMAGE-BASED AR</p>
+                                </div>
+                            </a>
+                            <a href="#" @click="campaign_category=2;change_project_category();" >
+                                <div class="new-menu-item"  :class="{ active_newmenu: campaign_category == 2 }"  >
+                                    <span>
+                                        <img src="resources/editor_new/img/m-2.png" alt="">
+                                    </span>
+                                    <p>GROUND-PLANE AR</p>
+                                </div>
+                            </a>
+                            <a href="#"  @click="basic_or_advance_appfactory ? campaign_category=3 : campaign_category=4;change_project_category();" >
+                                <div class="new-menu-item" :class="{ active_newmenu: campaign_category == 3 || campaign_category == 4}">
+                                        <img src="resources/editor_new/img/m-3.png" alt="">
+                                    </span>
+                                    <p>AR APP CREATOR</p>
+                                </div>
+                            </a>
+                            <!-- <a href="editor" class="active">My Projects</a>
+                            
+                            <a href="#" @click="check_app_factory_access();">AR App Creator 
+                               
+                            </a> -->
+                        </div>
+
+                    </div>
+                    <div class="menu">
+						<!-- <button type="button" class="btn btn-primary" onclick="Cookiebot.renew();">GDPR Compilance</button>
+						<a href="cookie-declaration" target="_blank">
+                                 <button type="button" class="btn btn-primary">Cookie Declaration</button>
+                    </a> -->
+						<a href="./book_your_session.html" class="menu-sm-hide">
+                        <button type="button" class="btn btn-primary">Book Your Demo</button>
+                    </a>
+						<div id="google_translate_element"></div>
+                       
+                        <span  class="btn-upgrade package-name menu-sm-hide">
+                        Enterprise Package
+                        </span>
+
+                       
+						
+						<div class="dropdown menu-sm-hide" v-if="user_as_team_member_status">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							{{switch_team_name}}
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a v-for="each_team in switch_team_list" class="dropdown-item" href="#" v-on:click="switch_team_id=each_team.id;change_team();">{{each_team.team_name}}</a>
+							</div>
+						</div>
+						
+                        <a href="#" class="noty"
+                            v-on:click="notification_read_status=true;change_notification_read_status()">
+                            <img src="resources/editor_new/img/noty-bell.svg" class="menu-sm-hide" alt="">
+                            <img src="resources/editor_new/img/white-bell.png" class="menu-sm-show" alt="">
+                            <span v-if="read_entire_status">{{read_count}}</span>
+                        </a>
+
+
+                        <a href="#" class="user menu-sm-hide">
+                            <img style=""
+                                :src="profile.user_image!=''?profile.user_image:'resources/editor_new/img/businessman-avatar-icon-01-.svg'"
+                                alt="">
+                        </a>
+                        <div class="my-menu">
+                            <ul>
+                                <li> <a href="./pricing.html"> Upgrade Plan</a></li>
+                                <li> <a href="./account.html"> My Account </a></li>
+                                <li> <a href="./team.html"> Team </a></li>
+                                <li onclick="Cookiebot.renew();"> <a href="#"> GDPR Compilance </a></li>
+                                <li> <a href="./cookie_declaration.html"> Cookie Declaration </a></li>
+                                <!-- <li> <a href="editor/book-your-session"> Book Your Demo </a></li> -->
+                                <li> <a onclick="logout()"> Log out </a></li>
+                            </ul>
+                            <div class="arrow-up">
+
+                            </div>
+                        </div>
+                        <div class="my-noty">
+                            <ul>
+                                <div v-if="no_of_notification_records>0" class="ul-first">
+                                    <div class="row ">
+                                        <div class="col">
+                                            <span>Notifications</span>
+                                        </div>
+                                        <div class="col text-right" @click="delete_notification(0)">
+                                            <span class="blue-text">Clear all</span>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <li v-if="no_of_notification_records<=0">
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <!-- <p class="noty-head green-text">Payment was successful!</p>-->
+                                                <div class="no-noty">
+                                                    <img
+                                                        src="resources/editor_new/img/notification.png">
+                                                    <p class="">No messages</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li v-else v-for="single_notification in notification">
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <!-- <p class="noty-head green-text">Payment was successful!</p>-->
+                                                <p class="noty-p">{{single_notification.message}}</p>
+                                            </div>
+                                            <div class="col-2" v-on:click="delete_notification(single_notification.id)">
+                                                <img src="resources/editor_new/img/close.svg" alt=""
+                                                    class="img-fluid mt-2"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <!-- <li>
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p class="noty-head red-text">Warning! Payment failed</p>
+                                                <p class="noty-p">Your payment process failed, Please update your payment details.</p>
+                                            </div>
+                                            <div class="col-2"><img src="resources/editor_new/img/close.svg" alt="" class="img-fluid mt-2"></div>
+                                        </div>
+                                    </a>
+                                </li>-->
+                            </ul>
+                            <div class="arrow-up">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="menuid" v-if="mobile_menu" class="menu mobile-menu">
+                <div class="flex-menu">
+                    
+                    <div class="menu-item"  @click="campaign_category=1;change_project_category();"><a href="#" :class="{ active: campaign_category == 1 }">IMAGE-BASED AR</a></div>
+                    <div class="menu-item"  @click="campaign_category=2;change_project_category();"><a href="#" :class="{ active: campaign_category == 2 }" >Ground-Plane AR</a></div>
+                    <div class="menu-item" @click="campaign_category=3;change_project_category();"><a href="#" :class="{ active: campaign_category == 3 }">ar app creator</a></div>
+                    <div class="menu-item"><a href="./account.html" class="">my account</a></div>
+
+                    <div class="menu-item"> <a href="./team.html" class=""> Team </a></div>
+                   
+                    <div class="menu-item"><a onclick="logout()">log out</a></div>
+                    <div class="menu-item"><a href="./pricing.html" class="sign-up fill-bg">upgrade now</a></div>
+                    <div class="menu-item"><a href="./book_your_session.html" class="sign-up">Book Your Demo</a></div>
+                
+                    
+                </div> <span @click="mobile_menu = false;" class="menu-close"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="28.991" height="28.992" viewBox="0 0 28.991 28.992">
+                        <g id="Group_3625" data-name="Group 3625" transform="translate(1423.406 -3230.063) rotate(45)">
+                            <rect id="Rectangle_540" data-name="Rectangle 540" width="36" height="5" rx="2"
+                                transform="translate(1280 3288)" fill="#fff"></rect>
+                            <rect id="Rectangle_541" data-name="Rectangle 541" width="36" height="5" rx="2"
+                                transform="translate(1300.5 3272.5) rotate(90)" fill="#fff"></rect>
+                        </g>
+                    </svg></span>
+            </div>
+        </header>
+
+
+
+        <!-- -------------------------------header end-------------------------- -->
+
+
+          
+<div class="embed-modal" style="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+    <h3 style="font-size:33px;font-weight:700;">Embed WebAR Viewer</h3>
+    <p>Integrate WebAR Image scanning viewer to your
+    website and improve your customer engagements.</p>
+<div class="row">
+    <div class="col">
+        <a href="" target="_blank">
+        <span> <img src="resources/editor_new/img/i.png"  alt=""></span>    
+        LEARN MORE</a>
+    </div>
+    <div class="col">
+        <a href="#" @click="tuto1 = true">
+        <span> <img src="resources/editor_new/img/p.png"  alt=""></span>    
+        WATCH VIDEO</a>
+    </div>
+</div>
+    <hr style="margin-top:30px;margin-bottom:30px;">
+   
+    <p>Copy this HTML and paste it into your website
+    wherever you want to add WebAR viewer</p>
+    
+    <textarea class="form-control" rows="4" v-bind="copy_data_textarea" ref="embedcode"><iframe src="http://localhost/unitear-editor-live/webscanner?token=<?=!empty($token)?$token:'';?>" width=" 100%" style="border:none;height:100vh" allow="camera"></iframe>
+
+</textarea>
+<!-- <input type="hidden" id="cop-code" :value="copy_data_textarea"> -->
+<div class="row mt-4 ">
+    <div class="col-sm-6 ">
+        <div class="row m-0">
+            <div class="col-4 pt-2 pl-0 pr-0">
+                {{copy_data_textarea}}
+            <span>Width</span>
+            </div>
+            <div class="col-8  ">
+            <input type="number" class="form-control" v-model="embed_Code_width" max="100" min="1" name="" id="">
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="col-sm-6 ">
+    <div class="row m-0">
+            <div class="col-4 pt-2 pl-0 pr-0">
+            <span>Height</span>
+            </div>
+            <div class="col-8">
+            <input type="number" class="form-control" v-model="embed_Code_height" max="100" min="1" name="" id="">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mt-3">
+    <div class="row">
+        <div class="col-md-7">
+        <button class="btn-start "  @click.stop.prevent="copy_Embed_Code">Copy Embed Code</button>
+        </div>
+        <div class="col-md-5">
+  <p style="color:#1CE98B" class="pt-2" v-if="copy_code"> <img src="resources/editor_new/img/check.png"  alt=""> Code Copied</p>
+        </div>
+    </div>
+ 
+</div>
+
+            </div>
+            <div class="col-md-7 pt-3">
+            <img src="resources/editor_new/img/embed-dash.png" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+   <!---- JS load -->
+   <div class="video-modal d-flex" v-if="tuto1" >
+<div style="    width: 800px;
+    max-width: 100%;">
+    <img src="resources/editor_new/img/d-close.png" class="videomodal-close" alt="" @click="tuto1 = false">
+    <iframe width="100%" id="video"   class="ut-video" height="315" src="https://www.youtube.com/embed/XUevQDzVA3M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+
+<!--code added by Vishnu M R-->
+<!--google translator-->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+    
+   var base_url='http://localhost/unitear-editor-live/';
+   var base_urls='http://localhost/unitear-dashboard/';
+   var base_urls_8095='http://localhost:8095/';
+   var base_urls_8087='http://localhost:8087/';
+   var base_url_8099='http://localhost:8099/';
+   var base_urls_8097='http://localhost:8097/';
+   var base_urls_8081='http://localhost:8081/';
+  $(function(){
+  var handleClick = 0,
+      percentage = 0;
+  $('.slider').mousemove(function(e){
+    curSlider = $(this);
+    curPos = e.pageX - curSlider.offset().left;
+    
+    if(handleClick === 1){
+     if(curPos + curSlider.find('.handle').width() / 2 <= curSlider.width()){
+       curSlider.find('.progress').css('width',curPos - curSlider.find('.handle').width() / 2 + 'px'); 
+       curSlider.find('.progressLeft').css('width', curSlider.width() - curSlider.find('.handle').width() - curSlider.find('.progress').width() + 'px');
+     }
+     percentage = Math.round(curSlider.find('.progress').width() / (curSlider.width() - curSlider.find('.handle').width()) * 100);
+     curSlider.next('input[type=text]').val(percentage + '%');
+    }
+  });
+  
+  $('.slider').mousedown(function(){
+    handleClick = 1;
+  });
+  
+  $('body').mouseup(function(){
+    handleClick = 0;
+  });
+})
+
+ 	$(".gt").focus(function(){
+		
+		$("line-line").css("width","100%");
+	});  
+   </script>
+
+   <script type="text/javascript" src="resources/editor/js/embed_vue.js"></script>
+</body>
+</html>
+

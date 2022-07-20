@@ -1,0 +1,367 @@
+<html>
+
+<head>
+    <title>UniteAR-Signup</title>
+	<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4786fdfe-e8fb-4e25-94da-93fbc9f9f7cc" data-blockingmode="auto" type="text/javascript"></script>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="resources/editor_new/css/bootstrapv4.1.3.min.css">
+    <script src='resources/editor_new/js/jqueryv2.1.3.min.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="resources/editor_new/js/popperv1.14.3.min.js"></script>
+    <script src="resources/editor_new/js/bootstrapv4.1.3.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="resources/editor_new/js/scrollMagicv2.0.6.min.js"></script>
+    <script src="resources/editor_new/js/debug.addIndicatorsv2.0.6.min.js"></script>
+    <script src='resources/editor_new/js/jquery-uiv1.11.2.min.js'></script>
+    <link rel='stylesheet' href='resources/editor_new/css/jquery-uiv1.11.2.css'>
+    <script src="resources/js/jquery.monte.js"></script>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/extra.css">
+    <script src="resources/editor_new/js/vue_v2.6.14.js"></script>
+
+	<style>
+			[v-cloak]{
+				display:none;
+			}
+   
+        .login-btn img {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            width: 32px;
+        }
+        .backto{
+            position:absolute;
+            top:30px;
+            left:20px;
+            color:white;
+        }
+        .backto p{
+            color:white;
+        }
+        .backto p:hover{
+            color:white;
+        }
+        .error-input {
+            border: 1px solid red !important;
+        }
+    
+        .opacity-0 {
+            opacity: 0;
+        }
+    
+        .login-error {
+            color: red;
+            font-size: 12px;
+            text-align: left;
+        }
+    
+        .password {
+            position: absolute;
+            right: 8px;
+            top: 14px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #E8E8E8;
+        }
+    
+        .login-btn {
+            padding: 9px 0px;
+            background-color: var(--blue);
+            color: white;
+            margin-bottom: 10px;
+            border-radius: 25px;
+            width: 100%;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 10px;
+            max-width: 310px;
+        }
+    
+        .login-area {
+            padding: 25px 15px;
+            max-width: 320px;
+            margin: auto;
+        }
+    
+        .login-area  .form-control {
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 10px 10px;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #ffffff;
+            background-clip: padding-box;
+            border: 1px solid #DCDCDD;
+            border-radius: 3px;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+    
+        /* The container */
+        .container2 {
+            display: block;
+            position: relative;
+            padding-left: 0px;
+            margin-bottom: 1px;
+            cursor: pointer;
+            font-size: 13px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    
+        /* Hide the browser's default checkbox */
+        .container2 input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+    
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 20px;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+        }
+    
+        /* On mouse-over, add a grey background color */
+        .container2:hover input~.checkmark {
+            background-color: #ccc;
+        }
+    
+        /* When the checkbox is checked, add a blue background */
+        .container2 input:checked~.checkmark {
+            background-color: #2196F3;
+        }
+    
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+    
+        /* Show the checkmark when checked */
+        .container2 input:checked~.checkmark:after {
+            display: block;
+        }
+    
+        /* Style the checkmark/indicator */
+        .container2 .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        .form-control:focus, .form-control:active{
+        outline:none!important;
+        border:1px solid #08f;
+        box-shadow:none!important;
+    }
+        </style>
+	<script src="https://www.google.com/recaptcha/api.js?render=6Lc3PvMUAAAAAAi54ks7ez6FbnSRULDLAj_8N3xg"></script>
+	<script>
+	grecaptcha.ready(function() {
+		grecaptcha.execute('6Lc3PvMUAAAAAAi54ks7ez6FbnSRULDLAj_8N3xg', {action: 'homepage'}).then(function(token) {
+			$("#v3_captcha").val(token);
+		});
+	});
+	</script>
+ 
+	
+</head>
+
+<body>
+<div id="app" v-cloak>
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <img src="resources/img/index.gif" class="img-fluid" alt="">
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 p-0 lg-hide">
+                <div class="login-left">
+                    <!-- <video class="login-video" autoplay loop muted>
+
+                        <source src="https://diui35v2plbz7.cloudfront.net/unitear_videos/signup/signup.mp4"
+                            type="video/mp4">
+
+					</video> -->
+					<div class="backto">
+					<a href="https://unitearweb.ibosoninnov.com/"><p> <span><svg xmlns="http://www.w3.org/2000/svg" width="19.631" height="19.604" viewBox="0 0 19.631 19.604">
+						<path id="Path_4794" data-name="Path 4794" d="M1605.481,914.355h.486c4.726,0,9.453.013,14.179-.01a1.182,1.182,0,0,1,1.155,1.62,1,1,0,0,1-.817.721,3.853,3.853,0,0,1-.664.044q-6.96,0-13.919,0h-.535c.12.165.193.273.274.374q2.452,3.052,4.908,6.1a1.284,1.284,0,0,1,.259,1.312,1.093,1.093,0,0,1-1.572.614,2.348,2.348,0,0,1-.634-.556q-3.235-3.994-6.453-8a1.2,1.2,0,0,1,.013-1.821q3.443-4.326,6.888-8.651a1.135,1.135,0,0,1,1.371-.331,1.152,1.152,0,0,1,.443,1.871c-.875,1.106-1.769,2.2-2.655,3.294q-1.259,1.559-2.518,3.118C1605.631,914.13,1605.581,914.212,1605.481,914.355Z" transform="translate(-1601.738 -905.671)" fill="#fff" fill-rule="evenodd"/>
+					</svg>
+                    </span> Back to Home</p></a>
+					</div>
+                    <div style="width: 345px;">
+                        <a href="https://unitearweb.ibosoninnov.com/"><img src="resources/img/logo.svg"
+                                alt="" class="img-fluid " style="max-width: 200px;"></a>
+                        <h2 style="color:white;font-size: 33px;margin-top: 11px;">
+                            Let's Create Your
+                            UniteAR Account</h2>
+                        <p style="color:white;margin-top:20px;">The gateway to the world of augmented reality is one
+                            step closer. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 p-0">
+                <form autocomplete="off" action="http://localhost/unitear-editor-live/register/" method="post" style="display: flex;align-items: center;justify-content: center;height: 100vh;margin: 0;" v-on:submit="return form_submit($event);">
+                    <div class="login-area">
+
+                        <h3 style="color:#08f;font-size:23px;font-weight:600;text-align:center;">SIGN UP</h3>
+
+                        <div>
+                            <div class="form-group">
+                                <input  autocomplete="off"  class="form-control"
+                                    type="search" placeholder="Name" v-model="user_name" name="user_name" id="user_name"
+                                    value="" @change="form_validation('user_name',user_name);"
+									autocapitalize="off"
+										autocomplete="off"
+										spellcheck="false"
+										autocorrect="off"
+									/>
+                                <!-- <label>Name</label> -->
+                                <p class="login-error">{{user_name_error}}</p>
+                               
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <input  class="form-control" type="email" placeholder="Email"
+                                    v-model="user_email" name="user_email" id="user_email" id="user_email"
+                                    value="" @keyup="form_validation('user_email',user_email);">
+                                <!-- <label>Email</label> -->
+                                <!-- <?php echo form_error('user_email', '<p class="login-error">', '</p>'); ?> -->
+                                <p class="login-error">{{user_email_error}}</p>
+                               
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input autocomplete="new-password" placeholder="Password"  class="form-control "
+                                :type="password_field_type" v-model="user_password" name="user_password" id="user_password"
+                                value="" placeholder="" @keyup="form_validation('user_password',user_password);">
+                            <!-- <label>Password</label> -->
+                            <p class="login-error">{{user_password_error}}</p>
+                           
+                            <span class="password" @click="change_password_field_type();"><i class="fas fa-eye"></i></span>
+                        </div>
+                        <input type="hidden" id="v3_captcha" name="v3_captcha" value=""/>
+						<h5 class="login-error"> 
+                        </h5>
+                        <div class="text-center">
+                        <!-- <div id="copec__captcha"  data-expired-callback="expired_captche"data-callback="captcha_validation"></div>
+                        <input id="validFlag" type="hidden" v-model="captcha_validation_status" value="false"> -->
+
+                            <!--<label class="container2">Sign me up for the news and updates
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                            </label>-->
+                            <button class="btn login-btn" type="submit" style="margin-top: 15px;margin-bottom: 15px;">
+                            <span v-if="!submit_button_click">SIGN UP</span> <span v-else class="btn-load"></span></button><br>
+                            <p style="font-size: 12px;margin-bottom: 0px;margin-top: 10px;max-width: 308px;text-align: center;display: block;margin: 0px auto 10px;"> By clicking Sign Up, You agree to our <a href=""
+                                    class="forgot-link" style="font-size: 12px;float: none;padding-right: 0;">
+                                    Terms & Conditions</a> and <a href="./privacy.html"
+                                    class="forgot-link" style="    font-size: 12px;float: none;padding-right: 0;">Privacy Policy</a></p>
+                           <!-- <a class="btn login-btn relative" style="background-color:#3b579d;"
+                                href="<?=empty($facebook_login_url)?"":$facebook_login_url;?>">
+                                <img src="resources/img/f.svg" alt="">
+                                <span v-if="!f_button_click" @click="f_button_click=true">SIGN UP WITH FACEBOOK</span> <span v-else class="btn-load mt-0"></span>
+                            </a>-->
+                            <b>
+
+                            <!--code added by Vishnu M R-2021-06-30 to hide google option in ios device-->
+                           
+                                <a class="btn login-btn relative" style="background-color:#e23e2c;"
+                                    href="">
+                                    <img src="resources/img/g.svg" alt="">
+                                    <span v-if="!g_button_click" @click="g_button_click=true">SIGN UP WITH GOOGLE</span> <span v-else class="btn-load mt-0"></span>
+                                </a>
+                           
+                            <!--code added by Vishnu M R-2021-06-30 to hide google option in ios device-->
+
+                                <br>
+                                <p style="font-weight: 300;">Already Registered? <a href="./login.html" style="font-size: 18px;"> Sign In</a> </p>
+                        </div>
+                    </div>
+					<input type="text" hidden name="gmail_button_status" value="">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+ <script type="text/javascript" src="resources/editor/js/signup_vue.js"></script>
+   
+    <!-- --------------------script--------------------->
+    <!--code added by Vishnu M R-->
+	<!-- Global site tag (gtag.js) - Google Ads: 806149778 -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-806149778"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'AW-806149778');
+	</script>
+	<!-- Event snippet for Sign-up - 7 june 1.48 pm conversion page -->
+	<script>
+	gtag('event', 'conversion', {'send_to': 'AW-806149778/aBtnCNbPjL0CEJK9s4AD'});
+	</script>
+	<!-- Global site tag (gtag.js) - Google Ads: 806149778 -->
+	<!--code added by Vishnu M R-->
+
+
+	<!--code added by Vishnu M R-2021-06-16-->
+	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '711212635973617');
+	fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=711212635973617&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Facebook Pixel Code -->
+	<!--code added by Vishnu M R-2021-06-16-->
+
+    <!--code added by Anju-2022-03-22-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-223586665-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-223586665-1');
+    </script>
+ 
+    
+
+    <!-- --------------------script--------------------->
+
+
+</body>
+
+</html>

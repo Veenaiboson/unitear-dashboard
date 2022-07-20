@@ -1,0 +1,22 @@
+<svg id="android" xmlns="http://www.w3.org/2000/svg" width="25.703" height="32" viewBox="0 0 25.703 32">
+  <g id="Group_3458" data-name="Group 3458" transform="translate(5.411 11.708)">
+    <g id="Group_3457" data-name="Group 3457" transform="translate(0)">
+      <path id="Path_5034" data-name="Path 5034" d="M152.887,192.034H139.359a.677.677,0,0,0-.676.676v10.822a3.388,3.388,0,0,0,2.706,3.314v3.45a2.029,2.029,0,1,0,4.058,0v-3.382H146.8V210.3a2.029,2.029,0,0,0,4.058,0v-3.45a3.387,3.387,0,0,0,2.706-3.314V192.71A.676.676,0,0,0,152.887,192.034Z" transform="translate(-138.683 -192.034)" fill="#ccc9c9"/>
+    </g>
+  </g>
+  <g id="Group_3460" data-name="Group 3460" transform="translate(5.411)">
+    <g id="Group_3459" data-name="Group 3459" transform="translate(0 0)">
+      <path id="Path_5035" data-name="Path 5035" d="M149.665,3.6,150.8.943a.676.676,0,1,0-1.243-.532l-1.14,2.662a7.372,7.372,0,0,0-4.591,0L142.687.412a.675.675,0,1,0-1.242.532l1.14,2.661a7.446,7.446,0,0,0-3.9,6.543.677.677,0,0,0,.676.676h13.528a.677.677,0,0,0,.676-.676A7.447,7.447,0,0,0,149.665,3.6Zm-6.246,4.514a.676.676,0,1,1,.676-.676A.677.677,0,0,1,143.419,8.118Zm5.411,0a.676.676,0,1,1,.676-.676A.677.677,0,0,1,148.83,8.118Z" transform="translate(-138.684 0.001)" fill="#ccc9c9"/>
+    </g>
+  </g>
+  <g id="Group_3462" data-name="Group 3462" transform="translate(21.645 11.913)">
+    <g id="Group_3461" data-name="Group 3461">
+      <path id="Path_5036" data-name="Path 5036" d="M396.713,192.034a2.032,2.032,0,0,0-2.029,2.029v6.764a2.029,2.029,0,1,0,4.058,0v-6.764A2.032,2.032,0,0,0,396.713,192.034Z" transform="translate(-394.684 -192.034)" fill="#ccc9c9"/>
+    </g>
+  </g>
+  <g id="Group_3464" data-name="Group 3464" transform="translate(0 11.913)">
+    <g id="Group_3463" data-name="Group 3463" transform="translate(0)">
+      <path id="Path_5037" data-name="Path 5037" d="M55.379,192.034a2.032,2.032,0,0,0-2.029,2.029v6.764a2.029,2.029,0,1,0,4.058,0v-6.764A2.032,2.032,0,0,0,55.379,192.034Z" transform="translate(-53.35 -192.034)" fill="#ccc9c9"/>
+    </g>
+  </g>
+</svg>

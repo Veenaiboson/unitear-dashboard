@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="87.052" height="87.052" viewBox="0 0 87.052 87.052">
+  <defs>
+    <filter id="Ellipse_251" x="0" y="0" width="87.052" height="87.052" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#0f41e4" flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Component_49_20" data-name="Component 49 – 20" transform="translate(5.317 5.317)">
+    <circle id="Ellipse_252" data-name="Ellipse 252" cx="37.748" cy="37.748" r="37.748" transform="translate(0 0)" fill="#0073db" opacity="0.24"/>
+    <g id="Group_3713" data-name="Group 3713" transform="translate(3.683 3.683)">
+      <g transform="matrix(1, 0, 0, 1, -9, -9)" filter="url(#Ellipse_251)">
+        <circle id="Ellipse_251-2" data-name="Ellipse 251" cx="34.526" cy="34.526" r="34.526" transform="translate(9 9)" fill="#fff"/>
+      </g>
+      <path id="Path_8249" data-name="Path 8249" d="M1102.67-1254.206v24.684l19.048-12.173Z" transform="translate(-1075.454 1275.821)" fill="#0073db"/>
+    </g>
+  </g>
+</svg>

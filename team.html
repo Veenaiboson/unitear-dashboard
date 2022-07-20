@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png">
+    <title>UniteAR</title>
+    <link rel="stylesheet" href="resources/editor_new/css/bootstrapv4.3.1.min.css">
+    <script src="resources/editor_new/js/jqueryv3.4.0.min.js"></script>
+    <script src="resources/editor_new/js/popperv1.14.7.min.js"></script>
+    <script src="resources/editor_new/js/bootstrapv4.3.1.min.js"></script>
+    <link href="resources/editor_new/css/font_lato_swap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/editor_new/css/style.css">
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="resources/editor_new/js/vue_v2.6.14.js"></script>
+    <script src="resources/editor_new/js/vue-upload-component.js"></script>
+    <script type="text/javascript" src="resources/editor_new/js/vue-snotify.min.js"></script>
+    <link rel="stylesheet"href="resources/editor_new/css/vue-snotify3.2.1.css">
+    <script src="resources/editor_new/js/main.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-223586665-1"></script>
+    <link rel="stylesheet" href="resources/editor_new/css/team.css">
+  
+ 
+    <style>
+    [v-cloak] {
+        display: none;
+    }
+
+    .no-noty {
+        text-align: center;
+        padding: 30px 10px;
+        font-size: 14px;
+    }
+
+    .no-noty img {
+        padding-bottom: 5px;
+    }
+    .video-modal {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        background-color: #000000a8;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+    
+    .video-modal video {
+        max-width: 600px;
+    }
+    .ut-video {
+        width: 900px;
+        height: 507px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .btn-secondary {
+        color: #333333;
+        background-color: white;
+        border-color: #D4D4D4;
+    }
+    .btn-secondary:hover {
+        color: #333333;
+        background-color: #F2F5FA;
+        border-color: #D4D4D4;
+    }
+    .dropdown-menu.show a{
+        padding: 5px 15px;
+    }
+    .videomodal-close {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        width: 30px;
+        cursor: pointer;
+    }
+
+    /*code added by Vishnu M R-2021-07-29*/
+    .goog-te-banner-frame{
+        display:none;
+    }
+
+    .btn-primary {
+        border-radius: 20px;
+    }
+    /*code added by Vishnu M R-2021-07-29*/
+    .switch {
+		position: relative;
+		display: inline-block;
+		width: 49px;
+		height: 27px;
+	}
+    .cursor{
+        cursor:pointer;
+    }
+    .slider-range {
+		-webkit-appearance: none;
+		width: 100%;
+		height: 10px;
+		border-radius: 5px;
+		background: #d3d3d3;
+		outline: none;
+		opacity: 0.7;
+		-webkit-transition: .2s;
+		transition: opacity .2s;
+	}
+	.slider-range:hover {
+		opacity: 1;
+	}
+  
+	.slider-range::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		background:#08f;
+		cursor: pointer;
+	}
+  
+	.slider-range::-moz-range-thumb {
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		background:#08f;
+		cursor: pointer;
+	}
+	.team-home{
+		text-align:center;
+		height: calc(100vh - 150px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 15px;
+	}
+	.img-team{
+		max-width:400px;
+		padding-bottom:20px;
+	}
+	.team-home h3{
+		font-size:35px;
+	}
+	.invite-head h3{
+		font-size:30px;
+		color:grey;
+	}
+	.form-control {
+		display: block;
+		width: 100%;
+		height: calc(1.5em + .75rem + 2px);
+		padding: .375rem .75rem;
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.5;
+		color: #495057;
+		background-color: #fff0;
+		background-clip: padding-box;
+		border: 1px solid #b4b9be;
+		border-radius: .25rem;
+		transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	}
+	p{
+		color:grey;
+	}
+	.member{
+		box-shadow:0px 0px 4px silver;
+		padding:8px;
+		margin-top:15px;
+		border-radius:10px;
+	}
+	.div-center{
+		display:flex;
+		align-items:center;
+		/* height:100%; */
+	}
+	.border-none{
+		border:none;
+	}
+	.btn-grey{
+		border:1px solid silver;
+		background-color:white;
+		color:grey;
+	}
+    .app-modal {
+        background-color: #00000066;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+		z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+        
+    .app-modal-content {
+        max-width: 100%;
+        width:430px;
+        background-color: white;
+        padding: 35px 25px;
+        text-align: center;
+        position: relative;
+        border-radius: 6px;
+    }
+        
+    .h3-modal {
+        font-size: 23px;
+    }
+        
+    .app-modal-close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        cursor: pointer;
+    }
+        
+    .btn-app-modal {
+        background-color: #08f;
+        padding: 10px 35px;
+        border-radius: 5px;
+        border: 1px solid #08f;
+        color: white;
+        font-size: 16px;
+        line-height: 1;
+    }
+    .min-chart-wrapper{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        align-items: flex-end;
+    }
+	.slider {
+		overflow: hidden;
+		height: 30px;
+		width: 300px;
+		position: relative;
+		background: #ffffff;
+	}
+
+	.slider .handle {
+		float: left;
+		width: 10%;
+		height: 100%;
+		display: block;
+		background: white;
+		border-radius: 50%;
+		position: relative;
+	}
+	.slider .handle::after {
+		content:"";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		display: block;
+		background: white;
+		border-radius: 50%;
+		pointer-events: none;
+		border: 1px solid #08f;
+	}
+
+	.slider .progress {
+		height: 10px;
+		float: left;
+		width: 25%;
+		background:#08f;
+		top: 50%;
+		position: relative;
+		margin-top: -5px;
+		border-radius: 10px 0px 0px 10px;
+	}
+	.slider .progressLeft {
+		width: 65%;
+		height: 10px;
+		background: #aaa;
+		float: left;
+		position: relative;
+		top: 50%;
+		margin-top: -5px;
+		border-radius: 0px 10px 10px 0px;
+	}
+	.error-input{
+		border-color: red;
+		border-style: solid;
+		border-width: 3px
+	}
+	.center-box-content{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		padding: 20px;
+		text-align: center;
+	}
+    .active_newmenu{
+        border-right: none;
+        background-color: #3A3F44;
+    }
+    .error{
+        color: red;
+        font-weight: 600;
+        font-size: 13px;
+        text-align: left;
+    }
+    .color-red
+    {
+        color:red;
+    }
+    .team-item-card{
+	    overflow:auto;
+    }
+</style>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <header class="header">
+            <div class="ar-platform">
+                <div class=" df-center">
+
+                     <div class="logo" >
+                        <img @click="mobile_menu = true; " style="cursor:pointer;" src="resources/editor_new/img/burg.png" alt="" class="img-fluid pr-3 menu-sm-show">
+                        <a href="./login.html">
+                            <img src="resources/editor_new/img/logo-2.png" alt="">
+                        </a>
+                      <!--  <div class="added-menu menu-sm-hide">
+                            <a href="<?=base_url('editor')?>" class="active">My Projects</a>
+                   
+                            <a href="#" @click="check_app_factory_access();">AR App Creator 
+                                <span class="new-item-fact">New</span>
+                            </a>
+                        </div>-->
+
+                    </div> 
+                    <div class="new-dash-menu menu-sm-hide" >
+                        <!-- <img @click="mobile_menu = true; " style="cursor:pointer;" src="<?=base_url('resources/editor_new/')?>img/hum.svg" alt="" class="img-fluid pr-3 "> -->
+                        <a href="./login.html">
+                            <div class="dash-logo">
+                            <img src="resources/editor_new/img/white-new-logo.svg" alt="">
+                            </div>
+                        </a>
+                        <div class="">
+                        
+                            <a href="#" @click="campaign_category=1;change_project_category();">
+                                <div class="new-menu-item " :class="{ active_newmenu: campaign_category == 1 }" >
+                                    <span>
+                                        <img src="resources/editor_new/img/m-1.png" alt="">
+                                    </span>
+                                    <p>IMAGE-BASED AR</p>
+                                </div>
+                            </a>
+                            <a href="#" @click="campaign_category=2;change_project_category();" >
+                                <div class="new-menu-item"  :class="{ active_newmenu: campaign_category == 2 }"  >
+                                    <span>
+                                        <img src="resources/editor_new/img/m-2.png" alt="">
+                                    </span>
+                                    <p>GROUND-PLANE AR</p>
+                                </div>
+                            </a>
+                            <a href="#"  @click="basic_or_advance_appfactory ? campaign_category=3 : campaign_category=4;change_project_category();" >
+                                <div class="new-menu-item" :class="{ active_newmenu: campaign_category == 3 || campaign_category == 4}">
+                                        <img src="resources/editor_new/img/m-3.png" alt="">
+                                    </span>
+                                    <p>AR APP CREATOR</p>
+                                </div>
+                            </a>
+                            <!-- <a href="<?=base_url('editor')?>" class="active">My Projects</a>
+                            
+                            <a href="#" @click="check_app_factory_access();">AR App Creator 
+                               
+                            </a> -->
+                        </div>
+
+                    </div>
+                    <div class="menu">
+						<!-- <button type="button" class="btn btn-primary" onclick="Cookiebot.renew();">GDPR Compilance</button>
+						<a href="<?=base_url('cookie-declaration');?>" target="_blank">
+                                 <button type="button" class="btn btn-primary">Cookie Declaration</button>
+                    </a> -->
+						<a href="./book_your_session.html" class="menu-sm-hide">
+                        <button type="button" class="btn btn-primary">Book Your Demo</button>
+                    </a>
+						<div id="google_translate_element"></div>
+                        
+                        <span  class="btn-upgrade package-name menu-sm-hide">
+                        Enterprise Package
+                        </span>
+
+						<div class="dropdown menu-sm-hide" v-if="user_as_team_member_status">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							{{switch_team_name}}
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a v-for="each_team in switch_team_list" class="dropdown-item" href="#" v-on:click="switch_team_id=each_team.id;change_team();">{{each_team.team_name}}</a>
+							</div>
+						</div>
+						
+                        <a href="#" class="noty"
+                            v-on:click="notification_read_status=true;change_notification_read_status()">
+                            <img src="resources/editor_new/img/noty-bell.svg" class="menu-sm-hide" alt="">
+                            <img src="resources/editor_new/img/white-bell.png" class="menu-sm-show" alt="">
+                            <span v-if="read_entire_status">{{read_count}}</span>
+                        </a>
+
+
+                        <a href="#" class="user menu-sm-hide">
+                            <img style=""
+                                src="resources/editor_new/img/businessman-avatar-icon-01-.svg"
+                                alt="">
+                        </a>
+                        <div class="my-menu">
+                            <ul>
+                                <li> <a href="./pricing.html"> Upgrade Plan</a></li>
+                                <li> <a href="./account.html"> My Account </a></li>
+                                <li> <a href="./team.html"> Team </a></li>
+                                <li onclick="Cookiebot.renew();"> <a href="#"> GDPR Compilance </a></li>
+                                <li> <a href="./cookie_declaration.html"> Cookie Declaration </a></li>
+                                <!-- <li> <a href="<?=base_url('editor/book-your-session');?>"> Book Your Demo </a></li> -->
+                                <li> <a onclick="logout()"> Log out </a></li>
+                            </ul>
+                            <div class="arrow-up">
+
+                            </div>
+                        </div>
+                        <div class="my-noty">
+                            <ul>
+                                <div v-if="no_of_notification_records>0" class="ul-first">
+                                    <div class="row ">
+                                        <div class="col">
+                                            <span>Notifications</span>
+                                        </div>
+                                        <div class="col text-right" @click="delete_notification(0)">
+                                            <span class="blue-text">Clear all</span>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <li v-if="no_of_notification_records<=0">
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <!-- <p class="noty-head green-text">Payment was successful!</p>-->
+                                                <div class="no-noty">
+                                                    <img
+                                                        src="resources/editor_new/img/notification.png">
+                                                    <p class="">No messages</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li v-else v-for="single_notification in notification">
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <!-- <p class="noty-head green-text">Payment was successful!</p>-->
+                                                <p class="noty-p">{{single_notification.message}}</p>
+                                            </div>
+                                            <div class="col-2" v-on:click="delete_notification(single_notification.id)">
+                                                <img src="resources/editor_new/img/close.svg" alt=""
+                                                    class="img-fluid mt-2"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <!-- <li>
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p class="noty-head red-text">Warning! Payment failed</p>
+                                                <p class="noty-p">Your payment process failed, Please update your payment details.</p>
+                                            </div>
+                                            <div class="col-2"><img src="<?=base_url('resources/editor_new/')?>img/close.svg" alt="" class="img-fluid mt-2"></div>
+                                        </div>
+                                    </a>
+                                </li>-->
+                            </ul>
+                            <div class="arrow-up">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="menuid" v-if="mobile_menu" class="menu mobile-menu">
+                <div class="flex-menu">
+                    
+                    <div class="menu-item"  @click="campaign_category=1;change_project_category();"><a href="#" :class="{ active: campaign_category == 1 }">IMAGE-BASED AR</a></div>
+                    <div class="menu-item"  @click="campaign_category=2;change_project_category();"><a href="#" :class="{ active: campaign_category == 2 }" >Ground-Plane AR</a></div>
+                    <div class="menu-item" @click="campaign_category=3;change_project_category();"><a href="#" :class="{ active: campaign_category == 3 }">ar app creator</a></div>
+                    <div class="menu-item"><a href="./account.html" class="">my account</a></div>
+
+                    <div class="menu-item"> <a href="./team.html" class=""> Team </a></div>
+                   
+                    <div class="menu-item"><a onclick="logout()">log out</a></div>
+                    <div class="menu-item"><a href="./pricing.html" class="sign-up fill-bg">upgrade now</a></div>
+                    <div class="menu-item"><a href="./book_your_session.html" class="sign-up">Book Your Demo</a></div>
+                
+                    
+                </div> <span @click="mobile_menu = false;" class="menu-close"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="28.991" height="28.992" viewBox="0 0 28.991 28.992">
+                        <g id="Group_3625" data-name="Group 3625" transform="translate(1423.406 -3230.063) rotate(45)">
+                            <rect id="Rectangle_540" data-name="Rectangle 540" width="36" height="5" rx="2"
+                                transform="translate(1280 3288)" fill="#fff"></rect>
+                            <rect id="Rectangle_541" data-name="Rectangle 541" width="36" height="5" rx="2"
+                                transform="translate(1300.5 3272.5) rotate(90)" fill="#fff"></rect>
+                        </g>
+                    </svg></span>
+            </div>
+        </header>
+
+
+        <section class="m-125">
+            <div class="" style="padding-top:100px">
+                <div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="nav nav-tabs team-nav" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active"  href="./team.html">Team</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link"  href="./roles.html">Roles & Permission</a>
+								</li>
+							</ul>
+						</div>
+						
+					</div>
+                </div>
+            </div>
+
+
+            <!-- <div class="dashboard-sec">
+				<div class="">
+					<div class="team-home" v-show="team_home">
+						<div class="team-home">
+							<div>
+								<img src="<?=base_url('resources/editor_new/')?>img/team-home.png" class="img-team" style="max-width:300px;" alt="">
+								<h3>Start collaborate with your team</h3>
+								<p>Team, Let you add more peoples to your UniteAR platform</p>
+								<button class="btn-start " @click="create_team = true" style="max-width:150px;border-radius:4px;margin:auto;">
+									Create Team   <img src="<?=base_url('resources/editor_new/')?>img/paper-plane.svg"   alt="">
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			
+                <div class="invite-people invite-modal-people " v-if="invite_people">
+					<!-- <div class="invite-people invite-modal-people " > -->
+					<div class="container center-div">
+						<div class="row" v-if='role_list.length!=0'>
+							<div class="col-md-7">
+								<div class="row m-0">
+									<div class="pr-3 pt-2">
+										<img @click="invite_people=false,team_members=true" src="resources/editor_new/img/left-chev.svg" class=" cursor img-fluid" alt="">
+									</div>
+									<div class="invite-head">
+                                        <h3>Invite people to team</h3>
+										<p>{{selected_team_members_count}} out of {{total_team_members_allowed}} seats assigned</p>
+									</div>
+								</div>
+
+								<div class="row mt-2"v-for="(imember,index) in invite_member" :key="index">
+									<div class="col-md-7 mt-3">
+										<input @keyup="form_validation(imember)" type="text" class="form-control" v-model="imember.email" >
+										<p class="error_log"style="color:red;">{{imember.error}}<p>
+									</div>
+									<div class="col-md-4 mt-3">
+										<select  class="form-control" v-model="imember.role_id">
+											<option v-bind:value="role.role_id" v-for="role in roles" :key="role.role_id">{{role.role_name}}</option>
+											<!-- <option value="">Member</option>
+											<option value="">Owner</option> -->
+										</select>
+									</div>
+									<div class="col-md-1 pt-2 mt-3 sm-textcenter">
+										<img @click="remove_invite_member(index);"src="resources/editor_new/img/close-2.svg" class="" style="width:25px;cursor:pointer;" alt="">
+									</div>
+								</div>
+								<!--<div class="row mt-2">
+									<div class="col-md-7 mt-3">
+										<input type="text" class="form-control" name="" id="">
+									</div>
+									<div class="col-md-4 mt-3">
+										<select name="" id="" class="form-control">
+											<option value="">Member</option>
+											<option value="">Owner</option>
+										</select>
+									</div>
+									<div class="col-md-1 pt-2 mt-3 sm-textcenter">
+										<img src="<?=base_url('resources/editor_new/')?>img/close-2.svg" style="width:25px" alt="">
+									</div>
+								</div>
+								<div class="row mt-2">
+									<div class="col-md-7 mt-3">
+										<input type="text" class="form-control" name="" id="">
+									</div>
+									<div class="col-md-4 mt-3">
+										<select name="" id="" class="form-control">
+											<option value="">Member</option>
+											<option value="">Owner</option>
+										</select>
+									</div>
+									<div class="col-md-1 mt-3  text-center pt-2">
+										<img src="<?=base_url('resources/editor_new/')?>img/close-2.svg" style="width:25px" alt="">
+									</div>
+								</div>-->
+								<div class="row mt-5">
+									<div class="col-md-7 pt-2">
+										<p @click="add_invite_member()"style="color:grey" class="cursor">Add new member +</p>
+									</div>
+									<div class="col-md-5">
+										<button v-if="invite_team_button_loader"class=" btn-moreview w-100">
+											<i class="fa fa-circle-o-notch fa-spin"></i>
+										</button>
+										<button v-else class="btn-start w-100 " style="border-radius:4px;margin:auto;" @click="form_submit($event);">Invite</button>
+									</div>   
+								</div>
+							</div>
+							<div class="col-md-5 text-center">
+								<img src="resources/editor_new/img/team-invite.png" class="img-team" alt="">
+							</div>
+						</div>
+
+						<div v-else>
+							<div class="pr-3 pt-2">
+								<img @click="invite_people=false;" src="resources/editor_new/img/left-chev.svg" class=" cursor img-fluid" alt="" style="position:absolute;top:50px;">
+							</div>
+							<div class="center-box-content">
+								<div>
+									<img src="resources/editor_new/img/no-team.svg" class="img-team" alt="">
+									<h2 class="font-weight-bold">Create Role</h2>
+									<p style="color:#000">Please create a role before inviting your team members</p>
+									<a href="./roles.html"><button class="btn-start w-100 " style="border-radius:4px;margin:auto;" >Create Role</button></a>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+           
+            <div class="team-members pt-5 ">
+                <div class="container">
+                    <div class="row custom-row">
+                        <div class="col-30 ">
+                            <div class="tab-team">
+                                <div class="tab-team-item" :class="team_home_div_class" v-on:click="make_team_home_active();">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16.998" viewBox="0 0 17 16.998">
+                                            <path id="add-group" d="M9.846,11.644a6.3,6.3,0,0,0-1.325-.707,3.38,3.38,0,0,0,1.1-2.23,5,5,0,0,1,6.338-.519.664.664,0,1,0,.76-1.089,6.311,6.311,0,0,0-1.325-.707,3.386,3.386,0,1,0-4.559-.008q-.139.054-.276.114a6.306,6.306,0,0,0-1.17.672,3.386,3.386,0,1,0-5.432,3.753A6.386,6.386,0,0,0,.1,14.9,1.992,1.992,0,0,0,2,17.5H7.773a.664.664,0,0,0,0-1.328H2a.664.664,0,0,1-.632-.868,5.123,5.123,0,0,1,4.867-3.465,4.967,4.967,0,0,1,2.855.9.664.664,0,1,0,.76-1.089Zm3.272-9.815A2.058,2.058,0,1,1,11.06,3.887,2.061,2.061,0,0,1,13.118,1.829ZM6.246,6.373A2.058,2.058,0,1,1,4.188,8.431,2.061,2.061,0,0,1,6.246,6.373ZM17,14.345a.664.664,0,0,1-.664.664H14.513v1.826a.664.664,0,1,1-1.328,0V15.009H11.359a.664.664,0,0,1,0-1.328h1.826V11.855a.664.664,0,0,1,1.328,0v1.826h1.826a.664.664,0,0,1,.664.664Zm0,0" transform="translate(-0.003 -0.501)"/>
+                                            </svg>
+                                        Team
+                                </div>
+                                <div v-for="each_team in team_list" :class="each_team.is_active" v-on:click="team_requests=false;team_requests_div_class='';selected_team_id=each_team.id;list_members();">
+									{{each_team.team_name}}
+									<span class="rename-team">
+											<!-- <span>
+											<img class="" src="<?=base_url('resources/editor_new/')?>img/3dot.svg" alt="">
+											<ul>
+												<li>
+													<img class="" src="<?=base_url('resources/editor_new/')?>img/rename.svg" alt="">
+													Rename
+												</li>
+												<li>
+													<img class="" src="<?=base_url('resources/editor_new/')?>img/running-person.svg" alt="">
+													Leave the team
+												</li>
+												<li>
+													<img class="" src="<?=base_url('resources/editor_new/')?>img/running-person.svg" alt="">
+													Remove team
+												</li>
+											</ul>
+											</span> -->
+											<img class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="resources/editor_new/img/3dot.svg" alt="">
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+												<div v-if="each_team.rename_team" v-on:click="team_name=each_team.team_name;user_name_error='';create_team=true;">
+													<img class="" src="resources/editor_new/img/t-edit.svg" alt="">
+													Rename<br>
+												</div>
+												<div v-if="each_team.delete_team" v-on:click="remove_team(each_team.id);">
+													<img class="" src="resources/editor_new/img/t-delete.svg" alt="">
+													Delete Team<br>
+												</div>
+												<div v-if="each_team.leave_team" v-on:click="leave_team(each_team.id)">
+													<img class="" src="resources/editor_new/img/running-person.svg" alt="">
+													Leave the team<br>
+												</div>
+											</div>
+									</span>
+                                </div>
+                                <!-- <div class="tab-team-item">
+                                    <a href="">Team 1</a>
+									<span class="rename-team">
+										<img class="" src="<?=base_url('resources/editor_new/')?>img/3dot.svg" alt="">
+										<span>
+											<img class="" src="<?=base_url('resources/editor_new/')?>img/running-person.svg" alt="">
+											Leave the team
+										</span>
+									</span>
+                                </div>
+                                <div class="tab-team-item">
+                                    <a href="">Team 2</a>
+                                    <span class="rename-team">
+                                        <img class="" src="<?=base_url('resources/editor_new/')?>img/3dot.svg" alt="">
+                                        <span>
+											<img class="" src="<?=base_url('resources/editor_new/')?>img/running-person.svg" alt="">
+											Leave the team
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="tab-team-item">
+                                    <a href="">Team 3</a>
+                                    <span class="rename-team">
+                                        <img class="" src="<?=base_url('resources/editor_new/')?>img/3dot.svg" alt="">
+                                        <span>
+											<img class="" src="<?=base_url('resources/editor_new/')?>img/running-person.svg" alt="">
+											Leave the team
+                                        </span>
+                                    </span>
+                                </div> -->
+                                <div class="tab-team-item" :class="team_requests_div_class" v-on:click="team_details=false;show_invite_button=false;team_requests=true;make_team_request_active();">
+										<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17.003" viewBox="0 0 17 17.003">
+											<path id="invite" d="M11.122,5.647a.664.664,0,0,1-.664.664H9.13V7.639a.664.664,0,0,1-1.328,0V6.311H6.474a.664.664,0,1,1,0-1.328H7.8V3.655a.664.664,0,1,1,1.328,0V4.983h1.328a.664.664,0,0,1,.664.664Zm4.549,5.379V7.262L9.9,10.849a2.64,2.64,0,0,1-2.805,0L1.327,7.262v7.084a1.33,1.33,0,0,0,1.328,1.328H14.343a1.33,1.33,0,0,0,1.328-1.328.664.664,0,1,1,1.328,0A2.659,2.659,0,0,1,14.343,17H2.655A2.659,2.659,0,0,1,0,14.346V6.4A2.645,2.645,0,0,1,1.224,4.159L7.089.407,7.1.4A2.64,2.64,0,0,1,9.9.4l.008,0,5.866,3.756A2.645,2.645,0,0,1,17,6.4v4.625a.664.664,0,1,1-1.328,0ZM15.523,5.79a1.324,1.324,0,0,0-.463-.508L9.2,1.529a1.319,1.319,0,0,0-1.4,0L1.94,5.278a1.326,1.326,0,0,0-.466.511L7.8,9.721a1.32,1.32,0,0,0,1.4,0Zm0,0" transform="translate(0.001 0.001)" fill="#292929"/>
+										</svg>
+										Team Requests
+										<svg v-if="team_requests_data.length !=0" class="show-notfy" xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9">
+											<circle id="Ellipse_30" data-name="Ellipse 30" cx="4.5" cy="4.5" r="4.5" fill="#f55"/>
+										</svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-70" v-if="team_details">
+							<div style="text-align: center;
+							">
+							<div class="spinner-border"></div>
+							</div>
+							<div class=" list-team-card" >
+								<div class="row">
+									<div class="col-md-6">
+										<div class="team-show">
+											<h3>{{selected_team}}</h3>
+											<p>{{selected_team_members_count}}</p>
+										</div>
+									</div>
+									<div class="col-md-6 text-md-right" v-if="show_invite_button">
+										<button class="btn-start  team-btn " style="border-radius:4px;margin:auto;" v-on:click="check_whether_user_can_invite_people();">
+										Invite People
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+										<g id="paper-plane" transform="translate(0 0)">
+                                        <g id="Group_2927" data-name="Group 2927" transform="translate(0 0)">
+                                        <path id="Path_5019" data-name="Path 5019" d="M69.823.047a.341.341,0,0,0-.351,0l-6.4,3.9a.365.365,0,0,0-.123.492.344.344,0,0,0,.478.126l4.593-2.8L59.464,10.9l-4.255-1.34,5.553-3.379a.365.365,0,0,0,.123-.492.344.344,0,0,0-.478-.126L54.171,9.361A.363.363,0,0,0,54,9.713a.357.357,0,0,0,.245.3l5.082,1.6,2.242,4.2.007.011a.351.351,0,0,0,.163.147.341.341,0,0,0,.135.028.344.344,0,0,0,.244-.1L64.7,13.3l4.849,1.527a.341.341,0,0,0,.31-.055A.363.363,0,0,0,70,14.487V.359A.361.361,0,0,0,69.823.047ZM61.59,11.835a.367.367,0,0,0-.062.2v2.2L60,11.372l6.775-7.233Zm.637,2.951v-2.26l1.711.539ZM69.3,14,62.436,11.84,69.3,1.643Z" transform="translate(-53.999 0)" fill="#fff"/>
+                                        </g>
+                                        <g id="Group_2939" data-name="Group 2939" transform="translate(7.428 4.806)">
+                                        <g id="Group_2938" data-name="Group 2938">
+                                            <path id="Path_5025" data-name="Path 5025" d="M267.014,133.48a.342.342,0,1,0,.1.242A.345.345,0,0,0,267.014,133.48Z" transform="translate(-266.43 -133.38)" fill="#fff"/>
+                                        </g>
+                                        </g>
+                                    </g>
+									</svg>
+									</button>
+                                </div>
+                            </div>
+                            <div class="row team-card-list">
+                                <div class="col-md-6" v-for="each_member in member_list">
+                                    <div class="team-item-card">
+                                        <div class="team-card-dp">
+											<img v-if="each_member.member_image" :src="each_member.member_image" alt="">
+											<img v-else src="resources/editor_new/img/Ellipse 36.jpg" alt="">
+                                        </div>
+                                        <div class="team-card-content">
+                                            <h3>{{each_member.member_name}} 
+												<img v-if="each_member.role_name == 'Admin'" src="resources/editor_new/img/crowns (1).svg" alt="">
+                                            </h3>
+                                            <p>{{each_member.role_name}}</p>
+                                            <h5>{{each_member.member_email}}</h5>
+											<span>{{each_member.member_current_status}}</span>
+
+											<!-- ------------for online status use green-text classss---------- -->
+											<span class="green-text d-none">{{each_member.member_current_status}}</span>
+											
+											<div v-if="each_member.role_name != 'Admin' && team_admin_email==user_current_email && each_member.member_email != user_temp_email" v-on:click="each_member.edit_role_of_member=!each_member.edit_role_of_member;" class="float-right span-d">
+												<div >
+												<img class="btn dropdown-toggle team-card-burger" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="resources/editor_new/img/3dot.svg" alt="">
+													<div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+														<!-- <p @click="selected_member=member;storage_limit=true;"> <img src="<?=base_url('resources/editor_new/')?>img/t-settings.svg"  alt=""> Settings</p> -->
+														<p @click="selected_member=each_member;selected_role=each_member.role_id;Edit_roll=true;"> <img src="resources/editor_new/img/t-edit.svg"  alt=""> Edit Role</p>
+														<p @click="selected_member=each_member;member_remove=true;"> <img src="resources/editor_new/img/t-delete.svg"  alt=""> Remove</p>
+													</div>
+												</div>
+												<!-- <button @click="selected_member=each_member;selected_role=each_member.role_id;Edit_roll=true;"> <img src="<?=base_url('resources/editor_new/')?>img/t-edit.svg"  alt=""> Edit Role</button>
+												<button @click="selected_member=each_member;member_remove=true;"> <img src="<?=base_url('resources/editor_new/')?>img/t-delete.svg"  alt=""> Remove</button> -->
+											</div>
+									
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-6">
+                                    <div class="team-item-card">
+                                        <div class="team-card-dp">
+											<img src="<?=base_url('resources/editor_new/')?>img/Ellipse 36.jpg" alt="">
+                                        </div>
+                                        <div class="team-card-content">
+                                            <h3>Amanda Adrian</h3>
+                                            <p>Role</p>
+                                            <h5>Amandaadrian@gmail.com</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="team-item-card">
+                                        <div class="team-card-dp">
+											<img src="<?=base_url('resources/editor_new/')?>img/Ellipse 36.jpg" alt="">
+                                        </div>
+                                        <div class="team-card-content">
+                                            <h3>Amanda Adrian</h3>
+                                            <p>Role</p>
+                                            <h5>Amandaadrian@gmail.com</h5>
+                                            <span>Invite Pending</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="team-item-card">
+                                        <div class="team-card-dp">
+											<img src="<?=base_url('resources/editor_new/')?>img/Ellipse 36.jpg" alt="">
+                                        </div>
+                                        <div class="team-card-content">
+                                            <h3>Amanda Adrian</h3>
+                                            <p>Role</p>
+                                            <h5>Amandaadrian@gmail.com</h5>
+                                            <span>Invite Pending</span>
+                                        </div>
+                                    </div>
+                                </div> -->
+								
+                            </div>
+                        </div>
+					</div>
+					
+					<div class="reqest-list start-empty" v-if="team_home" style="width: 70%;margin:auto;">
+                        <div>
+                            <img src="resources/editor_new/img/Capture.svg" alt="">
+                            <p>Start collaborate with your team</p>
+                            <span>Team, Let you add more peoples to your UniteAR platform</span>
+                            <br>
+                            <button class="btn-start mt-3 team-btn " style="border-radius:4px;margin:auto;" v-on:click="team_name='';create_team=true">
+                                Create Team 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                    <g id="paper-plane" transform="translate(0 0)">
+                                        <g id="Group_2927" data-name="Group 2927" transform="translate(0 0)">
+                                        <path id="Path_5019" data-name="Path 5019" d="M69.823.047a.341.341,0,0,0-.351,0l-6.4,3.9a.365.365,0,0,0-.123.492.344.344,0,0,0,.478.126l4.593-2.8L59.464,10.9l-4.255-1.34,5.553-3.379a.365.365,0,0,0,.123-.492.344.344,0,0,0-.478-.126L54.171,9.361A.363.363,0,0,0,54,9.713a.357.357,0,0,0,.245.3l5.082,1.6,2.242,4.2.007.011a.351.351,0,0,0,.163.147.341.341,0,0,0,.135.028.344.344,0,0,0,.244-.1L64.7,13.3l4.849,1.527a.341.341,0,0,0,.31-.055A.363.363,0,0,0,70,14.487V.359A.361.361,0,0,0,69.823.047ZM61.59,11.835a.367.367,0,0,0-.062.2v2.2L60,11.372l6.775-7.233Zm.637,2.951v-2.26l1.711.539ZM69.3,14,62.436,11.84,69.3,1.643Z" transform="translate(-53.999 0)" fill="#fff"/>
+                                        </g>
+                                        <g id="Group_2939" data-name="Group 2939" transform="translate(7.428 4.806)">
+                                        <g id="Group_2938" data-name="Group 2938">
+                                            <path id="Path_5025" data-name="Path 5025" d="M267.014,133.48a.342.342,0,1,0,.1.242A.345.345,0,0,0,267.014,133.48Z" transform="translate(-266.43 -133.38)" fill="#fff"/>
+                                        </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </button>
+						</div>
+					</div>
+
+
+                            <div class="reqest-grop col-70" v-if="team_requests">
+                                    <div v-if="team_requests_data.length !=0">
+									<div v-for="each_request_data in team_requests_data"class="rqested-group-list">
+                                        <div class="row" >
+                                            <div class="col-md-7 team-seti">
+                                        <p style="font-weight: 800;">{{each_request_data.team_name}}</p>
+                                        <p>{{each_request_data.user_email}} wants you to join the team. </p>
+                                            </div>
+                                            <div>
+                                                <p @click="reject_approval_team_id=each_request_data.team_id;invite_button_loader=false;invite_cancel=true;">Cancel Invite</p>
+												<p @click="approval_team_id=each_request_data.team_id;new_join_team_id=each_request_data.team_id;approve_invite()">Approve Invite</p>
+                                            </div>
+                                        
+                                        </div>
+									</div>
+                            <!-- <tr>
+                                <td>Dominic Benjamin</td>
+                                <td>Admin</td>
+                                <td>Tedellison@gmail.com</td>
+                                <td class="offline-drop red-text">Invite Pending
+                                     <div class="float-right span-d"><i class="fas fa-ellipsis-v"></i>
+                                        <div class="offline-content">
+                                            <p @click="invite_cancel=true">  Cancel Invite</p>
+                                            
+                                        </div>
+                                    </div> -->
+                            </div>
+
+                           <div v-else class="reqest-list emapty-reqest">
+                               <div>
+                               <img src="resources/editor_new/img/mailbox.svg" alt="">
+                                    <p>No Requests</p>
+                                    <span>There are no team requests in your account right now.</span>
+                               </div>
+                           </div>
+						</div>
+                    </div>
+					
+					
+					<div class="app-modal" v-if="create_team">
+						<div class="app-modal-content">
+							<p class="text-left color-black">Enter your Team Name</p>
+							<input type="text" class="form-control" v-model="team_name" @keyup="team_name_validation('user_name',team_name);">
+							<p class="error">{{user_name_error}}</p>
+							<div class="row mt-3">
+								<div class="col-md-6">
+									<button class="btn-start  w-100" style="border-radius:4px;margin:auto;background-color:white;border:1px solid #B8B8B8;color:#707070" v-on:click="team_name='';user_name_error='';create_team=false;" >Cancel</button>
+								</div>
+								<div class="col-md-6">
+									<button class="btn-start w-100" style="border-radius:4px;margin:auto;padding:9px 0px" v-on:click="create_teams();">Save Changes <i v-if="create_button_loader" class="fa fa-circle-o-notch fa-spin"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+                </div>
+            </div>
+   
+        <div class="app-modal d-none"  >
+            <div class="app-modal-content">
+                <img src="resources/editor_new/img/tick2.svg" alt="">
+                <h3 class="mt-3">Invitation Sent</h3>
+                <p>Your invitation has been sent to your team</p>
+				<button class="btn-start  team-btn " style="border-radius:4px;margin:auto;">
+                    Go Back
+                </button>
+            </div>
+        </div>
+		
+        <!-- --------------------home tab ended------------------- -->
+
+        <div class="app-modal " v-if="switch_team" >
+            <div class="app-modal-content">
+                <div>
+                    <div class="">
+						<div class="slider-box ">
+							<h3 class="text-center">Switch Your Team</h3>
+							<hr>
+							<div>
+							</div>
+							<div class="text-left">
+								<p >Your Team</p>
+								<select name="" class="form-control" id=""v-model="selected_team_id" >
+									<option value="0">My Team</option>
+									<option v-for="(team,index) in teams" :value="{team_id:team.team_id,team_name:team.team_name}" >{{team.team_name}}</option>
+								</select>
+							</div>
+                        
+							<div class="row mt-3">
+								<div class="col-md-12 mt-3">
+									<button v-if="switch_team_button_loader" class=" btn-moreview w-100">
+										<i class="fa fa-circle-o-notch fa-spin"></i>
+									</button>
+									<button v-else class=" btn-moreview w-100 " @click="change_team();">
+										<span>Switch Team</span>
+									</button>
+								</div>
+								<div class="col-md-12 ">
+									<button class="btn-grey w-100 "  @click="switch_team = false ">Cancel</button>
+								</div> 
+							</div>
+                        </div>
+                    </div>
+				</div>
+            </div>
+        </div>
+
+        <!-- <div class="app-modal">
+            <div class="app-modal-content">
+                <div>
+                    <div class=" ">
+						<div class="slider-box ">
+							<h3 class="text-center">Create New Team</h3>
+							<p class="text-center">
+								Enter a team name and start adding team members to your team
+							</p>
+							<hr>
+							<div>
+                    
+							</div>
+                            <div class="text-left">
+                                <p >Team Name</p>
+								<input type="text" class="form-control" v-model="team_name" @keyup="team_name_validation('user_name',team_name);">
+                            </div>
+                            <p class="error">{{user_name_error}}</p>
+                            <div class="row mt-3 ">
+								<div class="col-md-6 ">
+									<button class="btn-grey w-100 "  @click="create_team = false ">Cancel</button>
+								</div> 
+								<div class="col-md-6 mt-3 ">
+									<button v-if="create_button_loader"class=" btn-moreview w-100 " >
+										<i class="fa fa-circle-o-notch fa-spin"></i>
+									</button>
+									<button v-else class=" btn-moreview w-100 " @click="create_teams();">
+										<span>Create Team</span>
+									</button>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+            </div>
+        </div> -->
+
+		<div class="app-modal " v-show="Edit_roll" >
+			<div class="app-modal-content">
+				<div>
+					<div class=" ">
+						<div class="slider-box ">
+							<h3 class="text-left">Edit Role</h3>
+							<hr>
+							<!-- <div>
+								<p class="text-left">Name</p>
+								<p class="font-weight-bold text-left">{{selected_member.member_name}}</p>
+							</div> -->
+							<div>
+								<p class="text-left">Role</p>
+								<select class="form-control" v-model="selected_role">
+									<option v-bind:value="role.role_id" v-for="role in role_list" :key="role.role_id">{{role.role_name}}</option>
+								</select>
+							</div>
+              
+							<div class="row mt-3 ">
+								<div class="col-md-6 ">
+									<button class="btn-grey w-100 "  @click="Edit_roll = false">Cancel</button>
+								</div> 
+								<div class="col-md-6 mt-3 ">
+									<button v-if="edit_role_button_loader"class=" btn-moreview w-100">
+										<i class="fa fa-circle-o-notch fa-spin"></i>
+									</button>
+									<button v-else class=" btn-moreview w-100 " @click="update_member_role();">
+										<span>Save Changes</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<div class="app-modal " v-if="invite_cancel" >
+    <div class="app-modal-content">
+        <div>
+			<div class=" ">
+				<div class="slider-box text-center">
+					<img src="resources/editor_new/img/cancel.svg" alt=""> 
+					<p class="font-weight-bold mt-3">Are you sure you want to cancel invite ?</p>
+					<p>You can't undo this function</p>
+					<div class="row mt-3 ">
+						<div class="col-md-6 ">
+							<button class="btn-grey w-100 "  @click="invite_cancel = false ">Cancel</button>
+						</div> 
+						<div class="col-md-6 mt-3 ">
+							<button v-if="invite_button_loader"class=" btn-moreview w-100 " >
+                                <i class="fa fa-circle-o-notch fa-spin"></i>
+                            </button>
+							<button v-else class=" btn-moreview w-100 " @click="cancel_invite();">
+								<span>Confirm</span>
+							</button>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="app-modal " v-show="invitation_sent" >
+    <div class="app-modal-content">
+        <div>
+			<div class=" ">
+				<div class="slider-box text-center">
+					<img src="resources/editor_new/img/tick.svg" alt=""> 
+					<p class="font-weight-bold mt-3">Invitation Sent</p>
+					<p>Your invitation has been sent to your team.</p>
+					<div class="row mt-3 ">
+						<div class="col-md-2 ">
+						</div> 
+						<div class="col-md-8 mt-3 ">
+							<button class=" btn-moreview w-100 " @click="invitation_sent = false ">
+								<span>Go Back</span>
+							</button>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="app-modal" v-show="member_remove">
+    <div class="app-modal-content">
+        <div>
+			<div class=" ">
+				<div class="slider-box text-center">
+					<img src="resources/img/trash.svg" alt=""> 
+					<p class="font-weight-bold mt-3">Remove a Member</p>
+					<p>Are you sure you want to remove a member
+                    from the team. You can't undo this function</p>
+					<div class="row mt-3 ">
+						<div class="col-md-6 ">
+							<button class="btn-grey w-100 "  @click="member_remove = false ">Cancel</button>
+						</div> 
+						<div class="col-md-6 mt-3 ">
+							<button v-if="remove_member_button_loader"class=" btn-moreview w-100 " >
+								<i class="fa fa-circle-o-notch fa-spin"></i>
+							</button>
+							<button v-else class=" btn-moreview w-100 " @click="remove_member();">
+								<span>Remove</span>
+							</button>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="app-modal" v-show="storage_limit">
+    <div class="app-modal-content">
+        <div>
+            <div class=" ">
+				<div class="slider-box text-center">
+					<div class="mt-3">
+						<p class="text-left">View Usage limit  <span class="font-wieght-bold float-right"><input class="non-text" type="number" value="1000"></span></p>
+						<div class="slider">
+							<div class="progress"></div>
+							<div class="handle"></div>
+							<div class="progressLeft"></div>
+						</div>
+						<input type="text" class="d-none">
+					</div>
+                   
+					<div class="mt-3">
+						<p class="text-left">Storage Usage limit  <span class="font-wieght-bold float-right"><input class="non-text"  type="number" value="100"></span></p>
+						<div class="slider">
+							<div class="progress"></div>
+							<div class="handle"></div>
+							<div class="progressLeft"></div>
+						</div>
+						<input type="text" class="d-none" />
+					</div>
+					<div class="mt-3">
+						<p class="text-left">Project limit  <span class="font-wieght-bold float-right"><input class="non-text"  type="number" value="5"></span></p>
+						<div class="slider">
+							<div class="progress"></div>
+							<div class="handle"></div>
+							<div class="progressLeft"></div>
+						</div>
+						<input type="text" class="d-none" />
+					</div>
+                   
+					<div class="row mt-3 ">
+						<div class="col-md-6 ">
+							<button class="btn-grey w-100 " @click="storage_limit = false,team_members = true ">Cancel</button>
+						</div> 
+						<div class="col-md-6 mt-3 ">
+							<button class=" btn-moreview w-100 "  @click="storage_limit = false,team_members = true ">
+								<span>Save</span>
+							</button>
+						</div>
+                    </div>
+                </div>
+            </div>
+		</div>
+    </div>
+</div>
+<vue-snotify></vue-snotify>	
+</section>
+</div>
+<script type="text/javascript">
+
+	window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-223586665-1');
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+	}
+// <!--google translator-->
+// <!--code added by Vishnu M R-->
+
+$(function(){
+	var handleClick = 0,
+	percentage = 0;
+	$('.slider').mousemove(function(e){
+		curSlider = $(this);
+		curPos = e.pageX - curSlider.offset().left;
+		if(handleClick === 1)
+		{
+			if(curPos + curSlider.find('.handle').width() / 2 <= curSlider.width())
+			{
+				curSlider.find('.progress').css('width',curPos - curSlider.find('.handle').width() / 2 + 'px'); 
+				curSlider.find('.progressLeft').css('width', curSlider.width() - curSlider.find('.handle').width() - curSlider.find('.progress').width() + 'px');
+			}
+			percentage = Math.round(curSlider.find('.progress').width() / (curSlider.width() - curSlider.find('.handle').width()) * 100);
+			curSlider.next('input[type=text]').val(percentage + '%');
+		}
+	});
+
+	$('.slider').mousedown(function(){
+		handleClick = 1;
+	});
+
+	$('body').mouseup(function(){
+		handleClick = 0;
+	});
+})
+
+   var base_url='http://localhost/unitear-editor-live/';
+   var base_urls_8085='http://localhost:8085/';
+   var base_urls_8086='http://localhost:8086/';
+   var base_urls_8087='http://localhost:8087/';
+   var base_urls_8089='http://localhost:8089/';
+   var no_of_team_members='15';
+   var user_current_email='parvathyv@ibosoninnov.com';
+   var user_temp_email=''; 
+   // console.log(user_current_email);
+</script>
+<script type="text/javascript" src="resources/editor/js/team.js"></script>
+
+
+</body>
+</html>

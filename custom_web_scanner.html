@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4786fdfe-e8fb-4e25-94da-93fbc9f9f7cc" data-blockingmode="auto" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png">
+    <title>UniteAR</title>
+   
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="resources/editor_new/css/bootstrapv4.5.2.min.css">
+    <script src="resources/editor_new/js/jqueryv3.5.1.min.js"></script>
+    <link rel="stylesheet" href="resources/custom_web_scanner/css/style.css">
+    <script src="resources/editor_new/js/vue_v2.6.14.js"></script>   <!-- develop-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->      <!-- product-->
+    <script src='resources/editor_new/js/vue-color.min.js'></script>
+    <style>
+		[v-cloak]{
+			display: none;
+		}
+		.error{
+			font-size:12px;
+			color:red;
+      margin-bottom: 0px;
+		}
+
+    .video-modal {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      height: 100vh;
+      background-color: #000000a8;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .videomodal-close {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      width: 30px;
+      cursor: pointer;
+    }
+
+    .ut-video {
+      width: 900px;
+      height: 507px;
+      max-width: 100%;
+      max-height: 100%;
+    }
+    </style>
+  
+</head>
+<body>
+    <div id="app" v-cloak>
+    <header>
+        <div class="header">
+            <div class="ar-container">
+              <a href="./editor.html">  <img src="resources/custom_web_scanner/img/logo.svg" class="logo" alt=""></a>
+            </div>
+        </div>
+    </header>
+    <section >
+      <div class="backdrop" v-if="mobile_left_box"></div>
+        <div class="left-box" :class="{ 'd-flex': mobile_left_box }" >
+          <img src="resources/custom_web_scanner/img/pre-close.svg" v-if="mobile_left_box" class="preclose" @click="mobile_left_box=false" alt="">
+            <div>
+                <p class="preview-p">Preview of your WebAR Scanner</p>
+                <div class="phone-preview" v-if="scan_or_loading">
+                  <span class="cam-d"></span>
+                    <img src="resources/custom_web_scanner/img/phone.svg" class="img-fluid" alt="">
+                    <div class="preview" :style="{ backgroundColor: web_branding_bg, color:web_branding_text_color }" >
+                      
+                        <div>
+                            <img :src="preview" class="logo-brand" alt="">
+                            <!-- <img src="img/finger.svg" class="finger-print" alt=""> -->
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="74" height="69" viewBox="0 0 74 69">
+                                <defs>
+                                  <clipPath id="clip-path">
+                                    <rect id="Rectangle_1426" data-name="Rectangle 1426" width="41" height="68.907" :fill="web_branding_text_color" stroke="#fff" stroke-width="1"/>
+                                  </clipPath>
+                                </defs>
+                                <g id="Group_3688" data-name="Group 3688" transform="translate(-601 -237)">
+                                  <g id="fingerprint" transform="translate(619.524 250.566)">
+                                    <g id="Group_3665" data-name="Group 3665" transform="translate(0 0)">
+                                      <g id="Group_3664" data-name="Group 3664" transform="translate(0 0)">
+                                        <path id="Path_5212" data-name="Path 5212" d="M22.19,4.74C9.954,4.74,0,14.931,0,27.457a23.11,23.11,0,0,0,1.451,8.1.823.823,0,0,0,.768.542.8.8,0,0,0,.293-.055.848.848,0,0,0,.475-1.086,21.4,21.4,0,0,1-1.343-7.5A20.818,20.818,0,0,1,22.19,6.423,20.818,20.818,0,0,1,42.737,27.457a.822.822,0,1,0,1.644,0C44.381,14.931,34.426,4.74,22.19,4.74Z" transform="translate(0 -4.74)" :fill="web_branding_text_color"/>
+                                      </g>
+                                    </g>
+                                    <g id="Group_3667" data-name="Group 3667" transform="translate(3.312 4.139)">
+                                      <g id="Group_3666" data-name="Group 3666">
+                                        <path id="Path_5213" data-name="Path 5213" d="M56.815,52.147a18.818,18.818,0,0,0-13.641,6.431c-3.2,3.566-4.812,7.891-4.418,11.864l.091.93c.641,6.44.64,6.44-.563,8.843-.084.167-.173.346-.268.537a.832.832,0,0,0,.367,1.111.81.81,0,0,0,.366.087.82.82,0,0,0,.735-.458c.094-.189.182-.365.265-.531,1.42-2.834,1.407-2.964.731-9.755l-.092-.929c-.348-3.509,1.11-7.368,4-10.588A17.172,17.172,0,0,1,56.815,53.8,16.514,16.514,0,0,1,73.24,70.36V74.5a.821.821,0,1,0,1.641,0V70.36A18.165,18.165,0,0,0,56.815,52.147Z" transform="translate(-37.929 -52.147)" :fill="web_branding_text_color"/>
+                                      </g>
+                                    </g>
+                                    <g id="Group_3669" data-name="Group 3669" transform="translate(5.795 8.783)">
+                                      <g id="Group_3668" data-name="Group 3668">
+                                        <path id="Path_5214" data-name="Path 5214" d="M88.108,100.539a14.029,14.029,0,0,0-19.255,13.089,51.108,51.108,0,0,0,.367,5.584c.444,4.2.688,6.515-2.482,8.628a.828.828,0,0,0,.918,1.378c4-2.669,3.653-5.983,3.21-10.18a49.8,49.8,0,0,1-.358-5.411A12.426,12.426,0,0,1,87.5,102.078a.828.828,0,1,0,.61-1.539Z" transform="translate(-66.369 -99.554)" :fill="web_branding_text_color"/>
+                                      </g>
+                                    </g>
+                                    <g id="Group_3671" data-name="Group 3671" transform="translate(28.973 11.251)">
+                                      <g id="Group_3670" data-name="Group 3670">
+                                        <path id="Path_5215" data-name="Path 5215" d="M341.928,139.393a14.114,14.114,0,0,0-5.89-11.419.828.828,0,1,0-.964,1.346,12.455,12.455,0,0,1,5.2,10.1c0,.021,0,.042,0,.063.008.106.8,10.706-.806,17.121a.828.828,0,1,0,1.606.4C342.716,150.449,341.986,140.166,341.928,139.393Z" transform="translate(-334.729 -127.82)" :fill="web_branding_text_color"/>
+                                      </g>
+                                    </g>
+                                    <g id="Group_3673" data-name="Group 3673" transform="translate(12.259 12.72)">
+                                      <g id="Group_3672" data-name="Group 3672">
+                                        <path id="Path_5216" data-name="Path 5216" d="M161.489,153.488a9.936,9.936,0,0,0-19.269,3.407.824.824,0,0,0,.006.1,54.149,54.149,0,0,1,0,12.2.828.828,0,1,0,1.639.234,54.767,54.767,0,0,0,.008-12.584,8.28,8.28,0,0,1,16.057-2.79.828.828,0,0,0,1.555-.568Z" transform="translate(-142.22 -146.961)" :fill="web_branding_text_color"/>
+                                      </g>
+                                    </g>
+                                    <g id="Group_3675" data-name="Group 3675" transform="translate(13.926 17.062)">
+                                      <g id="Group_3674" data-name="Group 3674">
+                                        <path id="Path_5217" data-name="Path 5217" d="M169.487,194.369a5.806,5.806,0,0,0-5.8,5.795.808.808,0,0,0,0,.1c.016.138,1.568,13.824-2.336,19.291a.827.827,0,1,0,1.346.962c4.19-5.866,2.762-19.3,2.638-20.4a4.151,4.151,0,0,1,8.3.045v5.795a.828.828,0,1,0,1.656,0v-5.795A5.812,5.812,0,0,0,169.487,194.369Z" transform="translate(-161.198 -194.369)" :fill="web_branding_text_color"/>
+                                      </g>
+                                    </g>
+                                    <g id="Group_3677" data-name="Group 3677" transform="translate(38.086 28.89)">
+                                      <g id="Group_3676" data-name="Group 3676">
+                                        <path id="Path_5218" data-name="Path 5218" d="M441.307,331.1a.83.83,0,0,0-.9.752l-.505,5.773a.827.827,0,0,0,.752.9c.024,0,.049,0,.073,0a.828.828,0,0,0,.824-.756L442.06,332A.827.827,0,0,0,441.307,331.1Z" transform="translate(-439.902 -331.101)" :fill="web_branding_text_color"/>
+                                      </g>
+                                    </g>
+                                    <g id="Group_3679" data-name="Group 3679" transform="translate(9.857 37.758)">
+                                      <g id="Group_3678" data-name="Group 3678">
+                                        <path id="Path_5219" data-name="Path 5219" d="M116.719,431.545a.828.828,0,0,0-1.148.23l-1.656,2.483a.828.828,0,1,0,1.378.918l1.656-2.484A.828.828,0,0,0,116.719,431.545Z" transform="translate(-113.776 -431.406)" :fill="web_branding_text_color"/>
+                                      </g>
+                                    </g>
+                                    <g id="Group_3681" data-name="Group 3681" transform="translate(28.744 22.028)">
+                                      <g id="Group_3680" data-name="Group 3680">
+                                        <path id="Path_5220" data-name="Path 5220" d="M335.142,251.91a.828.828,0,1,0-1.619.347c.024.113,2.377,11.4-1.587,19.325a.828.828,0,1,0,1.481.741C337.638,263.881,335.246,252.4,335.142,251.91Z" transform="translate(-331.849 -251.256)" :fill="web_branding_text_color"/>
+                                      </g>
+                                    </g>
+                                    <g id="Group_3683" data-name="Group 3683" transform="translate(20.535 21.067)">
+                                      <g id="Group_3682" data-name="Group 3682">
+                                        <path id="Path_5221" data-name="Path 5221" d="M239.493,242.4a.828.828,0,0,0-1.606.4,27,27,0,0,1-.81,13.611.828.828,0,1,0,1.571.524A28.294,28.294,0,0,0,239.493,242.4Z" transform="translate(-237.033 -241.777)" :fill="web_branding_text_color"/>
+                                      </g>
+                                    </g>
+                                    <g id="Group_3685" data-name="Group 3685" transform="translate(18.07 38.585)">
+                                      <g id="Group_3684" data-name="Group 3684">
+                                        <path id="Path_5222" data-name="Path 5222" d="M211.382,440.944a.828.828,0,0,0-1.076.461l-1.656,4.139a.828.828,0,1,0,1.537.615l1.656-4.139A.828.828,0,0,0,211.382,440.944Z" transform="translate(-208.591 -440.885)" :fill="web_branding_text_color"/>
+                                      </g>
+                                    </g>
+                                    <g id="Group_3687" data-name="Group 3687" transform="translate(23.816 31.93)">
+                                      <g id="Group_3686" data-name="Group 3686">
+                                        <path id="Path_5223" data-name="Path 5223" d="M278.273,364.663h0a.842.842,0,0,0-.828.843,29.763,29.763,0,0,1-2.417,10.445.829.829,0,1,0,1.522.659,30.883,30.883,0,0,0,2.55-11.1A.841.841,0,0,0,278.273,364.663Z" transform="translate(-274.96 -364.663)" :fill="web_branding_text_color"/>
+                                      </g>
+                                    </g>
+                                  </g>
+                                  <g id="Path_5225" data-name="Path 5225" transform="translate(609.574 240.026)" fill="none" opacity="0.35">
+                                    <path d="M32.713,0A32.988,32.988,0,1,1,0,32.987,32.851,32.851,0,0,1,32.713,0Z" stroke="none"/>
+                                    <path d="M 32.71323776245117 5.999996185302734 C 17.9835090637207 5.999996185302734 5.999996185302734 18.10632705688477 5.999996185302734 32.98702621459961 C 5.999996185302734 47.86772537231445 17.9835090637207 59.97405624389648 32.71323776245117 59.97405624389648 C 47.44296646118164 59.97405624389648 59.42647933959961 47.86772537231445 59.42647933959961 32.98702621459961 C 59.42647933959961 18.10632705688477 47.44296646118164 5.999996185302734 32.71323776245117 5.999996185302734 M 32.71323776245117 0 C 50.78026580810547 0 65.42648315429688 14.768798828125 65.42648315429688 32.98702621459961 C 65.42648315429688 51.20525360107422 50.78026580810547 65.97405242919922 32.71323776245117 65.97405242919922 C 14.64622497558594 65.97405242919922 -7.62939453125e-06 51.20525360107422 -7.62939453125e-06 32.98702621459961 C -7.62939453125e-06 14.768798828125 14.64622497558594 0 32.71323776245117 0 Z" stroke="none" :fill="web_branding_text_color"/>
+                                  </g>
+                                  <g id="Mask_Group_1" data-name="Mask Group 1" transform="translate(601 237)" clip-path="url(#clip-path)">
+                                    <g id="Path_5224" data-name="Path 5224" transform="translate(8.069 3.022)" fill="none">
+                                      <path d="M33.033,0A32.989,32.989,0,1,1,0,32.989,33.011,33.011,0,0,1,33.033,0Z" stroke="none"/>
+                                      <path d="M 33.03330612182617 5.999996185302734 C 18.12709045410156 5.999996185302734 5.999992370605469 18.10720825195313 5.999992370605469 32.98899459838867 C 5.999992370605469 47.87076568603516 18.12709045410156 59.97798156738281 33.03330612182617 59.97798156738281 C 47.93952178955078 59.97798156738281 60.06660461425781 47.87076568603516 60.06660461425781 32.98899459838867 C 60.06660461425781 18.10720825195313 47.93952178955078 5.999996185302734 33.03330612182617 5.999996185302734 M 33.03330612182617 -7.62939453125e-06 C 51.27709197998047 -7.62939453125e-06 66.06660461425781 14.76968002319336 66.06660461425781 32.98899459838867 C 66.06660461425781 51.20830917358398 51.27709197998047 65.97798156738281 33.03330612182617 65.97798156738281 C 14.78952026367188 65.97798156738281 -7.62939453125e-06 51.20830917358398 -7.62939453125e-06 32.98899459838867 C -7.62939453125e-06 14.76968002319336 14.78952026367188 -7.62939453125e-06 33.03330612182617 -7.62939453125e-06 Z" stroke="none" :fill="web_branding_text_color"/>
+                                    </g>
+                                  </g>
+                                </g>
+                              </svg>
+                              
+                            <p class="loading-text">Loading...</p>
+                            <p class="p-wait">Please wait while we get things ready</p>
+                            <div class="dummy-btn-preview" :style="{  borderColor :web_branding_text_color }">
+                                Need Help ?
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="phone-preview" v-else>
+                  
+                  <img src="resources/custom_web_scanner/img/phone.svg" class="img-fluid" alt="">
+                  <div class="preview second-preview " style="opacity: .5;" :style="{ borderColor: web_branding_bg, color:web_branding_text_color }" >
+                  </div>
+                  <img src="resources/custom_web_scanner/img/target_image.svg" class="targetonprview" alt="">
+                  <img src="resources/custom_web_scanner/img/scan_button.svg" class="scan-previw" alt="">
+                  <img src="resources/custom_web_scanner/img/help_button.svg" class="help-previw" alt="">
+                  <span class="cam-d"></span>
+                </div>
+
+
+
+
+
+                <div class="next-or-prev mt-3" @click="scan_or_loading= !scan_or_loading" >
+                    <img src="resources/custom_web_scanner/img/next1.svg" alt="">
+                    <span v-if="scan_or_loading">Loading Screen</span>
+                    <span v-else>Scanning Screen</span>
+                    <img src="resources/custom_web_scanner/img/next (2).svg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="right-box">
+            <div>
+                <div class="cust-host">
+                    <h3 class="host-h3">Custom Hosting</h3>
+                    <p class="mb-0">Customize your WebAR image scanning viewer with your logo and brand color.</p>
+                    <div>
+                        <!-- <p class="info-watch"> <span><img src="resources/custom_web_scanner/img/info (1).svg" alt=""> </span> LEARN MORE</p> -->
+
+                        <a href="#" @click="tuto_video=true">
+                          <p class="info-watch ">
+                            <span>
+                              <img src="resources/custom_web_scanner/img/Icon material-play-circle-filled.svg" alt="">
+                            </span> WATCH VIDEO</p>
+                        </a>
+                    </div>
+                    <div class="host-input">
+                        <p class="host-head">Customize Your WebAR Viewer</p>
+                        <hr>
+						
+                        <div>
+                            <p class="label">Brand Name</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" v-model="brand_name" class="form-control">
+									<p class="error">{{brand_name_error}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="mt-2 fs-14">.unitear.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-0">
+                            <p class="label">Upload Your Logo</p>
+                            <div class="relative">
+                                <label for="my-file" class="dummy-uploader"> 
+                                    {{file_name}}
+                                    <span class="upload-design"> <img src="resources/custom_web_scanner/img/folder (2).svg" alt=""> Browse</span>
+                                </label>
+                              
+                              <input type="file" accept="image/png,image/jpg,image/jpeg" @change="previewImage" class="form-control d-none" id="my-file">
+                             
+                            </div>
+                            <p class="error mb-0">
+                              <span>{{image_error}}</span>
+                            </p>
+                            <!-- <template v-if="preview">
+                                <img :src="preview" class="img-fluid" />
+                                <p class="mb-0">file name: {{ image.name }}</p>
+                                <p class="mb-0">size: {{ image.size/1024 }}KB</p>
+                              </template> -->
+                        </div>
+                        <div class="">
+                            <div class="row m-0">
+                                <div class="col-6  pl-0">
+                                    <p class="label">Background Color</p>
+                                    <colorpicker_vue ref="background_color" :color="web_branding_bg" v-model="web_branding_bg" />
+                                </div>
+                                <div class="col-6 pr-0">
+                                    <p class="label">Font & Loader Color</p>
+                                    <colorpicker_vue  ref="loader_and_font_color" :color="web_branding_text_color" v-model="web_branding_text_color" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button class="btn btn-blue" v-on:click="check_validation();"> "Update scanner viewer" <div class="spinner-border d-none" role="status"></div></button>
+                            <button class="btn btn-blue-border mt-3" @click="mobile_left_box=true">preview</button>
+                        </div>
+						
+                    </div>
+                    <div class="created-webar " v-if="show_web_scanner_link">
+                      <p class="mb-1"> <img src="resources/custom_web_scanner/img/check (8).svg" alt=""> Your scanner viewer was successfully generated.</p> 
+                     <div class="copy-space">
+                      <input type="text" class="form-control" id="myInput" v-model="web_scanner_link">
+                      
+                     </div>
+                     <div class="copy-text" onclick="copyFunction()">
+                     <p class="mb-0 text-center p-copy" style="color:white" >Copy</p>
+                      <img class="img-copy d-none" src="resources/custom_web_scanner/img/Path 5265.svg" alt="">
+
+                     </div>
+                    </div>
+					<p class="error">{{backend_error}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="video-modal d-flex" v-if="tuto_video" >
+      <div style="width: 800px;max-width: 100%;">
+        <img src="resources/editor_new/img/d-close.png" class="videomodal-close" alt="" @click="tuto_video = false">
+       <iframe width="100%" id="video" class="ut-video" height="315" src="https://www.youtube.com/embed/WtZ-anTX5Eg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+</div>
+</body>
+<script>
+var base_url='http://localhost/unitear-editor-live/';
+var web_scanner_details=JSON.stringify({"id":"5","brand_name":"test1","logo":"https://diui35v2plbz7.cloudfront.net/unitear_web_scanner_logo/20220315143252.png","background_color":"#C4C49F","font_color":"#E90D0D","loader_color":"#E90D0D"});
+
+function copyFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  $(".p-copy").addClass("d-none")
+  $(".img-copy").removeClass("d-none")
+  setTimeout(function(){ $(".p-copy").removeClass("d-none") }, 3000);
+  setTimeout(function(){ $(".img-copy").addClass("d-none") }, 3000);
+  
+}
+</script>
+
+    <script src="resources/editor/js/webscanner_vue.js"></script>
+</html>

@@ -1,0 +1,206 @@
+            @import "variable";
+            @import "mixin";
+            @media screen and ($max:1440px) {}
+            
+            @media screen and ($max:1230px) {}
+            
+            @media screen and ($max:992px) {
+                .ar-platform {
+                    padding: 0px 20px;
+                }
+                .my-h-auto {
+                    height: auto!important;
+                }
+                .bg-lr .right {
+                    padding: 15px 15px 15px;
+                }
+                .image-target {
+                    padding: 30px 30px 30px 30px;
+                }
+                .spl-left {
+                    padding: 10px 10px;
+                }
+                .lg-none {
+                    display: none;
+                }
+                .profile-sec {
+                    background-color: #F2F5FA;
+                    height: 100%;
+                    padding-bottom: 30px;
+                }
+            }
+            
+            @media screen and ($max:800px) {
+                .img-up {
+                    padding: 0px 40px;
+                    min-height: 150px;
+                    min-width: 150px;
+                }
+                .img-up p {
+                    bottom: 8px;
+                    font-weight: 500;
+                    font-size: 14px;
+                }
+            }
+            
+            @media (min-width: 768px) {
+                .md-22 {
+                    -ms-flex: 0 0 22%!important;
+                    flex: 0 0 22%!important;
+                    max-width: 22%!important;
+                }
+                .md-39 {
+                    -ms-flex: 0 0 39%!important;
+                    flex: 0 0 39%!important;
+                    max-width: 39%!important;
+                }
+                .md-61 {
+                    -ms-flex: 0 0 61%!important;
+                    flex: 0 0 61%!important;
+                    max-width: 61%!important;
+                }
+            }
+            
+            @media screen and ($max:767px) {
+                .ar-platform {
+                    padding: 0px 15px;
+                }
+                .campaign-name .camp-para {
+                    padding: 15px;
+                    text-align: center;
+                }
+                .nav {
+                    align-items: center;
+                    justify-content: center;
+                }
+                .text-center-767 {
+                    text-align: center;
+                }
+                .profile-sec {
+                    background-color: #F2F5FA;
+                    height: 100%;
+                    padding-bottom: 50px;
+                }
+                .setti-data {
+                    padding-left: 20px;
+                    font-size: 15px;
+                    padding-top: 5px;
+                }
+                .main-content {
+                    overflow: auto;
+                    padding: 15px;
+                }
+                .ar-box {
+                    margin: auto;
+                }
+                .ar-box-text {
+                    margin: auto;
+                    padding-bottom: 40px;
+                }
+                .two-ar {
+                    text-align: center;
+                }
+                .new-app {
+                    height: auto;
+                    padding-top: 60px;
+                }
+            }
+            
+            @media screen and ($max:540px) {
+                .logo {
+                    svg {
+                        width: 80px;
+                    }
+                }
+                .menu a {
+                    padding: 0 6px;
+                }
+                .menu .btn-upgrade {
+                    padding: 2px 4px;
+                }
+                .welcome {
+                    background: #F2F5FA;
+                    height: 100%;
+                    padding-top: 50px;
+                }
+                .res-wrap {
+                    flex-wrap: wrap;
+                }
+                .res-menu {
+                    margin: 10px auto;
+                }
+                .bg-lr .left {
+                    padding: 150px 15px 15px;
+                }
+                .target .img {
+                    min-width: 220px;
+                    max-width: 100%;
+                    height: auto;
+                }
+                .home-menu a {
+                    font-size: 14px;
+                }
+            }
+            
+            @media screen and ($max:480px) {
+                .box-menu {
+                    padding: 5px;
+                    p {
+                        font-size: 13px;
+                    }
+                }
+                .over {
+                    overflow: auto;
+                    height: 40vh;
+                }
+                .slidecontainer .rangeslider--horizontal {
+                    width: 140px !important;
+                    margin: auto !important;
+                }
+            }
+            
+            @media screen and ($max:412px) {
+                .bg-lr .left {
+                    padding: 150px 15px 15px;
+                }
+                .qr {
+                    right: 8px;
+                }
+                .arrow-down {
+                    right: 12px;
+                }
+                .my-noty {
+                    left: -77px;
+                }
+                .my-noty .arrow-up {
+                    right: 145px;
+                }
+                .btn-sort {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+            }
+            
+            @media screen and ($max:375px) {
+                .slider {
+                    width: 130px;
+                }
+                .slidecontainer {
+                    width: 230px;
+                }
+                .over {
+                    overflow: auto;
+                    height: 32vh;
+                }
+            }
+            
+            @media screen and ($max:320px) {
+                .logo {
+                    width: 80px;
+                }
+                .setti-data {
+                    padding-left: 4px;
+                    font-size: 12px;
+                    padding-top: 5px;
+                }
+            }

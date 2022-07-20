@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4786fdfe-e8fb-4e25-94da-93fbc9f9f7cc" data-blockingmode="auto" type="text/javascript"></script>
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png">
+    <title>Unitear My Account</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	  <!--<script type="text/javascript" src="resources/editor/js/main.js"></script>-->
+	 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/rangeslider-pure@0.4.4/dist/range-slider.css'>
+	  <link rel="stylesheet" type="text/css" href="resources/editor/css/style.css">
+		<link rel="stylesheet" type="text/css" href="resources/editor/css/responsive.css">
+		 <link rel="stylesheet" type="text/css" href="resources/css/extra.css">
+		 <link rel="stylesheet" type="text/css" href="resources/css/slider.css">
+         <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+ <!--<script src="https://unpkg.com/vue-upload-component"></script>-->
+ <script src="https://unpkg.com/vue-upload-component@2.8.20/dist/vue-upload-component.js"></script>
+	<style>
+        .unitear-loader {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background-color: white;
+            z-index: 99999;
+        }
+        
+        .unitear-loader-gif {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto
+        }
+        
+        .unitear-loader-gif img {
+            width: 100%;
+        }
+   
+        .pagination{
+            align-items: center;
+            justify-content: center;
+            padding: 44px;
+        }
+	
+            .popup-main{
+                position: fixed;
+                background-color: #9c9c9c;
+                left: 0;
+                right:0;
+                top:0;
+                bottom:0;
+                z-index: 10000;
+                display: none;
+            }
+            .popup-main2{
+                position: absolute;
+                background-color: white;
+                left: 0;
+                right:0;
+                top:0;
+                bottom:0;
+                z-index: 10000;
+                display: none;
+                overflow: scroll;
+            }
+            
+            .popup-view{
+                max-width: 600px;
+                margin: auto;
+                min-height: 450px;
+                background-color: white;
+                position:relative;
+                top: 50%;
+                margin-top: -225px;
+                padding: 30px 70px;
+                  }
+
+            .popup-view2{
+                max-width: 600px;
+                margin: auto;
+                min-height: 450px;
+                background-color: white;
+                position:relative;
+                top: 50%;
+                margin-top: -280px;
+                padding: 15px 30px 0px 30px;
+            } 
+            .popup-view3{
+                width: 100%;
+                margin: auto;
+                height: 100%;
+                background-color: white;
+                position:relative;
+              
+               
+                padding: 15px 30px 30px 30px;
+            }
+            .p-img{
+                display: block;
+                margin: auto;
+            }
+            .h3-pb{
+                font-size: 33px!important;
+                font-weight: 700;
+            }
+            .h4-pb{
+                font-size: 21px!important;
+                font-weight: 700;
+            }
+            .h5-p{
+                font-size: 16px!important;
+            }
+            .popup-btn{
+                background-color: #0088FF;
+                padding: 6px 20px;
+                border-radius: 20px;
+                color: white;
+                min-width: 200px;
+            }
+            .close-p{
+                position: absolute;
+                 right: 40px;
+                 cursor: pointer;
+            }
+            .popup-main p{
+                font-size: 18px;
+            }
+            .link-p{
+                font-size: 14px!important;
+                text-align: center;
+            }
+            .red{
+                color: #FF0000;
+            }
+            .p-grey{
+                color:grey;
+                font-size: 13px!important;
+            }
+            .bg-red{
+                background-color: red;
+               padding-top: 10px;
+            }
+            .bg-grey{
+                background-color: #535353;
+                padding-top: 10px;
+            }
+            .row2{
+                margin-left: -30px;
+                margin-right: -30px;
+                color:white;
+            }
+            .cancel-btn{
+                padding: 6px 20px;
+                width: 170px;
+                display: block;
+                margin: auto;
+                border:1px solid grey;
+                background-color:white;
+            }
+            .delete-btn{
+                padding: 6px 20px;
+                width: 170px;
+                display: block;
+                margin: auto;
+                background-color:red;
+                color: white; 
+            }
+			.notification{
+				overflow:auto;
+			}
+			.notification hr{
+				margin-top: 5px;
+                margin-bottom: 5px;
+                border: 0;
+                width: 100%;
+                border-top: 1px solid rgba(0,0,0,.1);
+			}
+		.text .img2{
+			float: right;
+            width: 21px;
+		}	
+		
+		.text .img1{
+			width: 32px;
+			margin-top: -24px !important;
+		}
+      
+    @keyframes bar-fill {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(350%);
+            }
+        }
+        
+        @-webkit-keyframes bar-fill {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(350%);
+            }
+        }
+
+    @-moz-keyframes bar-fill {
+        0% {
+            transform: translateX(-100%);
+        }
+        
+        100% {
+            transform: translateX(350%);
+        }
+    }
+
+    @-o-keyframes bar-fill {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(350%);
+        }
+    }
+
+        .bar-graph {
+            list-style: none;
+            margin: 50px auto;
+            width: 100%;
+        }
+        .bar-wrap {
+            -moz-border-radius: 10px 10px 10px 10px;
+            -webkit-border-radius: 10px 10px 10px 10px;
+            -ms-border-radius: 10px 10px 10px 10px;
+            border-radius: 10px 10px 10px 10px;
+            background-color:#e8e8e8;
+            border: 1px solid 1px solid #e8e8e8;
+            margin-bottom: 10px;
+            max-width: 100%;
+            overflow: hidden;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .bar-fill {
+            -moz-border-radius: 10px 10px 10px 10px;
+            -webkit-border-radius: 10px 10px 10px 10px;
+            -ms-border-radius: 10px 10px 10px 10px;
+            border-radius: 10px 10px 10px 10px;
+            -moz-animation: bar-fill 1.5s infinite;
+            -webkit-animation: bar-fill 1.5s infinite;
+            -ms-animation: bar-fill 1.5s infinite;
+            animation: bar-fill 1.5s infinite;
+            background-color: #0088ff;
+            display: block;
+            height: 13px;
+            width: 40px;
+            transform: translateX(-100%);
+            transition-timing-function: ease-in-out;
+        }
+        .dropdown-item {
+            display: block;
+            width: 100%;
+            padding: 5px 20px !important;
+            clear: both;
+            font-weight: 400;
+            color: #0e0e0e!important;
+            text-align: left;
+            white-space: nowrap;
+            background-color: transparent;
+            border: 0;
+        }
+        .dropdown-item.active, .dropdown-item:active {
+            color: #fff!important;
+            text-decoration: none;
+            background-color: #007bff;
+        }
+        .price-rs{
+            font-size:33px;
+            font-weight:800;
+            line-height:1;
+        }
+        .black-btn-e{
+            
+            background-color:black;
+            padding:6px 25px;
+            border-radius:20px;
+            border:none;
+            color:white;
+            cursor:pointer;
+        }
+        .blue-box{
+            background-color:#2680EB;
+            color:white;
+            padding:20px;
+            border-radius:15px;
+        }
+        .red-btnup{
+            background-color:red;
+            color:white;
+            padding:8px 30px;
+            border-radius:10px;
+            border:none;
+            cursor:pointer;
+        }
+        .cancel-btn2{
+            background-color:#a09e9e;
+            color:white;
+            padding:8px 30px;
+            border-radius:10px;
+            border:none;
+            cursor:pointer;
+        }
+        .ps2{
+            
+            background-color: #1361BC!important;
+        }
+        .ps3{
+            background-color:white!important;
+        }
+        .fs-13{
+            font-size:13px;
+        }
+        .fs-22{
+            font-size:22px;
+        }
+        .bold{
+            font-weight:bold;
+        }
+        .green-tic{
+            color:green;
+            padding-right:10px;
+        }
+        .ui-plan{
+            max-width:890px;
+            margin:auto;
+        }
+        .new-modal{
+            position: fixed;
+            background-color: #00000082;
+            z-index: 70;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            display:none;
+        }
+        .new-modal1{
+            position: fixed;
+            background-color: #00000082;
+            z-index: 70;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            display:none;
+        }
+
+        .new-modal-content{
+            
+            position: absolute;
+            max-width: 480px;
+            background-color: white;
+            padding: 50px;
+            text-align: center;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-height: 420px;
+            border-radius: 15px;
+        }
+        .btn-1{
+            border:2px solid #2680EB;
+            padding:8px ;
+            width:100%;
+            display:block;
+            color:#2680EB;
+            background-color:transparent;
+            border-radius:5px;
+        }
+        .btn-2{
+            background-color:#2680EB;
+            border:none;
+            padding:11px 8px ;
+            width:100%;
+            font-size: 14px;
+            display:block;
+            color:white;
+            border-radius:5px;
+        }
+        .p-11{
+            padding:2px!important;
+        }
+        .new-close{
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            cursor: pointer;
+        }
+        .fs-50{
+            font-size:50px;
+        }
+        .blue-text{
+            color:#2680EB;
+            
+        }
+        .rangeSlider__handle:after {
+            content: "";
+            display: block;
+            width: 18px;
+            height: 18px;
+            margin: auto;
+            position: absolute;
+            top: 3px;;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: url("resources/editor/images/33.svg")!important;
+            
+            background-repeat:no-repeat;
+            background-size:contain;
+            border-radius: 50%;
+        }
+        .rangeSlider__handle {
+            border: 1px solid #ccc;
+            cursor: pointer;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            z-index: 3;
+            
+            background: #2680EB;
+            -webkit-box-shadow: 0 0 8px rgba(0,0,0,.3);
+            box-shadow: 0 0 8px rgba(0,0,0,.3);
+            border-radius: 50%;
+        }
+        .p-20{
+            padding: 10px 20px;
+        }
+        .new-close img{
+            max-width:35px;
+        }
+        @media (max-width: 992px){
+
+        .p-center{
+            text-align:center;
+        }
+        .blue-box {
+        
+            margin-bottom: 20px;
+        }
+        }
+
+        @media (max-width: 600px){
+        .sm-none{
+            display:none;
+        }
+        }
+
+        .rangeSlider__horizontal {
+            height: 20px;
+            max-width: 500px;
+            text-align:initial!important;
+        }
+        .rangeSlider {
+            position: relative;
+            background: #e6e6e6;
+            margin: 40px 0px;
+        }
+        .rangeSlider__fill {
+            background: #2680EB;
+            position: absolute;
+            z-index: 2;
+        }
+        .rangeSlider__horizontal {
+            height: 10px;
+            max-width: 500px;
+            text-align: initial!important;
+        }
+        .rangeSlider__handle {
+            border: 1px solid #ccc;
+            cursor: pointer;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            z-index: 3;
+        }
+        .v-1{
+            position: absolute;
+            left: 15px;
+        top: -30px;}
+        .v-2{
+            position: absolute;
+            right:15px;
+            top:-30px;}
+</style>
+</style>  	    
+</head>
+<body>
+<div class="unitear-loader loader1-img loader-img" style="display:none">
+        <div class="unitear-loader-gif">
+            <img src="resources/editor/images/loader_new.gif" alt="">
+        </div>
+  </div>
+<div id="app">
+<!-----Expiry modal------------->
+<div v-if="trial_modal" v-model="trial_modal"  :class="'popup-main ' +show_expiry_modal_class" style="display:none;" id="popup-3">
+            <div class="popup-view " >
+                <span v-on:click="trial_modal=false;datas.show_expiry_modal_class='my-modal-display-hide';"class="close-p" data-dismiss="modal"><img src="resources/editor/img/p-close.svg" alt=""></span>
+                <img src="resources/editor/img/img-b.svg" class="img-fluid p-img" alt="">
+                <p class="h3-pb text-center">Your free trial has ended :-(</p>
+                <p class="text-center">The 14 days trial has just ended.
+                        Don't worry, all of your campaigns are safe.
+                        </p>
+                        <hr>
+                        <p class="text-center">If you're just forgotten to pick your package,
+                                then you can still do it here..!!</p>
+                <div class="text-center">
+                        <a href="pricing"><button class="btn popup-btn">UPGRADE PACKAGE</button></a>
+                </div>
+                        
+            </div>
+        </div>
+
+<!-----Expiry modal------------->
+ <div v-if="show_delete_target_modal"  v-model="show_delete_target_modal" :class="'popup-main '+show_delete_target_modal_class" style="display:none;">
+            <div class="popup-view " >
+                    <span v-on:click="show_delete_target_modal=false;show_delete_target_modal_class='my-modal-display-hide';"class="close-p" data-dismiss="modal"><img src="resources/editor/img/p-close.svg" alt=""></span>
+            
+               <img src="resources/editor/img/img-g.svg" class="img-fluid p-img nonloader-img" alt="">
+				<img src="resources/img/loader.gif" class="img-fluid p-img loader-img" alt="" style="display:none;" >
+                <br>
+                <p class="h3-pb text-center mb-0">Delete a target image?</p>
+
+                <p class="text-center">You can't undo this function
+                </p>
+                <br>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-6">
+                            <button v-on:click="show_delete_target_modal=false;show_delete_target_modal_class='my-modal-display-hide';"class="btn cancel-btn">Cancel</button>
+                        </div>
+                        <div class="col-6">
+                                <button v-on:click="delete_target();"class="btn delete-btn">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- DELETE Target MODAL-->	
+
+<header>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-4">
+						<a href="editor">	<img src="resources/editor/images/logo.svg" alt="" class="logo img-fluid"></a>
+				</div>
+				<div class="col-8">
+					<div class="menu">
+					
+							<a href="pricing" class="upplan sm-none">Upgrade Plan</a>
+							<span class="noty">
+								<button  v-on:click="change_notification_read_status()">
+									<i class=""><img src="resources/editor/images/i-2.svg" alt=""></i>
+									<div v-model="read_entire_status "v-if="read_entire_status" class="blip"></div>
+								</button>
+							<div class="notification">
+									<i class="fas fa-times close mm" v-on:click="change_notification_read_status()"></i>
+									<div class="content">
+										<!-- <div class="profile-img"></div> -->
+										<div class="text" >
+											<h1>Messages</h1>
+											<div v-model="no_of_notification_records"v-if="no_of_notification_records<=0">
+											<p>No messages</p>
+											<hr>
+											</div>
+											<div v-else v-for="single_notification in notification">
+											<p>{{single_notification.message}}<img v-if="!single_notification.read_status" class="img1" src="resources/editor/img/new.png"/><img v-on:click="delete_notification(single_notification.id)"class="img2"src="resources/editor/img/cancel.png"/></p>
+											<hr>
+											</div>
+											
+											
+										</div>
+								</div>
+							</div>
+						</span>
+							<span class="dropdown">
+							<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class=""><img src="resources/editor/images/i-3.svg" alt=""></i></a>
+							<ul class="dropdown-menu drop ">
+							  	<li class="pl-1"> 
+										<div class="container-fluid">
+												<div class="row">
+														<div class="col-4 p-0">
+														<div class="dp-pro">
+															<img src="resources/img/default-avatar.jpg" class="img-fluid" alt="">
+														</div>	
+														</div>
+														<div class="col-8">
+																<p class="p-0 m-0 user-name"></p>
+																<p class="mail m-0 "></p>
+																<a class="m-0 account"href="editor/package" >My Account</a>
+														</div>
+													</div>
+													<hr>
+										</div>
+										
+									</li>
+									<li><a href="pricing">upgrade plan</a></li>
+							    <li><a href="editor/profile">My Profile</a></li>
+							   
+							    <li><a onclick="logout()">Log Out</a></li>
+								</ul>
+							</span>
+					</div>
+					
+				
+				</div>
+			</div>
+			<div class="center-box">
+				<h3>Let’s Start</h3>
+				<p> The World’s Easiest AR Platform</p>
+				<button class="add_chapm" @click="start_campaign();">
+					<i class=" icon-add"><img src="resources/editor/images/i-1.svg" alt=""></i>
+					 Add new project</button>
+			</div>
+		</div>
+	</div>
+
+</header>
+			
+	
+	
+			
+			
+<section class="for-footer">
+	<div class="container mt-5">
+		 <ul class="nav nav-tabs" role="tablist">
+		    <li class="nav-item">
+		      <a class="nav-link active" data-toggle="tab" href="#home">My Package
+
+</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" data-toggle="tab" href="#menu1">My Bills
+
+</a>
+		    </li>
+		    
+		   
+		     
+		  </ul>
+		  
+		  <div class="clearfix"></div>
+
+		  <!-- Tab panes -->
+		  <div class="tab-content">
+		 
+		    <div id="home" class=" tab-pane active">
+			
+			<!---- new package ui -->
+			
+			<div  class="container-fluid">
+			
+			<div class="plan ui-plan mt-3">
+				<div class="row">
+					<!-- this is what controls the fixed purchase part -->
+					 <div class="col-lg-4 p-center">
+						<div style="padding:20px;">
+							<p>Package View Limit</p>
+							<p class="price-rs"></p>
+							<button class="black-btn-e" onclick="newmodal1();">Add more Scans</button>
+						</div>
+					 </div>
+					 <div class="col-lg-4">
+						<div class="blue-box">
+							<p class="p-center">Storage Usage</p>
+							<p class="mb-0 bold"></p>
+							<p class="fs-13">/</p>
+							<div class="progress ps2">
+							  <div class="progress-bar ps3" style="width:5%"></div>
+							
+							</div>
+							<span class="w-100 text-right d-block fs-13">%</span>
+						</div>
+					 </div>
+	
+					 <div class="col-lg-4">
+						<div class="blue-box">
+							<p class="p-center">Target Images</p>
+							<p class="mb-0 bold"></p>
+							<p class="fs-13">/</p>
+							<div class="progress ps2">
+							  <div class="progress-bar ps3" style="width:5%"></div>
+							</div>
+							<span class="w-100 text-right d-block fs-13">%</span>
+						</div>
+					 </div>
+				</div>
+				<hr>
+				<div class="row p-center">
+					<div class="col-md-4">
+						
+						<div class="p-20">
+							<p class="fs-22 bold mb-2"> Package</p>
+							<p class="mb-0">Next Payment</p>
+							
+							<p class="bold"></p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class=" p-20">
+							<P>Like to upgrade ?</P>
+							<a href="pricing"><button class="red-btnup" >Upgrade Now </button></a>
+							
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="p-20">
+							<P>Cancel your Subscribtion? </P>
+							<button class="cancel-btn2" onclick="newmodal();">Cancel Subscribtion </button>
+							
+						</div>
+					</div>
+				</div>
+				<hr>
+				<p class="fs-22 p-20 bold p-center">Supported Features</p>
+				<div class="row">
+				
+							
+					
+						
+					
+					
+				</div>
+			</div>
+			
+			
+			</div>
+			
+			<!--- new ui ended  --->
+			
+			
+			<div class="row mt-4">
+					<div class="col-sm-2">
+						
+						
+					</div>
+					
+					<div class="col-sm-8">
+						<div class="plan mb-4">
+							
+												<div class="container-fluid">
+							<div class="plan-support">
+								
+								<br>
+								<a href="pricing"><button class="btn-pink">Upgrade Your package</button></a>
+							</div>
+						</div>
+					</div>
+					</div>
+					
+					<div class="col-sm-2">
+						
+					</div>
+					
+				</div>
+				
+			
+			<!--
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		    	 <?php
+					if($active_package==null)
+					{
+					?>
+			     <div class="row mt-4">
+					<div class="col-sm-2">
+						
+						
+					</div>
+					
+					<div class="col-sm-8">
+						<div class="plan mb-4">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="plan-box">
+											<p class="plan-p">Package Price</p>
+											<p class="plan-h">$<?=empty($active_package['package_price'])?"":$active_package['package_price'];?><?=($active_package['package_subscription_type']=="monthly")?"":"x 12";?></p>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="plan-box">
+											<p class="plan-p">Validity</p>
+											<p class="plan-h"><?=($active_package['package_subscription_type']=="monthly")?"1 Month":"1 Year";?></p>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="plan-box">
+											<p class="plan-p">Package Scan Count</p>
+											<p class="plan-h"><?=empty($active_package['package_scan_limit'])?"":$active_package['package_scan_limit'];?></p>
+										</div>
+									</div>
+								</div>
+							</div>
+												<div class="container-fluid">
+							<div class="plan-support">
+								<span>
+								<?php
+								$package_features=json_decode($active_package['package_features'],true);
+								if($package_features!=null)
+								{
+								foreach($package_features as $feature)
+								{
+									echo $feature."  | ";
+								}
+								}
+								?>
+								
+								
+								</span>
+								<br>
+								<a href="pricing"><button class="btn-pink">Upgrade Your package</button></a>
+							</div>
+						</div>
+					</div>
+					</div>
+					
+					<div class="col-sm-2">
+						
+					</div>
+					
+				</div>
+				<?php
+					}
+					else{
+					?>
+					<div class="row mt-4">
+					<div class="col-sm-2">
+						
+						
+					</div>
+					
+					<div class="col-sm-8">
+						<div class="plan mb-4">
+							
+												<div class="container-fluid">
+							<div class="plan-support">
+								
+								<br>
+								<a href="pricing"><button class="btn-pink">Upgrade Your package</button></a>
+							</div>
+						</div>
+					</div>
+					</div>
+					
+					<div class="col-sm-2">
+						
+					</div>
+					
+				</div>
+				<?php
+					}
+					
+					?>-->
+		    </div>
+			
+		    <div id="menu1" class=" tab-pane fade">
+		      <div class="row mt-4">
+					<div class="col-sm-2">
+						</div>
+					<div class="col-sm-8">
+						<div class="plan mb-4">
+							<div class="container-fluid">
+							
+								<div class="border p-3 mb-3">
+									<div class="row">
+										<div class="col-md-4 border-r">
+											<div class="order-list">
+												<p>Order </p>
+											<p> PACKAGE</p>
+											<p></p>
+											</div>
+											
+										</div>
+										<div class="col-md-4 border-r">
+											<div class="order-rate">
+												<p></p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<a href="" class="order-l">Download Invoice</a>
+										</div>
+									</div>
+								</div>
+							
+							<!--	<div class="border p-3 mb-3">
+									<div class="row">
+										<div class="col-md-4 border-r">
+											<div class="order-list">
+												<p>Order #12123</p>
+											<p>STUDENTS PACKAGE</p>
+											<p>21 oct 2019</p>
+											</div>
+											
+										</div>
+										<div class="col-md-4 border-r">
+											<div class="order-rate">
+												<p>$108</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<p class="order-failed">Payment Failed</p>
+										</div>
+									</div>
+								</div>
+								<div class="border p-3 mb-3">
+									<div class="row">
+										<div class="col-md-4 border-r">
+											<div class="order-list">
+												<p>Order #12123</p>
+											<p>STUDENTS PACKAGE</p>
+											<p>21 oct 2019</p>
+											</div>
+											
+										</div>
+										<div class="col-md-4 border-r">
+											<div class="order-rate">
+												<p>$108</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<p class="order-proc">Payment Processing</p>
+										</div>
+									</div>
+								</div>-->
+								
+							</div>
+						</div>
+					</div>
+					
+					
+				</div>
+		    </div>
+		   
+		  </div>
+
+
+
+
+
+
+
+
+
+		
+	</div>
+</section>
+
+
+
+
+
+
+
+
+<div v-if="show_target_upload_modal" v-model="show_target_upload_modal" :class="'modal show '+show_target_upload_modal_class" ref="targetUploader" id="targetUploader" style="padding-right: 15px;background: #000000c9;display:none;">
+	
+	<div class="modal-dialog modal-dialog2">
+		<div class="modal-content">
+
+	
+			<div class="modal-body modal-body2" style ="   height: 480px;"
+    >
+			<div class="container-fluid">
+						<div class="form-group row">
+								<div class="col-5">
+									<input type="text"v-on:focus="change_campaign_name()" v-on:keyup="check_campaign_name()"id="campaign_name"class="t-input" :value="current_campaign_name"v-model="current_campaign_name"placeholder="">
+								</div>
+								<div v-if="campaign_msg_status"  v-model="campaign_msg_status"class="col-7">
+									<p class="help floating"><i class="fas fa-caret-left"></i>Please add your project name</p>
+								</div>
+							</div>
+							<i @click="show_target_upload_modal=false;target_files=[];"class="fas fa-times nav-close" data-dismiss="modal"></i>
+				</div>
+				<div class="container-fluid">
+						
+
+							<i class="fas fa-times nav-close" data-dismiss="modal" v-on:click="show_target_upload_modal=false;target_files=[];"></i>
+				</div>
+			
+			<div class="container-fluid target-block" style="height: 285px;
+    overflow: auto;">
+				<div class="row">
+					<div class="col-md-3"  v-on:click="opentargetFile()">
+						<div class="target-file">
+								
+								<i class=""><img src="resources/editor/images/i-7.svg" alt=""/></i>
+								<p class="t-text">Add a target image</p>
+						</div>
+						
+					</div>
+
+				  <file-upload :thread="1" 
+												:data="{campaign_id:current_campaign_id}"
+												post-action="artarget/start_campaign" 
+												name="artarget" 
+												input-id="targetImageFileInputId" 
+												:multiple="true" ref="upload2"  
+												@input-filter="inputFilter2" 
+												:size="2*1024 * 1024" 
+												@input-file="inputFile2" 
+												v-model="target_files">
+                                  </file-upload> 	
+					<div class="col-md-3" v-for="(file, index) in target_files" :key="file.id">
+							<div class="target">
+								<img :src="file.blob" alt="" class="img-fluid"/>
+							
+								<i class="dff" v-if="!file.success"v-on:click="removeFileupload(file)"><img src="resources/editor/images/i-9.svg" alt=""/></i>
+								<i class="dff"v-else v-on:click="if(JSON.parse(file.response).status){removeFile(JSON.parse(file.response).data.scan_target_id,file);}else{removeFileupload(file);}"><img src="resources/editor/images/i-9.svg" alt=""/></i>
+								<!--<i class="dff"  v-on:click="removeFile(file)"><img src="resources/editor/images/i-9.svg" alt=""/></i>-->
+								 <div class="show-progress text-center" v-if="!file.success || file.error">
+									 <template >
+									<div  v-if="file.progress!=100" class="progress">
+										<div class="progress-bar " :style="{'width':file.progress+'%'}">{{file.progress}}%</div>
+									</div>
+									<div v-else-if="file.progress==100 && !file.success" class="bar-graph w-100"> 
+									<div class="bar-wrap"><span class="bar-fill" style="width: 30%;"></span></div>
+									</div>
+									 </template>
+						<template v-if="file.error">
+						
+										<span class="bh " v-on:click="removeFileupload(file)"><img src="resources/editor/images/i-8.svg" alt=""/></span>
+									<div class="close-text">
+										<p class="mb-0">{{file.error}}</p>
+										<p class="mb-1"></p>
+									</div>
+						
+						</template>
+								</div> 
+								
+								
+								
+							
+
+							
+						</div>
+							
+					</div>
+					
+					
+					
+				</div>
+			</div>
+			<br/>
+			<div  class="next">
+			<button disabled v-on:click="view_campaign()"class="next-target my-disabled-button">Next</button>
+				
+			</div>
+			</div>
+
+			
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="new-modal">
+	<div class="new-modal-content">
+	<span class="new-close" onclick="newclose()"><img src="resources/editor/images/close2.svg"></span>
+	<img src="resources/editor/img/img-b.svg" class="img-fluid">
+	<p class="fs-22 bold">Cancel Subscription</p>
+	<p>Are you sure you want to delete your subscription? This will change your current plan to freemium.</p>
+	<div class="container-fluid">
+		<div class="row">
+			
+			<div class="col-6 p-0 p-11">
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=ST66DCLNET8Q8"><button class="btn-2">Yes, Cancel subscription</button></a>
+			</div>
+			<div class="col-6 p-0 p-11">
+			<button class="btn-1" onclick="newclose()">Back</button>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+
+<div class="new-modal1">
+	<div class="new-modal-content">
+	<span class="new-close" onclick="newclose()"><img src="resources/editor/images/close2.svg"></span>
+	
+	<p class="fs-22 bold">Choose your scan count </p>
+	<p>This will add more scans to your package <br>
+based on your budget.</p>
+
+    <div class="container-fluid relative" style="max-width:300px;margin:auto;">
+	<span class="v-1">Scans</span>
+	<span class="v-2" id="scan_count">1000</span>
+     <input type="range" id="slider" class="e-range" min="50"  max="5000" value="2500" onchange="slidermovement(value)" class="slider"/>
+       <!-- <output data-output></output>-->
+    </div>
+    <!-- <script src='https://cdn.jsdelivr.net/npm/rangeslider-pure@0.4.4/dist/range-slider.min.js'></script> -->
+
+<p class="mb-0"> Total Cost</p>
+<p class="fs-50 bold blue-text" id="scan_price">$100</p>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-3">
+			
+			</div>
+			<div class="col-6">
+				<button class="btn-2" onclick="oneTimeRazorpay()">Purchase Views</button>
+				<!-- this is where the razorpay stuff happens onetime checkout -->
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+
+
+
+
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<p class="f-t">Download & scan using UniteAR</p>
+				</div>
+				<div class="col-lg-4 text-center">
+					<a href="https://play.google.com/store/apps/details?id=com.ibosoninnov.unitear">
+						<img src="resources/editor/images/g-play.png" class="img-fluid f-pp" alt="">
+					</a>
+					<a href="https://itunes.apple.com/us/app/unitear/id1450089869?ls=1&mt=8">
+						<img src="resources/editor/images/i-store.png" alt="" class="img-fluid f-pp">
+					</a>
+				</div>
+				<div class="col-lg-5 f-link">
+				<a href="help">Help</a>	
+					 | 
+					<a href="contact">Contact Us</a> 
+						| 
+					<a href="terms">Terms & Conditions</a>	
+						 |
+					<a href="privacy-policy">Privacy policy</a>	  
+				</div>
+			</div>
+		</div>
+		</footer>
+		
+		
+		
+		
+
+
+
+
+
+		<script>
+        var base_urls_8088='http://localhost:8088/';
+        var base_urls_8081='http://localhost:8081/';
+        var base_urls_8097='http://localhost:8097/';
+        var base_urls_8089='http://localhost:8089/';//invite
+			var initialOpen = true;
+				var blip = document.querySelector('.blip')
+				var button = document.querySelector('button');
+				var notification = document.querySelector('.notification');
+				var close = document.querySelector('.close');
+				// var image = document.querySelector('.profile-img');
+				var text = document.querySelector('.text')
+				
+				function toggleNotification() {
+					if (initialOpen) {
+						initialOpen = false;
+						blip.classList.add('hide')
+					}
+					
+					if (notification.classList.contains('open')) {
+						// image.classList.toggle('show');
+						text.classList.toggle('show');
+						
+						setTimeout(function() {
+							notification.classList.toggle('open');
+						}, 50)
+					} else {
+						notification.classList.toggle('open');
+				
+						setTimeout(function() {
+							// image.classList.toggle('show');
+							text.classList.toggle('show');
+						}, 150)
+					}
+				}
+				
+			
+			</script>
+
+<script type="text/javascript">
+	
+function myFunction() {
+          var x = document.getElementById("myInput");
+            var y = document.getElementById("span");
+          if (x.type === "password") {
+             y.classList.add('black');
+             
+            x.type = "text";
+           
+          } else {
+             
+            x.type = "password";
+             y.classList.remove('black');
+
+          }
+        }
+
+function myFunction1() {
+          var x = document.getElementById("myInput1");
+            var y = document.getElementById("span1");
+          if (x.type === "password") {
+             y.classList.add('black');
+             
+            x.type = "text";
+           
+          } else {
+             
+            x.type = "password";
+             y.classList.remove('black');
+
+          }
+        }
+function myFunction3() {
+          var x = document.getElementById("myInput3");
+            var y = document.getElementById("span3");
+          if (x.type === "password") {
+             y.classList.add('black');
+             
+            x.type = "text";
+           
+          } else {
+             
+            x.type = "password";
+             y.classList.remove('black');
+
+          }
+        }
+
+
+</script>
+<script>
+    var slider = document.getElementById("slider");
+    var output = document.getElementById("scan_count");
+    output.innerHTML = slider.value; // Display the default slider value
+    
+    // Update the current slider value (each time you drag the slider handle)
+    
+     function slidermovement(value) {
+      
+        var output = document.getElementById("scan_count");
+        var price_output = document.getElementById("scan_price");
+        output.innerHTML = value;
+        price_output.innerHTML = "$"+(value/25).toString();
+    
+    }
+    
+    </script>
+    
+    
+    
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <meta name="viewport" content="width=device-width">
+    
+    
+    <script>
+    var base_url_8099='http://localhost:8099/';
+    function oneTimeRazorpay(){
+    var amount = (document.getElementById("scan_price").innerHTML).replace('$','');
+    var scan_number = document.getElementById("scan_count").innerHTML;
+    //console.log(amount);
+    $.post("razorpay_onetime", {amount: amount}, function(result){
+    
+    //console.log("function is running.");
+    //console.log(result);
+    var options = {
+        "key": "rzp_live_Z0QTFFgeiISPfW", // Enter the Key ID generated from the Dashboard
+        "amount": "50", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise or INR 500.
+        "currency": "USD",
+        "name": "UniteAR",
+        "description": scan_number+" scans",
+        "image": "<?php echo base_url();?>/img/unitear_razorpay_logo.png",
+        "order_id": result,//This is a sample Order ID. Create an Order using Orders API. (https://razorpay.com/docs/payment-gateway/orders/integration/#step-1-create-an-order). Refer the Checkout form table given below
+        "handler": function (response){
+            //alert("PAYMENT SUCCESSFUL");
+            newclose();
+        },
+        "prefill": {
+            "name": "",
+            "email": "",
+            "contact": ""
+        },
+        "notes": {
+            "user_id": "<?=$this->session->userdata('user_id",
+            "scans": scan_number,
+            "one_time": "pay per scan"
+        },
+        "theme": {
+            "color": "#528FF0"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+        rzp1.open();
+        e.preventDefault();
+    });
+    }
+    
+    function newclose(){
+        
+        $(".new-modal").css("display","none");
+        $(".new-modal1").css("display","none");
+    }
+    function newmodal(){
+        
+        $(".new-modal").css("display","block");
+    }
+    function newmodal1(){
+        
+        $(".new-modal1").css("display","block");
+    }
+    
+    // this is for the new slider
+    // let tooltip;
+    
+    // const slider = document.querySelector('[type="range"]');
+    
+    // const output = document.querySelector('[data-output]');
+    
+    // rangeSlider.create(slider, { onSlide: val => {
+        
+    //     console.log(val);
+    // 	output.textContent = val;
+        
+    //   } });
+    
+    </script>
+    
+
+ 
+<script type="text/javascript" src="resources/editor/js/package_vue.js"></script>
+</div>
+
+
+</body>
+</html>

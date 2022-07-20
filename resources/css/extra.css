@@ -1,0 +1,35 @@
+.error_form
+{
+padding-top: 5px;
+    font-size: 14px;
+    color: #f00;
+}
+.login-error{
+	text-align: center;
+        padding-top: 5px;
+    color: red;
+}
+.passowrd-error{
+	text-align: center;
+    padding-top: 25px;
+    color: blak;
+}
+.my-modal-display-show
+{
+	display:block !important;
+}
+.my-modal-display-hide{
+	display:none !important;
+}
+.my-disabled-button
+{
+	background-color: #dadee1 !important;
+	color: #c6c5c5 !important;
+}
+.trash-campaign {
+position: absolute;
+top: 7px;
+right: 0;
+width: 40px;
+cursor: pointer;
+}

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4786fdfe-e8fb-4e25-94da-93fbc9f9f7cc" data-blockingmode="auto" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png">
+    <title>UniteAR</title>
+    <link rel="stylesheet" href="resources/editor_new/css/bootstrap.min.css">
+    <script src="resources/editor_new/js/jquery.min.js"></script>
+    <script src="resources/editor_new/js/popper.min.js"></script>
+    <script src="resources/editor_new/js/bootstrap.min.js"></script>
+    <link href="resources/editor_new/css/font_lato_swap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/editor_new/css/style.css">
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="resources/editor_new/js/vue_v2.6.14.js"></script>
+    <script type="text/javascript" src="resources/editor_new/js/vue-snotifyv3.2.1.min.js"></script>
+    <link rel="stylesheet"href="resources/editor_new/css/vue-snotify3.2.1.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-223586665-1"></script>
+    <script src="resources/editor_new/js/main.js"></script>
+	
+    <style>
+    [v-cloak] {
+        display: none;
+    }
+
+    .no-noty {
+        text-align: center;
+        padding: 30px 10px;
+        font-size: 14px;
+    }
+
+    .no-noty img {
+        padding-bottom: 5px;
+    }
+    .video-modal {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        background-color: #000000a8;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+    
+    .video-modal video {
+        max-width: 600px;
+    }
+    .ut-video {
+        width: 900px;
+        height: 507px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .btn-secondary {
+        color: #333333;
+        background-color: white;
+        border-color: #D4D4D4;
+    }
+    .btn-secondary:hover {
+        color: #333333;
+        background-color: #F2F5FA;
+        border-color: #D4D4D4;
+    }
+    .dropdown-menu.show a{
+        padding: 5px 15px;
+    }
+    .videomodal-close {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        width: 30px;
+        cursor: pointer;
+    }
+
+    /*code added by Vishnu M R-2021-07-29*/
+    .goog-te-banner-frame{
+        display:none;
+    }
+
+    .btn-primary {
+        border-radius: 20px;
+    }
+    /*code added by Vishnu M R-2021-07-29*/
+	
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 49px;
+        height: 27px;
+    }
+    .cursor{
+        cursor:pointer;
+    }
+    .slider-range {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 10px;
+        border-radius: 5px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+    
+    .slider-range:hover {
+        opacity: 1;
+    }
+    
+    .slider-range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background:#08f;
+        cursor: pointer;
+    }
+    
+    .slider-range::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background:#08f;
+        cursor: pointer;
+    }
+    .team-home{
+        text-align:center;
+        height: calc(100vh - 150px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+    }
+    .img-team{
+        max-width:400px;
+        padding-bottom:20px;
+    }
+    .team-home h3{
+        font-size:35px;
+    }
+    .invite-head h3{
+        font-size:30px;
+        color:grey;
+    }
+    .form-control {
+        display: block;
+        width: 100%;
+        height: calc(1.5em + .75rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff0;
+        background-clip: padding-box;
+        border: 1px solid #b4b9be;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    p{
+        color:grey;
+    }
+    .member{
+        box-shadow:0px 0px 4px silver;
+        padding:8px;
+        margin-top:15px;
+        border-radius:10px;
+    }
+    .div-center{
+        display:flex;
+        align-items:center;
+        /* height:100%; */
+    }
+    .border-none{
+        border:none;
+    }
+    .btn-grey{
+        border:1px solid silver;
+        background-color:white;
+        color:grey;
+
+    }
+
+        .app-modal {
+            background-color: #00000066;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+			z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+        .app-modal-content {
+            max-width: 100%;
+            width:430px;
+            background-color: white;
+            padding: 35px 25px;
+            text-align: center;
+            position: relative;
+            border-radius: 6px;
+        }
+        
+        .h3-modal {
+            font-size: 23px;
+        }
+        
+        .app-modal-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+        
+        .btn-app-modal {
+            background-color: #08f;
+            padding: 10px 35px;
+            border-radius: 5px;
+            border: 1px solid #08f;
+            color: white;
+            font-size: 16px;
+            line-height: 1;
+        }
+        .min-chart-wrapper{
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: flex-end;
+        }
+   
+        .slider {
+            overflow: hidden;
+            height: 30px;
+            width: 300px;
+            position: relative;
+            background: #ffffff;
+        }
+
+        .slider .handle {
+            float: left;
+            width: 10%;
+            height: 100%;
+            display: block;
+            background: white;
+            border-radius: 50%;
+            position: relative;
+        }
+        .slider .handle::after {
+            content:"";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            display: block;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            border: 1px solid #08f;
+        }
+
+        .slider .progress {
+            height: 10px;
+            float: left;
+            width: 25%;
+            background:#08f;
+            top: 50%;
+            position: relative;
+            margin-top: -5px;
+            border-radius: 10px 0px 0px 10px;
+        }
+
+        .slider .progressLeft {
+            width: 65%;
+            height: 10px;
+            background: #aaa;
+            float: left;
+            position: relative;
+            top: 50%;
+            margin-top: -5px;
+            border-radius: 0px 10px 10px 0px;
+        }
+        .center-box-content{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .active_newmenu{
+            border-right: none;
+            background-color: #3A3F44;
+        }
+        .error{
+            color: red;
+            font-weight: 600;
+            font-size: 13px;
+        }
+  </style>
+  
+
+
+</head>
+
+
+<body>
+    <div id="app" v-cloak>
+        <header class="header">
+            <div class="ar-platform">
+                <div class=" df-center">
+
+                     <div class="logo" >
+                        <img @click="mobile_menu = true; " style="cursor:pointer;" src="resources/editor_new/img/burg.png" alt="" class="img-fluid pr-3 menu-sm-show">
+                        <a href="login">
+                            <img src="resources/editor_new/img/logo-2.png" alt="">
+                        </a>
+                      <!--  <div class="added-menu menu-sm-hide">
+                            <a href="<?=base_url('editor')?>" class="active">My Projects</a>
+                   
+                            <a href="#" @click="check_app_factory_access();">AR App Creator 
+                                <span class="new-item-fact">New</span>
+                            </a>
+                        </div>-->
+
+                    </div> 
+                    <div class="new-dash-menu menu-sm-hide" >
+                        <!-- <img @click="mobile_menu = true; " style="cursor:pointer;" src="<?=base_url('resources/editor_new/')?>img/hum.svg" alt="" class="img-fluid pr-3 "> -->
+                        <a href="login">
+                            <div class="dash-logo">
+                            <img src="resources/editor_new/img/white-new-logo.svg" alt="">
+                            </div>
+                        </a>
+                        <div class="">
+                        
+                            <a href="#" @click="campaign_category=1;change_project_category();">
+                                <div class="new-menu-item " :class="{ active_newmenu: campaign_category == 1 }" >
+                                    <span>
+                                        <img src="resources/editor_new/img/m-1.png" alt="">
+                                    </span>
+                                    <p>IMAGE-BASED AR</p>
+                                </div>
+                            </a>
+                            <a href="#" @click="campaign_category=2;change_project_category();" >
+                                <div class="new-menu-item"  :class="{ active_newmenu: campaign_category == 2 }"  >
+                                    <span>
+                                        <img src="resources/editor_new/img/m-2.png" alt="">
+                                    </span>
+                                    <p>GROUND-PLANE AR</p>
+                                </div>
+                            </a>
+                            <a href="#"  @click="basic_or_advance_appfactory ? campaign_category=3 :  campaign_category=4;change_project_category();" >
+                                <div class="new-menu-item" :class="{ active_newmenu: campaign_category == 3 || campaign_category == 4}">
+                                        <img src="resources/editor_new/img/m-3.png" alt="">
+                                    </span>
+                                    <p>AR APP CREATOR</p>
+                                </div>
+                            </a>
+                            <!-- <a href="<?=base_url('editor')?>" class="active">My Projects</a>
+                            
+                            <a href="#" @click="check_app_factory_access();">AR App Creator 
+                               
+                            </a> -->
+                        </div>
+
+                    </div>
+                    <div class="menu">
+						<!-- <button type="button" class="btn btn-primary" onclick="Cookiebot.renew();">GDPR Compilance</button>
+						<a href="<?=base_url('cookie-declaration');?>" target="_blank">
+                                 <button type="button" class="btn btn-primary">Cookie Declaration</button>
+                    </a> -->
+						<a href="./book_your_session.html" class="menu-sm-hide">
+                        <button type="button" class="btn btn-primary">Book Your Demo</button>
+                    </a>
+						<div id="google_translate_element"></div>
+                        
+                        <span  class="btn-upgrade package-name menu-sm-hide">
+                        Enterprise Package
+                        </span>
+
+                       
+						
+						<div class="dropdown menu-sm-hide" v-if="user_as_team_member_status">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							{{switch_team_name}}
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a v-for="each_team in switch_team_list" class="dropdown-item" href="#" v-on:click="switch_team_id=each_team.id;change_team();">{{each_team.team_name}}</a>
+							</div>
+						</div>
+						
+                        <a href="#" class="noty"
+                            v-on:click="notification_read_status=true;change_notification_read_status()">
+                            <img src="resources/editor_new/img/noty-bell.svg" class="menu-sm-hide" alt="">
+                            <img src="resources/editor_new/img/white-bell.png" class="menu-sm-show" alt="">
+                            <span v-if="read_entire_status">{{read_count}}</span>
+                        </a>
+
+
+                        <a href="#" class="user menu-sm-hide">
+                            <img style=""
+                                src="resources/editor_new/img/businessman-avatar-icon-01-.svg"
+                                alt="">
+                        </a>
+                        <div class="my-menu">
+                            <ul>
+                                <li> <a href="./pricing.html"> Upgrade Plan</a></li>
+                                <li> <a href="./account.html"> My Account </a></li>
+                                <li> <a href="./team.html"> Team </a></li>
+                                <li onclick="Cookiebot.renew();"> <a href="#"> GDPR Compilance </a></li>
+                                <li> <a href="./cookie_declaration.html"> Cookie Declaration </a></li>
+                                <!-- <li> <a href="<?=base_url('editor/book-your-session');?>"> Book Your Demo </a></li> -->
+                                <li> <a onclick="logout()"> Log out </a></li>
+                            </ul>
+                            <div class="arrow-up">
+
+                            </div>
+                        </div>
+                        <div class="my-noty">
+                            <ul>
+                                <div v-if="no_of_notification_records>0" class="ul-first">
+                                    <div class="row ">
+                                        <div class="col">
+                                            <span>Notifications</span>
+                                        </div>
+                                        <div class="col text-right" @click="delete_notification(0)">
+                                            <span class="blue-text">Clear all</span>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <li v-if="no_of_notification_records<=0">
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <!-- <p class="noty-head green-text">Payment was successful!</p>-->
+                                                <div class="no-noty">
+                                                    <img
+                                                        src="resources/editor_new/img/notification.png">
+                                                    <p class="">No messages</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li v-else v-for="single_notification in notification">
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <!-- <p class="noty-head green-text">Payment was successful!</p>-->
+                                                <p class="noty-p">{{single_notification.message}}</p>
+                                            </div>
+                                            <div class="col-2" v-on:click="delete_notification(single_notification.id)">
+                                                <img src="resources/editor_new/img/close.svg" alt=""
+                                                    class="img-fluid mt-2"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <!-- <li>
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p class="noty-head red-text">Warning! Payment failed</p>
+                                                <p class="noty-p">Your payment process failed, Please update your payment details.</p>
+                                            </div>
+                                            <div class="col-2"><img src="<?=base_url('resources/editor_new/')?>img/close.svg" alt="" class="img-fluid mt-2"></div>
+                                        </div>
+                                    </a>
+                                </li>-->
+                            </ul>
+                            <div class="arrow-up">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="menuid" v-if="mobile_menu" class="menu mobile-menu">
+                <div class="flex-menu">
+                    
+                    <div class="menu-item"  @click="campaign_category=1;change_project_category();"><a href="#" :class="{ active: campaign_category == 1 }">IMAGE-BASED AR</a></div>
+                    <div class="menu-item"  @click="campaign_category=2;change_project_category();"><a href="#" :class="{ active: campaign_category == 2 }" >Ground-Plane AR</a></div>
+                    <div class="menu-item" @click="campaign_category=3;change_project_category();"><a href="#" :class="{ active: campaign_category == 3 }">ar app creator</a></div>
+                    <div class="menu-item"><a href="./account.html" class="">my account</a></div>
+
+                    <div class="menu-item"> <a href="./team.html" class=""> Team </a></div>
+                   
+                    <div class="menu-item"><a onclick="logout()">log out</a></div>
+                    <div class="menu-item"><a href="./pricing.html" class="sign-up fill-bg">upgrade now</a></div>
+                    <div class="menu-item"><a href="./book_your_session.html" class="sign-up">Book Your Demo</a></div>
+                
+                    
+                </div> <span @click="mobile_menu = false;" class="menu-close"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="28.991" height="28.992" viewBox="0 0 28.991 28.992">
+                        <g id="Group_3625" data-name="Group 3625" transform="translate(1423.406 -3230.063) rotate(45)">
+                            <rect id="Rectangle_540" data-name="Rectangle 540" width="36" height="5" rx="2"
+                                transform="translate(1280 3288)" fill="#fff"></rect>
+                            <rect id="Rectangle_541" data-name="Rectangle 541" width="36" height="5" rx="2"
+                                transform="translate(1300.5 3272.5) rotate(90)" fill="#fff"></rect>
+                        </g>
+                    </svg></span>
+            </div>
+        </header>
+
+
+
+        <!-- -------------------------------header end-------------------------- -->
+
+        
+
+
+        <section class="m-125">
+            <div class="" style="padding-top:100px">
+                <div class="container">
+                <ul class="nav nav-tabs team-nav" role="tablist">
+            
+                    <li class="nav-item" >
+                        <a class="nav-link "  href="./team.html" >Team</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active"  href="./roles.html" >Roles & Permission</a>
+                    </li>
+                    
+                </ul>
+                </div>
+            </div>
+
+
+            <!-- <div class="dashboard-sec"> -->
+            <div class="">
+                
+               
+
+                <div class="roll-tab" v-if="rollTab">
+                    <div class="container" v-if="role_list.length!=0">
+                        <div class="vert-tab row">
+                            <div class="col-md-3 mt-3">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item" v-for="(role,role_index) in role_list" :key="role.role_id">
+                                    <a @click="select_role(role,role_index);"data-toggle="tab" href="#tab67" class="nav-link" :class="{ 'active': role_index === selected_role_index }">{{role.role_name}}</a>
+                                    
+                                    </li>
+                                    <!-- <li class="nav-item">
+                                        <a data-toggle="tab" href="#tab67" class="nav-link   ">Co-Admin </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a data-toggle="tab" href="#tab67" class="nav-link   ">AR Design </a>
+                                    </li> -->
+                                    
+                                </ul>
+                            </div> 
+                            <div class="col-md-9 mt-3">
+                                <div>
+                                    <div class="tab-content">
+                                        <div id="tab67" class="tab-pane  active ">
+                                            <div class="continer-fluid" >
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <h4> Edit permissions for this role</h4>
+                                                    </div> 
+                                                   
+                                                    <div class="col-md-3">
+                                                       
+                                                    </div>
+                                                </div> 
+                                              
+                                                    <div class="role-settings" v-for="permission in permissions">
+                                                        <p class="float-left">{{permission.name}}</p>
+                                                         <label class="switch float-right">
+                                                             <input @change="update_roles();"type="checkbox" :value="permission.value"v-model="permission.value" >
+                                                              <span class="slider-toggle round"></span>
+                                                            </label> 
+                                                            <div style="clear: both;"></div>
+                                                    </div> 
+                                                       <!-- <input type="hidden" name="role_id" value="67"> 
+                                                        <div class="role-settings">
+                                                            <p class="float-left">Manage Team Members</p> 
+                                                            <label class="switch float-right">
+                                                                <input type="checkbox" name="permission_id[]" id="permission_id" value="2" checked="checked">
+                                                                 <span class="slider-toggle round"></span>
+                                                                </label>
+                                                                 <div style="clear: both;"></div>
+                                                                </div>  -->
+                                                              <!--  
+                                                                 <div class="role-settings">
+                                                                     <p class="float-left">Manage image-tracking AR editor & dashboard</p> 
+                                                                     <label class="switch float-right">
+                                                                         <input type="checkbox" name="permission_id[]" id="permission_id" value="3" checked="checked">
+                                                                          <span class="slider-toggle round"></span>
+                                                                        </label>
+                                                                         <div style="clear: both;"></div>
+                                                                        </div> 
+                                                                       
+                                                                        <div class="role-settings">
+                                                                            <p class="float-left">Manage ground-tracking AR editor & dashboard</p> 
+                                                                            <label class="switch float-right">
+                                                                            <input type="checkbox" name="permission_id[]" id="permission_id" value="4" checked="checked"> 
+                                                                            <span class="slider-toggle round"></span>
+                                                                        </label> 
+                                                                        <div style="clear: both;">
+                                                                        </div>
+                                                                    </div>
+                                                                     
+                                                                      <div class="role-settings">
+                                                                          <p class="float-left">Manage App Creator</p> 
+                                                                          <label class="switch float-right">
+                                                                              <input type="checkbox" name="permission_id[]" id="permission_id" value="5" checked="checked"> 
+                                                                              <span class="slider-toggle round"></span>
+                                                                            </label> <div style="clear: both;"></div>
+                                                                        </div>  -->
+                                                                        <!-- <input type="hidden" name="role_id" value="67">  -->
+                                                                       
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="col-md-3 mt-3">
+                                                    <button class="btn-form"  @click='create_roll_permissions()'>Create Role</button>
+                                                </div>
+                                                <div class="col-md-4 mt-3" v-if="role_list.length!=0">
+                                                    <p class="link-p cursor" @click="member_delete=true">Remove Role</p>
+													<p class="request-error">{{remove_role_error}}</p>
+                                                </div>
+                                            </div>
+                    </div>
+                    <div v-else>
+                        <div class="container">
+                            <div class="center-box-content">
+                                <div>
+                                    <img src="resources/editor_new/img/no-team.svg" class="img-team" alt="">
+                                    <h2 class="font-weight-bold">Create & Manage Roles</h2>
+                                    <p style="color:#000;max-width: 394px;margin: auto;" class="mb-3">Create and manage roles.Roles contain collections of
+                                        permissions can be assigned to users. </p>
+                                    <button class="btn-start w-100 " @click='create_roll_permissions()' style="border-radius:4px;margin:auto;" >Create Role</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="create-roll" v-if="create_roll">
+                    <p><img src="resources/editor_new/img/close-c.svg" @click="create_roll=false;" class="float-right pt-3 pb-5 pr-3 cursor" alt="">
+                       </p>
+                    <div style="clear:both;">
+                        <div class="container mt-5">
+                          <div class="row">
+                              <div class="col-md-2">
+
+                              </div>
+                              <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <h4> Create Role</h4>
+                                    </div> 
+                                  
+    
+                                    
+                                </div> 
+                                <hr>
+                              <div>
+                                  <p class="font-weight-bold">Role Name</p>
+                                  <input type="text" @keyup="check_role_name();"class="form-control" placeholder="Enter Role Name" v-model="role_name">
+                                  <p class="error">{{role_name_error}}</p>
+                              </div>
+                              <p class="font-weight-bold mt-4" >Permissions for this role</p>
+                                        <div class="role-settings" v-for="permission in primary_permissions">
+                                                        <p class="float-left">{{permission.name}}</p>
+                                                         <label class="switch float-right">
+                                                             <input type="checkbox" :value="permission.value"v-model="permission.value" >
+                                                              <span class="slider-toggle round"></span>
+                                                            </label> 
+                                                            <div style="clear: both;"></div>
+                                                    </div> 
+                                      <!--  <div class="role-settings">
+                                            <p class="float-left">Manage team members</p>
+                                             <label class="switch float-right">
+                                                 <input type="checkbox" name="permission_id[]" id="permission_id" value="1" checked="checked">
+                                                  <span class="slider-toggle round"></span>
+                                                </label> 
+                                                <div style="clear: both;"></div>
+                                            </div> 
+                                       
+                                       
+                                               
+                                                 <div class="role-settings">
+                                                     <p class="float-left">Manage image-tracking AR editor & dashboard</p> 
+                                                     <label class="switch float-right">
+                                                         <input type="checkbox" name="permission_id[]" id="permission_id" value="3" checked="checked">
+                                                          <span class="slider-toggle round"></span>
+                                                        </label>
+                                                         <div style="clear: both;"></div>
+                                                        </div> 
+                                                    
+                                                        <div class="role-settings">
+                                                            <p class="float-left">Manage ground-tracking AR editor & dashboard</p> 
+                                                            <label class="switch float-right">
+                                                            <input type="checkbox" name="permission_id[]" id="permission_id" value="4" checked="checked"> 
+                                                            <span class="slider-toggle round"></span>
+                                                        </label> 
+                                                        <div style="clear: both;">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                      <div class="role-settings">
+                                                          <p class="float-left">Manage App Creator</p> 
+                                                          <label class="switch float-right">
+                                                              <input type="checkbox" name="permission_id[]" id="permission_id" value="5" checked="checked"> 
+                                                              <span class="slider-toggle round"></span>
+                                                            </label> <div style="clear: both;"></div>
+                                                        </div> -->
+                                                      
+                                                        <div class="row ">
+                                                            <div class="col-md-6">
+
+                                                            </div>
+                                                            <div class="col-md-3 mt-3">
+                                                                <button @click="create_roll=false"class="btn-start " style="max-width: 150px; border-radius: 4px; margin: auto;background-color: white;color:#08f;border:1px solid #08f">
+                                                                    Cancel   </button>
+                                                            </div>
+                                                            <div class="col-md-3 mt-3">
+                                                                <button v-if="create_role_button_loader"class="btn-start " style="max-width: 150px; border-radius: 4px; margin: auto;">
+                                                                <i class="fa fa-circle-o-notch fa-spin"></i>   </button>
+                                                                <button v-else @click="create_role_button_loader=true;insert_roles();" class="btn-start " style="max-width: 150px; border-radius: 4px; margin: auto;">
+                                                                    Save   </button>
+                                                            </div>
+                                                        </div>
+                                                       
+                              </div>
+                          </div>
+                                               
+                                            </div>
+                    </div>
+                </div>
+            
+            </div>
+
+            <!-- --------------------home tab ended------------------- -->
+
+           
+		
+<div class="app-modal " v-show="member_delete" >
+        <div class="app-modal-content">
+            <div>
+            <div class=" ">
+              <div class="slider-box text-center">
+                <img src="resources/img/trash.svg" alt=""> 
+                   <p class="font-weight-bold mt-3">Remove Role</p>
+                    <p>Are you sure you want to remove the role?</p>
+                     <div class="row mt-3 ">
+                     <div class="col-md-6 ">
+                       <button class="btn-grey w-100 "  @click="member_delete = false ">Cancel</button>
+                    </div> 
+                    <div class="col-md-6 mt-3 ">
+                       <button v-if="remove_role_button_loader" class=" btn-moreview w-100 ">
+                       <i class="fa fa-circle-o-notch fa-spin"></i>
+                        </button>
+                        <button v-else class=" btn-moreview w-100 " @click="remove_role();">
+                       <span>Confirm</span>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </div>
+</div>
+<div class="app-modal d-none"  >
+        <div class="app-modal-content" style="width: 350px;max-width:350px;">
+            <div>
+            <div class=" ">
+              <div class=" text-center">
+                <img src="resources/img/trash2.svg" alt=""> 
+                   <p class="font-weight-bold mt-3 " style="font-size: 24px;color:#2B2B2B">Warning !</p>
+                    <p style="font-size: 15px;color:#505050;">This role is currently in use on your team. To delete, please transfer the concernto another role.</p>
+                     <div class="row mt-3 ">
+                     <div class="col-md-12  ">
+                       <!-- <button v-if="remove_role_button_loader" class=" btn-moreview w-100 ">
+                       <i class="fa fa-circle-o-notch fa-spin"></i>
+                        </button> -->
+                        <button  class=" btn-moreview w-100 " >
+                       <span>Change Role</span>
+                        </button>
+                    </div>
+                     <div class="col-md-12 mt-2 ">
+                       <button class="btn-grey w-100 "  >Cancel</button>
+                    </div> 
+                    
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </div>
+</div>
+
+
+<vue-snotify></vue-snotify>
+</section>
+    </div>
+    
+
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+   
+   var base_url='http://localhost/unitear-editor-live/';
+   var base_urls_8085='http://localhost:8085/';
+   var base_urls_8087='http://localhost:8087/';
+   var base_urls_8086='http://localhost:8086/';
+   $(function(){
+    var handleClick = 0,
+        percentage = 0;
+    $('.slider').mousemove(function(e){
+      curSlider = $(this);
+      curPos = e.pageX - curSlider.offset().left;
+      
+      if(handleClick === 1){
+       if(curPos + curSlider.find('.handle').width() / 2 <= curSlider.width()){
+         curSlider.find('.progress').css('width',curPos - curSlider.find('.handle').width() / 2 + 'px'); 
+         curSlider.find('.progressLeft').css('width', curSlider.width() - curSlider.find('.handle').width() - curSlider.find('.progress').width() + 'px');
+       }
+       percentage = Math.round(curSlider.find('.progress').width() / (curSlider.width() - curSlider.find('.handle').width()) * 100);
+       curSlider.next('input[type=text]').val(percentage + '%');
+      }
+    });
+    
+    $('.slider').mousedown(function(){
+      handleClick = 1;
+    });
+    
+    $('body').mouseup(function(){
+      handleClick = 0;
+    });
+  })
+  window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-223586665-1');
+   </script>
+ 
+   <script type="text/javascript" src="resources/editor/js/role.js"></script>
+  
+
+  
+</body>
+
+ 
+</html>

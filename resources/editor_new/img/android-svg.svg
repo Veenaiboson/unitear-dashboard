@@ -1,0 +1,22 @@
+<svg id="android" xmlns="http://www.w3.org/2000/svg" width="22.49" height="28" viewBox="0 0 22.49 28">
+  <g id="Group_3458" data-name="Group 3458" transform="translate(4.735 10.245)">
+    <g id="Group_3457" data-name="Group 3457" transform="translate(0)">
+      <path id="Path_5034" data-name="Path 5034" d="M151.112,192.034H139.275a.592.592,0,0,0-.592.592v9.47a2.964,2.964,0,0,0,2.367,2.9v3.018a1.776,1.776,0,1,0,3.551,0v-2.959h1.184v2.959a1.776,1.776,0,0,0,3.551,0V205a2.963,2.963,0,0,0,2.367-2.9v-9.47A.591.591,0,0,0,151.112,192.034Z" transform="translate(-138.683 -192.034)" fill="#ccc9c9"/>
+    </g>
+  </g>
+  <g id="Group_3460" data-name="Group 3460" transform="translate(4.735 0)">
+    <g id="Group_3459" data-name="Group 3459" transform="translate(0)">
+      <path id="Path_5035" data-name="Path 5035" d="M148.292,3.154l1-2.328A.592.592,0,0,0,148.2.36l-1,2.33a6.45,6.45,0,0,0-4.017,0l-1-2.33A.591.591,0,1,0,141.1.825l1,2.328a6.515,6.515,0,0,0-3.414,5.726.592.592,0,0,0,.592.592h11.837a.592.592,0,0,0,.592-.592A6.516,6.516,0,0,0,148.292,3.154ZM142.827,7.1a.592.592,0,1,1,.592-.592A.592.592,0,0,1,142.827,7.1Zm4.735,0a.592.592,0,1,1,.592-.592A.592.592,0,0,1,147.562,7.1Z" transform="translate(-138.684 0.001)" fill="#ccc9c9"/>
+    </g>
+  </g>
+  <g id="Group_3462" data-name="Group 3462" transform="translate(18.939 10.424)">
+    <g id="Group_3461" data-name="Group 3461">
+      <path id="Path_5036" data-name="Path 5036" d="M396.46,192.034a1.778,1.778,0,0,0-1.776,1.776v5.919a1.776,1.776,0,1,0,3.551,0V193.81A1.778,1.778,0,0,0,396.46,192.034Z" transform="translate(-394.684 -192.034)" fill="#ccc9c9"/>
+    </g>
+  </g>
+  <g id="Group_3464" data-name="Group 3464" transform="translate(0 10.424)">
+    <g id="Group_3463" data-name="Group 3463">
+      <path id="Path_5037" data-name="Path 5037" d="M55.126,192.034a1.778,1.778,0,0,0-1.776,1.776v5.919a1.776,1.776,0,0,0,3.551,0V193.81A1.778,1.778,0,0,0,55.126,192.034Z" transform="translate(-53.35 -192.034)" fill="#ccc9c9"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4786fdfe-e8fb-4e25-94da-93fbc9f9f7cc" data-blockingmode="auto" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png">
+    <title>UniteAR</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="resources/editor_new/css/style.css">
+	
+	<!--code added by Vishnu M R-2021-07-29-->
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<!--code added by Vishnu M R-2021-07-29-->
+    <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  
+	<script src="resources/editor_new/js/main.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+	
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        .no-noty {
+            text-align: center;
+            padding: 30px 10px;
+            font-size: 14px;
+        }
+
+        .no-noty img {
+            padding-bottom: 5px;
+        }
+        .video-modal {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            height: 100vh;
+            background-color: #000000a8;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        
+        .video-modal video {
+            max-width: 600px;
+        }
+        .ut-video {
+            width: 900px;
+            height: 507px;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .btn-secondary {
+            color: #333333;
+            background-color: white;
+            border-color: #D4D4D4;
+        }
+        .btn-secondary:hover {
+            color: #333333;
+            background-color: #F2F5FA;
+            border-color: #D4D4D4;
+        }
+        .dropdown-menu.show a{
+            padding: 5px 15px;
+        }
+        .videomodal-close {
+            position: absolute;
+            right: 40px;
+            top: 40px;
+            width: 30px;
+            cursor: pointer;
+        }
+
+        /*code added by Vishnu M R-2021-07-29*/
+        .goog-te-banner-frame{
+            display:none;
+        }
+
+        .btn-primary {
+            border-radius: 20px;
+        }
+        /*code added by Vishnu M R-2021-07-29*/
+        
+    
+        .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #08f;
+        border-bottom: 16px solid #08f;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        top: 50%;
+        position: relative;
+        left: 40%;
+        }
+        
+        @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+        }
+        
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+   
+        .app-modal {
+            background-color: #00000066;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+			z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .app-modal-content {
+            max-width: 460px;
+            background-color: white;
+            padding: 35px 25px;
+            text-align: center;
+            position: relative;
+            border-radius: 6px;
+        }
+        
+        .h3-modal {
+            font-size: 23px;
+        }
+        
+        .app-modal-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+        
+        .btn-app-modal {
+            background-color: #08f;
+            padding: 10px 35px;
+            border-radius: 5px;
+            border: 1px solid #08f;
+            color: white;
+            font-size: 16px;
+            line-height: 1;
+        }
+        .min-chart-wrapper{
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: flex-end;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div id="app" v-cloak>
+        <header class="header">
+            <div class="ar-platform">
+                <div class=" df-center">
+
+                     <div class="logo" >
+                        <img @click="mobile_menu = true; " style="cursor:pointer;" src="resources/editor_new/img/burg.png" alt="" class="img-fluid pr-3 menu-sm-show">
+                        <a href="login">
+                            <img src="resources/editor_new/img/logo-2.png" alt="">
+                        </a>
+                      <!--  <div class="added-menu menu-sm-hide">
+                            <a href="editor" class="active">My Projects</a>
+                   
+                            <a href="#" @click="check_app_factory_access();">AR App Creator 
+                                <span class="new-item-fact">New</span>
+                            </a>
+                        </div>-->
+
+                    </div> 
+                    <div class="new-dash-menu menu-sm-hide" >
+                        <!-- <img @click="mobile_menu = true; " style="cursor:pointer;" src="resources/editor_new/img/hum.svg" alt="" class="img-fluid pr-3 "> -->
+                        <a href="login">
+                            <div class="dash-logo">
+                            <img src="resources/editor_new/img/white-new-logo.svg" alt="">
+                            </div>
+                        </a>
+                        <div class="">
+                        
+                            <a href="#" @click="campaign_category=1;change_project_category();">
+                                <div class="new-menu-item " :class="{ active_newmenu: campaign_category == 1 }" >
+                                    <span>
+                                        <img src="resources/editor_new/img/m-1.png" alt="">
+                                    </span>
+                                    <p>IMAGE-
+BASED AR</p>
+                                </div>
+                            </a>
+                            <a href="#" @click="campaign_category=2;change_project_category();" >
+                                <div class="new-menu-item"  :class="{ active_newmenu: campaign_category == 2 }"  >
+                                    <span>
+                                        <img src="resources/editor_new/img/m-2.png" alt="">
+                                    </span>
+                                    <p>GROUND-
+                                    PLANE AR</p>
+                                </div>
+                            </a>
+                            <a href="#"  @click="basic_or_advance_appfactory ? campaign_category=3 : campaign_category=4;change_project_category();" >
+                                <div class="new-menu-item" :class="{ active_newmenu: campaign_category == 3 || campaign_category == 4}">
+                                        <img src="resources/editor_new/img/m-3.png" alt="">
+                                    </span>
+                                    <p>AR APP
+CREATOR</p>
+                                </div>
+                            </a>
+                            <!-- <a href="editor" class="active">My Projects</a>
+                            
+                            <a href="#" @click="check_app_factory_access();">AR App Creator 
+                               
+                            </a> -->
+                        </div>
+
+                    </div>
+                    <div class="menu">
+						<!-- <button type="button" class="btn btn-primary" onclick="Cookiebot.renew();">GDPR Compilance</button>
+						<a href="cookie-declaration" target="_blank">
+                                 <button type="button" class="btn btn-primary">Cookie Declaration</button>
+                    </a> -->
+						<a href="editor/book-your-session" class="menu-sm-hide">
+                        <button type="button" class="btn btn-primary">Book Your Demo</button>
+                    </a>
+						<div id="google_translate_element"></div>
+                        
+                        <span  class="btn-upgrade package-name menu-sm-hide">
+                        Enterprise Package
+                        </span>
+
+                       
+						
+						<div class="dropdown menu-sm-hide" v-if="user_as_team_member_status">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							{{switch_team_name}}
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a v-for="each_team in switch_team_list" class="dropdown-item" href="#" v-on:click="switch_team_id=each_team.id;change_team();">{{each_team.team_name}}</a>
+							</div>
+						</div>
+						
+                        <a href="#" class="noty"
+                            v-on:click="notification_read_status=true;change_notification_read_status()">
+                            <img src="resources/editor_new/img/noty-bell.svg" class="menu-sm-hide" alt="">
+                            <img src="resources/editor_new/img/white-bell.png" class="menu-sm-show" alt="">
+                            <span v-if="read_entire_status">{{read_count}}</span>
+                        </a>
+
+
+                        <a href="#" class="user menu-sm-hide">
+                            <img style=""
+                                :src="profile.user_image!=''?profile.user_image:'resources/editor_new/img/businessman-avatar-icon-01-.svg'"
+                                alt="">
+                        </a>
+                        <div class="my-menu">
+                            <ul>
+                                <li> <a href="./pricing.html"> Upgrade Plan</a></li>
+                                <li> <a href="./account.html"> My Account </a></li>
+                                <li> <a href="./team.html"> Team </a></li>
+                                <li onclick="Cookiebot.renew();"> <a href="#"> GDPR Compilance </a></li>
+                                <li> <a href="./cookie_declaration.html"> Cookie Declaration </a></li>
+                                <!-- <li> <a href="editor/book-your-session"> Book Your Demo </a></li> -->
+                                <li> <a href="./login.html"> Log out </a></li>
+                            </ul>
+                            <div class="arrow-up">
+
+                            </div>
+                        </div>
+                        <div class="my-noty">
+                            <ul>
+                                <div v-if="no_of_notification_records>0" class="ul-first">
+                                    <div class="row ">
+                                        <div class="col">
+                                            <span>Notifications</span>
+                                        </div>
+                                        <div class="col text-right" @click="delete_notification(0)">
+                                            <span class="blue-text">Clear all</span>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <li v-if="no_of_notification_records<=0">
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <!-- <p class="noty-head green-text">Payment was successful!</p>-->
+                                                <div class="no-noty">
+                                                    <img
+                                                        src="resources/editor_new/img/notification.png">
+                                                    <p class="">No messages</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li v-else v-for="single_notification in notification">
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <!-- <p class="noty-head green-text">Payment was successful!</p>-->
+                                                <p class="noty-p">{{single_notification.message}}</p>
+                                            </div>
+                                            <div class="col-2" v-on:click="delete_notification(single_notification.id)">
+                                                <img src="resources/editor_new/img/close.svg" alt=""
+                                                    class="img-fluid mt-2"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <!-- <li>
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p class="noty-head red-text">Warning! Payment failed</p>
+                                                <p class="noty-p">Your payment process failed, Please update your payment details.</p>
+                                            </div>
+                                            <div class="col-2"><img src="resources/editor_new/img/close.svg" alt="" class="img-fluid mt-2"></div>
+                                        </div>
+                                    </a>
+                                </li>-->
+                            </ul>
+                            <div class="arrow-up">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="menuid" v-if="mobile_menu" class="menu mobile-menu">
+                <div class="flex-menu">
+                    
+                    <div class="menu-item"  @click="campaign_category=1;change_project_category();"><a href="#" :class="{ active: campaign_category == 1 }">IMAGE-BASED AR</a></div>
+                    <div class="menu-item"  @click="campaign_category=2;change_project_category();"><a href="#" :class="{ active: campaign_category == 2 }" >Ground-Plane AR</a></div>
+                    <div class="menu-item" @click="campaign_category=3;change_project_category();"><a href="#" :class="{ active: campaign_category == 3 }">ar app creator</a></div>
+                    <div class="menu-item"><a href="./account.html" class="">my account</a></div>
+
+                    <div class="menu-item"> <a href="./team.html" class=""> Team </a></div>
+                   
+                    <div class="menu-item"><a href="./login.html">log out</a></div>
+                    <div class="menu-item"><a href="./pricing.html" class="sign-up fill-bg">upgrade now</a></div>
+                    <div class="menu-item"><a href="./book_your_session.html" class="sign-up">Book Your Demo</a></div>
+                
+                    
+                </div> <span @click="mobile_menu = false;" class="menu-close"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="28.991" height="28.992" viewBox="0 0 28.991 28.992">
+                        <g id="Group_3625" data-name="Group 3625" transform="translate(1423.406 -3230.063) rotate(45)">
+                            <rect id="Rectangle_540" data-name="Rectangle 540" width="36" height="5" rx="2"
+                                transform="translate(1280 3288)" fill="#fff"></rect>
+                            <rect id="Rectangle_541" data-name="Rectangle 541" width="36" height="5" rx="2"
+                                transform="translate(1300.5 3272.5) rotate(90)" fill="#fff"></rect>
+                        </g>
+                    </svg></span>
+            </div>
+        </header>
+
+
+
+        <!-- -------------------------------header end-------------------------- -->
+
+
+        
+
+
+        <section>
+            <div class="start-augment">
+                <div class="start-new">
+                    <p>Let's start your AR project right now!!</p>
+                    <div class="relative">
+                        <button class="btn-start " @click="new_project_modal=true">
+                        +Add new Project
+                    </button>
+                        <!-- <div class="request-loader">
+                        <span class="span1"></span>
+                        <span class="span2"></span>
+                    </div> -->
+                    </div>
+
+                    <img src="resources/editor_new/img/help.svg" class="help-start" alt="">
+                    <div class="help-tuto">
+                        <div class="help-q">
+                            <img src="resources/editor_new/img/close.svg" alt="">
+                            <p>What is new Project</p>
+                        </div>
+                        <div class="video">
+                            <video loop="" controls="" style="width:100%;">
+                   
+                            <source src="https://diui35v2plbz7.cloudfront.net/unitear_videos/solutions/Education.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                          </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- --------------------home tab ended------------------- -->
+
+            <div class="dashboard-sec">
+                <div class="container mt-1">
+
+                    <div class="row">
+                        <div class="col-8">
+                            
+                            <a href="editor">   <h3 class=" text-grey res-font">Projects Overview <span class="project-num"></span> </h3></a>
+                               
+                            </div>
+                            <div class="col-4 text-right">
+                                <a href="editor" style="background-color:black;color:white;"class="btn-analytcs">Analytics</a>
+                            </div>
+                    </div>
+                </div>
+                <div class="container mt-3">
+                    <div>
+                        <div class="choose-drop">
+                            <div class="btn-drop text-right" data-toggle="collapse" data-target="#demo">
+                                <span class="text-left float-left" id="selected-option">{{selected_scans_option}}</span>
+                                <i class="fas fa-chevron-down "></i>
+                            </div>
+                            <div id="demo" class="collapse ">
+                                <ul class="list-group">
+                                    <!--<li class="list-group-item select-item" @click="scan_details_chart_vue(null,0,0,'Both Image & Ground AR');">Both Image & Ground AR</li>-->
+                                    <li class="list-group-item select-item"@click="scan_details_chart_vue(null,0,1,'Image-based AR');">Image-based AR</li>
+                                    <li class="list-group-item select-item"@click="scan_details_chart_vue(null,0,2,'Ground-based AR');">Ground-based AR</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            <div class="bg-white-space">
+                                <div class="">
+                                    <div class="bg-white">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="df-center">
+                                                    <div class="mini-chart-data">
+                                                        <p>Total Views</p>
+                                                        <h2></h2>
+                                                        <p>of </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div style="width:100%;">
+                                                    <div class="MiniChart w-100 min-chart-wrapper"style="height:100% !important"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--<div class="bg-white-space mt-4">
+                                <div class="">
+                                    <div class="bg-white">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="df-center">
+                                                    <div class="mini-chart-data">
+                                                        <p>Total Projects</p>
+                                                        <h2>25</h2>
+                                                        <p>of 200</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div style="width:100%;">
+                                                    <div class="MiniChart w-100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>-->
+                        </div>
+                        <div class="col-md-8">
+                            <div class="bg-white-space">
+                                <div style="width:100%;">
+                                    <!--<canvas id="canvas"></canvas>-->
+                                   
+									<div id="chartdiv" style="height: 370px; width: 100%;display:none;"></div>
+                                    
+                                    <div class="emty-div" id="nonchartdiv">
+                                    <div class="loader"></div>
+                                        <div class="text-center" id="no_chart_data" style="display:none">
+                                            <img src="resources/img/empty-nalytics.svg" alt="">
+                                            <p class="mt-3 fs-18">Create a project and you can <br> visualise your data here</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <div class="new-projet" v-if="new_project_modal">
+            <div class="new-project-content relative">
+                <div class="text-center relative">
+                    <h2>Choose your AR project Type</h2>
+                    <p>Experience in both Web & Mobile Application</p>
+                    <div>
+                        <div class="row mt-4">
+                           <div class="col-lg-6" @click="add_webar_campaign(1)">
+                                <div class="ar-cat cf" id="cf">
+                                    <div class="relative cf2">
+                                        <img class="bottom" class="bottom" src="resources/editor_new/img/ar-app-1.jpg" alt="">
+                                        <img class="top" src="resources/editor_new/img/ar-app.jpg" alt="">
+
+                                    </div>
+                                    <p class="ar-label">Image-based AR</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6" @click="add_webar_campaign(2)">
+                                <div class="ar-cat cf">
+                                    <div class="relative cf2">
+                                        <img class="bottom" src="resources/editor_new/img/web-ar-1.jpg" alt="">
+                                        <img class="top" src="resources/editor_new/img/web-ar.jpg" alt="">
+
+                                    </div>
+                                    <p class="ar-label">Web AR</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <img src="resources/editor_new/img/close.svg" alt="" class="ar-close" @click="new_project_modal=false">
+
+            </div>
+        </div>
+		<!--Appfactory package error modal-->
+<div class="app-modal"v-if="package_error_modal">
+        <div class="app-modal-content">
+            <div>
+                <div style="text-align:center;">
+                    <img src="resources/img/warning.svg" alt="">
+                </div>
+                <div>
+                    <img src="resources/img/app-modal-close.svg" class="app-modal-close" alt=""@click="package_error_modal=false">
+                </div>
+                <div>
+                    <h3 class="h3-modal pt-3">Update your package</h3>
+                    <p>Your package doesn't support App factory. Please choose an appropriate pricing plan based on your budget and create your own branded AR App.</p>
+                    <a href="./pricing.html"><button class="btn-app-modal">Choose a price plan</button></a>
+                </div>
+
+            </div>
+        </div>
+</div>
+<!--Appfactory package error modal-->
+    </div>
+	<script>
+
+    // <!--code added by Vishnu M R-->
+    // <!--google translator-->
+
+    function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+
+    // <!--google translator-->
+    // <!--code added by Vishnu M R-->
+
+   var base_url='http://localhost/unitear-editor-live/';
+  
+    var dataPoints = [];
+    var dataPoints_new = [];
+
+    function load_data(dataPoints_new){
+    // alert("jijo");
+    // alert("jijo");
+    
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    
+    // Create chart instance
+    var chart = am4core.create("chartdiv", am4charts.XYChart);
+    
+    // Add data
+    chart.data=[];
+    chart.data = dataPoints_new;
+    // console.log(JSON.stringify(chart.data));
+    // console.log(JSON.stringify(dataPoints_new));
+    
+    // Set input format for the dates
+    chart.dateFormatter.inputDateFormat = "yyyy-MM-dd";
+    
+    // Create axes
+    var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    
+    // Create series
+    var series = chart.series.push(new am4charts.LineSeries());
+    series.dataFields.valueY = "value";
+    series.dataFields.dateX = "date";
+    series.tooltipText = "{value}"
+    series.strokeWidth = 2;
+    series.minBulletDistance = 15;
+    
+    // Drop-shaped tooltips
+    series.tooltip.background.cornerRadius = 20;
+    series.tooltip.background.strokeOpacity = 0;
+    series.tooltip.pointerOrientation = "vertical";
+    series.tooltip.label.minWidth = 40;
+    series.tooltip.label.minHeight = 40;
+    series.tooltip.label.textAlign = "middle";
+    series.tooltip.label.textValign = "middle";
+    
+    // Make bullets grow on hover
+    var bullet = series.bullets.push(new am4charts.CircleBullet());
+    bullet.circle.strokeWidth = 2;
+    bullet.circle.radius = 4;
+    bullet.circle.fill = am4core.color("#fff");
+    
+    var bullethover = bullet.states.create("hover");
+    bullethover.properties.scale = 1.3;
+    
+    // Make a panning cursor
+    chart.cursor = new am4charts.XYCursor();
+    chart.cursor.behavior = "panXY";
+    chart.cursor.xAxis = dateAxis;
+    chart.cursor.snapToSeries = series;
+    
+    // Create vertical scrollbar and place it before the value axis
+    chart.scrollbarY = new am4core.Scrollbar();
+    chart.scrollbarY.parent = chart.leftAxesContainer;
+    chart.scrollbarY.toBack();
+    
+    // Create a horizontal scrollbar with previe and place it underneath the date axis
+    chart.scrollbarX = new am4charts.XYChartScrollbar();
+    chart.scrollbarX.series.push(series);
+    chart.scrollbarX.parent = chart.bottomAxesContainer;
+    
+    dateAxis.start = 0.00;
+    dateAxis.keepSelection = true;
+    
+    
+    } // end am4core.ready()
+    load_data();
+   
+    
+    function addData(data) {
+        for (var i = 0; i < data.length; i++) {
+            dataPoints.push({
+                x: new Date(data[i].date),
+                y: data[i].units
+            });
+        }
+        chart.render();
+    
+    }
+    function scan_details_chart(chart_type,date,target_category)
+     {
+    // var chart = new CanvasJS.Chart("chartContainer", {
+        // animationEnabled: true,
+          // zoomEnabled: true,
+        // theme: "light1",
+        // title: {
+            // text: "Daily Views"
+        // },
+        // axisY: {
+            // title: "Units",
+            // titleFontSize: 24
+        // },
+        // data: [{
+            // type: "column",
+            // yValueFormatString: "#,### Units",
+            // dataPoints: dataPoints
+        // }]
+    // });
+    
+     $(".loader").show();
+    
+    dataPoints_new=[];
+     var chart_data_array=null;
+     $("#chartdiv").hide();
+    $.post('<?=base_url("editor/scan_chart_data/")?>',
+        {
+            chart_type:chart_type,
+            date:date,
+            target_category:target_category,
+        },
+        function(data,status){
+         var resp_data=JSON.parse(data);
+         $(".loader").hide();
+         if(resp_data.status)
+             {
+               
+                $("#chartdiv").show();
+    
+              
+                // console.log(resp_data.data);
+                chart_data_array=resp_data.data;
+                // console.log(chart_data_array[0].date_of_scan);
+                var chartData=[];
+                if(chart_data_array!=null)
+                {
+                    for (var i = 0; i < chart_data_array.length; i++) {
+                        // we create date objects here. In your data, you can have date strings
+                        // and then set format of your dates using chart.dataDateFormat property,
+                        // however when possible, use date objects, as this will speed up chart rendering.
+                        var newDate = new Date(chart_data_array[i].date_of_scan);
+                        newDate.setDate(newDate.getDate() + i);
+                        // alert(newDate);
+                        visits = parseInt(chart_data_array[i].scan_count);
+                        
+                        dataPoints.push({
+                                        x: chart_data_array[i].date_of_scan,
+                                        y: visits
+                                        });
+                        dataPoints_new.push({
+                                        "date": chart_data_array[i].date_of_scan,
+                                        "value": visits
+                                        });				
+                        // chart.render();	
+                        
+                        chartData.push({
+                            date: newDate,
+                            visits: visits
+                        });
+                        
+                    }
+                    load_data(dataPoints_new);
+                }
+                // chart.data = dataPoints_new;
+                
+                else{
+                    $("#nonchartdiv").show();
+                    $("#no_chart_data").show();
+                $(".loader").hide();
+    $("#chartdiv").hide();
+             }
+             }
+             else{
+                $("#nonchartdiv").show();
+                $("#no_chart_data").show();
+                $(".loader").hide();
+    $("#chartdiv").hide();
+    
+             }
+             
+        });
+        
+        }
+    
+    scan_details_chart(null,0,1);
+
+  
+        function last_seven_days_scan( mini_chart_scan_array)
+        {
+                var MiniChartWidth = $(".MiniChart").innerWidth(),
+                    MiniChartBars =  mini_chart_scan_array,
+                    MiniChartSpacing = MiniChartBars.length,
+                    // Consider all of the margins & padding (10px)
+                    MiniChartBarWidth = ((MiniChartWidth - 10) - MiniChartBars.length + 1) / MiniChartBars.length;
+        
+                // console.log(MiniChartBarWidth);
+                $(".MiniChart").html('');
+                // Chart init bars from array
+                _.map(MiniChartBars, function(value) {
+                   
+                    // $(".MiniChart").append("<a href='javascript:void(0);' class='MiniChart-bar' style='background: linear-gradient(to top, #54D8FF " + (100 - value) + "%, #54D8FF " + value + "%, #fff 50%); opacity: 1;' title='" + value + "'>" + value + "%</a>");
+                $(".MiniChart").append("<a href='javascript:void(0);' class='MiniChart-bar' style='background: #08f; opacity: 1;height:"+(value )+"px' title='" + value + "%'>" + value + "%</a>");
+        
+                });
+        }
+        
+        // last_seven_days_scan();
+        var mini_chart_scan_array=[];
+        function get_last_seven_day_scan()
+        {
+            mini_chart_scan_array=[];
+            $.post('<?=base_url("editor/get_last_seven_day_scan/")?>', {target_category_id:datas.target_category_id}, function(result){
+             var resp_scan_data=JSON.parse(result);   
+             if(resp_scan_data.status)
+             {
+                mini_chart_scan_array=resp_scan_data.data;
+                last_seven_days_scan( mini_chart_scan_array);
+             }
+             else{
+                mini_chart_scan_array=[];
+                last_seven_days_scan( mini_chart_scan_array);
+             }
+           
+        
+          });
+        }
+        get_last_seven_day_scan();
+        
+            </script>
+      <script type="text/javascript" src="resources/editor/js/analytics_vue.js"></script>
+    
+</body>
+
+</html>

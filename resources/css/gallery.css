@@ -1,0 +1,280 @@
+    .new-head .white-head {
+        text-align: center;
+    }
+    
+    .new-head h3 {
+        font-size: 50px;
+    }
+    
+    .help-tabs .nav-link {
+        display: block;
+        padding: 15px;
+        color: #3c3c3c;
+        background-color: #E6E6E6;
+        font-weight: 600;
+        border-radius: 0px;
+    }
+    
+    .help-tabs .nav-tabs .nav-link.active {
+        color: #495057;
+        background-color: #F2F2F2;
+        border-color: #F2F2F2;
+    }
+    
+    .help-tabs .tab-content {
+        background-color: #F2F2F2;
+        padding: 15px;
+    }
+    
+    .nav-tabs .nav-link:focus,
+    .nav-tabs .nav-link:hover {
+        background-color: #a2a2a2;
+        color: black;
+    }
+    
+    .over-lay {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: white;
+        z-index: 1001;
+    }
+    
+    .single-gallery {
+        margin-right: 400px;
+        height: 100vh;
+        overflow: auto;
+        padding: 30px;
+        transition-property: all;
+        transition-duration: .2s;
+        position: relative;
+    }
+    
+    .single-gallery h3 {
+        font-size: 33px;
+        font-weight: 700;
+    }
+    
+    .image-load {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70vh;
+        box-shadow: 0px 0px 6px #00000054;
+        padding: 25px;
+        border-radius: 3px;
+        margin-top: 20px;
+        position: relative;
+    }
+    
+    .image-load .img-main {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    .image-load .left {
+        position: absolute;
+        left: 25px;
+        cursor: pointer;
+    }
+    
+    .image-load .right {
+        position: absolute;
+        right: 25px;
+        cursor: pointer;
+    }
+    
+    .image-property {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 380px;
+        height: 100vh;
+        box-shadow: 0px 0px 6px #00000054;
+        padding: 20px;
+        transition-property: all;
+        transition-duration: .2s;
+    }
+    
+    .left-controler {
+        position: absolute;
+        left: -28px;
+        z-index: 2;
+        background-color: white;
+        top: 51px;
+        box-shadow: -4px 0px 6px #0000002b;
+        padding: 5px 9px;
+        cursor: pointer;
+        transition-property: all;
+        transition-duration: .2s;
+    }
+    
+    .image-property .nav-pills .nav-link.active,
+    .nav-pills .show>.nav-link {
+        color: #fff;
+        background-color: #08f;
+        border-radius: 0px;
+    }
+    
+    .image-property .nav-pills .nav-link {
+        border-radius: 0;
+        border: 1px solid #08f;
+        color: black;
+    }
+    
+    .unite-sug {
+        max-width: 284px;
+        margin: auto;
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    .unite-sug span {
+        font-weight: 700;
+    }
+    
+    .app-link {
+        text-align: center;
+    }
+    
+    .view-web p:first-child {
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    .view-web p:last-child {
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    .view-web {
+        padding-top: 20px;
+    }
+    
+    .qr-link {
+        position: relative;
+        margin-top: 30px;
+    }
+    
+    .btn-copy {
+        background-color: #08f;
+        color: white;
+        padding: 5px 40px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    
+    .qr-link .form-control {
+        display: block;
+        width: 100%;
+        height: auto;
+        padding: 8px 45px 8px 5px;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #707070;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+    
+    .s-qr {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        cursor: pointer;
+    }
+    
+    .show-qr {
+        position: absolute;
+        bottom: 180%;
+        right: -10px;
+        background-color: white;
+        padding: 10px 25px;
+        box-shadow: 0px 0px 8px #00000061;
+        height: 160px;
+        opacity: 0;
+        overflow: hidden;
+        transition-duration: .2s;
+        transition-property: all;
+    }
+    
+    .showQr {
+        height: 160px;
+        opacity: 1;
+        transition-duration: .2s;
+        transition-property: all;
+        overflow: visible;
+    }
+    
+    .show-qr p {
+        font-size: 14px;
+        text-align: center;
+        margin: 6px;
+    }
+    
+    .show-qr img {
+        width: 75px;
+        height: 75px;
+    }
+    
+    .show-qr .p-blue {
+        color: #08f;
+    }
+    
+    .bottom-arrow {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        box-shadow: 2px 3px 3px 0px #00000030;
+        background-color: white;
+        transform: rotate(45deg);
+        bottom: -8px;
+        right: 20px;
+    }
+    
+    .hideRightPanel .single-gallery {
+        margin-right: 50px;
+        transition-property: all;
+        transition-duration: .2s;
+    }
+    
+    .hideRightPanel .image-property {
+        transform: translateX(362px);
+        transition-property: all;
+        transition-duration: .2s;
+    }
+    
+    .hideRightPanel .left-controler {
+        transform: rotate(180deg);
+        position: absolute;
+        left: -28px;
+        z-index: 2;
+        background-color: white;
+        top: 51px;
+        box-shadow: 3px 1px 6px #0000002b;
+        padding: 5px 9px;
+        cursor: pointer;
+        transition-property: all;
+        transition-duration: .2s;
+    }
+    
+    .fullor-close {
+        position: absolute;
+        right: 20px;
+        top: 36px;
+    }
+    
+    .fullor-close img {
+        cursor: pointer;
+    }
+    
+    .img-wrapper:hover .img-overlay {
+        opacity: 1;
+    }

@@ -1,0 +1,269 @@
+.section {
+    padding: 0px 100px;
+}
+
+.header {
+    background-color: white;
+    position: fixed;
+    padding: 0px 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.menu .flex-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: auto;
+}
+
+.menu {
+    float: right;
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 1s;
+}
+
+.logo {
+    display: inline-flex!important;
+    max-width: 205px;
+    padding: 0px 0;
+}
+.logo a{
+    display: inline-flex;
+    align-items: center;
+    height: 70px;
+}
+.logo span{
+    display: inline-flex;
+    align-items: center;
+    height: 70px;
+    padding-left: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.menu-item a {
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 0px;
+}
+
+.menu-item {
+    padding: 0px 20px;
+    padding: 0px 20px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    border-bottom: 4px solid white;
+}
+.menu-item:hover{
+    border-bottom: 4px solid #08f;
+}
+.menu-item:nth-last-child(2):hover{
+    border-bottom: 4px solid white;
+}
+
+.menu-item:nth-last-child(3):hover{
+    border-bottom: 4px solid white;
+}
+.menu-item .sign-up {
+    background-color: #08f;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 6px;
+    border: 1px solid #08f;
+}
+
+.menu-item .sign-in {
+    background-color: white;
+    color: #08f;
+    border: 2px solid #08f;
+    border-radius: 6px;
+    padding: 10px 25px;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.mobile-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #08f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-close {
+    display: none;
+}
+
+.mobile-menu .menu-item {
+    display: block;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.mobile-menu .menu-item a {
+    color: white;
+}
+
+.mobile-menu .menu-item .sign-up {
+    border: 1px solid white;
+}
+
+.mobile-menu .menu-item .sign-in {
+    color: #08f;
+}
+
+.mobile-menu .menu-icon {
+    display: none;
+}
+
+.mobile-menu .flex-menu {
+    display: block!important;
+    height: auto!important;
+}
+
+.mobile-menu .menu-close {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+.header2 .header{
+    top: 40px;
+}
+.black-menu-item{
+    color: white;
+    padding: 0px 20px;
+    display: inline;
+}
+.black-menu-item  .black-drop{
+    display: inline-block;
+    padding: 7px 10px;
+    color: white;
+    font-size: 16px;
+}
+.black-header{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: #2E2E2E;
+    height: 40px;
+    z-index: 11;
+}
+.black-home .home-div{
+    margin-top: 40px;
+}
+.black-home .df-center {
+    margin-top: 40px;
+}
+.black-header .new-unitear-dropdown2 {
+    position: absolute;
+    width: 380px;
+    min-height: 300px;
+    background-color: #fff;
+    box-shadow: 1px 1px 6px silver;
+    top: 34px;
+    left: -84px;
+    padding: 20px 15px;
+    border-radius: 6px;
+    z-index: 11;
+}
+.black-header .new-unitear-dropdown {
+    position: absolute;
+    width: 280px;
+    min-height: auto;
+    background-color: #fff;
+    box-shadow: 1px 1px 6px silver;
+    top: 34px;
+    left: -84px;
+    padding: 20px 15px;
+    border-radius: 6px;
+    z-index: 11;
+}
+.black-header .new-unitear-dropdown .drop-item-unitear p{
+    color: black;
+}
+.black-header .drop-item-unitear span {
+    text-transform: initial;
+    color: black;
+}
+.mobile-show{
+    display: none!important;
+}
+@media screen and (min-width:1500px) {
+    .section {
+        padding: 0px 15px;
+        max-width: 80%;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width:1025px) {
+    .section {
+        padding: 0px 70px;
+    }
+    .mobile-menu .mobile-show{
+        display: block!important;
+    }
+    .black-header .new-unitear-dropdown2 {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        background-color: #fff;
+        box-shadow: none;
+        top: 0;
+        left: 0;
+        padding: 20px 15px;
+        border-radius: 6px;
+        z-index: 11;
+    }
+    .black-header .new-unitear-dropdown {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        background-color: #fff;
+        box-shadow: none;
+        top: 0;
+        left: 0;
+        padding: 20px 15px;
+        border-radius: 6px;
+        z-index: 11;
+    }
+    .black-header {
+        
+        display: none;
+    }
+    .header2 .header {
+        top: 0px;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .section {
+        padding: 0px 30px;
+    }
+    .menu-item {
+        display: none;
+    }
+    .menu-icon {
+        display: block;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .section {
+        padding: 0px 15px;
+    }
+}

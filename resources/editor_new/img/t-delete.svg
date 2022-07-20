@@ -1,0 +1,9 @@
+<svg id="Group_3516" data-name="Group 3516" xmlns="http://www.w3.org/2000/svg" width="19.095" height="22" viewBox="0 0 19.095 22">
+  <path id="Subtraction_3" data-name="Subtraction 3" d="M11.871,18H3a2.823,2.823,0,0,1-1.168-.251,2.987,2.987,0,0,1-.954-.685,3.207,3.207,0,0,1-.643-1.017A3.36,3.36,0,0,1,0,14.8V0H1.5V14.756A1.6,1.6,0,0,0,3.043,16.4h8.914A1.6,1.6,0,0,0,13.5,14.756V0H15V14.665a3.5,3.5,0,0,1-.246,1.3,3.344,3.344,0,0,1-.67,1.06,3.115,3.115,0,0,1-.994.715A2.944,2.944,0,0,1,11.871,18Z" transform="translate(1.973 4)" fill="#505050"/>
+  <path id="Path_5042" data-name="Path 5042" d="M.8,0H18.3a.8.8,0,0,1,0,1.591H.8A.8.8,0,0,1,.8,0Z" transform="translate(0 2.41)" fill="#505050"/>
+  <g id="Group_3512" data-name="Group 3512" transform="translate(6 7.638)">
+    <path id="Path_5047" data-name="Path 5047" d="M.8,0H8.752a.8.8,0,0,1,0,1.591H.8A.8.8,0,0,1,.8,0Z" transform="translate(1.591) rotate(90)" fill="#505050"/>
+    <path id="Path_5046" data-name="Path 5046" d="M.8,0H8.752a.8.8,0,0,1,0,1.591H.8A.8.8,0,0,1,.8,0Z" transform="translate(7.138) rotate(90)" fill="#505050"/>
+  </g>
+  <path id="Path_5043" data-name="Path 5043" d="M.8,0H7.206a.8.8,0,1,1,0,1.591H.8A.8.8,0,0,1,.8,0Z" transform="translate(6)" fill="#505050"/>
+</svg>
