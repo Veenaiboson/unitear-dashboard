@@ -89,19 +89,28 @@ app = new Vue({
 						return;
 					}
 					else{
-					$.post(base_url+"editor/view_new_campaign",
+						$.ajax({
+							url: base_urls_8088+"campaign/view-new-campaign",
+							type: "POST",
+							headers: {
+								'Content-Type': 'application/json',
+								'Authorization': localStorage.getItem('token')
+							},
+							data: JSON.stringify({
+								campaign_id:datas.current_campaign_id,
+							campaign_name:datas.current_campaign_name,
+							}),
+							success: function(data, status) {  
+								var resp_data=JSON.parse(data);
+								if(resp_data.status)
 									{
-										campaign_id:datas.current_campaign_id,
-										campaign_name:datas.current_campaign_name,
-										
-									},
-									function(data,status){
-									 var resp_data=JSON.parse(data);
-									 if(resp_data.status)
-										 {
-											location.href=base_url+"unitear-editor";
-										 }
-									});
+										location.href=base_url+"unitear-editor";
+									}
+								},
+							error:function(data, status) {  
+									console.log(data)     
+							},
+								})						
 					}
 				},
 				openFile:function()
@@ -312,6 +321,36 @@ newFile.data.campaign_id=datas.current_campaign_id;
 									// 	},
 									// 		})
 							},
+							deactivated(){
+								$.ajax({
+									url: base_urls_8094+"account/deactivated",
+									type: "POST",
+									headers: {
+										'Authorization': localStorage.getItem('token')
+									},
+									data:{},
+									success: function(data, status) {  
+										var resp_data=JSON.parse(data);
+										if(status){
+											window.location.href="upgradenow.html";
+											localStorage.setItem('heading')=resp_data.data.heading;
+											localStorage.setItem('sub-heading')=resp_data.data.sub_heading
+										}
+										else{
+											window.location.href="editor.html";
+										}
+										
+									},
+									error:function(data, status) {  
+									
+									},
+								})
+							},
+							logout() {
+								localStorage.removeItem('token');
+								localStorage.removeItem('user_email');
+								window.location.href="login.html";
+							},
   delete_account:function()
   {
 	  
@@ -320,23 +359,32 @@ newFile.data.campaign_id=datas.current_campaign_id;
 		  datas.delete_account_message="Sorry, please enter the text exactly as displayed to deactivate";
 		  return;
 	  }
-	  $.post(base_url+"Unitear_account/delete_account",
-									{
-										
-										
-									},
-									function(data,status){
-									 var resp_data=JSON.parse(data);
-									 if(resp_data.status)
-										 {
-											location.href=base_url+"Unitear_account/deactivated";
-											
-											
-										 }
-										 else{
-											 location.href=base_url+"login/logout";
-										 }
-									});
+
+									$.ajax({
+										url: base_urls_8094+"account/delete-account",
+										type: "POST",
+										headers: {
+											'Authorization': localStorage.getItem('token')
+										},
+										data: JSON.stringify({
+										user_email:localStorage.getItem('user_email')
+									}),
+										success: function(data, status) {  
+											 var resp_data=JSON.parse(data);
+											if(resp_data.status)
+											{
+												deactivated();
+												
+												
+											}
+											else{
+												logout();
+											}
+											},
+										error:function(data, status) {  
+													
+										},
+											})
 	  
   },
   delete_notification:function(id)

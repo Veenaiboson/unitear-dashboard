@@ -477,86 +477,53 @@ app = new Vue({
                 // $(".expiray_modal").show();
                 return;
             } else {
-                $.post(base_url + "campaign/view_new_campaign", {
-                        campaign_id: datas.current_campaign_id,
-                        campaign_name: datas.current_campaign_name,
-                        category: datas.campaign_category,
 
-                    },
-                    function(data, status) {
-                        var resp_data = JSON.parse(data);
-                        if (resp_data.status) {
-                            if (datas.campaign_category == 1) {
-                                location.href = base_url + "unitear-editor2";
-                            }
-                            if (datas.campaign_category == 2) {
-                                if (detect_mob()) {
-                                    location.href = base_url + "unitear-webar-mobile-editor/";
+               
+                    $.ajax({
+                        url: base_urls_8088+"campaign/view-new-campaign",
+                        type: "POST",
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': localStorage.getItem('token')
+                        },
+                        data: JSON.stringify({
+                            campaign_id: datas.current_campaign_id,
+                            campaign_name: datas.current_campaign_name,
+                            category: datas.campaign_category,
+                        }),
+                        success: function(data, status) {  
+                            var resp_data = JSON.parse(data);
+                            if (resp_data.status) {
+                                if (datas.campaign_category == 1) {
+                                    location.href = base_url + "unitear-editor2";
+                                }
+                                if (datas.campaign_category == 2) {
+                                    if (detect_mob()) {
+                                        location.href = base_url + "unitear-webar-mobile-editor/";
+                                    } else {
+                                        location.href = base_url + "webar-editor/";
+
+                                    }
+                                }
+                                if (datas.campaign_category == 3) {
+                                    location.href = base_url + "unitear-app-factory/app-editor";
+                                }
+                            } else {
+                                // location.href=resp_data.redirect_url;
+                                if (typeof(resp_data.redirect_url) != undefined && resp_data.redirect_url) {
+                                    datas.pro_msg = "Session expired.";
+                                    datas.pro_sub_msg = "Please login again.";
+                                    datas.session_expired = true;
+                                    location.href = resp_data.redirect_url;
                                 } else {
-                                    location.href = base_url + "webar-editor/";
-
+                                    list_campaign();
                                 }
                             }
-                            if (datas.campaign_category == 3) {
-                                location.href = base_url + "unitear-app-factory/app-editor";
-                            }
-                        } else {
-                            // location.href=resp_data.redirect_url;
-                            if (typeof(resp_data.redirect_url) != undefined && resp_data.redirect_url) {
-                                datas.pro_msg = "Session expired.";
-                                datas.pro_sub_msg = "Please login again.";
-                                datas.session_expired = true;
-                                location.href = resp_data.redirect_url;
-                            } else {
-                                list_campaign();
-                            }
-                        }
-                    });
-                    // $.ajax({
-                    //     url: base_urls_8088+"campaign/view-new-campaign",
-                    //     type: "POST",
-                    //     headers: {
-                    //         'Content-Type': 'application/json',
-                    //         'Authorization': localStorage.getItem('token')
-                    //     },
-                    //     data: JSON.stringify({
-                    //         campaign_id: datas.current_campaign_id,
-                    //         campaign_name: datas.current_campaign_name,
-                    //         category: datas.campaign_category,
-                    //     }),
-                    //     success: function(data, status) {  
-                    //         var resp_data = JSON.parse(data);
-                    //         if (resp_data.status) {
-                    //             if (datas.campaign_category == 1) {
-                    //                 location.href = base_url + "unitear-editor2";
-                    //             }
-                    //             if (datas.campaign_category == 2) {
-                    //                 if (detect_mob()) {
-                    //                     location.href = base_url + "unitear-webar-mobile-editor/";
-                    //                 } else {
-                    //                     location.href = base_url + "webar-editor/";
-
-                    //                 }
-                    //             }
-                    //             if (datas.campaign_category == 3) {
-                    //                 location.href = base_url + "unitear-app-factory/app-editor";
-                    //             }
-                    //         } else {
-                    //             // location.href=resp_data.redirect_url;
-                    //             if (typeof(resp_data.redirect_url) != undefined && resp_data.redirect_url) {
-                    //                 datas.pro_msg = "Session expired.";
-                    //                 datas.pro_sub_msg = "Please login again.";
-                    //                 datas.session_expired = true;
-                    //                 location.href = resp_data.redirect_url;
-                    //             } else {
-                    //                 list_campaign();
-                    //             }
-                    //         }
-                    //         },
-                    //     error:function(data, status) {  
-                    //            console.log(data)     
-                    //     },
-                    //         })
+                            },
+                        error:function(data, status) {  
+                               console.log(data)     
+                        },
+                            })
 
             }
         },
@@ -843,7 +810,7 @@ app = new Vue({
                 });
 
                 // $.ajax({
-                //     url: base_urls_+"",
+                //     url: base_urls_8087+"team/check-team-exists",
                 //     type: "POST",
                 //     headers: {
                 //         'Content-Type': 'application/json',
@@ -1224,6 +1191,7 @@ function add_favorite(favorite_status, campaign_id) {//NOT USING
 
 function logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user_email');
     window.location.href="login.html"
 }
 /******************* Add favorite*********************/
@@ -1498,3 +1466,36 @@ function razor_payment() {
     });
 }
 /******************* RazorPay************************/
+
+function account(){
+    // window.location.href = "account.html"; 
+    $.ajax({
+        url: base_urls_8093+"pricing/account/",
+        type: "POST",
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        },
+        data:{},
+        success: function(data, status) {  
+            var resp_data = data;
+            if (resp_data.status) {
+                var user_data = resp_data.data;
+                console.log(user_data)
+//                 localStorage.setItem('active_package', JSON.stringify(user_data.active_package));
+//                 localStorage.setItem('days_left', user_data.days_left);
+//                 localStorage.setItem('is_ultimate_package', user_data.is_ultimate_package);
+//                 localStorage.setItem('purchase_package_history', JSON.stringify(user_data.purchase_package_history));
+//                 localStorage.setItem('storage_details', user_data.storage_details);
+//                 localStorage.setItem('storage_details_percentage', user_data.storage_details_percentage);
+//                 localStorage.setItem('target_details', user_data.target_details);
+//                 localStorage.setItem('target_details_percentage', user_data.target_details_percentage);
+//                 localStorage.setItem('user_type', user_data.user_type);
+//                 console.log(user_data) ;
+//                 window.location.href = "account.html" 
+            }
+            },
+        error:function(data, status) {  
+               console.log(data)     
+        },
+    })
+}

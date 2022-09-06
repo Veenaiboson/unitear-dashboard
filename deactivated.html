@@ -116,7 +116,7 @@
                 <br>
                 <p class="text-center">Hurry up!! <br>
                         Reactivate your account before you lost your account</p>
-                        <a href="Unitear_account/reactivate_account"><button class="btn de-btn">
+                        <a onclick="reactivate_account()"><button class="btn de-btn">
                                 Reactivate your account
                         </button></a>
             </div>
@@ -140,6 +140,38 @@
                         </div>
                     </div>
         </div>
+<script>
+    var base_urls_8094='https://api.dev.unitear.com/'; //'http://localhost:8094/';
+    function logout() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user_email');
+        window.location.href="login.html";
+    }
+    function reactivate_account(){
+        $.ajax({
+            url: base_urls_8094+"account/reactivate-account",
+            type: "POST",
+            headers: {
+                'Authorization': localStorage.getItem('token')
+            },
+            data:{},
+            success: function(data, status) {  
+                var resp_data=JSON.parse(data);
+                if(status){
+                    window.location.href="./editor.html";
+                }
+                else{
+                    logout();
+                }
+                
+            },
+            error:function(data, status) {  
+            
+            },
+		})
+    }
 
+
+</script>
     </body>
 </html>

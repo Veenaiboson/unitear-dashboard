@@ -1717,7 +1717,7 @@
                         
                          <!-- <a href="<?= WEBSITE_BASE_URL."help";?>" target="_blank">Help
                             </a> -->
-                         <a href="./forum_home.html" target="_blank">Forum</a>
+                         <a onclick="forum()" target="_blank">Forum</a>
                         <a href="" target="_blank">Create AR</a>
                     
                          
@@ -1970,7 +1970,8 @@ datas={
     })
 
     /******************* email add*********************/ 
-    var base_urls_8093 = 'http://localhost:8093/';
+    var base_urls_8093 = 'https://api.dev.unitear.com/'; //'http://localhost:8093/';
+    var base_urls_8100 = 'https://api.dev.unitear.com/'; //'http://localhost:8100/';//forum
 function update_member_role()
   {
 	datas.offer_button_loader=true;
@@ -2004,6 +2005,34 @@ function update_member_role()
                             console.log(data)     
                         },
                 })    
+  }
+
+  function forum()
+  {
+    localStorage.removeItem('categories');
+        $.ajax({
+            url: base_urls_8100+"forum/index",
+            type: "POST",
+            headers: {
+            'Authorization': localStorage.getItem('token')
+            },
+            success: function(resp_data, status) {  
+                // var resp_data=JSON.parse(data);
+                if(resp_data.status)
+                    {
+                        console.log(resp_data.data) 
+						localStorage.setItem('categories', JSON.stringify(resp_data.data.categories)); 
+                        localStorage.setItem('popular_posts', JSON.stringify(resp_data.data.popular_posts)); 
+                        localStorage.setItem('popular_tags', JSON.stringify(resp_data.data.popular_tags)); 
+                        localStorage.setItem('my_posts', JSON.stringify(resp_data.data.my_posts)); 
+                        window.location.href ="./forum.html"
+                    }
+                    
+            },
+            error:function(data, status) {  
+                console.log(data)     
+            },
+                })   
   }
 /******************* Email add*********************/ 
 function validate_user_email()
@@ -2069,7 +2098,7 @@ $(document).ready(function () {
 });
 </script>
 <script>
-var base_url='http://localhost/unitear-editor-live/';
+var base_url="https://base-url/"; //'http://localhost/unitear-editor-live/';
 // console.log(base_url);		
 $(document).ready(function(){
 

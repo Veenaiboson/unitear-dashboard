@@ -251,6 +251,47 @@ app = new Vue({
 							}
 						}
 					});
+
+					// $.ajax({
+                //     url: base_urls_8087+"team/check-team-exists",
+                //     type: "POST",
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //         'Authorization': localStorage.getItem('token')
+                //     },
+                //     data:  JSON.stringify({team_header: 1}),
+                //     success: function(data, status) {  
+					// resp_data=JSON.parse(data);
+					// 	datas.switch_team_list=resp_data.data;
+					// 	datas.user_as_team_member_status=resp_data.user_as_team_member_status;
+					// 	if(datas.switch_team_list && !datas.switch_team_id)
+					// 	{
+					// 		datas.switch_team_name=datas.switch_team_list[0].team_name;
+					// 		datas.switch_team_id=datas.switch_team_list[0].id;
+					// 		localStorage.selected_team_id=JSON.stringify(datas.switch_team_id);
+					// 		localStorage.selected_team_name=JSON.stringify(datas.switch_team_name);
+					// 	}
+					// 	else if(datas.switch_team_list && datas.switch_team_id)
+					// 	{
+					// 		current_team_exists=false;
+					// 		datas.switch_team_list.forEach(function(item) {
+					// 			if(item.id == datas.switch_team_id)
+					// 			{
+					// 				current_team_exists=true;
+					// 			}
+					// 		})
+							
+					// 		if(!current_team_exists)
+					// 		{
+					// 			datas.switch_team_id=datas.switch_team_list[0].id;
+					// 			app.change_team();
+					// 		}
+					// 	}
+                //         },
+                //     error:function(data, status) {  
+                //            console.log(data)     
+                //     },
+                //         })
 				},
 				//code added by Vishnu M R-2021-07-08
 
@@ -519,5 +560,6 @@ function remove_role()
   }
   function logout() {
     localStorage.removeItem('token');
+	localStorage.removeItem('user_email');
 	window.location.href = "login.html";
 }

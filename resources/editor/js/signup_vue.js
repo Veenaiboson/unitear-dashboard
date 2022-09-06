@@ -70,27 +70,48 @@ watch:
 						$(".password").css("color", "#E8E8E8")
 					}
 				},
-				// signIn(){
-				// 	$.ajax({
-				// 		url: ,
-				// 		type: "POST",
-				// 		headers: {
-				// 			'Content-Type': 'application/json'
-				// 		},
-				// 		data: JSON.stringify({
-				// 			user_name: datas.user_name,
-				// 			user_email: datas.user_email,
-				// 			user_password: datas.user_password
-				// 		}),
-				// 		success: function(data, status) {  
-				// 			var resp_data = JSON.parse(data);
+				signUp(){
+					alert("hi")
+					$.ajax({
+						url:base_urls_8083+"user/register" ,
+						type: "POST",
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						data: JSON.stringify({
+							user_name: datas.user_name,
+							user_email: datas.user_email,
+							user_password: datas.user_password
+						}),
+						success: function(data, status) {  
+							var resp_data = JSON.parse(data);
 							
-				// 			},
-				// 		error:function(data, status) {  
-				// 			   console.log(data)     
-				// 		},
-				// 			})
-				// },
+							},
+						error:function(data, status) {  
+							   console.log(data)     
+						},
+							})
+				},
+				signUpGoogle(){
+					alert("hi")
+					$.ajax({
+						url:base_urls_8083+"user/sign-in-google" ,
+						type: "POST",
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						data: JSON.stringify({
+							
+						}),
+						success: function(data, status) {  
+							var resp_data = JSON.parse(data);
+							
+							},
+						error:function(data, status) {  
+							   console.log(data)     
+						},
+							})
+				},
 				form_validation:function(field_name,field_value)
 				{
 					switch(field_name)

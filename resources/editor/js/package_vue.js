@@ -134,6 +134,7 @@ $(document).ready(function(){
 	  switch_team_list:[],
 	  user_as_team_member_status:false,
 	  //code added by Vishnu M R
+	  is_ultimate_package:""
 
 	}
   Vue.component('file-upload', VueUploadComponent)
@@ -145,6 +146,10 @@ $(document).ready(function(){
 				  
 			  },
 	  mounted:function(){
+		if (localStorage.is_ultimate_package) {
+            datas.is_ultimate_package = JSON.parse(localStorage.is_ultimate_package);
+			console.log(datas.is_ultimate_package)
+        }
 				  // console.log("mounted");
 				  
 				  //code added by Vishnu M R
@@ -351,19 +356,29 @@ $(document).ready(function(){
 						  return;
 					  }
 					  else{
-					  $.post(base_url+"editor/view_new_campaign",
-									  {
-										  campaign_id:datas.current_campaign_id,
-										  campaign_name:datas.current_campaign_name,
-										  
-									  },
-									  function(data,status){
-									   var resp_data=JSON.parse(data);
-									   if(resp_data.status)
-										   {
-											  location.href=base_url+"unitear-editor";
-										   }
-									  });
+
+							$.ajax({
+							url: base_urls_8088+"campaign/view-new-campaign",
+							type: "POST",
+							headers: {
+								'Content-Type': 'application/json',
+								'Authorization': localStorage.getItem('token')
+							},
+							data: JSON.stringify({
+								campaign_id:datas.current_campaign_id,
+								campaign_name:datas.current_campaign_name,
+							}),
+							success: function(data, status) {  
+								var resp_data=JSON.parse(data);
+								if(resp_data.status)
+								{
+									location.href=base_url+"unitear-editor";
+								}
+								},
+							error:function(data, status) {  
+									console.log(data)     
+							},
+								})			  
 					  }
 				  },
   removeFile:function(target_id,file){
@@ -1064,18 +1079,30 @@ $(document).ready(function(){
 						  {
 							  datas.reason_for_cancellation_error="";
 							  datas.show_loader=true;
-							  $.post(base_url+"editor/subscription_cancel_request_mail",
-							  {
-								  reason_for_cancellation:datas.reason_for_cancellation,
-							  },
-							  function(data,status){
-								  var resp_data=JSON.parse(data);
+							  var user_email = localStorage.getItem('user_email');
+							  $.ajax({
+								url: base_urls_8093+"pricing/subscription-cancel-request-mail",
+								type: "POST",
+								headers: {
+									'Content-Type': 'application/json',
+									'Authorization': localStorage.getItem('token')
+								},
+								data: JSON.stringify({
+									reason_for_cancellation:datas.reason_for_cancellation,  
+									email:user_email
+								}),
+								success: function(data, status) {  
+									var resp_data=JSON.parse(data);
 								  // console.log(resp_data);
 								  datas.subscription_cancel_mail_message=resp_data.message;
 								  datas.cancel_subscription_modal=false;
 								  datas.show_loader=false;
-								  datas.subscription_cancel_mail_success_modal=true;	
-							  })
+								  datas.subscription_cancel_mail_success_modal=true;
+								},
+								error:function(data, status) {  
+								
+								},
+							})
 						  }
 					  },
 					  
@@ -1380,9 +1407,79 @@ $(document).ready(function(){
 									}
 								}
 							});
+// $.ajax({
+                //     url: base_urls_8087+"team/check-team-exists",
+                //     type: "POST",
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //         'Authorization': localStorage.getItem('token')
+                //     },
+                //     data:  JSON.stringify({team_header: 1}),
+                //     success: function(data, status) {  
+					// resp_data=JSON.parse(data);
+					// datas.switch_team_list=resp_data.data;
+					// datas.user_as_team_member_status=resp_data.user_as_team_member_status;
+					// if(datas.switch_team_list && !datas.switch_team_id)
+					// {
+					// 	datas.switch_team_name=datas.switch_team_list[0].team_name;
+					// 	datas.switch_team_id=datas.switch_team_list[0].id;
+					// 	localStorage.selected_team_id=JSON.stringify(datas.switch_team_id);
+					// 	localStorage.selected_team_name=JSON.stringify(datas.switch_team_name);
+					// }
+					// else if(datas.switch_team_list && datas.switch_team_id)
+					// {
+					// 	current_team_exists=false;
+					// 	datas.switch_team_list.forEach(function(item) {
+					// 		if(item.id == datas.switch_team_id)
+					// 		{
+					// 			current_team_exists=true;
+					// 		}
+					// 	})
+				
+					// 	if(!current_team_exists)
+					// 	{
+					// 		datas.switch_team_id=datas.switch_team_list[0].id;
+					// 		app.change_team();
+					// 	}
+					// }
+                //         },
+                //     error:function(data, status) {  
+                //            console.log(data)     
+                //     },
+                //         })
+							
 						},
 						//code added by Vishnu M R	
-			 
+						Download:function(package_id)
+						{
+							$.ajax({
+								url: base_urls_8093+"pricing/download-invoice",
+								type: "POST",
+								headers: {
+									'Content-Type': 'application/json',
+									'Authorization': localStorage.getItem('token')
+								},
+								data: JSON.stringify({
+									package_id:691,
+									purchase_id:11,
+									payment_date:10-09-2021
+								}),
+								success: function(data, status) {  
+									var resp_data=JSON.parse(data);
+									if(resp_data.status)
+									{
+										console.log(resp_data.data);
+									}
+									else
+									{
+										
+									}
+									},
+								error:function(data, status) {  
+									   console.log(data);     
+								},
+									})
+						},
 					  
 					  
 			  },
@@ -1897,6 +1994,7 @@ $(document).ready(function(){
   /*******************Remove profile pic*******************/
   function logout() {
     localStorage.removeItem('token');
+	localStorage.removeItem('user_email');
 }
 
 function remove_profile_pic()

@@ -338,7 +338,7 @@
     <p>Copy this HTML and paste it into your website
     wherever you want to add WebAR viewer</p>
     
-    <textarea class="form-control" rows="4" v-bind="copy_data_textarea" ref="embedcode"><iframe src="http://localhost/unitear-editor-live/webscanner?token=<?=!empty($token)?$token:'';?>" width=" 100%" style="border:none;height:100vh" allow="camera"></iframe>
+    <textarea class="form-control" rows="4" v-bind="copy_data_textarea" ref="embedcode"><iframe src="https://base-url/webscanner?token=<?=!empty($token)?$token:'';?>" width=" 100%" style="border:none;height:100vh" allow="camera"></iframe>
 
 </textarea>
 <!-- <input type="hidden" id="cop-code" :value="copy_data_textarea"> -->
@@ -404,13 +404,13 @@
       new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
     }
     
-   var base_url='http://localhost/unitear-editor-live/';
-   var base_urls='http://localhost/unitear-dashboard/';
-   var base_urls_8095='http://localhost:8095/';
-   var base_urls_8087='http://localhost:8087/';
-   var base_url_8099='http://localhost:8099/';
-   var base_urls_8097='http://localhost:8097/';
-   var base_urls_8081='http://localhost:8081/';
+   var base_url="https://base-url/"; //'http://localhost/unitear-editor-live/';
+//    var base_urls='http://localhost/unitear-dashboard/';
+   var base_urls_8095='https://api.dev.unitear.com/'; //'http://localhost:8095/';
+   var base_urls_8087='https://api.dev.unitear.com/'; //'http://localhost:8087/';
+   var base_url_8099='https://api.dev.unitear.com/'; //'http://localhost:8099/';
+   var base_urls_8097='https://api.dev.unitear.com/'; //'http://localhost:8097/';
+   var base_urls_8081='https://api.dev.unitear.com/'; //'http://localhost:8081/';
   $(function(){
   var handleClick = 0,
       percentage = 0;

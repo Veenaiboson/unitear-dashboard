@@ -646,14 +646,20 @@ app = new Vue({
 						return;
 					}
 					else{
-					$.post(base_url+"editor/view_new_campaign",
-									{
-										campaign_id:datas.current_campaign_id,
-										campaign_name:datas.current_campaign_name,
-										
-									},
-									function(data,status){
-									 var resp_data=JSON.parse(data);
+
+						$.ajax({
+							url: base_urls_8088+"campaign/view-new-campaign",
+							type: "POST",
+							headers: {
+								'Content-Type': 'application/json',
+								'Authorization': localStorage.getItem('token')
+							},
+							data: JSON.stringify({
+								campaign_id:datas.current_campaign_id,
+								campaign_name:datas.current_campaign_name,
+							}),
+							success: function(data, status) {  
+								var resp_data=JSON.parse(data);
 									 if(resp_data.status)
 										 {
 											 if(datas.campaign_category==1)
@@ -695,7 +701,12 @@ app = new Vue({
 												}
 											 }
 										 }
-									});
+								},
+							error:function(data, status) {  
+								   console.log(data)     
+							},
+								})
+					
 					}
 				},
 				

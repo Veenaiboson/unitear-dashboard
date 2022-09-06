@@ -223,7 +223,7 @@
                 </div>
             </div>
             <div class="col-lg-6 p-0">
-                <form autocomplete="off" action="http://localhost/unitear-editor-live/register/" method="post" style="display: flex;align-items: center;justify-content: center;height: 100vh;margin: 0;" v-on:submit="return form_submit($event);">
+                <div style="display: flex;align-items: center;justify-content: center;height: 100vh;margin: 0;" >
                     <div class="login-area">
 
                         <h3 style="color:#08f;font-size:23px;font-weight:600;text-align:center;">SIGN UP</h3>
@@ -274,7 +274,7 @@
                         <input type="checkbox" checked="checked">
                         <span class="checkmark"></span>
                             </label>-->
-                            <button class="btn login-btn" type="submit" style="margin-top: 15px;margin-bottom: 15px;">
+                            <button class="btn login-btn" style="margin-top: 15px;margin-bottom: 15px;" @click="signUp()">
                             <span v-if="!submit_button_click">SIGN UP</span> <span v-else class="btn-load"></span></button><br>
                             <p style="font-size: 12px;margin-bottom: 0px;margin-top: 10px;max-width: 308px;text-align: center;display: block;margin: 0px auto 10px;"> By clicking Sign Up, You agree to our <a href=""
                                     class="forgot-link" style="font-size: 12px;float: none;padding-right: 0;">
@@ -292,7 +292,7 @@
                                 <a class="btn login-btn relative" style="background-color:#e23e2c;"
                                     href="">
                                     <img src="resources/img/g.svg" alt="">
-                                    <span v-if="!g_button_click" @click="g_button_click=true">SIGN UP WITH GOOGLE</span> <span v-else class="btn-load mt-0"></span>
+                                    <span v-if="!g_button_click" @click="g_button_click=true" @click="signUpGoogle()">SIGN UP WITH GOOGLE</span> <span v-else class="btn-load mt-0"></span>
                                 </a>
                            
                             <!--code added by Vishnu M R-2021-06-30 to hide google option in ios device-->
@@ -302,7 +302,7 @@
                         </div>
                     </div>
 					<input type="text" hidden name="gmail_button_status" value="">
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -350,6 +350,7 @@
     <!--code added by Anju-2022-03-22-->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-223586665-1"></script>
     <script>
+        var base_urls_8083 = 'https://api.dev.unitear.com/'; //'http://localhost:8083/'
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());

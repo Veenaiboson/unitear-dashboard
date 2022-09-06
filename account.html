@@ -571,6 +571,9 @@
                                     <div class="col-md-6">
                                     <div class="right-sm-center">
                                        
+                                            <button v-if ="!is_ultimate_package" class="btn-moreview" onclick="location.href='pricing'">Upgrade Now</button>
+                                       
+                                       
                                     </div>
                                     </div>
                                 </div>
@@ -968,7 +971,7 @@
                                                 <td>Enterprise Package</td>
                                                 <td>$3231</td>
                                                 <td class="act">Paid</td>
-                                                <td><form method="post" action="editor/download_invoice"><input type="text" name="package_id" style="display:none" value=""><input type="text" name="payment_date" style="display:none" value=""><input type="text" name="purchase_id" style="display:none" value=""><button type="submit" class="btn-download">Download</button></form></td>
+                                                <td><div><input type="text" name="package_id" style="display:none" value=""><input type="text" name="payment_date" style="display:none" value=""><input type="text" name="purchase_id" style="display:none" value=""><button type="submit" class="btn-download" @click="Download(11)">Download</button></div></td>
                                             </tr>
                                             <tr>
                                                 <td>10 Sep 2021 - 10 Sep 2022</td>
@@ -1461,19 +1464,21 @@
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
         }
-        var base_url='http://localhost/unitear-editor-live/';
+        var base_url="https://base-url/"; //'http://localhost/unitear-editor-live/';
+        var base_urls = 'https://api.dev.unitear.com/';
         var user_id='9741';
-        var base_urls_8082='http://localhost:8082/';
-        var base_urls_8084='http://localhost:8084/';
-        var base_urls_8087='http://localhost:8087/';
-        var base_urls_8088='http://localhost:8088/';//campaign
-        var base_urls_8094='http://localhost:8094/';
-        var base_urls_8095='http://localhost:8095/';
-        var base_url_8099='http://localhost:8099/';
-        var base_urls_8097='http://localhost:8097/';
-        var base_urls_8081='http://localhost:8081/';
-        var base_urls_8089='http://localhost:8089/';//invite
-        var base_urls_8090='http://localhost:8090/';//profile
+        var base_urls_8082='https://api.dev.unitear.com/'; //'http://localhost:8082/';
+        var base_urls_8084= 'https://api.dev.unitear.com/'; //'http://localhost:8084/';
+        var base_urls_8087='https://api.dev.unitear.com/'; //'http://localhost:8087/';
+        var base_urls_8088= 'https://api.dev.unitear.com/'; //'http://localhost:8088/';//campaign
+        var base_urls_8094='https://api.dev.unitear.com/'; //'http://localhost:8094/';
+        var base_urls_8095='https://api.dev.unitear.com/'; //'http://localhost:8095/';
+        var base_url_8099='https://api.dev.unitear.com/'; //'http://localhost:8099/';
+        var base_urls_8097='https://api.dev.unitear.com/'; //'http://localhost:8097/';
+        var base_urls_8081='https://api.dev.unitear.com/'; //'http://localhost:8081/';
+        var base_urls_8089='https://api.dev.unitear.com/'; //'http://localhost:8089/';//invite
+        var base_urls_8090='https://api.dev.unitear.com/'; //'http://localhost:8090/';//profile
+        var base_urls_8093='https://api.dev.unitear.com/'; //'http://localhost:8093/';//pricing
         //code added by Vishnu M R
         var profile_data=JSON.stringify({"user_profile_data_id":"2329","user_id":"9741","user_profile_purpose_id":"4","user_profile_category_id":"2","user_profile_demo_status":"2","oncreate":"2020-08-11 12:20:43","onupdate":"2022-05-10 10:54:13","user_profile_industry_id":"16","user_profile_customer_industry":"customer","user_profile_role_id":"21","user_profile_company_name":"Parvathyvvv","user_profile_website":"","user_profile_company_size":"112233","purpose_name":"Other Industry","category_name":"Developer"})
         window._mfq = window._mfq || [];

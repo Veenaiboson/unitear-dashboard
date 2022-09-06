@@ -34,8 +34,11 @@
 <script src="resources/editor_new/js/jquery-ui-1.12.1.js"></script>
 <!-- Global site tag (gtag.js) - Google Ads: 806149778 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-806149778"></script>
-   
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <style>
+        [v-cloak] {
+            display: none;
+        }
         .unite-headbody {
             height: auto;
             background-color: #fff;
@@ -182,6 +185,7 @@
                         }
                     }
                 </style>
+              
 </head>
 
 <body>
@@ -463,7 +467,7 @@
     <!-- <div w3-include-html="header.html"></div>  -->
 
     <section class="unite-headbody">
-        <div class="container">
+        <div class="container" >
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6 text-center">
@@ -494,10 +498,10 @@
 
 
     <section class="mt-5">
-        <div class="container ">
+        <div class="container" id="app" v-cloak>
 
             <div class="fghj text-center">
-                <a href="" class="new-forum-link btn-loader">Add New Forum</a>
+                <a @click="load_forum_new_post()" class="new-forum-link btn-loader">Add New Forum</a>
             </div>
 
             <section class="mb-5 ">
@@ -515,7 +519,7 @@
 
                         </div>
                         <div class="col-lg-4 text-center sde">
-						<a onclick="load_forum_new_post()"
+						<a @click="load_forum_new_post()"
                                 class="new-forum-link mkl btn-hover btn-loader">Add New Forum</a>
                         </div>
                     </div>
@@ -528,104 +532,68 @@
                     <div class="row">
                     <div class="col-lg-8">
 <!-- ----------------------------------------------------------------------------------------------- -->
-<a onclick="post_category_loader()">  <div class="cat-forum">
-    <div class="cat-img">
-        <img src="https://diui35v2plbz7.cloudfront.net/forum_images/f-1.jpg" alt="" class="img-fluid">
-    </div>
-    <div class="cat-content">
-        <div>
-            <h4>General Discussions</h4>
-            <p class="mb-0">331 Post</p>
+<div v-for="category in categories" >
+    <a @click="post_category_loader(category.category_id)" >  <div class="cat-forum">
+        <div class="cat-img">
+            <img :src="category.category_image" alt="" class="img-fluid">
         </div>
-    </div>
-    <div class="cat-common">
-        <img src="resources/forum/img/right-side.svg" alt="">
-    </div>
-</div> 
-</a> 
-<a onclick="post_category_loader(0)">  <div class="cat-forum">
-    <div class="cat-img">
-        <img src="https://diui35v2plbz7.cloudfront.net/forum_images/f-2.jpg" alt="" class="img-fluid">
-    </div>
-    <div class="cat-content">
-        <div>
-            <h4>News & Updates</h4>
-            <p class="mb-0">14 Post</p>
+        <div class="cat-content">
+            <div>
+                <h4>{{category.category_name}}</h4>
+                <p class="mb-0">{{category.category_count}} Post</p>
+            </div>
         </div>
-    </div>
-    <div class="cat-common">
-        <img src="resources/forum/img/right-side.svg" alt="">
-    </div>
-</div> 
-</a> 
-<a onclick="post_category_loader(2)">  <div class="cat-forum">
-    <div class="cat-img">
-        <img src="https://diui35v2plbz7.cloudfront.net/forum_images/f-4.jpg" alt="" class="img-fluid">
-    </div>
-    <div class="cat-content">
-        <div>
-            <h4>UniteAR Mobile App</h4>
-            <p class="mb-0">1 Post</p>
+        <div class="cat-common">
+            <img src="resources/forum/img/right-side.svg" alt="">
         </div>
-    </div>
-    <div class="cat-common">
-        <img src="resources/forum/img/right-side.svg" alt="">
-    </div>
-</div> 
-</a> 
-<a onclick="post_category_loader(3)">  <div class="cat-forum">
-    <div class="cat-img">
-        <img src="https://diui35v2plbz7.cloudfront.net/forum_images/f-5.jpg" alt="" class="img-fluid">
-    </div>
-    <div class="cat-content">
-        <div>
-            <h4>Editor Related</h4>
-            <p class="mb-0">1 Post</p>
-        </div>
-    </div>
-    <div class="cat-common">
-        <img src="resources/forum/img/right-side.svg" alt="">
-    </div>
-</div> 
-</a> 
-<a onclick="post_category_loader(4)">  <div class="cat-forum">
-    <div class="cat-img">
-        <img src="https://diui35v2plbz7.cloudfront.net/forum_images/f-7.jpg" alt="" class="img-fluid">
-    </div>
-    <div class="cat-content">
-        <div>
-            <h4>Contents & Tools</h4>
-            <p class="mb-0">1 Post</p>
-        </div>
-    </div>
-    <div class="cat-common">
-        <img src="resources/forum/img/right-side.svg" alt="">
-    </div>
-</div> 
-</a > 
+    </div> 
+    </a> 
+</div>
+
+<!--  -->
 
 <!-- ------------------------------------------------------------------------------------------------------- -->
                             </div>
                         <div class="col-lg-4 ">
-                            
+                            <div class="box-community2 ">
+                                <h5 class="post-p">My Posts</h5>
+</div>
+                            <a onclick="load_thread(my_post.post_id)" v-for="my_post in my_posts.slice(0, 5)">
+                                <div class="box-community2 p-3">
+                                    <p class="px-14">{{my_post.post_subject}}</p>
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-6 kop">
+                                                <p>{{my_post.no_of_comments}} Reply</p>
+                                            </div>
+                                            <div class="col-6 text-right kop">
+                                                <p>{{my_post.post_date}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
 
-
+                                </div>
+                            </a>
+                            <div class="text-center pt-3 pb-3">
+                                <a href="forum/load_my_posts" style="color:#08f;">View More</a>
+                            </div>
       
                             <div class="box-community2 ">
                                 <h5 class="post-p">Popular Posts</h5>
 </div>
 
 
-                                <a onclick="load_thread(14)" >
+                                <a onclick="load_thread(popular_post.post_id)" v-for="popular_post in popular_posts.slice(0, 5)">
                                     <div class="box-community2 p-3">
-                                        <p class="px-14">AR Discussion</p>
+                                        <p class="px-14">{{popular_post.post_subject}}</p>
                                         <div class="">
                                             <div class="row">
                                                 <div class="col-6 kop">
-                                                    <p>0 Reply</p>
+                                                    <p>{{popular_post.no_of_comments}} Reply</p>
                                                 </div>
                                                 <div class="col-6 text-right kop">
-                                                    <p>23rd March 2020
+                                                    <p>{{popular_post.post_date}}
                                                     </p>
                                                 </div>
                                             </div>
@@ -633,76 +601,7 @@
 
                                     </div>
                                 </a>
-                                <a onclick="load_thread(14)">
-                                    <div class="box-community2 p-3">
-                                        <p class="px-14">Discussions related to 3D contents</p>
-                                        <div class="">
-                                            <div class="row">
-                                                <div class="col-6 kop">
-                                                    <p>0 Reply</p>
-                                                </div>
-                                                <div class="col-6 text-right kop">
-                                                    <p>23rd March 2020
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </a>
-                                <a onclick="load_thread(14)">
-                                    <div class="box-community2 p-3">
-                                        <p class="px-14">testxssa</p>
-                                        <div class="">
-                                            <div class="row">
-                                                <div class="col-6 kop">
-                                                    <p>0 Reply</p>
-                                                </div>
-                                                <div class="col-6 text-right kop">
-                                                    <p>23rd March 2020
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </a>
-                                <a onclick="load_thread(14)">
-                                    <div class="box-community2 p-3">
-                                        <p class="px-14">I would like to know about custom solutions</p>
-                                        <div class="">
-                                            <div class="row">
-                                                <div class="col-6 kop">
-                                                    <p>0 Reply</p>
-                                                </div>
-                                                <div class="col-6 text-right kop">
-                                                    <p>23rd March 2020
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </a>
-                                <a onclick="load_thread(14)">
-                                    <div class="box-community2 p-3">
-                                        <p class="px-14">Is this free forever?</p>
-                                        <div class="">
-                                            <div class="row">
-                                                <div class="col-6 kop">
-                                                    <p>0 Reply</p>
-                                                </div>
-                                                <div class="col-6 text-right kop">
-                                                    <p>23rd March 2020
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </a>
-                    
-
+                               
 
                         <div class=" box-community mt-5">
                             <div>
@@ -710,17 +609,11 @@
                             </div>
 
                             <hr>
-                            <div class="text-center">
-                              
-                                <a  onclick="search_based_on_tag(contact)"  class="tags">contact</a>
-                                <a onclick="search_based_on_tag(payment)"  class="tags">payment</a>
-                                <a onclick="search_based_on_tag(unitear)"  class="tags">unitear</a>
-                                <a onclick="search_based_on_tag(bugs)" class="tags">bugs</a>
-                                <a onclick="search_based_on_tag(app)"  class="tags">app</a>
-                                <a onclick="search_based_on_tag(lag)"  class="tags">lag</a>
-                                <a onclick="search_based_on_tag(detection)"  class="tags">detection</a>
-                                <a onclick="search_based_on_tag(target_image)" class="tags">target image</a>
-                              
+                            <div class="text-center" >
+                              <div v-for="popular_tag in popular_tags.slice(0, 8)">
+                                <a  onclick="search_based_on_tag(popular_tag.tag_name)"  class="tags">{{popular_tag.tag_name}}</a>
+                              </div>
+                               
                             </div>
 
                         </div>
@@ -952,6 +845,78 @@
 </script>
 -->
 <script>
+    var datas = {
+        categories: [],
+        popular_posts: [],
+        popular_tags: [],
+        my_posts: []
+    }
+    const vueApp = new Vue({
+      el: '#app',
+      data: datas,
+      mounted(){
+        
+        
+        this.categories = JSON.parse(localStorage.getItem('categories'));
+        this.popular_posts = JSON.parse(localStorage.getItem('popular_posts'));
+        this.popular_tags = JSON.parse(localStorage.getItem('popular_tags'));
+        this.my_posts = JSON.parse(localStorage.getItem('my_posts'));
+        console.log(this.popular_posts)
+      },
+      methods:{
+        post_category_loader(post_category_id){
+        $.ajax({
+            url: base_urls_8100+"forum/post-category-loader",
+            type: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.getItem('token')
+                },
+            data: JSON.stringify({
+                post_category_id:post_category_id
+            }),
+            success: function( result ) {
+                if(result.status){
+                    console.log(result.data);
+                    var result_data = result.data;
+                    localStorage.setItem( 'category_id', JSON.stringify(result_data.category_id) );
+                    localStorage.setItem( 'category_name', JSON.stringify(result_data.category_name) );
+                    localStorage.setItem( 'fetched_data', JSON.stringify(result_data.fetched_data) );
+                    localStorage.setItem( 'popular_posts', JSON.stringify(result_data.popular_posts) );
+                    localStorage.setItem( 'popular_tags', JSON.stringify(result_data.popular_tags) );
+                    //  window.location.href="./forum_home.html";
+                }
+                
+            }, 
+            error: function (textStatus, errorThrown) {
+                            callbackfn(errorThrown);
+                        }
+            });
+      },
+      load_forum_new_post(){
+        $.ajax({
+            url: base_urls_8100+"forum/load-forum-new-post",
+            type: 'POST',
+            dataType: "json",
+            headers: {
+                'Authorization': localStorage.getItem('token')
+                },
+            data: {
+                search: request.term
+            },
+            success: function( data ) {
+                // console.log(data);
+                // response( data );
+            }, 
+            error: function (textStatus, errorThrown) {
+                            callbackfn(errorThrown);
+                        }
+            });
+      }
+      }
+    })
+    </script>
+<script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -1029,7 +994,7 @@ src="https://www.facebook.com/tr?id=711212635973617&ev=PageView&noscript=1"
             $("#unitear_dropmenu2").addClass("d-none")
         });
     });
-    var base_urls_8100 = 'http://localhost:8100/'
+    var base_urls_8100 = 'https://api.dev.unitear.com/'; //'http://localhost:8100/'
    
     $( function() {
     // Single Select
@@ -1078,46 +1043,8 @@ src="https://www.facebook.com/tr?id=711212635973617&ev=PageView&noscript=1"
             // console.log("an error occured with ajax"+data);
          }
     });
-    function load_forum_new_post(){
-        $.ajax({
-            url: base_urls_8100+"forum/load-forum-new-post",
-            type: 'POST',
-            dataType: "json",
-            headers: {
-                    'Authorization': localStorage.getItem('token')
-                },
-            data: {
-                search: request.term
-            },
-            success: function( data ) {
-                // console.log(data);
-                response( data );
-            }, 
-            error: function (textStatus, errorThrown) {
-                            callbackfn(errorThrown);
-                        }
-            });
-      }        
-      function post_category_loader(){
-        $.ajax({
-            url: base_urls_8100+"forum/post-category-loader",
-            type: 'POST',
-            dataType: "json",
-            headers: {
-                    'Authorization': localStorage.getItem('token')
-                },
-            data: {
-                
-            },
-            success: function( data ) {
-                // console.log(data);
-                response( data );
-            }, 
-            error: function (textStatus, errorThrown) {
-                            callbackfn(errorThrown);
-                        }
-            });
-      }
+        
+      
       function load_thread(){
         $.ajax({
             url: base_urls_8100+"forum/load-thread",
@@ -1310,7 +1237,7 @@ $(document).ready(function () {
     });
 });
 
-var base_url='http://localhost/unitear-editor-live/';
+var base_url="https://base-url/"; //'http://localhost/unitear-editor-live/';
 // console.log(base_url);		
 $(document).ready(function(){
 

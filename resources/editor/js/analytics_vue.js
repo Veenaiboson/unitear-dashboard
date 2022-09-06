@@ -96,7 +96,7 @@ app = new Vue({
 				{
 					
 						$.ajax({
-										url: base_urls_8095+"notification/"+id,
+										url: base_urls+"notification/"+id,
 										type: "DELETE",
 										headers: {
 											'Authorization': localStorage.getItem('token')
@@ -156,7 +156,7 @@ function list_notification()
   {
 
 	$.ajax({
-		url: base_urls_8095+"notification/",
+		url: base_urls+"notification/",
 		type: "GET",
 		headers: {
 		  'Authorization': localStorage.getItem('token')
@@ -214,7 +214,7 @@ async function add_campaign(target_category_id) {
         //setTimeout(() => resolve("done!"), 1000)
         // $.post(base_url + "campaign/create_campaign/1", { target_category_id: target_category_id },
 		$.ajax({
-			url: base_urls_8097+"artarget/start-campaign-webar/",
+			url: base_urls+"artarget/start-campaign-webar/",
 			type: "POST",
 			headers: {
 			  'Authorization': localStorage.getItem('token')
@@ -260,7 +260,7 @@ async function add_campaign(target_category_id) {
 function check_app_factory_status()
 {
 	$.ajax({
-		url: base_urls_8081+"app-factory/check-app-factory-access",
+		url: base_urls+"app-factory/check-app-factory-access",
 		type: "POST",
 		headers: {
 		  'Authorization': localStorage.getItem('token')

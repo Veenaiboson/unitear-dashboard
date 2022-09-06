@@ -128,7 +128,17 @@
             color: #08f!important;
         }
         </style>
-    
+    <script>
+         var category_id = JSON.parse(localStorage.getItem("category_id"));
+         var category_name = JSON.parse(localStorage.getItem("category_name"));
+        var data = JSON.parse(localStorage.getItem("fetched_data"));
+        var data_posts = JSON.parse(localStorage.getItem("popular_posts"));
+        var data_tags = JSON.parse(localStorage.getItem("popular_tags"));
+        console.log(data)
+        console.log(data_posts)
+        console.log(data_tags)
+        // localStorage.clear();
+    </script>
 </head>
 
 <body>
@@ -431,7 +441,7 @@
             <a href="#"style="color:black;" ><span></span></a>
         </div>
             <div class="fghj text-center">
-                <a onclick="load_forum_new_post()" class="new-forum-link btn-loader">Add New Forum</a>
+                <a href="./forum_new_post.html" class="new-forum-link btn-loader">Add New Forum</a>
             </div>
 
             <section class="mb-5 ">
@@ -468,14 +478,33 @@
                             </div>
                         </div>
                         <div class="col-md-6 text-right">
-                            <a onclick="load_forum_new_post()"
+                            <a href="./forum_new_post.html"
                                 class="new-forum-link mkl btn-hover btn-loader">Add New Forum</a>
                         </div>
                     </div>
                 </div>
             </section>
             <!-- sorting after the selector option is changed -->
-
+<script>
+    var datas = {
+        subject: [],
+        popular_posts: [],
+        popular_tags: [],
+        my_posts: []
+    }
+    const vueApp = new Vue({
+      el: '#app',
+      data: datas,
+      mounted(){
+        
+      
+      },
+      methods:{
+      
+      
+      }
+    })
+</script>
             <script>
             $("select.com-sort").change(function() {
 
@@ -992,7 +1021,7 @@
             });
         });
         
-      var base_urls_8100 = 'http://localhost:8100/';
+      var base_urls_8100 ='https://api.dev.unitear.com/';// 'http://localhost:8100/';
     $( function() {
     // Single Select
     $( "#search_bar" ).autocomplete({
@@ -1190,7 +1219,7 @@
           });
       });
  
-  var base_url='http://localhost/unitear-editor-live/';
+  var base_url="https://base-url/"; //'http://localhost/unitear-editor-live/';
   // console.log(base_url);		
   $(document).ready(function(){
       

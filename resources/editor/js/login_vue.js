@@ -81,7 +81,8 @@ app = new Vue({
 							var resp_data = JSON.parse(data);
 							var localtoken=resp_data.data.token
 							localStorage.setItem('token', localtoken);
-							window.location.href = "http://localhost/unitear-dashboard/editor.html";
+							localStorage.setItem('user_email', datas.user_email);
+							window.location.href = "editor.html";
 							},
 						error:function(data, status) {  
 							   console.log(data)     

@@ -82,6 +82,8 @@ var datas = {
     new_join_team_id: 0,
 	user_as_team_member_status:false,
     //code added by Vishnu M R
+    heading:'',
+    sub_heading:''
 
 }
 
@@ -97,6 +99,8 @@ app = new Vue({
         }
         this.user_current_email = user_current_email;
         this.user_temp_email = user_temp_email;
+        this.heading = localStorage.getItem('heading');
+        this.sub_heading = localStorage.getItem('sub_heading');
     },
     created: function() {
         // console.log("created");
@@ -350,7 +354,7 @@ app = new Vue({
 			});
 
             // $.ajax({
-                //     url: base_urls_+"",
+                //     url: base_urls_8087+"team/check-team-exists",
                 //     type: "POST",
                 //     headers: {
                 //         'Content-Type': 'application/json',
@@ -936,5 +940,6 @@ function get_profile() {
 }
 function logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user_email');
     window.location.href = "login.html";
 }

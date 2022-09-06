@@ -386,7 +386,7 @@
                         <div class="my-menu">
                             <ul>
                                 <li> <a href="./pricing.html"> Upgrade Plan</a></li>
-                                <li> <a href="./account.html"> My Account </a></li>
+                                <li> <a onclick="account()"> My Account </a></li>
                                 <li> <a href="./team.html"> Team </a></li>
                                 <li onclick="Cookiebot.renew();"> <a href="#"> GDPR Compilance </a></li>
                                 <li> <a href="./cookie_declaration.html"> Cookie Declaration </a></li>
@@ -1132,13 +1132,15 @@ design customization options.</p>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
     }
-   var base_url='http://localhost/unitear-editor-live/';
-   var base_urls_8088='http://localhost:8088/';//campaign
-   var base_urls_8095='http://localhost:8095/';
-   var base_urls_8090='http://localhost:8090/';//profile
-   var base_url_8099='http://localhost:8099/';
-   var base_urls_8097='http://localhost:8097/';
-   var base_urls_8081='http://localhost:8081/';
+   var base_url="https://base-url/"; //'http://localhost/unitear-editor-live/';
+   var base_urls_8088='https://api.dev.unitear.com/'; // 'http://localhost:8088/';//campaign
+   var base_urls_8095='https://api.dev.unitear.com/'; // 'http://localhost:8095/';
+   var base_urls_8090='https://api.dev.unitear.com/'; // 'http://localhost:8090/';//profile
+   var base_url_8099='https://api.dev.unitear.com/'; // 'http://localhost:8099/';
+   var base_urls_8097='https://api.dev.unitear.com/';'http://localhost:8097/';
+   var base_urls_8081='https://api.dev.unitear.com/';'http://localhost:8081/';
+   var base_urls_8087='https://api.dev.unitear.com/';'http://localhost:8087/';//team
+   var base_urls_8093='https://api.dev.unitear.com/';'http://localhost:8093/';//pricing
     $(".gt").focus(function(){
         $("line-line").css("width","100%");
 	});  
