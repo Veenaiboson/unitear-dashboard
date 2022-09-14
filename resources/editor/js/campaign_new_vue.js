@@ -931,47 +931,47 @@ function update_new_version() {
 }
 /*******************Update  new version*********************/
 function get_profile() {
-    $.post(base_url + "profile/get_profile", {},
-        function(data, status) {
-            // console.log(data);
-            var resp_data = JSON.parse(data);
-            if (resp_data.status) {
+    // $.post(base_url + "profile/get_profile", {},
+    //     function(data, status) {
+    //         // console.log(data);
+    //         var resp_data = JSON.parse(data);
+    //         if (resp_data.status) {
 
-                datas.profile = resp_data.data;
-                if (datas.profile.user_version == 1) {
-                    datas.show_new_feature_info_modal = true;
+    //             datas.profile = resp_data.data;
+    //             if (datas.profile.user_version == 1) {
+    //                 datas.show_new_feature_info_modal = true;
+    //             } else {
+    //                 datas.show_new_feature_info_modal = false;
+    //             }
+    //         } else {
+
+    //         }
+    //     });
+        $.ajax({
+            url: base_urls_8090+"profile/",
+            type: "GET",
+            headers: {
+                'Authorization': localStorage.getItem('token')
+            },
+            data: {},
+            success: function(data, status) {  
+                var resp_data = data;
+                if (resp_data.status) {
+
+                    datas.profile = resp_data.data;
+                    if (datas.profile.user_version == 1) {
+                        datas.show_new_feature_info_modal = true;
+                    } else {
+                        datas.show_new_feature_info_modal = false;
+                    }
                 } else {
-                    datas.show_new_feature_info_modal = false;
-                }
-            } else {
-
-            }
-        });
-        // $.ajax({
-        //     url: base_urls_8090+"profile/",
-        //     type: "GET",
-        //     headers: {
-        //         'Authorization': localStorage.getItem('token')
-        //     },
-        //     data: {},
-        //     success: function(data, status) {  
-        //         var resp_data = data;
-        //         if (resp_data.status) {
-
-        //             datas.profile = resp_data.data;
-        //             if (datas.profile.user_version == 1) {
-        //                 datas.show_new_feature_info_modal = true;
-        //             } else {
-        //                 datas.show_new_feature_info_modal = false;
-        //             }
-        //         } else {
     
-        //         }
-        //     },
-        //     error:function(data, status) {  
-        //         console.log("error");
-        //     },
-        // })
+                }
+            },
+            error:function(data, status) {  
+                console.log("error");
+            },
+        })
 }
 
 /*******************List notification*********************/

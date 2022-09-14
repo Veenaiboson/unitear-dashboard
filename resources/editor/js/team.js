@@ -925,18 +925,39 @@ function field_type_validation(field_name, field_value) {
 }
 
 function get_profile() {
-    $.post(base_url + "profile/get_profile", {},
-        function(data, status) {
-            // console.log(data);
-            var resp_data = JSON.parse(data);
+    // $.post(base_url + "profile/get_profile", {},
+    //     function(data, status) {
+    //         // console.log(data);
+    //         var resp_data = JSON.parse(data);
 
-            if (resp_data.status) {
+    //         if (resp_data.status) {
 
-                datas.profile = resp_data.data;
-            } else {
+    //             datas.profile = resp_data.data;
+    //         } else {
 
-            }
-        });
+    //         }
+    //     });
+        $.ajax({
+            url: base_urls_8090+"profile/",
+            type: "GET",
+            headers: {
+                'Authorization': localStorage.getItem('token')
+            },
+            data: {},
+            success: function(data, status) {  
+                var resp_data = data;
+                if (resp_data.status) {
+    
+                    datas.profile = resp_data.data;
+                    
+                } else {
+    
+                }
+            },
+            error:function(data, status) {  
+                console.log("error");
+            },
+        })
 }
 function logout() {
     localStorage.removeItem('token');
