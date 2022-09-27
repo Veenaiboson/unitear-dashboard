@@ -106,7 +106,7 @@ app = new Vue({
         // console.log("created");
         // this.get_profile();
         this.check_team_exists();
-        // this.list_members();
+         this.list_members();
         this.list_roles();
         // this.list_team();
         this.total_team_members_allowed = no_of_team_members;

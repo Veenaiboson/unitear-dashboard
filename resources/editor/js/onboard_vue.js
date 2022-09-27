@@ -517,22 +517,22 @@ $(document).ready(function(){
 					 	{
 							if(datas.profile.user_version==1)
 							{
-								location.href=base_url+"unitear-editor";	
+								location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor";	
 							}
 							else
 							{
-								location.href=base_url+"unitear-editor2";	
+								location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor2";	
 							}
 						}
 						else
 						{
 							if(detect_mob())
 							{
-								location.href=base_url+"unitear-webar-mobile-editor/";	
+								location.href="https://unitear-node-html.ibosoninnovations.com/unitear-webar-mobile-editor/";	
 							}
 							else
 							{
-								location.href=base_url+"webar-editor/";	
+								location.href="https://unitear-node-html.ibosoninnovations.com/webar-editor/";	
 							}
 						}
 				  }

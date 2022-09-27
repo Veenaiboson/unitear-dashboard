@@ -667,22 +667,22 @@ app = new Vue({
 												{
 													if(detect_mob())
 													{
-														location.href=base_url+"unitear-image-based-mobile-editor";	
+														location.href="https://unitear-node-html.ibosoninnovations.com/unitear-image-based-mobile-editor/";	
 													}
 													else
 													{
-														location.href=base_url+"unitear-editor2";	
+														location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor2/";	
 
 													}
 												}
 												else{
 													if(detect_mob())
 													{
-														location.href=base_url+"unitear-image-based-mobile-editor";	
+														location.href="https://unitear-node-html.ibosoninnovations.com/unitear-image-based-mobile-editor/";	
 													}
 													else
 													{
-														location.href=base_url+"unitear-editor2";	
+														location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor2/";	
 
 													}			
 												}
@@ -692,11 +692,11 @@ app = new Vue({
 											 {
 												if(detect_mob())
 												{
-													location.href=base_url+"unitear-webar-mobile-editor/";	
+													location.href="https://unitear-node-html.ibosoninnovations.com/unitear-webar-mobile-editor/";	
 												}
 												else
 												{
-													location.href=base_url+"webar-editor/";	
+													location.href="https://unitear-node-html.ibosoninnovations.com/webar-editor/";	
 						
 												}
 											 }
@@ -712,22 +712,25 @@ app = new Vue({
 				
 				delete_notification:function(id)
 				{
+					$.ajax({
+						url: base_urls_8095+"notification/"+id,
+						type: "DELETE",
+						headers: {
+							'Authorization': localStorage.getItem('token')
+						},
+						data: {},
+						success: function(data, status) {  
+							var resp_data = data;
+							if (resp_data.status) {
+								list_notification();
+							}
+							},
+						error:function(data, status) {  
+							   console.log(data)     
+						},
+							})
 					
 					
-					$.post(base_url+"campaign/delete_notification",
-									{
-										id:id,
-									
-										
-									},
-									function(data,status){
-									 var resp_data=JSON.parse(data);
-									 if(resp_data.status)
-										 {
-											list_notification();
-										 }
-										 
-									});
 				},
 				change_notification_read_status:function()
 				{
@@ -752,7 +755,7 @@ app = new Vue({
 									},
 									data: {},
 									success: function(data, status) {  
-										var resp_data=JSON.parse(data);
+										var resp_data = data;
 										if(resp_data.status)
 										{
 										   list_notification();
@@ -1254,11 +1257,11 @@ async function add_campaign(target_category_id) {
 						
 						if(detect_mob())
 						{
-							location.href=base_url+"unitear-webar-mobile-editor/";	
+							location.href="https://unitear-node-html.ibosoninnovations.com/unitear-webar-mobile-editor/";	
 						}
 						else
 						{
-							location.href=base_url+"webar-editor/";	
+							location.href="https://unitear-node-html.ibosoninnovations.com/webar-editor/";	
 
 						}
 					}
@@ -1284,7 +1287,7 @@ function check_app_factory_status()
 		if(resp_data.status)
 		{	
 			datas.package_error_modal=false;
-			location.href = base_url + "unitear-app-factory/";
+			location.href = "https://unitear-node-html.ibosoninnovations.com/unitear-app-factory/";
 		}
 		else
 		{

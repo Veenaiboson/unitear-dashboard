@@ -358,9 +358,9 @@
                     </a>
 						<div id="google_translate_element"></div>
                        
-						<span  class="btn-upgrade package-name menu-sm-hide">
-                            Enterprise Package
-                            </span>
+						<a href="./pricing.html" class="btn-upgrade menu-sm-hide">
+                            Upgrade Now
+                        </a>
 						<div class="dropdown menu-sm-hide" v-if="user_as_team_member_status">
 							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							{{switch_team_name}}
@@ -371,7 +371,7 @@
 						</div>
 						
                         <a href="#" class="noty"
-                            v-on:click="notification_read_status=true;change_notification_read_status()">
+                            v-on:click="notification_read_status=true;change_notification_read_status(); open_notification=true;">
                             <img src="resources/editor_new/img/noty-bell.svg" class="menu-sm-hide" alt="">
                             <img src="resources/editor_new/img/white-bell.png" class="menu-sm-show" alt="">
                             <span v-if="read_entire_status">{{read_count}}</span>
@@ -397,7 +397,7 @@
 
                             </div>
                         </div>
-                        <div class="my-noty">
+                        <div class="my-noty" id="my-noty" >
                             <ul>
                                 <div v-if="no_of_notification_records>0" class="ul-first">
                                     <div class="row ">
@@ -1132,15 +1132,16 @@ design customization options.</p>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
     }
-   var base_url="https://base-url/"; //'http://localhost/unitear-editor-live/';
-   var base_urls_8088='https://api.dev.unitear.com/'; // 'http://localhost:8088/';//campaign
-   var base_urls_8095='https://api.dev.unitear.com/'; // 'http://localhost:8095/';
-   var base_urls_8090='https://api.dev.unitear.com/'; // 'http://localhost:8090/';//profile
-   var base_url_8099='https://api.dev.unitear.com/'; // 'http://localhost:8099/';
-   var base_urls_8097='https://api.dev.unitear.com/';'http://localhost:8097/';
-   var base_urls_8081='https://api.dev.unitear.com/';'http://localhost:8081/';
-   var base_urls_8087='https://api.dev.unitear.com/';'http://localhost:8087/';//team
-   var base_urls_8093='https://api.dev.unitear.com/';'http://localhost:8093/';//pricing
+    var baseURL = "https://unitear-node-html.ibosoninnovations.com/";
+    var base_url="https://base-url/"; //'http://localhost/unitear-editor-live/';
+    var base_urls_8088='https://api.dev.unitear.com/'; // 'http://localhost:8088/';//campaign
+    var base_urls_8095='https://api.dev.unitear.com/'; // 'http://localhost:8095/';
+    var base_urls_8090='https://api.dev.unitear.com/'; // 'http://localhost:8090/';//profile
+    var base_url_8099='https://api.dev.unitear.com/'; // 'http://localhost:8099/';
+    var base_urls_8097='https://api.dev.unitear.com/';'http://localhost:8097/';
+    var base_urls_8081='https://api.dev.unitear.com/';'http://localhost:8081/';
+    var base_urls_8087='https://api.dev.unitear.com/';'http://localhost:8087/';//team
+    var base_urls_8093='https://api.dev.unitear.com/';'http://localhost:8093/';//pricing
     $(".gt").focus(function(){
         $("line-line").css("width","100%");
 	});  

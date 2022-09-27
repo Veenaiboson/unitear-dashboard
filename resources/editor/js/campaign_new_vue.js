@@ -4,6 +4,7 @@ $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
     // base_url='http://localhost/unitear-editor-live/';
     var base_url = base_url;
+    var baseURL = baseURL
     var base_urls_8088 = base_urls_8088;
     $(".add_campaign").click(function() {
         add_campaign(2).then(function() {
@@ -74,7 +75,7 @@ var datas = {
     campaign_category: 3,
     sort_analytic_area: false,
     read_count: 0,
-    web_ar_experience: base_url + "webscanner/",
+    web_ar_experience:   "https://app.unitear.com/webscanner/", //base_url + "webscanner/",
     show_new_feature_info_modal: false,
     package_error_modal: false,
     delete_campaign_button_click: false,
@@ -149,7 +150,8 @@ var datas = {
     app_factory_modal: false,
     // jijo added -19-11-2021
     ground_plane_link: base_url + "ground-based-webar/?campaign=",
-    localcampaign_id:""
+    localcampaign_id:"",
+    open_notification:false
 }
 
 // Vue.component('file-upload',VueUploadComponent);
@@ -495,18 +497,18 @@ app = new Vue({
                             var resp_data = JSON.parse(data);
                             if (resp_data.status) {
                                 if (datas.campaign_category == 1) {
-                                    location.href = base_url + "unitear-editor2";
+                                    location.href = baseURL + "unitear-editor2/";
                                 }
                                 if (datas.campaign_category == 2) {
                                     if (detect_mob()) {
-                                        location.href = base_url + "unitear-webar-mobile-editor/";
+                                        location.href = baseURL + "unitear-webar-mobile-editor/";
                                     } else {
-                                        location.href = base_url + "webar-editor/";
+                                        location.href = baseURL + "webar-editor/";
 
                                     }
                                 }
                                 if (datas.campaign_category == 3) {
-                                    location.href = base_url + "unitear-app-factory/app-editor";
+                                    location.href = baseURL + "unitear-app-factory/app-editor";
                                 }
                             } else {
                                 // location.href=resp_data.redirect_url;
@@ -514,7 +516,7 @@ app = new Vue({
                                     datas.pro_msg = "Session expired.";
                                     datas.pro_sub_msg = "Please login again.";
                                     datas.session_expired = true;
-                                    location.href = resp_data.redirect_url;
+                                    location.href = baseURL;
                                 } else {
                                     list_campaign();
                                 }
@@ -538,7 +540,7 @@ app = new Vue({
                     },
                     data: {},
                     success: function(data, status) {  
-                        var resp_data = JSON.parse(data);
+                        var resp_data = data;
                         if (resp_data.status) {
                             list_notification();
                         }
@@ -573,7 +575,7 @@ app = new Vue({
                         },
                         data: {},
                         success: function(data, status) {  
-                            var resp_data=JSON.parse(data);
+                            var resp_data = data;
                             if(resp_data.status)
                                 {
                                    list_notification();
@@ -895,9 +897,12 @@ function check_trial_expiry() {//NOT USING
         data: {},
         success: function(data, status) {
             var resp_data = JSON.parse(data);
-            if (resp_data.status) {
+            if (resp_data.status) 
+            {
                 datas.trial_expired = resp_data.status
-            } else {
+            } 
+            else 
+            {
                 datas.trial_expired = resp_data.status
             }
         }
@@ -1021,15 +1026,16 @@ function list_campaign() {
             url: base_urls_8088 + "campaign/list",
             type: "POST",
             headers: {
-              'Authorization': localStorage.getItem('token')
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.getItem('token')
             },
-            data: {
+            data: JSON.stringify({
                 campaign_count_limit: datas.campaign_count_limit,
                 campaign_image_page_number: datas.campaign_image_page_number,
                 campaign_search: datas.search_campaign,
                 sort_type: datas.sort_type,
                 category: datas.campaign_category,
-            },
+            }),
             success: function(data, status) {  
                 var resp_data = JSON.parse(data);
                 if (resp_data.status) {
@@ -1269,15 +1275,15 @@ async function add_campaign(target_category_id, update_campaign_name_and_image) 
                     // location.href = base_url + "editor/webar-editor";
                     if (target_category_id == 1) {
                         if (datas.profile.user_version == 1) {
-                            location.href = base_url + "unitear-editor";
+                            location.href = baseURL + "unitear-editor/";
                         } else {
-                            location.href = base_url + "unitear-editor2";
+                            location.href = baseURL + "unitear-editor2/";
                         }
                     } else {
                         if (detect_mob()) {
-                            location.href = base_url + "unitear-webar-mobile-editor/";
+                            location.href = baseURL + "unitear-webar-mobile-editor/";
                         } else {
-                            location.href = base_url + "webar-editor/";
+                            location.href = baseURL + "webar-editor/";
                         }
                     }
                 } else {
@@ -1285,7 +1291,7 @@ async function add_campaign(target_category_id, update_campaign_name_and_image) 
                         datas.pro_msg = "Session expired.";
                         datas.pro_sub_msg = "Please login again.";
                         datas.session_expired = true;
-                        location.href = resp_data.redirect_url;
+                        location.href = baseURL ;
                     } else {
                         datas.main_loader = false;
                         // datas.package_error_modal=true;	
@@ -1314,7 +1320,7 @@ function check_app_factory_status() {//not using
             if (resp_data.status) {
                 datas.package_error_modal = false;
                 // location.href = base_url + "unitear-app-factory/";
-                location.href = base_url + "unitear-app-factory/create-app-details";
+                location.href = baseURL + "unitear-app-factory/create-app-details";
             } else {
                 datas.package_error_modal = true;
             }
@@ -1339,10 +1345,10 @@ function check_app_factory_count() {
                 var campaign_category = parseInt(datas.campaign_category);
                 switch (campaign_category) {
                     case 3:
-                        location.href = base_url + "unitear-app-factory/create-app-details";
+                        location.href = baseURL + "unitear-app-factory/create-app-details";
                         break;
                     case 4:
-                        location.href = base_url + "advanced-app-factory/";
+                        location.href = baseURL + "advanced-app-factory/";
                         break;
 
                 }
@@ -1499,3 +1505,24 @@ function account(){
         },
     })
 }
+ document.body.addEventListener("click", function (evt) {
+     console.log(datas.open_notification);
+     var notificationElement = evt.path[0].getAttribute("class");
+     console.log(notificationElement)
+     if(notificationElement=="menu-sm-hide")
+     {console.log("evt1")
+        //  if( datas.open_notification==false)
+        // {
+           document.getElementById("my-noty").style.display="block";
+        // }
+     }
+     else
+     {
+        console.log("evt")
+        datas.open_notification=false;
+        document.getElementById("my-noty").style.display="none";
+        
+     }
+
+   
+ });

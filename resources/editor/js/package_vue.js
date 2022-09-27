@@ -871,7 +871,7 @@ $(document).ready(function(){
 									},
 									data: {},
 									success: function(data, status) {  
-										var resp_data = JSON.parse(data);
+										var resp_data = data;
 										if (resp_data.status) {
 											list_notification();
 										}
@@ -904,7 +904,7 @@ $(document).ready(function(){
 								},
 								data: {},
 								success: function(data, status) {  
-									var resp_data=JSON.parse(data);
+									var resp_data = data;
 									if(resp_data.status)
 										{
 										   list_notification();
@@ -1888,7 +1888,7 @@ $(document).ready(function(){
 		  {
 			  
 		  datas.package_error_modal=false;
-		  location.href = base_url + "unitear-app-factory/";
+		  location.href = "https://unitear-node-html.ibosoninnovations.com/unitear-app-factory/";
 		  }
 		  else
 		  {

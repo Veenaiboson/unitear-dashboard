@@ -389,20 +389,24 @@ newFile.data.campaign_id=datas.current_campaign_id;
   },
   delete_notification:function(id)
 				{
-					$.post(base_url+"campaign/delete_notification",
-									{
-										id:id,
-									
-										
-									},
-									function(data,status){
-									 var resp_data=JSON.parse(data);
-									 if(resp_data.status)
-										 {
-											list_notification();
-										 }
-										 
-									});
+				
+					$.ajax({
+						url: base_urls_8095+"notification/"+id,
+						type: "DELETE",
+						headers: {
+							'Authorization': localStorage.getItem('token')
+						},
+						data: {},
+						success: function(data, status) {  
+							var resp_data = data;
+							if (resp_data.status) {
+								list_notification();
+							}
+							},
+						error:function(data, status) {  
+								console.log(data)     
+						},
+							})				
 				},
 				change_notification_read_status:function()
 				{
@@ -427,7 +431,7 @@ newFile.data.campaign_id=datas.current_campaign_id;
 								},
 								data: {},
 								success: function(data, status) {  
-									var resp_data=JSON.parse(data);
+									var resp_data = data;
 									if(resp_data.status)
 										{
 										   list_notification();
