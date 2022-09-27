@@ -517,11 +517,11 @@ $(document).ready(function(){
 					 	{
 							if(datas.profile.user_version==1)
 							{
-								location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor";	
+								location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor/";	
 							}
 							else
 							{
-								location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor2";	
+								location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor2/";	
 							}
 						}
 						else

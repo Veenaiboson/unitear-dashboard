@@ -1234,18 +1234,18 @@ async function add_campaign(target_category_id) {
 					{
 						if(datas.profile.user_version==1)
 												{
-													location.href=base_url+"unitear-editor";	
+													location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor/";	
 												}
 												else
 												{
 												
 														if(detect_mob())
 														{
-															location.href=base_url+"unitear-image-based-mobile-editor";	
+															location.href="https://unitear-node-html.ibosoninnovations.com/unitear-image-based-mobile-editor/";	
 														}
 														else
 														{
-															location.href=base_url+"unitear-editor2";	
+															location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor2/";	
 
 														}
 

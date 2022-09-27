@@ -104,7 +104,7 @@ app = new Vue({
 								var resp_data=JSON.parse(data);
 								if(resp_data.status)
 									{
-										location.href=base_url+"unitear-editor";
+										location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor/";
 									}
 								},
 							error:function(data, status) {  
