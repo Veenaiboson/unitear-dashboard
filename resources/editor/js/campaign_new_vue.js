@@ -494,7 +494,7 @@ app = new Vue({
                             category: datas.campaign_category,
                         }),
                         success: function(data, status) {  
-                            var resp_data = JSON.parse(data);
+                            var resp_data =data;
                             if (resp_data.status) {
                                 if (datas.campaign_category == 1) {
                                     location.href = baseURL + "unitear-editor2/";
