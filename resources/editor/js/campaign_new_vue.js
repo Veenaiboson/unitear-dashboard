@@ -2,7 +2,7 @@
 $(document).ready(function() {
     jQuery.ajaxSetup({ async: true });
     $('[data-toggle="tooltip"]').tooltip();
-    // base_url='http://localhost/unitear-editor-live/';
+    // var base_url='http://localhost/unitear-editor-live/';
     var base_url = base_url;
     var baseURL = baseURL
     var base_urls_8088 = base_urls_8088;
@@ -75,7 +75,7 @@ var datas = {
     campaign_category: 3,
     sort_analytic_area: false,
     read_count: 0,
-    web_ar_experience:   "https://app.unitear.com/webscanner/", //base_url + "webscanner/",
+    web_ar_experience:  "https://app.unitear.com/webscanner/",
     show_new_feature_info_modal: false,
     package_error_modal: false,
     delete_campaign_button_click: false,
@@ -151,7 +151,8 @@ var datas = {
     // jijo added -19-11-2021
     ground_plane_link: base_url + "ground-based-webar/?campaign=",
     localcampaign_id:"",
-    open_notification:false
+    open_notification:false,
+    open_profile:false
 }
 
 // Vue.component('file-upload',VueUploadComponent);
@@ -496,6 +497,8 @@ app = new Vue({
                         success: function(data, status) {  
                             var resp_data =data;
                             if (resp_data.status) {
+                                console.log("success");
+                                console.log(datas.campaign_category);
                                 if (datas.campaign_category == 1) {
                                     location.href = baseURL + "unitear-editor2/";
                                 }
@@ -571,9 +574,10 @@ app = new Vue({
                         url: base_urls_8095+"notification/change-notification-read-status",
                         type: "POST",
                         headers: {
+                            'Content-Type': 'application/json',
                             'Authorization': localStorage.getItem('token')
                         },
-                        data: {},
+                        data: JSON.stringify({user_id:9741}),
                         success: function(data, status) {  
                             var resp_data = data;
                             if(resp_data.status)
@@ -674,9 +678,10 @@ app = new Vue({
                     },
                     data: {},
                     success: function(data, status) {  
-                        response_data = data;
+                        response_data = JSON.parse(data);
                         $('.spinner-border').addClass('d-none');
                         if (response_data.status) {
+                            console.log("hii");
                             datas.new_campaign_name = response_data.new_campaign_default_name;
                             datas.new_campaign_thumbnail_file = "";
                             datas.new_campaign_thumbnail_preview = base_url + 'resources/editor_new/img/Réalité-augmentée-Apizee.png';
@@ -893,6 +898,7 @@ function check_trial_expiry() {//NOT USING
         type: "post",
         headers: {
           'Authorization': localStorage.getItem('token')
+        
         },
         data: {},
         success: function(data, status) {
@@ -1018,7 +1024,15 @@ function list_notification() {
 
 /*******************List Campaign*********************/
 function list_campaign() {
-    console.log(localStorage.getItem('token'))
+    console.log(datas.campaign_category)
+    var campaigns = datas.campaign_category
+    if(typeof campaigns == 'number'){
+        campaigns = campaigns.toString()
+        console.log(campaigns)
+    }
+    else
+    {
+    }
     datas.campaign_loader = true;
     datas.search_flag ? datas.main_loader = false : datas.main_loader = true;
     datas.list_campaign_request != null ? datas.list_campaign_request.abort() : null;
@@ -1034,7 +1048,7 @@ function list_campaign() {
                 campaign_image_page_number: datas.campaign_image_page_number,
                 campaign_search: datas.search_campaign,
                 sort_type: datas.sort_type,
-                category: datas.campaign_category,
+                category: campaigns,
             }),
             success: function(data, status) {  
                 var resp_data = JSON.parse(data);
@@ -1042,7 +1056,7 @@ function list_campaign() {
     
     
                     datas.campaigns = resp_data.data;
-                    datas.no_of_records = resp_data.total_campaign_count;
+                    datas.no_of_records = resp_data.total_campaign_count.total_num;                    
     
     
     
@@ -1053,7 +1067,11 @@ function list_campaign() {
                     datas.sort_analytic_area = true;
     
                 }
-                if (resp_data.total_campaign_count > 0) {
+                console.log(resp_data)
+                console.log(resp_data.total_campaign_count)
+                console.log(resp_data.total_campaign_count.total_num)
+
+                if (resp_data.total_campaign_count.total_num > 0) {
                     datas.add_new_image_project_button = false;
                     datas.sort_analytic_area = true;
                     datas.pro_msg = "Projects found";
@@ -1092,8 +1110,8 @@ function list_campaign() {
                 $('.VuePagination').show();
                 datas.page_load = true;
                 datas.campaign_loader = false;
-                datas.total_image_campaign = resp_data.total_campaign_count;
-                datas.total_campaign_count_user = resp_data.total_campaign_count_user;
+                datas.total_image_campaign = resp_data.total_campaign_count.total_num;
+                datas.total_campaign_count_user = resp_data.total_campaign_count_user.total_num;
                 if (!datas.add_new_image_project_button_top) { datas.total_campaign_count_user = 0; }
                 datas.total_campaign_count_user > 0 ? datas.sort_analytic_area = true : datas.sort_analytic_area = false;
                 datas.search_flag = false;
@@ -1507,22 +1525,38 @@ function account(){
 }
  document.body.addEventListener("click", function (evt) {
      console.log(datas.open_notification);
-     var notificationElement = evt.path[0].getAttribute("class");
-     console.log(notificationElement)
-     if(notificationElement=="menu-sm-hide")
+    //  var notificationElement = evt.path[0].getAttribute("class");
+    //  var profileElement = evt.path[1].getAttribute("class");
+    //  console.log(profileElement)
+     if(datas.open_notification==true)
      {console.log("evt1")
         //  if( datas.open_notification==false)
         // {
            document.getElementById("my-noty").style.display="block";
+           datas.open_notification=false;
         // }
      }
      else
      {
-        console.log("evt")
-        datas.open_notification=false;
+        console.log("evt0")
+       
         document.getElementById("my-noty").style.display="none";
         
      }
+     if( datas.open_profile == true)
+     {console.log("evt3")
+        
+           document.getElementById("my-menu").style.display="block";
+            datas.open_profile=false;
 
+        
+     }
+     else
+     {
+        console.log("evt4")
+        document.getElementById("my-menu").style.display="none";
+        
+     }
+    
    
  });

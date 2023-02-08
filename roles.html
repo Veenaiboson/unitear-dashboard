@@ -328,7 +328,7 @@
 
                      <div class="logo" >
                         <img @click="mobile_menu = true; " style="cursor:pointer;" src="resources/editor_new/img/burg.png" alt="" class="img-fluid pr-3 menu-sm-show">
-                        <a href="login">
+                        <a href="./editor.html">
                             <img src="resources/editor_new/img/logo-2.png" alt="">
                         </a>
                       <!--  <div class="added-menu menu-sm-hide">
@@ -342,7 +342,7 @@
                     </div> 
                     <div class="new-dash-menu menu-sm-hide" >
                         <!-- <img @click="mobile_menu = true; " style="cursor:pointer;" src="<?=base_url('resources/editor_new/')?>img/hum.svg" alt="" class="img-fluid pr-3 "> -->
-                        <a href="login">
+                        <a href="./editor.html">
                             <div class="dash-logo">
                             <img src="resources/editor_new/img/white-new-logo.svg" alt="">
                             </div>
@@ -390,8 +390,8 @@
                     </a>
 						<div id="google_translate_element"></div>
                         
-                        <a href="./pricing.html" class="btn-upgrade menu-sm-hide">
-                            Upgrade Now
+                        <a href="./pricing.html" class="btn-upgrade package-name menu-sm-hide">
+                            Enterprice Package
                         </a>
 
                        
@@ -406,19 +406,19 @@
 						</div>
 						
                         <a href="#" class="noty"
-                            v-on:click="notification_read_status=true;change_notification_read_status()">
+                            v-on:click="notification_read_status=true;change_notification_read_status(); open_notification=true;">
                             <img src="resources/editor_new/img/noty-bell.svg" class="menu-sm-hide" alt="">
                             <img src="resources/editor_new/img/white-bell.png" class="menu-sm-show" alt="">
                             <span v-if="read_entire_status">{{read_count}}</span>
                         </a>
 
 
-                        <a href="#" class="user menu-sm-hide">
+                        <a href="#" class="user menu-sm-hide" v-on:click="open_profile = true;">
                             <img style=""
                                 src="resources/editor_new/img/businessman-avatar-icon-01-.svg"
                                 alt="">
                         </a>
-                        <div class="my-menu">
+                        <div class="my-menu" id="my-menu">
                             <ul>
                                 <li> <a href="./pricing.html"> Upgrade Plan</a></li>
                                 <li> <a href="./account.html"> My Account </a></li>
@@ -432,7 +432,7 @@
 
                             </div>
                         </div>
-                        <div class="my-noty">
+                        <div class="my-noty" id="my-noty">
                             <ul>
                                 <div v-if="no_of_notification_records>0" class="ul-first">
                                     <div class="row ">
@@ -829,10 +829,14 @@
     }
    
    var base_url="https://base-url/"; //'http://localhost/unitear-editor-live/';
-   var base_urls_8085='https://api.dev.unitear.com/'; //'http://localhost:8085/';
-   var base_urls_8087='https://api.dev.unitear.com/'; //'http://localhost:8087/';
-   var base_urls_8086='https://api.dev.unitear.com/'; //'http://localhost:8086/';
-   var base_urls_8090='https://api.dev.unitear.com/'; //'http://localhost:8090/';//profile
+//    var base_urls_8085='https://api.dev.unitear.com/'; //
+   var base_urls_8085 = 'http://localhost:8085/';
+//    var base_urls_8087='https://api.dev.unitear.com/'; //
+   var base_urls_8087 = 'http://localhost:8087/';
+//    var base_urls_8086='https://api.dev.unitear.com/'; //
+   var base_urls_8086 = 'http://localhost:8086/';
+//    var base_urls_8090='https://api.dev.unitear.com/'; ////profile
+   var base_urls_8090 = 'http://localhost:8090/';
    $(function(){
     var handleClick = 0,
         percentage = 0;

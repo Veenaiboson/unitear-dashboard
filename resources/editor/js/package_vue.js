@@ -797,7 +797,7 @@ $(document).ready(function(){
 
 	  $.ajax({
 			url: base_urls_8094+"account/update-account-settings",
-			type: "POST",
+			type: "PUT",
 			headers: {
 				'Content-Type': 'application/json',
 				'Authorization': localStorage.getItem('token')
@@ -1008,60 +1008,60 @@ $(document).ready(function(){
 							return true;
 						}
 						
-						$.post(base_url+"profile/update_profile",
-						{
-							"user_name":datas.profile.update_user_name,  
-						},
-						function(data,status){
-							var resp_data=JSON.parse(data);
-							if(resp_data.status)
-							{
-								$(".message-text").show();
-								$(".profile-message").html("Profile updated");
-								datas.profile=resp_data.data;
-								datas.profile_message=resp_data.message;
-								//hide modal
-								datas.updateName=false;
-								// get_profile();   
-							}
-							else
-							{
-								datas.profile_message=resp_data.message;
-								datas.updateName=false; 
-							}
-						});
+						// $.post(base_url+"profile/update_profile",
+						// {
+						// 	"user_name":datas.profile.update_user_name,  
+						// },
+						// function(data,status){
+						// 	var resp_data=JSON.parse(data);
+						// 	if(resp_data.status)
+						// 	{
+						// 		$(".message-text").show();
+						// 		$(".profile-message").html("Profile updated");
+						// 		datas.profile=resp_data.data;
+						// 		datas.profile_message=resp_data.message;
+						// 		//hide modal
+						// 		datas.updateName=false;
+						// 		// get_profile();   
+						// 	}
+						// 	else
+						// 	{
+						// 		datas.profile_message=resp_data.message;
+						// 		datas.updateName=false; 
+						// 	}
+						// });
 
-						    // $.ajax({
-							// 	url: base_urls_8081+"profile/",
-							// 	type: "POST",
-							// 	headers: {
-							// 	'Authorization': localStorage.getItem('token')
-							// 	},
-							// 	data: {
-							// 		"user_name":datas.profile.update_user_name,  
-							// 	},
-							// 	success: function(data, status) {  
-							// 		var resp_data=JSON.parse(data);
-							// 		if(resp_data.status)
-							// 		{
-							// 			$(".message-text").show();
-							// 			$(".profile-message").html("Profile updated");
-							// 			datas.profile=resp_data.data;
-							// 			datas.profile_message=resp_data.message;
-							// 			//hide modal
-							// 			datas.updateName=false;
-							// 			// get_profile();   
-							// 		}
-							// 		else
-							// 		{
-							// 			datas.profile_message=resp_data.message;
-							// 			datas.updateName=false; 
-							// 		}
-							// 	},
-							// 	error:function(data, status) {  
+						    $.ajax({
+								url: base_urls_8090+"profile/",
+								type: "POST",
+								headers: {
+								'Authorization': localStorage.getItem('token')
+								},
+								data: JSON.stringify({
+									"user_name":datas.profile.update_user_name,  
+								}),
+								success: function(data, status) {  
+									var resp_data=JSON.parse(data);
+									if(resp_data.status)
+									{
+										$(".message-text").show();
+										$(".profile-message").html("Profile updated");
+										datas.profile=resp_data.data;
+										datas.profile_message=resp_data.message;
+										//hide modal
+										datas.updateName=false;
+										// get_profile();   
+									}
+									else
+									{
+										datas.profile_message=resp_data.message;
+										datas.updateName=false; 
+									}
+								},
+								error:function(data, status) {  
 								
-							// 	},
-							// })
+								},
+							})
 					},
 					
 					
@@ -1092,7 +1092,7 @@ $(document).ready(function(){
 									email:user_email
 								}),
 								success: function(data, status) {  
-									var resp_data=JSON.parse(data);
+									var resp_data=data;
 								  // console.log(resp_data);
 								  datas.subscription_cancel_mail_message=resp_data.message;
 								  datas.cancel_subscription_modal=false;
@@ -1214,61 +1214,61 @@ $(document).ready(function(){
 							if(update_status == 1)
 							{
 								// console.log(datas.profile_company_name_account_page);
-								$.post(base_url+"editor/save_profile_data",
-								{
-									profile_purpose:datas.profile_purpose_account_page,
-									profile_customer_industry:datas.profile_customer_industry_account_page,
-									profile_category:datas.profile_category_account_page,
-									profile_demo_status:datas.profile_demo_status_account_page,
-									profile_company_name:datas.profile_company_name_account_page,
-									profile_website:datas.profile_website_account_page,
-									profile_company_size:datas.profile_company_size_account_page,
-								},
-								function(data,status){
-									resp_data=JSON.parse(data);
-									// console.log(resp_data);
-									if(resp_data.status)
-									{	
-										datas.profile_update_status="Changes Saved";
-									}
-									else
-									{
-										datas.profile_update_status="Your session seems to be expired.";
-									}
-								});
+								// $.post(base_url+"editor/save_profile_data",
+								// {
+								// 	profile_purpose:datas.profile_purpose_account_page,
+								// 	profile_customer_industry:datas.profile_customer_industry_account_page,
+								// 	profile_category:datas.profile_category_account_page,
+								// 	profile_demo_status:datas.profile_demo_status_account_page,
+								// 	profile_company_name:datas.profile_company_name_account_page,
+								// 	profile_website:datas.profile_website_account_page,
+								// 	profile_company_size:datas.profile_company_size_account_page,
+								// },
+								// function(data,status){
+								// 	resp_data=JSON.parse(data);
+								// 	// console.log(resp_data);
+								// 	if(resp_data.status)
+								// 	{	
+								// 		datas.profile_update_status="Changes Saved";
+								// 	}
+								// 	else
+								// 	{
+								// 		datas.profile_update_status="Your session seems to be expired.";
+								// 	}
+								// });
 
-							// 	$.ajax({
-							// 		url: base_urls_8081+"profile/",
-							// 		type: "PUT",
-							// 		headers: {
-								// 'Content-Type': 'application/json',
-							// 		'Authorization': localStorage.getItem('token')
-							// 		},
-							// 		data: {
-							// 			profile_purpose:datas.profile_purpose_account_page,
-							// 			profile_customer_industry:datas.profile_customer_industry_account_page,
-							// 			profile_category:datas.profile_category_account_page,
-							// 			profile_demo_status:datas.profile_demo_status_account_page,
-							// 			profile_company_name:datas.profile_company_name_account_page,
-							// 			profile_website:datas.profile_website_account_page,
-							// 			profile_company_size:datas.profile_company_size_account_page,
-							// 		},
-							// 		success: function(data, status) {  
-							// 			resp_data=JSON.parse(data);
-							// 			// console.log(resp_data);
-							// 			if(resp_data.status)
-							// 			{	
-							// 				datas.profile_update_status="Changes Saved";
-							// 			}
-							// 			else
-							// 			{
-							// 				datas.profile_update_status="Your session seems to be expired.";
-							// 			}
-							// 		},
-							// 		error:function(data, status) {  
+								$.ajax({
+									url: base_urls_8090+"profile/",
+									type: "PUT",
+									headers: {
+								'Content-Type': 'application/json',
+									'Authorization': localStorage.getItem('token')
+									},
+									data:JSON.stringify({
+										profile_purpose:datas.profile_purpose_account_page,
+										profile_customer_industry:datas.profile_customer_industry_account_page,
+										profile_category:datas.profile_category_account_page,
+										profile_demo_status:datas.profile_demo_status_account_page,
+										profile_company_name:datas.profile_company_name_account_page,
+										profile_website:datas.profile_website_account_page,
+										profile_company_size:datas.profile_company_size_account_page,
+									}),
+									success: function(data, status) {  
+										resp_data=JSON.parse(data);
+										// console.log(resp_data);
+										if(resp_data.status)
+										{	
+											datas.profile_update_status="Changes Saved";
+										}
+										else
+										{
+											datas.profile_update_status="Your session seems to be expired.";
+										}
+									},
+									error:function(data, status) {  
 									
-							// 		},
-							// });
+									},
+							});
 							}
 						},
 						initialize_value:function()
@@ -1596,7 +1596,7 @@ $(document).ready(function(){
 				},
 				data: {},
 				success: function(data, status) {  
-					var resp_data=JSON.parse(data);
+					var resp_data=data;
 					datas.user_profile_settings_status=resp_data.status;
 					if(resp_data.status)
 					{
@@ -1727,11 +1727,13 @@ $(document).ready(function(){
 		},
 		data: {},
 		success: function(data, status) {  
-			var resp_data = data;
-			if (resp_data.status) {
+			var resp_data = JSON.parse(data);
+			console.log(data);
 
-				datas.profile = resp_data.data;
-				
+			if (resp_data.status) {
+				console.log(data);
+				datas.profile = resp_data.data[0];
+				console.log(datas.profile);
 			} else {
 
 			}
@@ -1746,7 +1748,7 @@ $(document).ready(function(){
 
 	  $.ajax({
 		url: base_urls_8094+"account/get-account-settings",
-		type: "POST",
+		type: "GET",
 		headers: {
 		  'Authorization': localStorage.getItem('token')
 		},
@@ -1971,7 +1973,7 @@ $(document).ready(function(){
 						},
 						data: {},
 						success: function(data, status) {  
-							var resp_data=JSON.parse(data);
+							var resp_data=data;
 							if(resp_data.status)
 							{
 								datas.promo_codes=resp_data.data;

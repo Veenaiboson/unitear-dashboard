@@ -248,14 +248,17 @@
         </div>
 
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js" integrity="sha512-NCiXRSV460cHD9ClGDrTbTaw0muWUBf/zB/yLzJavRsPNUl9ODkUVmUHsZtKu17XknhsGlmyVoJxLg/ZQQEeGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
  <script type="text/javascript" src="resources/editor/js/login_vue.js"></script>
  <script>
  
  datas.user_email='';
  datas.login_back_end_error='';
-var base_urls_8083='https://api.dev.unitear.com/'//'http://localhost:8083/'; //
-var base_urls_8090='https://api.dev.unitear.com/'; //'http://localhost:8090/';//profile
+var base_urls_8083='https://api-dev.unitear.com/';//user
+// var base_urls_8083='http://localhost:8081/';
+var base_urls_8090='https://api-dev.unitear.com/';//profile
+// var base_urls_8090='http://localhost:8090/';
         $(document).ready(function(){
         if($(".input-effect input").val() != ""){
                             $(".input-effect input").addClass("has-content");

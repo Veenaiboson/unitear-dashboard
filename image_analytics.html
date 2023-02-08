@@ -349,7 +349,7 @@
 
                      <div class="logo" >
                         <img @click="mobile_menu = true; " style="cursor:pointer;" src="resources/editor_new/img/burg.png" alt="" class="img-fluid pr-3 menu-sm-show">
-                        <a href="login">
+                        <a href="./editor.html">
                             <img src="resources/editor_new/img/logo-2.png" alt="">
                         </a>
                       <!--  <div class="added-menu menu-sm-hide">
@@ -363,7 +363,7 @@
                     </div> 
                     <div class="new-dash-menu menu-sm-hide" >
                         <!-- <img @click="mobile_menu = true; " style="cursor:pointer;" src="<?=base_url('resources/editor_new/')?>img/hum.svg" alt="" class="img-fluid pr-3 "> -->
-                        <a href="login">
+                        <a href="./editor.html">
                             <div class="dash-logo">
                             <img src="resources/editor_new/img/white-new-logo.svg" alt="">
                             </div>
@@ -425,19 +425,19 @@
 						</div>
 						
                         <a href="#" class="noty"
-                            v-on:click="notification_read_status=true;change_notification_read_status()">
+                            v-on:click="notification_read_status=true;change_notification_read_status(); open_notification=true;">
                             <img src="resources/editor_new/img/noty-bell.svg" class="menu-sm-hide" alt="">
                             <img src="resources/editor_new/img/white-bell.png" class="menu-sm-show" alt="">
                             <span v-if="read_entire_status">{{read_count}}</span>
                         </a>
 
 
-                        <a href="#" class="user menu-sm-hide">
+                        <a href="#" class="user menu-sm-hide"  v-on:click="open_profile = true;">
                             <img style=""
                                 src="resources/editor_new/img/profile_pic.png"
                                 alt="">
                         </a>
-                        <div class="my-menu">
+                        <div class="my-menu" id="my-menu">
                             <ul>
                                 <li> <a href="./pricing.html"> Upgrade Plan</a></li>
                                 <li> <a href="./account.html"> My Account </a></li>
@@ -451,7 +451,7 @@
 
                             </div>
                         </div>
-                        <div class="my-noty">
+                        <div class="my-noty" id="my-noty">
                             <ul>
                                 <div v-if="no_of_notification_records>0" class="ul-first">
                                     <div class="row ">
@@ -673,7 +673,7 @@
                                            <p >10 Sep 2021 - 10 Sep 2022</p>
                                      
                                          
-                                           <a href="pricing"><button class="btn-moreview" >Upgrade Now</button></a>
+                                           <a href="./pricing.html"><button class="btn-moreview" >Upgrade Now</button></a>
                                          
                                          
                                      </div>
@@ -1128,7 +1128,7 @@
                  <div>
                      <h3 class="h3-modal">Project limit exceeded</h3>
                      <p>Your AR app factory project creation limit is exceeded. Please contact us for any support.</p>
-                     <a href="contact"><button class="btn-app-modal">Contact our team</button>
+                     <a href="https://www.unitear.com/contact"><button class="btn-app-modal">Contact our team</button>
                  </div>
              </div>  
          </div>
@@ -1141,12 +1141,18 @@
     <script>
         var base_url="https://base-url/"; //'http://localhost/unitear-editor-live/';
         var user_id='9741';
-        var base_urls_8088='https://api.dev.unitear.com/'; //'http://localhost:8088/';//campaign
-        var base_url_8099='https://api.dev.unitear.com/'; //'http://localhost:8099/';
-        var base_urls_8095='https://api.dev.unitear.com/'; //'http://localhost:8095/';
-        var base_urls_8097='https://api.dev.unitear.com/'; //'http://localhost:8097/';
-        var base_urls_8081='https://api.dev.unitear.com/'; //'http://localhost:8081/';
-        var base_urls_8090='https://api.dev.unitear.com/'; //'http://localhost:8090/';//profile
+        // var base_urls_8088='https://api.dev.unitear.com/'; ////campaign
+        var base_urls_8088 = 'http://localhost:8088/';
+        // var base_url_8099='https://api.dev.unitear.com/'; //
+        var base_url_8099='http://localhost:8099/';
+        // var base_urls_8095='https://api.dev.unitear.com/'; //
+        var base_urls_8095='http://localhost:8095/';
+        // var base_urls_8097='https://api.dev.unitear.com/'; //
+        var base_urls_8097='http://localhost:8097/';
+        // var base_urls_8081='https://api.dev.unitear.com/'; //
+        var base_urls_8081='http://localhost:8081/';
+        // var base_urls_8090='https://api.dev.unitear.com/'; ////profile
+        var base_urls_8090='http://localhost:8090/';
         //      <!--code added by Vishnu M R-->
         // <!--google translator-->
 

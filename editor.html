@@ -52,7 +52,9 @@
         justify-content: center;
         z-index: 9999;
     }
-    
+    a:hover {
+        cursor:pointer;
+        }
     .video-modal video {
         max-width: 600px;
     }
@@ -310,7 +312,7 @@
                     </div> 
                     <div class="new-dash-menu menu-sm-hide" >
                         <!-- <img @click="mobile_menu = true; " style="cursor:pointer;" src="<?=base_url('resources/editor_new/')?>img/hum.svg" alt="" class="img-fluid pr-3 "> -->
-                        <a href="login">
+                        <a href="editor.html">
                             <div class="dash-logo">
                             <img src="resources/editor_new/img/white-new-logo.svg" alt="">
                             </div>
@@ -358,8 +360,8 @@
                     </a>
 						<div id="google_translate_element"></div>
                        
-						<a href="./pricing.html" class="btn-upgrade menu-sm-hide">
-                            Upgrade Now
+						<a href="./pricing.html" class="btn-upgrade package-name menu-sm-hide">
+                            Enterprice Package
                         </a>
 						<div class="dropdown menu-sm-hide" v-if="user_as_team_member_status">
 							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -378,20 +380,20 @@
                         </a>
 
 
-                        <a href="#" class="user menu-sm-hide">
+                        <a href="#" class="user menu-sm-hide" v-on:click="open_profile = true;">
                             <img style=""
                             src="resources/editor_new/img/profile_pic.png"
                             alt="">
                         </a>
-                        <div class="my-menu">
+                        <div class="my-menu" id="my-menu">
                             <ul>
                                 <li> <a href="./pricing.html"> Upgrade Plan</a></li>
-                                <li> <a onclick="account()"> My Account </a></li>
+                                <li> <a  onclick="account()"> My Account </a></li>
                                 <li> <a href="./team.html"> Team </a></li>
                                 <li onclick="Cookiebot.renew();"> <a href="#"> GDPR Compilance </a></li>
                                 <li> <a href="./cookie_declaration.html"> Cookie Declaration </a></li>
                                 <!-- <li> <a href="<?=base_url('editor/book-your-session');?>"> Book Your Demo </a></li> -->
-                                <li> <a onclick="logout()"> Log out </a></li>
+                                <li> <a  onclick="logout()"> Log out </a></li>
                             </ul>
                             <div class="arrow-up">
 
@@ -654,8 +656,8 @@
                                           
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right w-100">
-                                            <a class="dropdown-item" href="#" @click="sort_type='Project Name A-Z';sort_campaign();">Project Name A-Z</a>
-                                            <a class="dropdown-item" href="#" @click="sort_type='Project Name Z-A';sort_campaign();">Project Name Z-A</a>
+                                            <a class="dropdown-item" href="#" @click="sort_type='Project Name A-Z';sort_campaign();"> Project Name A - Z </a>
+                                            <a class="dropdown-item" href="#" @click="sort_type='Project Name Z-A';sort_campaign();"> Project Name Z - A </a>
 											<a class="dropdown-item" href="#" @click="sort_type='Sort by date ascending';sort_campaign();">Sort by date ascending</a>
 											<a class="dropdown-item" href="#" @click="sort_type='Sort by date descending';sort_campaign();">Sort by date descending</a>
 											<a class="dropdown-item" href="#"@click="sort_type='Sort by last modified';sort_campaign();">Sort by last modified</a>
@@ -1035,7 +1037,7 @@
                 <div >
                     <h3 class="h3-modal">Project limit exceeded</h3>
                     <p>Your AR app factory project creation limit is exceeded. Please contact us for any support.</p>
-                    <a href="contact"><button class="btn-app-modal">Contact our team</button></a>
+                    <a href="https://www.unitear.com/contact"><button class="btn-app-modal">Contact our team</button></a>
                 </div>
                 
             </div>  
@@ -1133,19 +1135,29 @@ design customization options.</p>
       new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
     }
     var baseURL = "https://unitear-node-html.ibosoninnovations.com/";
-    var base_url="https://base-url/"; //'http://localhost/unitear-editor-live/';
-    var base_urls_8088='https://api.dev.unitear.com/'; // 'http://localhost:8088/';//campaign
-    var base_urls_8095='https://api.dev.unitear.com/'; // 'http://localhost:8095/';
-    var base_urls_8090='https://api.dev.unitear.com/'; // 'http://localhost:8090/';//profile
-    var base_url_8099='https://api.dev.unitear.com/'; // 'http://localhost:8099/';
-    var base_urls_8097='https://api.dev.unitear.com/';'http://localhost:8097/';
-    var base_urls_8081='https://api.dev.unitear.com/';'http://localhost:8081/';
-    var base_urls_8087='https://api.dev.unitear.com/';'http://localhost:8087/';//team
-    var base_urls_8093='https://api.dev.unitear.com/';'http://localhost:8093/';//pricing
+    var base_url ='http://localhost/unitear-editor-live/';//"https://base-url/";
+    var base_urls_8088='https://api-dev.unitear.com/';//campaign
+    // var base_urls_8088 = 'http://localhost:8088/';
+    var base_urls_8095='https://api-dev.unitear.com/'; //notification
+    // var base_urls_8095 = 'http://localhost:8095/';
+    var base_urls_8090='https://api-dev.unitear.com/';  //profile
+    // var base_urls_8090 = 'http://localhost:8090/';
+    var base_url_8099='https://api-dev.unitear.com/'; 
+    // var base_url_8099 = 'http://localhost:8099/';
+    var base_urls_8097='https://api-dev.unitear.com/';
+    // var base_urls_8097 = 'http://localhost:8097/';
+    var base_urls_8081='https://api-dev.unitear.com/';
+    // var base_urls_8081 = 'http://localhost:8081/';
+    var base_urls_8087='https://api-dev.unitear.com/';//team
+    // var base_urls_8087 = 'http://localhost:8087/';
+    var base_urls_8093='https://api-dev.unitear.com/';//pricing
+    // var base_urls_8093 = 'http://localhost:8093/';
     $(".gt").focus(function(){
         $("line-line").css("width","100%");
 	});  
     </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js" integrity="sha512-NCiXRSV460cHD9ClGDrTbTaw0muWUBf/zB/yLzJavRsPNUl9ODkUVmUHsZtKu17XknhsGlmyVoJxLg/ZQQEeGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script type="text/javascript" src="resources/editor/js/campaign_new_vue.js"></script>
 
    

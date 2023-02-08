@@ -91,7 +91,7 @@ app = new Vue({
 				change_project_category()
 				{
 					localStorage.campaign_category=datas.campaign_category;
-					location.href=base_url+"editor";
+					location.href="../../editor.html";
 				},
 				list_roles()
 				{
@@ -102,7 +102,41 @@ app = new Vue({
                     datas.send_permissions=datas.permissions;
                     datas.create_role_name=datas.selected_role.role_name;
                     datas.role_id=datas.selected_role.role_id;
-                    insert_roles();
+                    // insert_roles();
+					$.ajax({
+						url: base_urls_8085+"roles/"+datas.role_id,
+						type: "PUT",
+						headers: {
+							'Content-Type': 'application/json',
+							'Authorization': localStorage.getItem('token')
+						},
+						data: JSON.stringify({
+							role_name:datas.create_role_name,
+							permissions:datas.send_permissions,
+							role_id:datas.role_id,
+						}),
+						success: function(data, status) {  
+							var resp_data=data;
+							if(resp_data.status)
+							{
+								
+								// datas.create_roll=false;
+
+							}
+							else
+							{
+								app.$snotify.error(resp_data.message);
+							}
+							list_roles();
+							datas.create_role_button_loader=false;
+							datas.role_name="";
+							datas.create_roll=false;
+							},
+						error:function(data, status) {  
+							   console.log(data)   
+							   app.$snotify.error(resp_data.message);  
+						},
+							})
 				},
 				check_role_name()
 				{
@@ -386,7 +420,7 @@ function insert_roles()
 		},
 		data: JSON.stringify({
 			role_name:datas.create_role_name,
-			permissions:JSON.stringify(datas.send_permissions),
+			permissions:datas.send_permissions,
 			role_id:datas.role_id,
 		}),
 		success: function(data, status) {  

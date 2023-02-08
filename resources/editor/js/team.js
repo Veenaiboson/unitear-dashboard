@@ -125,7 +125,7 @@ app = new Vue({
         },
         change_project_category() {
             localStorage.campaign_category = datas.campaign_category;
-            location.href = base_url + "editor";
+            location.href = ".././editor.html";
         },
         list_members() {
             list_members();

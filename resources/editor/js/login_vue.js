@@ -67,27 +67,32 @@ app = new Vue({
 					}
 				},
 				signIn(){
-					$.ajax({
-						url: base_urls_8083+"user/login",
-						type: "POST",
-						headers: {
-							'Content-Type': 'application/json'
-						},
-						data: JSON.stringify({
-							user_email: datas.user_email,
-							user_password: datas.user_password
-						}),
-						success: function(data, status) {  
-							var resp_data = JSON.parse(data);
-							var localtoken=resp_data.data.token
-							localStorage.setItem('token', localtoken);
-							localStorage.setItem('user_email', datas.user_email);
-							window.location.href = "editor.html";
-							},
-						error:function(data, status) {  
-							   console.log(data)     
-						},
-							})
+					
+					var data = {user_email: datas.user_email,
+						user_password: datas.user_password}
+					const form = new FormData()
+					for (const key in data) {
+						form.append(key, data[key]);
+					}
+				
+			   
+				   axios(base_urls_8083+"user/login", {
+					 method: 'POST',
+					
+					 data: form
+					 
+			   
+				 }).then(function (data) {
+					var resp_data = data.data;
+					var localtoken=resp_data.data.token;
+					console.log(localtoken);
+					localStorage.setItem('token', localtoken);
+					localStorage.setItem('user_email', resp_data.data.user_email);
+					window.location.href = "editor.html";
+				 }).catch(function (error) {
+					console.log(error)     
+
+				 })
 				},
 				form_validation:function(field_name,field_value)
 				{
