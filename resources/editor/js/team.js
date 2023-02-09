@@ -125,7 +125,7 @@ app = new Vue({
         },
         change_project_category() {
             localStorage.campaign_category = datas.campaign_category;
-            location.href = ".././editor.html";
+            location.href =base_url+ "editor.html";
         },
         list_members() {
             list_members();
@@ -744,10 +744,10 @@ function list_members() {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.getItem('token')
             },
-            data: JSON.stringify({id: datas.selected_team_id}),
+            data: JSON.stringify({id: 55}),
             success: function(data, status) {  
                 var resp_data = JSON.parse(data);
-                // console.log(resp_data);
+                console.log(resp_data);
                 $('.spinner-border').addClass("d-none");
                 if (resp_data.status) {
                     // close_all();

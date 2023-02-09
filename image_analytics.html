@@ -411,9 +411,9 @@
                     </a>
 						<div id="google_translate_element"></div>
                       
-                        <span  class="btn-upgrade package-name menu-sm-hide">
-                        Enterprise Package
-                        </span>
+                        <a href="./pricing.html" class="btn-upgrade menu-sm-hide">
+                            Upgrade Now
+                        </a>
 
 						<div class="dropdown menu-sm-hide" v-if="user_as_team_member_status">
 							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -667,10 +667,10 @@
                                      <div>
                                          <p class="head-pa">PLAN </p>
                                         
-                                         <h3>Enterprise</h3>
+                                         <h3>Business</h3>
                                         
                                      
-                                           <p >10 Sep 2021 - 10 Sep 2022</p>
+                                           <p >16 Apr 2020 - 16 May 2020</p>
                                      
                                          
                                            <a href="./pricing.html"><button class="btn-moreview" >Upgrade Now</button></a>
@@ -760,64 +760,44 @@
                              <!-- ground -->
                              <!-- app -->
                              <div v-if="campaign_category==3":class="[campaign_category==1 ? 'col-lg-3' : 'col-lg-4']">
-                                 <?php
-                                 if(isset($active_package['app_factory_apk_count'])&&$active_package['app_factory_apk_count']>0)
-                                 {
-                                 ?>
+                                 
                                  <div class="account-box">
                                      <div>
                                          <img  src="resources/editor_new/img/android1.svg" alt="">
                                          <p class="head-pa">Android Apps</p>
                                          <hr>
-                                         <h3><?=$apk_details?></h3>
-                                         <h4>/<?=$active_package['app_factory_apk_count']?></h4>
+                                         <h3>373</h3>
+                                         <h4>/2</h4>
                                          <div class="progress mb-3" style="height:13px">
                                              <div class="progress-bar" style="width:40%;height:20px"></div>
                                            </div>
-                                           <p class="progres-data"><?=(int)(($apk_details/$active_package['app_factory_apk_count'])*100)?>%</p>
-                                           <?php
-                                             if($user_type_current==1)
-                                             {
-                                             ?>
+                                           <p class="progres-data">18650%</p>
+                                           
                                            <button class=" btn-moreview account-btn" @click="change_feature('android');">Add More Downloads</button>
-                                           <?php
-                                            }
-                                             ?>
+                                           
                                      </div>
                                  </div>
-                                 <?php
-                             }
-                                 ?>
+                                
                              </div>
                              <div v-if="campaign_category==3":class="[campaign_category==1 ? 'col-lg-3' : 'col-lg-4']">
-                                 <?php
-                                 if(isset($active_package['app_factory_ios_count'])&&$active_package['app_factory_ios_count']>0)
-                                 {
-                                 ?>
+                                
                                  <div class="account-box">
                                      <div>
                                          <img  src="resources/editor_new/img/apple1.svg" alt="">
                                          <p class="head-pa">iOS Apps</p>
                                          <hr>
-                                         <h3><?=$ios_details?></h3>
-                                         <h4>/<?=$active_package['app_factory_ios_count']?></h4>
+                                         <h3>81</h3>
+                                         <h4>/5</h4>
                                          <div class="progress mb-3" style="height:13px">
                                              <div class="progress-bar" style="width:40%;height:20px"></div>
                                            </div>
-                                           <p class="progres-data"><?=(int)(($ios_details/$active_package['app_factory_ios_count'])*100)?>%</p>
-                                           <?php
-                                             if($user_type_current==1)
-                                             {
-                                             ?>
+                                           <p class="progres-data">1620%</p>
+                                          
                                            <button class=" btn-moreview account-btn" @click="change_feature('ios');">Add More Downloads</button>
-                                           <?php
-                                            }
-                                             ?>
+                                          
                                      </div>
                                  </div>
-                                 <?php
-                                 }
-                              ?>
+                                 
                              </div>
                              <!-- app -->
                             
@@ -1141,18 +1121,18 @@
     <script>
         var base_url="https://base-url/"; //'http://localhost/unitear-editor-live/';
         var user_id='9741';
-        // var base_urls_8088='https://api.dev.unitear.com/'; ////campaign
-        var base_urls_8088 = 'http://localhost:8088/';
-        // var base_url_8099='https://api.dev.unitear.com/'; //
-        var base_url_8099='http://localhost:8099/';
-        // var base_urls_8095='https://api.dev.unitear.com/'; //
-        var base_urls_8095='http://localhost:8095/';
-        // var base_urls_8097='https://api.dev.unitear.com/'; //
-        var base_urls_8097='http://localhost:8097/';
-        // var base_urls_8081='https://api.dev.unitear.com/'; //
-        var base_urls_8081='http://localhost:8081/';
-        // var base_urls_8090='https://api.dev.unitear.com/'; ////profile
-        var base_urls_8090='http://localhost:8090/';
+        var base_urls_8088='https://api-dev.unitear.com/'; ////campaign
+        // var base_urls_8088 = 'http://localhost:8088/';
+        var base_url_8099='https://api-dev.unitear.com/'; //
+        // var base_url_8099='http://localhost:8099/';
+        var base_urls_8095='https://api-dev.unitear.com/'; //
+        // var base_urls_8095='http://localhost:8095/';
+        var base_urls_8097='https://api-dev.unitear.com/'; //
+        // var base_urls_8097='http://localhost:8097/';
+        var base_urls_8081='https://api-dev.unitear.com/'; //
+        // var base_urls_8081='http://localhost:8081/';
+        var base_urls_8090='https://api-dev.unitear.com/'; ////profile
+        // var base_urls_8090='http://localhost:8090/';
         //      <!--code added by Vishnu M R-->
         // <!--google translator-->
 

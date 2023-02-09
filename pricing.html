@@ -67,28 +67,28 @@
 							<div class="new-unitear-dropdown2 d-none" id="unitear_dropmenu2">
 							<div class="drop-item-unitear">
                                         <img class="all-img"  src="resources/img/all-3.svg" alt="image"   >
-                                           <a href="">
+                                           <a href="https://www.unitear.com/ar-app-creator">
                                                <p class="mb-0">AR App Creator</p>
                                                <span class="fs-13">Create your own branded apps without coding</span>
                                            </a>
                                        </div>
                                        <div class="drop-item-unitear ">
                                         <img class="all-img"  src="resources/img/all-1.svg" alt="image"   >
-                                           <a href="">
+                                           <a href="https://www.unitear.com/image-based-ar">
                                                <p class="mb-0">Image-Based AR</p>
                                                <span class="fs-13">Build Image-Based AR experience for web & app</span>
                                            </a>
                                        </div>
                                        <div class="drop-item-unitear">
                                         <img class="all-img"  src="resources/img/all-2.svg" alt="image"   >
-                                           <a href="">
+                                           <a href="https://www.unitear.com/ground-plane-ar">
                                                <p class="mb-0">Ground-Plane AR</p>
                                                <span class="fs-13">Create Ground-Plane AR experience for web & app</span>
                                            </a>
                                        </div>
 									   <div class="drop-item-unitear">
                                         <img class="all-img"  src="resources/img/all-4.svg" alt="image"   >
-                                           <a href="">
+                                           <a href="https://www.unitear.com/webar-scanner">
                                                <p class="mb-0">WebAR Scanner</p>
                                                <span class="fs-13">Embed Image-based WebAR into your website</span>
                                            </a>
@@ -108,7 +108,7 @@
 								</a>
 							</div>
 							<div class="drop-item-unitear ">
-                                        <a href="">
+                                        <a href="https://www.unitear.com/target-image">
                                             <p class="mb-0">Target Image</p>
                                             <span class="fs-13">Learn more about target images</span>
                                         </a>
@@ -189,39 +189,39 @@
 											</a>
 										</div> -->
 										<div class="drop-item-unitear ">
-											<a href="">
+											<a href="https://www.unitear.com/augmented-reality-for-e-commerce-and-retail">
 												<p class="mb-0">E-commerce & Retail</p>
 												<span class="fs-13">Explore augmenting  e-commerce & retail</span>
 											</a>
 										</div>
 
 										<div class="drop-item-unitear ">
-											<a href="">
+											<a href="https://www.unitear.com/augmented-reality-for-training-and-support">
 												<p class="mb-0"> Training & support</p>
 												<span class="fs-13">Learn more about AR in training & support</span>
 											</a>
 										</div>
 										<div class="drop-item-unitear">
-											<a href="">
+											<a href="https://www.unitear.com/augmented-reality-in-marketing">
 												<p class="mb-0">  Advertisement & Marketing</p>
 												<span class="fs-13">Know more about how to augment campaigns effectively</span>
 											</a>
 										</div>
 										<div class="drop-item-unitear ">
-											<a href="">
+											<a href="https://www.unitear.com/augmented-reality-in-education">
 												<p class="mb-0"> Education</p>
 												<span class="fs-13">Learn how to augment classrooms and textbooks</span>
 											</a>
 										</div>
 										<div class="drop-item-unitear ">
-											<a href="">
+											<a href="https://www.unitear.com/augmented-reality-for-books-and-publishing-use-case">
 												<p class="mb-0"> Publishing & Books</p>
 												<span class="fs-13">Augment books & print materials</span>
 											</a>
 										</div>
 
 										<div class="drop-item-unitear ">
-											<a href="">
+											<a href="https://www.unitear.com/augmented-reality-for-museums-and-art-use-case">
 												<p class="mb-0"> Museums & Art galleries</p>
 												<span class="fs-13">Re -innovate museums & art galleries</span>
 											</a>
@@ -297,839 +297,1053 @@
 
 
 <div id="app" v-cloak >
+    
 
-        <div class="help-header">
-            <div class="center-head">
-              
-            </div>
+
+
+    <div class="help-header">
+        <div class="center-head">
+          
         </div>
+    </div>
 
-        <div class="offer-div" style="position:relative;" :class="{ offerdisable: hide_month_year }">
-            <!-- <p class="offer" :class="{ offeractive: month_year_checked }">Save 20% on yearly bill before 30 Aug, 2020 </p> -->
-            <!-- <p class="offer" :class="{ offeractive: month_year_checked }">Get 20% discount on all yearly plans</p> -->
-            <p class="offer offeractive">No commercial license required / Simple pricing</p>
+    <div class="offer-div" style="position:relative;" :class="{ offerdisable: hide_month_year }">
+        <!-- <p class="offer" :class="{ offeractive: month_year_checked }">Save 20% on yearly bill before 30 Aug, 2020 </p> -->
+        <!-- <p class="offer" :class="{ offeractive: month_year_checked }">Get 20% discount on all yearly plans</p> -->
+        <p class="offer offeractive">No commercial license required / No hidden charges</p>
 
-            <div class="flex-center">
+        <div class="flex-center">
 
-                <div class="button-p" :class="{ activepara: !month_year_checked }" @click="month_year_checked=false">
-                    <p> Billed Monthly</p>
-                </div>
-               
-                <div class="button-p" :class="{ activepara: month_year_checked }"  @click="month_year_checked=true">
-                    <p> Billed Yearly</p>
-                </div>
-                <div class="relative spl-svg">
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="25.89" height="34.444" viewBox="0 0 25.89 34.444">
-                        <path id="Path_5129" data-name="Path 5129" d="M1714.323,2972.071s25.338-5.445,25.285-33.954" transform="translate(-1714.218 -2938.116)" fill="none" stroke="#03aa1f" stroke-width="1" />
-                    </svg> -->
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="41.469" height="41.158" viewBox="0 0 41.469 41.158">
-  <path id="Path_1273" data-name="Path 1273" d="M795,511s32-1,27-30" transform="matrix(0.643, -0.766, 0.766, 0.643, -879.408, 321.366)" fill="none" stroke="#03aa1f" stroke-width="1"/>
+            <div class="button-p" :class="{ activepara: !month_year_checked }" @click="month_year_checked=false">
+                <p> Billed Monthly</p>
+            </div>
+           
+            <div class="button-p" :class="{ activepara: month_year_checked }"  @click="month_year_checked=true">
+                <p> Billed Yearly</p>
+            </div>
+            <div class="relative spl-svg">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="25.89" height="34.444" viewBox="0 0 25.89 34.444">
+                    <path id="Path_5129" data-name="Path 5129" d="M1714.323,2972.071s25.338-5.445,25.285-33.954" transform="translate(-1714.218 -2938.116)" fill="none" stroke="#03aa1f" stroke-width="1" />
+                </svg> -->
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="41.469" height="41.158" viewBox="0 0 41.469 41.158">
+<path id="Path_1273" data-name="Path 1273" d="M795,511s32-1,27-30" transform="matrix(0.643, -0.766, 0.766, 0.643, -879.408, 321.366)" fill="none" stroke="#03aa1f" stroke-width="1"/>
 </svg> -->
 
 
 
-                </div>
             </div>
-
-            <p class="save-20-offer" v-show="month_year_checked"><span>Flat 10% OFF till March 31st</span></p>
-
         </div>
 
+        <!-- <p class="save-20-offer" v-show="month_year_checked"><span>Flat 10% OFF till May 31st</span></p> -->
+        <p class="save-20-offer" v-show="month_year_checked"><span>Flat 10% OFF till February 28th</span></p>
 
-        <div class="help-tabs">
-           
-            <!-- <div class="tab-content pt-4 pb-5"> -->
-
-            <div class=" container-4 stikey-buy" v-show="month_year_checked">
-                <div class="row m-0">
-                    
-                    <div class="col-md-6 col-lg-3">
-                        <div class="price-box price-box22 ">
-                           <div class="">
-                            <p class="bold fs-23">STARTER</p>
-                            <h1 class="rate">$89 <span>/ Month</span></h1>
-                            <p class="ideal">Billed yearly 
-                              
-							<!--code commented by Vishnu M R-2021-08-02-->
-                            <!-- <span><?= empty($saved_money) ? "" : "Save $".  $saved_money; ?></span></p> -->
-							<!--code commented by Vishnu M R-2021-08-02-->
-
-                            <div class="btn-div">
-                                <a href="./pricing_bill.html"><button class="btn-signup btn-home btn-blue btn-loader">Buy Starter</button></a>
-                            </div> 
-                           </div>   
-                            
- 
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="price-box price-box22 ">
-                           <div class="">
-                            <p class="bold fs-23">PREMIUM</p>
-                            <h1 class="rate">$359 <span>/ Month</span></h1>
-                            <p class="ideal">Billed yearly 
-                              
-							<!--code commented by Vishnu M R-2021-08-02-->
-                            <!-- <span><?= empty($saved_money) ? "" : "Save $".  $saved_money; ?></span></p> -->
-							<!--code commented by Vishnu M R-2021-08-02-->
-
-                            <div class="btn-div">
-                                <a href="./pricing_bill.html"><button class="btn-signup btn-home btn-blue btn-loader">Buy Premium</button></a>
-                            </div> 
-                           </div>   
-                            
- 
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="price-box price-box22 ">
-                           <div class="">
-                            <p class="bold fs-23">ULTIMATE</p>
-                            <h1 class="rate">$629 <span>/ Month</span></h1>
-                            <p class="ideal">Billed yearly 
-                              
-							<!--code commented by Vishnu M R-2021-08-02-->
-                            <!-- <span><?= empty($saved_money) ? "" : "Save $".  $saved_money; ?></span></p> -->
-							<!--code commented by Vishnu M R-2021-08-02-->
-
-                            <div class="btn-div">
-                                <a href="./pricing_bill.html"><button class="btn-signup btn-home btn-blue btn-loader">Buy Ultimate</button></a>
-                            </div> 
-                           </div>   
-                            
- 
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="price-box price-box22 ">
-                           <div class="">
-                            <p class="bold fs-23">ENTERPRISE</p>
-                            <h1 class="rate">$827 <span>/ Month</span></h1>
-                            <p class="ideal">Billed yearly 
-                              
-							<!--code commented by Vishnu M R-2021-08-02-->
-                            <!-- <span><?= empty($saved_money) ? "" : "Save $".  $saved_money; ?></span></p> -->
-							<!--code commented by Vishnu M R-2021-08-02-->
-
-                            <div class="btn-div">
-                                <a href="./pricing_bill.html"><button class="btn-signup btn-home btn-blue btn-loader">Buy Enterprise</button></a>
-                            </div> 
-                           </div>   
-                            
- 
-                            
-                        </div>
-                    </div>
-                  
-                  
-                </div>
-                   
-
-            </div>
-
-
-
-            <div class=" container-4" v-show="month_year_checked">
-                <div class="row m-0">
-                    
-                    <div class="col-md-6 col-lg-3">
-                        <div class="price-box price-box22 ">
-                           <div class="stikey-buy-mobile">
-                           <p class="bold fs-23"></p>
-                            <h1 class="rate"></h1>
-                            <p class="ideal"><span> </span></p>
-                            <div class="btn-div">
-                                <a href="pricing"><button class="btn-signup btn-home btn-blue btn-loader">Buy </button></a>
-                            </div> 
-                           </div>   
-                            <div class="mt-3">
-                           
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 24000 Views per year </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 120 Target images </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 24000 Views per year </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 24000 Views per year </p>
-                                       
-                                
-                            </div>
- 
-                            <!-- <div class="compare-div">
-                                <p class="p-compare text-blue">Compare Features</p>
-                            </div> -->
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="price-box price-box22 ">
-                           <div class="stikey-buy-mobile">
-                           <p class="bold fs-23"></p>
-                            <h1 class="rate"></h1>
-                            <p class="ideal"><span> </span></p>
-                            <div class="btn-div">
-                                <a href="pricing"><button class="btn-signup btn-home btn-blue btn-loader">Buy </button></a>
-                            </div> 
-                           </div>   
-                            <div class="mt-3">
-                           
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 120000 Views per year </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 360 Target images </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 1 GB Content storage </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Email Support </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 1 White labelled AR App for iOS & Android</p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Team: 5 users included </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Embed WebAR scanner</p>
-                                       
-                                
-                            </div>
- 
-                            <!-- <div class="compare-div">
-                                <p class="p-compare text-blue">Compare Features</p>
-                            </div> -->
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="price-box price-box22 ">
-                           <div class="stikey-buy-mobile">
-                           <p class="bold fs-23"></p>
-                            <h1 class="rate"></h1>
-                            <p class="ideal"><span> </span></p>
-                            <div class="btn-div">
-                                <a href="pricing"><button class="btn-signup btn-home btn-blue btn-loader">Buy </button></a>
-                            </div> 
-                           </div>   
-                            <div class="mt-3">
-                           
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 1000000 views per year (1 M) </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 1000 Target images </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 5 GB Content storage </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Email & Chat Support </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 1 White labelled AR App for iOS & Android (App launching support)</p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Team: 7 users included </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Ground plane gallery on custom App (custom contents) </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Embed WebAR scanner </p>
-                                        
-                                       
-                                
-                            </div>
- 
-                            <!-- <div class="compare-div">
-                                <p class="p-compare text-blue">Compare Features</p>
-                            </div> -->
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="price-box price-box22 ">
-                           <div class="stikey-buy-mobile">
-                           <p class="bold fs-23"></p>
-                            <h1 class="rate"></h1>
-                            <p class="ideal"><span> </span></p>
-                            <div class="btn-div">
-                                <a href="pricing"><button class="btn-signup btn-home btn-blue btn-loader">Buy </button></a>
-                            </div> 
-                           </div>   
-                            <div class="mt-3">
-                           
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 3000000 Views per year (3 M) </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 3000 Target images </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 10 GB Content storage </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 1 White labelled AR App for iOS & Android (App launching support) </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Team: 15 users included </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Ground plane gallery on custom App (custom contents) </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Language translation integration (custom AR App) </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Advanced Analytics dashboard </p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Onboarding Training for the entire team </p>
-
-
-                                       
-                                
-                            </div>
- 
-                            <!-- <div class="compare-div">
-                                <p class="p-compare text-blue">Compare Features</p>
-                            </div> -->
-                        </div>
-                    </div>
-                   
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
-					
-					
-					
-                        <div class="price-box starter-plan">
-                            <div class=" ">
-                                <div class="">
-									<p class="bold fs-23">Start Your Free Trial</p>
-								</div>
-                                <div class="">
-									<div class="mt-3">      
-										<p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  50 AR Views</p> 
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  3 Target images</p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  50 MB Storage</p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  14 Days Duration </p>
-									</div>
-									<div class="btn-div">
-										<a href="signup'); ?>"><button class="btn-signup btn-home btn-blue btn-loader">Try For Free</button></a>
-									</div>
-                                </div>
-                            </div>
-                        </div>
-						
-					
-                         
-                    </div>
-                     <!-- starter package yearly -->
-                </div>
-                   
-
-            </div>
-            <div class=" container-4 stikey-buy monthly-p" v-show="!month_year_checked">
-                <div class="row m-0">
-                    
-                    <div class="col-md-6 col-lg-3">
-                        <div class="price-box price-box22">
-                           <div class="">
-                                <p class="bold fs-23"></p>
-                                    <h1 class="rate"> <span>/ Month</span></h1>
-                                    <p class="ideal"></p>
-                                    <div class="btn-div">
-                                        <a href="pricing"><button class="btn-signup btn-home btn-blue btn-loader"></button></a>
-                                    </div> 
-                           </div>   
-                           
- 
-                           
-                        </div>
-                    </div>
-                   
-           
-                </div>
-            </div>
-            <div class=" container-4 monthly-p" v-show="!month_year_checked">
-                <div class="row m-0">
-                    
-                    <div class="col-md-6 col-lg-3">
-                        <div class="price-box ">
-                           <div class="stikey-buy-mobile">
-                                <p class="bold fs-23"></p>
-                                    <h1 class="rate"></h1>
-                                    <p class="ideal"></p>
-                                    <div class="btn-div">
-                                        <a href="pricing">/<button class="btn-signup btn-home btn-blue btn-loader">Buy </button></a>
-                                    </div> 
-                           </div>   
-                            <div class="mt-3">
-                                
-                               
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> </p>
-                                      
-                                
-                            </div>
- 
-                            <!-- <div class="compare-div">
-                                <p class="p-compare text-blue">Compare Features</p>
-                            </div> -->
-                        </div>
-                    </div>
-                      
-                 <!-- starter package monthly -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
-                        
-					
-                        <div class="price-box starter-plan">
-                            <div class=" ">
-                                <div class="">
-									<p class="bold fs-23">Start Your Free Trial</p>
-								</div>
-                                <div class="">
-									<div class="mt-3">      
-										<p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  50 AR Views</p> 
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  3 Target images</p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  50 MB Storage</p>
-                                        <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  14 Days Duration </p>
-									</div>
-									<div class="btn-div">
-										<a href="signup"><button class="btn-signup btn-home btn-blue btn-loader">Try For Free</button></a>
-									</div>
-                                </div>
-                            </div>
-                        </div>
-					
-						
-                    </div>
-                    <!-- starter package monthly -->
-                </div>
-            </div>
-
-
-
-
-            <!-- </div> -->
-            <!--Enterprise plan-->
-
-
-
-
-        
-    
-
-    <div class="container scrol-move">
-        <div class="comparison-heading">
-            <h1>Full Plan Comparison</h1>
-            <p>Choose an appropriate plan based on the features.</p>
-        </div>
     </div>
 
-    <div class="container-4 stikey-table" v-show="month_year_checked">
-    <div class="table-comparison">
-            <div class="table-responsive">
-                <table class="table" >
-                    <tr>
-                        <th>UniteAR Yearly Plan</th>
-                        <!-- <th> -->
-                        <!-- <?= empty($standard_package['yearly']['package_name']) ? "" : $standard_package['yearly']['package_name'] ?> -->
-                        <!-- </th> -->
-                        <th>Starter</th>
-                        <th>Premium</th>
-                        <th>Ultimate</th>
-                        <th>Enterprise</th>
+
+    <div class="help-tabs">
+       
+        <!-- <div class="tab-content pt-4 pb-5"> -->
+
+        <div class=" container-4 stikey-buy" v-show="month_year_checked">
+            <div class="row">
+                <div class=" col-lg-4">
+                    <div class="price-box price-box22 ">
+                       <div class="">
+                        <p class="bold fs-23">STARTER</p>
                        
-                    </tr>
-                </table>
-            </div>
-    </div>
-        </div>
-        <div class="container-4 stikey-table" v-show="!month_year_checked">
-    <div class="table-comparison">
-            <div class="table-responsive">
-                <table class="table" >
-                <tr>
-                        <th>UniteAR Monthly Plan</th>
-                        <!-- <th>Free</th> -->
-                        <!-- <th><?= empty($standard_package['monthly']['package_name']) ? "" : $standard_package['monthly']['package_name'] ?></th> -->
-                        <th>Starter</th>
-                        <th>Premium</th>
-                        <th>Ultimate</th>
-                        <th>Enterprise</th>
+                        <h1 class="rate">$89 <span>/ Month</span></h1>
                         
-                    </tr>
-                </table>
+                        
+                        <!-- <h1 class="rate"> Custom pricing</h1> -->
+                       
+                        <p class="ideal">Billed yearly 
+                          
+                        <!--code commented by Vishnu M R-2021-08-02-->
+                        <!-- <span><?= empty($saved_money) ? "" : "Save $".  $saved_money; ?></span></p> -->
+                        <!--code commented by Vishnu M R-2021-08-02-->
+                        
+                       <div class="btn-div">
+                            <a href=""><button class="btn-signup btn-home btn-blue btn-loader">BUY Starter</button></a>
+                        </div> 
+                        
+                        
+                       <!-- <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Talk to Sales</button></a>
+                                </div>  -->
+                        
+                        
+                       </div>   
+                        
+
+                        
+                    </div>
+                </div>
+                <div class=" col-lg-4">
+                    <div class="price-box price-box22 ">
+                       <div class="">
+                        <p class="bold fs-23">BUSINESS</p>
+                       
+                        <h1 class="rate">$449 <span>/ Month</span></h1>
+                        
+                        
+                        <!-- <h1 class="rate"> Custom pricing</h1> -->
+                       
+                        <p class="ideal">Billed yearly 
+                          
+                        <!--code commented by Vishnu M R-2021-08-02-->
+                        <!-- <span><?= empty($saved_money) ? "" : "Save $".  $saved_money; ?></span></p> -->
+                        <!--code commented by Vishnu M R-2021-08-02-->
+                        
+                       <div class="btn-div">
+                            <a href=""><button class="btn-signup btn-home btn-blue btn-loader">BUY BUSINESS </button></a>
+                        </div> 
+                        
+                        
+                       <!-- <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Talk to Sales</button></a>
+                                </div>  -->
+                        
+                        
+                       </div>   
+                        
+
+                        
+                    </div>
+                </div>
+                <div class=" col-lg-4">
+                    <div class="price-box price-box22 ">
+                       <div class="">
+                        <p class="bold fs-23">ENTERPRISE</p>
+                       
+                        <!-- <h1 class="rate">$449 <span>/ Month</span></h1> -->
+                        
+                        
+                        <h1 class="rate"> Custom pricing</h1>
+                       
+                        <p class="ideal">Billed yearly 
+                          
+                        <!--code commented by Vishnu M R-2021-08-02-->
+                        <!-- <span><?= empty($saved_money) ? "" : "Save $".  $saved_money; ?></span></p> -->
+                        <!--code commented by Vishnu M R-2021-08-02-->
+                        
+                       <!-- <div class="btn-div">
+                            <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Buy </button></a>
+                        </div>  -->
+                        
+                        
+                       <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Talk to Sales</button></a>
+                                </div> 
+                        
+                        
+                       </div>   
+                        
+
+                        
+                    </div>
+                </div>
+               
             </div>
-    </div>
+               
+
         </div>
-    <div class="container-4 ">
+
+
+
+        <div class=" container-4" v-show="month_year_checked">
+            <div class="row ">
+                
+                <div class=" col-lg-4">
+                    <div class="price-box price-box22 ">
+                       <!-- <div class="stikey-buy-mobile">
+                       <p class="bold fs-23"></p>
+                        
+                        
+                       <h1 class="rate"></h1>
+                        
+                       
+                        <h1 class="rate"> Custom pricing</h1>
+                       
+
+                        <p class="ideal">Billed yearly  <span></span></p>
+
+                       
+                       <div class="btn-div">
+                            <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Buy </button></a>
+                        </div> 
+                        
+                       
+                       <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Talk to Sales</button></a>
+                                </div> 
+                       
+                        
+                       </div>    -->
+                        <div class="mt-3">
+                       
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">24000 Views per year </p>
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">120 Target images</p>
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">1 GB Content storage </p>
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">App and WebAR experience</p>
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Email Support</p>
+                                    
+                                  
+                        </div>
+
+                        <!-- <div class="compare-div">
+                            <p class="p-compare text-blue">Compare Features</p>
+                        </div> -->
+                    </div>
+                </div>
+                <div class=" col-lg-4">
+                    <div class="price-box price-box22 ">
+                       <!-- <div class="stikey-buy-mobile">
+                       <p class="bold fs-23"></p>
+                        
+                        
+                       <h1 class="rate"></h1>
+                        
+                       
+                        <h1 class="rate"> Custom pricing</h1>
+                       
+
+                        <p class="ideal">Billed yearly  <span></span></p>
+
+                       
+                       <div class="btn-div">
+                            <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Buy </button></a>
+                        </div> 
+                        
+                       
+                       <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Talk to Sales</button></a>
+                                </div> 
+                       
+                        
+                       </div>    -->
+                        <div class="mt-3">
+                       
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">White labelled WebAR plugin </p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Custom WebAR URL</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Custom AR App for Android & iOS </p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  Advanced Analytics</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">1000000 views per year (1 M)</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">1000 Target images</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Email & Chat Support</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Team: 7 users included</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">5 GB Content storage   </p>
+                                    
+                                  
+                        </div>
+
+                        <!-- <div class="compare-div">
+                            <p class="p-compare text-blue">Compare Features</p>
+                        </div> -->
+                    </div>
+                </div>
+                <div class=" col-lg-4">
+                    <div class="price-box price-box22 ">
+                       <!-- <div class="stikey-buy-mobile">
+                       <p class="bold fs-23"></p>
+                        
+                        
+                       <h1 class="rate"></h1>
+                        
+                       
+                        <h1 class="rate"> Custom pricing</h1>
+                       
+
+                        <p class="ideal">Billed yearly  <span></span></p>
+
+                       
+                       <div class="btn-div">
+                            <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Buy </button></a>
+                        </div> 
+                        
+                       
+                       <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Talk to Sales</button></a>
+                                </div> 
+                       
+                        
+                       </div>    -->
+                        <div class="mt-3">
+                       
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Dedicated cloud instance</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  Data storage in preferred geography</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Multiple WebAR plugins and URL </p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  Multiple AR Apps</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Custom views, target images, storage and team</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">End to end support</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Dedicated Account Manager</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Custom language translation for App and Web</p>
+                                          
+                                  
+                        </div>
+
+                        <!-- <div class="compare-div">
+                            <p class="p-compare text-blue">Compare Features</p>
+                        </div> -->
+                    </div>
+                </div>
+                <!-- starter package yearly -->
+               
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                
+                
+                
+                    <!-- <div class="price-box starter-plan">
+                        <div class=" ">
+                            <div class="">
+                                <p class="bold fs-23">Start Your Free Trial</p>
+                            </div>
+                            <div class="">
+                                <div class="mt-3">      
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  50 AR Views</p> 
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  3 Target images</p>
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  50 MB Storage</p>
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  14 Days Duration </p>
+                                </div>
+                                <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Try For Free</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+               
+                </div>
+                 <!-- starter package yearly -->
+            </div>
+               
+
+        </div>
+        <div class=" container-4 stikey-buy monthly-p" v-show="!month_year_checked">
+            <div class="row ">
+                
+                <div class=" col-lg-4">
+                    <div class="price-box price-box22">
+                       <div class="">
+                            <p class="bold fs-23">STARTER</p>
+                               
+                              
+                         <h1 class="rate">$99<span>/ Month</span></h1>
+                      
+                        <h1 class="rate"></h1>
+                        
+
+
+                                <p class="ideal"></p>
+
+                                
+                       <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">BUY STARTER </button></a>
+                                </div> 
+                        
+                       <!-- <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Talk to Sales</button></a>
+                                </div> 
+                        -->
+
+                                <!-- <div class="btn-div">
+                                    <a href="<?php echo base_url("pricing"); ?>/subscribe/<?php echo $single_package['package_name']; ?>/<?php echo $single_package['package_subscription_type']; ?>"><button class="btn-signup btn-home btn-blue btn-loader">Buy <?= empty($single_package['package_name']) ? "" : $single_package['package_name'] ?></button></a>
+                                </div>  -->
+                       </div>   
+                       
+
+                       
+                    </div>
+                </div>
+                <div class=" col-lg-4">
+                    <div class="price-box price-box22">
+                       <div class="">
+                            <p class="bold fs-23">BUSINESS</p>
+                               
+                              
+                         <h1 class="rate">$499<span>/ Month</span></h1>
+                      
+                        <!-- <h1 class="rate"> Custom pricing</h1> -->
+                        
+
+
+                                <p class="ideal"></p>
+
+                                
+                       <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">BUY BUSINESS </button></a>
+                                </div> 
+                        
+                       <!-- <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Talk to Sales</button></a>
+                                </div>  -->
+                       
+
+                                <!-- <div class="btn-div">
+                                    <a href="<?php echo base_url("pricing"); ?>/subscribe/<?php echo $single_package['package_name']; ?>/<?php echo $single_package['package_subscription_type']; ?>"><button class="btn-signup btn-home btn-blue btn-loader">Buy <?= empty($single_package['package_name']) ? "" : $single_package['package_name'] ?></button></a>
+                                </div>  -->
+                       </div>   
+                       
+
+                       
+                    </div>
+                </div>
+                <div class=" col-lg-4">
+                    <div class="price-box price-box22">
+                       <div class="">
+                            <p class="bold fs-23">ENTERPRISE</p>
+                               
+                              
+                         <!-- <h1 class="rate">$<span>/ Month</span></h1> -->
+                      
+                        <h1 class="rate"> Custom pricing</h1>
+                        
+
+
+                                <p class="ideal"></p>
+
+                                
+                       <!-- <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Buy </button></a>
+                                </div>  -->
+                        
+                       <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">TALK TO SALES</button></a>
+                                </div> 
+                       
+
+                                <!-- <div class="btn-div">
+                                    <a href="<?php echo base_url("pricing"); ?>/subscribe/<?php echo $single_package['package_name']; ?>/<?php echo $single_package['package_subscription_type']; ?>"><button class="btn-signup btn-home btn-blue btn-loader">Buy <?= empty($single_package['package_name']) ? "" : $single_package['package_name'] ?></button></a>
+                                </div>  -->
+                       </div>   
+                       
+
+                       
+                    </div>
+                </div>
+       
+            </div>
+        </div>
+        <div class=" container-4 monthly-p" v-show="!month_year_checked">
+            <div class="row ">
+               
+                <div class=" col-lg-4">
+                    <div class="price-box ">
+                       <div class="stikey-buy-mobile">
+                            <p class="bold fs-23"></p>
+                                <!-- <h1 class="rate">$<?= empty($single_package['package_price']) ? "" : $single_package['package_price'] ?></h1> -->
+
+                      <h1 class="rate">$</h1>
+                        
+                       
+                        <h1 class="rate"> Custom pricing</h1>
+                        
+
+                                <p class="ideal"></p>
+                            
+                               
+                      <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Buy </button></a>
+                                </div> 
+                       
+                       <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Talk to Sales</button></a>
+                                </div> 
+                        
+
+
+                                <!-- <div class="btn-div">
+                                    <a href="<?php echo base_url("pricing"); ?>/subscribe/<?php echo $single_package['package_name']; ?>/<?php echo $single_package['package_subscription_type']; ?>"><button class="btn-signup btn-home btn-blue btn-loader">Buy <?= empty($single_package['package_name']) ? "" : $single_package['package_name'] ?></button></a>
+                                </div>  -->
+                       </div>   
+                        <div class="mt-3">
+                            
+                           
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">2000 Views per month </p>
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">10 Target images </p>
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">250 MB Content storage </p>
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">App and WebAR experience </p>
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Email Support </p>
+                                 
+                                    
+
+
+
+
+
+
+
+
+                        </div>
+
+                        <!-- <div class="compare-div">
+                            <p class="p-compare text-blue">Compare Features</p>
+                        </div> -->
+                    </div>
+                </div>
+                <div class=" col-lg-4">
+                    <div class="price-box ">
+                       <div class="stikey-buy-mobile">
+                            <p class="bold fs-23"></p>
+                                <!-- <h1 class="rate">$<?= empty($single_package['package_price']) ? "" : $single_package['package_price'] ?></h1> -->
+
+                      <h1 class="rate">$</h1>
+                        
+                       
+                        <h1 class="rate"> Custom pricing</h1>
+                        
+
+                                <p class="ideal"></p>
+                            
+                               
+                      <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Buy </button></a>
+                                </div> 
+                       
+                       <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Talk to Sales</button></a>
+                                </div> 
+                        
+
+
+                                <!-- <div class="btn-div">
+                                    <a href="<?php echo base_url("pricing"); ?>/subscribe/<?php echo $single_package['package_name']; ?>/<?php echo $single_package['package_subscription_type']; ?>"><button class="btn-signup btn-home btn-blue btn-loader">Buy <?= empty($single_package['package_name']) ? "" : $single_package['package_name'] ?></button></a>
+                                </div>  -->
+                       </div>   
+                        <div class="mt-3">
+                            
+                           
+                                    
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">White labelled WebAR plugin</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Custom WebAR URL </p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Custom AR App for Android & iOS </p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Advanced Analytics </p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 10000 Views per month </p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> 40 Target images</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  Email & Chat Support</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Team: 7 users included</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  1 GB Content storage</p>
+
+                                
+                        </div>
+
+                        <!-- <div class="compare-div">
+                            <p class="p-compare text-blue">Compare Features</p>
+                        </div> -->
+                    </div>
+                </div>
+                <div class=" col-lg-4">
+                    <div class="price-box ">
+                       <div class="stikey-buy-mobile">
+                            <p class="bold fs-23"></p>
+                                <!-- <h1 class="rate">$<?= empty($single_package['package_price']) ? "" : $single_package['package_price'] ?></h1> -->
+
+                      <h1 class="rate">$</h1>
+                        
+                       
+                        <h1 class="rate"> Custom pricing</h1>
+                        
+
+                                <p class="ideal"></p>
+                            
+                               
+                      <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Buy </button></a>
+                                </div> 
+                       
+                       <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Talk to Sales</button></a>
+                                </div> 
+                        
+
+
+                                <!-- <div class="btn-div">
+                                    <a href="<?php echo base_url("pricing"); ?>/subscribe/<?php echo $single_package['package_name']; ?>/<?php echo $single_package['package_subscription_type']; ?>"><button class="btn-signup btn-home btn-blue btn-loader">Buy <?= empty($single_package['package_name']) ? "" : $single_package['package_name'] ?></button></a>
+                                </div>  -->
+                       </div>   
+                        <div class="mt-3">
+                            
+                           
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Multiple WebAR plugins and URL</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Multiple AR Apps</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">Custom views, target images, storage and team</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> End to end support </p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Dedicated Account Manager </p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt=""> Early access to new features</p>
+                            <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">   Language translation integration (custom AR App)</p>
+                         
+                       
+                        </div>
+
+                        <!-- <div class="compare-div">
+                            <p class="p-compare text-blue">Compare Features</p>
+                        </div> -->
+                    </div>
+                </div>
+             <!-- starter package monthly -->
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    
+              
+                
+                    <!-- <div class="price-box starter-plan">
+                        <div class=" ">
+                            <div class="">
+                                <p class="bold fs-23">Start Your Free Trial</p>
+                            </div>
+                            <div class="">
+                                <div class="mt-3">      
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  50 AR Views</p> 
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  3 Target images</p>
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  50 MB Storage</p>
+                                    <p class="new-p-box"> <img src="resources/img/tick (1).svg" alt="">  14 Days Duration </p>
+                                </div>
+                                <div class="btn-div">
+                                    <a href=""><button class="btn-signup btn-home btn-blue btn-loader">Try For Free</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+             
+                </div>
+                <!-- starter package monthly -->
+            </div>
+        </div>
+
+
+
+
+        <!-- </div> -->
+        <!--Enterprise plan-->
+
+
+
 
     
-        <div class="table-comparison">
-            <div class="table-responsive">
-                <table class="table" v-if="month_year_checked">
-                    <!-- <tr>
-                        <th>UniteAR Yearly Plan</th>
-                        <th><?= empty($standard_package['yearly']['package_name']) ? "" : $standard_package['yearly']['package_name'] ?></th>
 
+
+<div class="container scrol-move">
+    <div class="comparison-heading">
+        <h1>Full Plan Comparison</h1>
+        <p>Choose an appropriate plan based on the features.</p>
+    </div>
+</div>
+
+<div class="container-4 stikey-table" v-show="month_year_checked">
+<div class="table-comparison">
+        <div class="table-responsive">
+            <table class="table" >
+                <tr>
+                    <th>UniteAR Yearly Plan</th>
+                    <!-- <th> -->
+                    <!-- <?= empty($standard_package['yearly']['package_name']) ? "" : $standard_package['yearly']['package_name'] ?> -->
+                    <!-- </th> -->
+
+                   
+                            <th>Starter</th>
+                    
+                            <th>Business</th>
+                    
+                            <th>Enterprise</th>
+
+                </tr>
+            </table>
+        </div>
+</div>
+    </div>
+    <div class="container-4 stikey-table" v-show="!month_year_checked">
+<div class="table-comparison">
+        <div class="table-responsive">
+            <table class="table" >
+            <tr>
+                    <th>UniteAR Monthly Plan</th>
+                    <!-- <th>Free</th> -->
+                    <!-- <th><?= empty($standard_package['monthly']['package_name']) ? "" : $standard_package['monthly']['package_name'] ?></th> -->
+                   
+                    <th>Starter</th>
+                    
+                    <th>Business</th>
+            
+                    <th>Enterprise</th>
+                  
+                </tr>
+            </table>
+        </div>
+</div>
+    </div>
+<div class="container-4 ">
+
+
+    <div class="table-comparison">
+        <div class="table-responsive">
+            <table class="table" v-if="month_year_checked">
+                <!-- <tr>
+                    <th>UniteAR Yearly Plan</th>
+                    <th><?= empty($standard_package['yearly']['package_name']) ? "" : $standard_package['yearly']['package_name'] ?></th>
+
+                    <?php
+
+                    if ($buisness_package['yearly'] != null) {
+                        foreach ($buisness_package['yearly'] as $single_package) {
+                    ?>
+                            <th><?= $single_package['package_name'] ?></th>
+                    <?php
+                        }
+                    }
+                    ?>
+                    <?php
+                    if ($enterprise_package['yearly'] != null) {
+                        foreach ($enterprise_package['yearly'] as $single_package) {
+                    ?>
+                            <th><?= $single_package['package_name'] ?></th>
+                    <?php
+                        }
+                    }
+                    ?>
+
+
+
+
+
+                </tr> -->
+                <tr>
+                    <td> Price <span style="font-size: 12px;font-weight:500;">(monthly basis)</span></td>
+
+                    <!-- <td> -->
+                    <!-- $<?php echo floor((float)$standard_package['yearly']['package_price'] - ((float)$standard_package['yearly']['package_price'] * ((float)$standard_package['yearly']['package_discount_rate'] / 100))); ?>
+                     -->
+                    <!-- </td> -->
+                  
+                            <td>$89</td>
+                            <td>$449</td>
+                            <!-- <td>$<?php echo floor((float)$single_package['package_price'] - ((float)$single_package['package_price'] * ((float)$single_package['package_discount_rate'] / 100))); ?></td> -->
+                            <td>Custom</td>
+                   
+                </tr>
+                <tr>
+                    <td>White labelled WebAR plugin</td>
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Custom WebAR URL</td>
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Custom AR App for Android & iOS</td>
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Team</td>
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td>7</td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>AR views per year</td>
+                    <!-- <td><?= empty($standard_package['yearly']['package_scan_limit']) ? "" : $standard_package['yearly']['package_scan_limit'] ?></td> -->
+
+                    
+                            <td>24000</td>
+                            <td>100000</td>
+                         <td>Custom</td>
+                    
+                </tr>
+                <!-- <tr>
+                        <td>Projects</td>
+                        <td><?= empty($standard_package['yearly']['package_project_limit']) ? "" : $standard_package['yearly']['package_project_limit'] ?></td>
                         <?php
 
                         if ($buisness_package['yearly'] != null) {
                             foreach ($buisness_package['yearly'] as $single_package) {
                         ?>
-                                <th><?= $single_package['package_name'] ?></th>
-                        <?php
-                            }
-                        }
-                        ?>
-                        <?php
-                        if ($enterprise_package['yearly'] != null) {
-                            foreach ($enterprise_package['yearly'] as $single_package) {
-                        ?>
-                                <th><?= $single_package['package_name'] ?></th>
-                        <?php
-                            }
-                        }
-                        ?>
-
-
-
-
-
-                    </tr> -->
-                    <tr>
-                        <td> Price <span style="font-size: 12px;font-weight:500;">(monthly basis)</span></td>
-
-                        <!-- <td> -->
-                        <!-- $<?php echo floor((float)$standard_package['yearly']['package_price'] - ((float)$standard_package['yearly']['package_price'] * ((float)$standard_package['yearly']['package_discount_rate'] / 100))); ?>
-                         -->
-                        <!-- </td> -->
-                       
-                                <td>$89</td>
-                                <td>$359</td>
-                                <td>$629</td>
-                                <td>$827</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>AR views per year</td>
-                        <!-- <td><?= empty($standard_package['yearly']['package_scan_limit']) ? "" : $standard_package['yearly']['package_scan_limit'] ?></td> -->
-
-                        
-                                <td>24000</td>
-                                <td>120000</td>
-                                <td>1000000</td>
-                                <td>3000000</td>
-                    </tr>
-                    <!-- <tr>
-                            <td>Projects</td>
-                            <td><?= empty($standard_package['yearly']['package_project_limit']) ? "" : $standard_package['yearly']['package_project_limit'] ?></td>
-                            <?php
-
-                            if ($buisness_package['yearly'] != null) {
-                                foreach ($buisness_package['yearly'] as $single_package) {
-                            ?>
-                                            <td><?= $single_package['package_project_limit']; ?></td>
-                                <?php
-                                }
-                            }
-                                ?>
-                                    <?php
-                                    if ($enterprise_package['yearly'] != null) {
-                                        foreach ($enterprise_package['yearly'] as $single_package) {
-                                    ?>
                                         <td><?= $single_package['package_project_limit']; ?></td>
                             <?php
-                                        }
-                                    }
+                            }
+                        }
                             ?>
-                        </tr> -->
-                    <tr>
-                        <td>Target images</td>
-                        <!-- <td><?= empty($standard_package['yearly']['package_target_image_limit']) ? "" : $standard_package['yearly']['package_target_image_limit'] ?></td> -->
-                        
-                                <td>120</td>
-                                <td>360</td>
-                                <td>1000</td>
-                                <td>3000</td>
-                       
-                    </tr>
-                    <tr>
-                        <td>Account storage</td>
-                        <!-- <td><?= empty($standard_package['yearly']['package_storage_limit']) ? "" : $standard_package['yearly']['package_storage_limit'] ?></td> -->
-                        
-                                <td>1 GB</td>
-                                <td>1 GB</td>
-                                <td>5 GB</td>
-                                <td>10 GB</td>
-                    </tr>
-
-                    <tr>
-                        <td>Multiple content types (3D model, video, 360, Gif,CTA buttons)</td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        
-                    </tr>
-                    <tr>
-                        <th class="th-head"><span>AR - App creator</span></th>
-                        <!-- <th></th> -->
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-					<tr>
-						<td>Custom AR App Creation</td>
-						
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                       
-						
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        
-					</tr>
-                    <tr>
-                        <td>White labelled AR App for Android</td>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>White labelled AR App for IOS</td>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>Ground plane gallery on custom AR App</td>
-                       
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        
-                    </tr>
-					<tr>
-                        <td>Multiple edit permission (3 times)</td>
-                        
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                       
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        
-                    </tr>
-                    <tr>
-                        <th class="th-head"><span>IMAGE-BASED AR</span></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>Image detection</td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>Image detection with QR</td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>Image based WebAR experience
-                        </td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>Embed WebAR scanner</td>
-						<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<td><img src="resources/img/layer1.svg" alt=""></td>
-						<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<td><img src="resources/img/layer1.svg" alt=""></td>
-                        
-                    </tr>
-                    <tr>
-                        <th class="th-head"><span>PREMIUM FEATURES</span></th>
-                        <!-- <th>Ground-plane based AR</th> -->
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>Advanced Analytics dashboard</td>
-						<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<td><img src="resources/img/layer1.svg" alt=""></td>
-						<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<td><img src="resources/img/layer1.svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>Team Access</td>
-						<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-						<td><img src="resources/img/layer1.svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>Language translation integration (custom AR App)
-                        </td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-						<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-						<td><img src="resources/img/layer1.svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>Onboarding Training for the entire team</td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                    <!--<tr>
-                            <th>Adding Team</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>Option to adding multiple users</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><img src="resources/img/shery.png" alt=""></td>
-                            <td><img src="resources/img/shery.png" alt=""></td>
-                        </tr>
-                        <tr>
-                            <td>No. of users allowed</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>5</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>Provision to divide account features</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><img src="resources/img/shery.png" alt=""></td>
-                            <td><img src="resources/img/shery.png" alt=""></td>
-                        </tr>-->
-                    <tr>
-                        <th class="th-head"><span>OTHER FEATURES</span></th>
-                        <!-- <th>Customer Support</th> -->
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>Email support</td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>Chat support</td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>Dedicated account manager</td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>AR App launching support</td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                </table>
-                <table class="table" v-else>
-                    <!-- <tr>
-                        <th>UniteAR Monthly Plan</th>
-                      
+                                <?php
+                                if ($enterprise_package['yearly'] != null) {
+                                    foreach ($enterprise_package['yearly'] as $single_package) {
+                                ?>
+                                    <td><?= $single_package['package_project_limit']; ?></td>
                         <?php
-
-                        if ($buisness_package['monthly'] != null) {
-                            foreach ($buisness_package['monthly'] as $single_package) {
-                        ?>
-                                <th><?= $single_package['package_name'] ?></th>
-                        <?php
-                            }
-                        }
-                        ?>
-                        <?php
-                        if ($enterprise_package['monthly'] != null) {
-                            foreach ($enterprise_package['monthly'] as $single_package) {
-                        ?>
-                                <th><?= $single_package['package_name'] ?></th>
-                        <?php
-                            }
-                        }
+                                    }
+                                }
                         ?>
                     </tr> -->
-                    <tr>
-                        <td> Price</td>
-                        <!-- <td>$0</td> -->
-                        <!-- <td> -->
-                        
-                        <!-- $<?php echo floor((float)$standard_package['monthly']['package_price'] - ((float)$standard_package['monthly']['package_price'] * ((float)$standard_package['monthly']['package_discount_rate'] / 100))); ?>
-                         -->
-                        <!-- </td> -->
-                        
-                        <td>$<?php echo floor((float)$single_package['package_price'] - ((float)$single_package['package_price'] * ((float)$single_package['package_discount_rate'] / 100))); ?></td>
-                        <td>$<?php echo floor((float)$single_package['package_price'] - ((float)$single_package['package_price'] * ((float)$single_package['package_discount_rate'] / 100))); ?></td>
-                        
-                    </tr>
-                    <tr>
-                        <td>AR views per month</td>
-                        <!-- <td>10</td> -->
-                        <!-- <td> -->
-                        
-                        <!-- <?= $standard_package['monthly']['package_scan_limit'] ?> -->
-                        
-                        <!-- </td> -->
-                        <?php
-
-                        if ($buisness_package['monthly'] != null) {
-                            foreach ($buisness_package['monthly'] as $single_package) {
-                        ?>
-                                <td><?= $single_package['package_scan_limit'] ?></td>
-                        <?php
-                            }
-                        }
-                        ?>
-                        <?php
-                        if ($enterprise_package['monthly'] != null) {
-                            foreach ($enterprise_package['monthly'] as $single_package) {
-                        ?>
-                                <td><?= $single_package['package_scan_limit'] ?></td>
-                        <?php
-                            }
-                        }
-                        ?>
-                    </tr>
-                    <!-- <tr>
-                            <td>Projects</td>
-                            <td>2</td>
-                            <?php
-
-                            if ($buisness_package['monthly'] != null) {
-                                foreach ($buisness_package['monthly'] as $single_package) {
-                            ?>
-                               <td><?= $single_package['package_project_limit'] ?></td>
-                       <?php
-                                }
-                            }
-                        ?>
-                        <?php
-                        if ($enterprise_package['monthly'] != null) {
-                            foreach ($enterprise_package['monthly'] as $single_package) {
-                        ?>
-                               <td><?= $single_package['package_project_limit'] ?></td>
-                       <?php
-                            }
-                        }
-                        ?>
-                        </tr>
-                        <tr> -->
+                <tr>
                     <td>Target images</td>
-                    <!-- <td>2</td> -->
-                    <!-- <td> -->
-                    <!-- <?= $standard_package['monthly']['package_target_image_limit'] ?> -->
-                    <!-- </td> -->
+                    <!-- <td><?= empty($standard_package['yearly']['package_target_image_limit']) ? "" : $standard_package['yearly']['package_target_image_limit'] ?></td> -->
+                   
+                            <td>120</td>
+                            <td>1000</td>
+                   
+                           <td>Custom</td>
+                    
+                </tr>
+                <tr>
+                    <td>Account storage</td>
+                    <!-- <td><?= empty($standard_package['yearly']['package_storage_limit']) ? "" : $standard_package['yearly']['package_storage_limit'] ?></td> -->
+                    
+                            <td>1GB</td>
+                            <td>5GB</td>
+                   
+                           <td>Custom</td>
+                   
+                </tr>
+
+                <!-- <tr>
+                    <td>Multiple content types (3D model, video, 360, Gif,CTA buttons)</td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                  
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    
+                </tr> -->
+                <tr>
+                    <th class="th-head"><span>AR - App creator</span></th>
+                    <!-- <th></th> -->
+                    <th></th>
+                    <!-- <th></th> -->
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Custom AR App Creation</td>
+                    
+                              
+                    
+                                <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                                <td>1</td>
+                    
+                                <td>Custom</td>
+                    
+                </tr>
+                <tr>
+                    <td>White labelled AR App for Android</td>
+                   
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                    <td>1</td>
+        
+                    <td>Custom</td>
+                   
+                </tr>
+                <tr>
+                    <td>White labelled AR App for IOS</td>
+                  
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                    <td>1</td>
+        
+                    <td>Custom</td>
+                   
+                </tr>
+                <tr>
+                    <td>Ground plane gallery on custom AR App</td>
+                    
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                    <td>1</td>
+        
+                    <td>Custom</td>
+                    
+                </tr>
+                <tr>
+                    <td>Multiple edit permission (3 times)</td>
+                    
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                    <td>1</td>
+        
+                    <td>Custom</td>
+                   
+                </tr>
+                <tr>
+                    <th class="th-head"><span>IMAGE-BASED AR</span></th>
+                    <th></th>
+                    <!-- <th></th> -->
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Image detection</td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Image detection with QR</td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Image based WebAR experience
+                    </td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Custom WebAR plugin / URL</td>
+                   
+                                <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                                <td><img src="resources/img/tick (1).svg" alt=""></td>
+                                <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                               
+                    
+                                <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                </tr>
+                <tr>
+                    <th class="th-head"><span>PREMIUM FEATURES</span></th>
+                    <!-- <th>Ground-plane based AR</th> -->
+                    <th></th>
+                    <!-- <th></th> -->
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Advanced Analytics dashboard</td>
+                        
+                                <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                   
+                                <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                                <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    
+                                <td><img src="resources/img/tick (1).svg" alt=""></td>
+                 
+                </tr>
+                <tr>
+                    <td>Team Access</td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                   
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+        
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                   
+                </tr>
+                <tr>
+                    <td>Language translation integration (custom AR App)
+                    </td>
+                  
+                                <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                   
+                                <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                   
+                                <td><img src="resources/img/layer1.svg" alt=""></td>
+                                <td><img src="resources/img/tick (1).svg" alt=""></td>
+
+                    
+                </tr>
+                <tr>
+                    <td>Onboarding Training for the entire team</td>
+                     <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                   
+                     <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                   
+                     <td><img src="resources/img/layer1.svg" alt=""></td>
+                     <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <!--<tr>
+                        <th>Adding Team</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>Option to adding multiple users</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><img src="resources/img/shery.png" alt=""></td>
+                        <td><img src="resources/img/shery.png" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td>No. of users allowed</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>5</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Provision to divide account features</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><img src="resources/img/shery.png" alt=""></td>
+                        <td><img src="resources/img/shery.png" alt=""></td>
+                    </tr>-->
+                <tr>
+                    <th class="th-head"><span>OTHER FEATURES</span></th>
+                    <!-- <th>Customer Support</th> -->
+                    <th></th>
+                    <!-- <th></th> -->
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Email support</td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Chat support</td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <!-- <td><img src="resources/img/layer1.svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Dedicated account manager</td>
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <!-- <td><img src="resources/img/layer1.svg" alt=""></td> -->
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>AR App launching support</td>
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <!-- <td><img src="resources/img/layer1.svg" alt=""></td> -->
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+            </table>
+            <table class="table" v-else>
+                <!-- <tr>
+                    <th>UniteAR Monthly Plan</th>
+                  
                     <?php
 
                     if ($buisness_package['monthly'] != null) {
                         foreach ($buisness_package['monthly'] as $single_package) {
                     ?>
-                            <td><?= $single_package['package_target_image_limit'] ?></td>
+                            <th><?= $single_package['package_name'] ?></th>
                     <?php
                         }
                     }
@@ -1138,541 +1352,393 @@
                     if ($enterprise_package['monthly'] != null) {
                         foreach ($enterprise_package['monthly'] as $single_package) {
                     ?>
-                            <td><?= $single_package['package_target_image_limit'] ?></td>
+                            <th><?= $single_package['package_name'] ?></th>
                     <?php
                         }
                     }
                     ?>
-                    </tr>
-                    <tr>
-                        <td>Account storage</td>
-                        <!-- <td>10 MB</td> -->
-                        <!-- <td><?= $standard_package['monthly']['package_storage_limit'] ?></td> -->
+                </tr> -->
+                <tr>
+                    <td> Price <span style="font-size: 12px;font-weight:500;">(monthly basis)</span></td>
 
-                        <?php
+                    <!-- <td> -->
+                    <!-- $<?php echo floor((float)$standard_package['yearly']['package_price'] - ((float)$standard_package['yearly']['package_price'] * ((float)$standard_package['yearly']['package_discount_rate'] / 100))); ?>
+                     -->
+                    <!-- </td> -->
+                  
+                            <td>$99</td>
+                            <td>$499</td>
+                            <!-- <td>$<?php echo floor((float)$single_package['package_price'] - ((float)$single_package['package_price'] * ((float)$single_package['package_discount_rate'] / 100))); ?></td> -->
+                            <td>Custom</td>
+                   
+                </tr>
+                <tr>
+                    <td>White labelled WebAR plugin</td>
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Custom WebAR URL</td>
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Custom AR App for Android & iOS</td>
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Team</td>
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>AR views per year</td>
+                    <!-- <td><?= empty($standard_package['yearly']['package_scan_limit']) ? "" : $standard_package['yearly']['package_scan_limit'] ?></td> -->
 
-                        if ($buisness_package['monthly'] != null) {
-                            foreach ($buisness_package['monthly'] as $single_package) {
-                        ?>
-                                <td><?= $single_package['package_storage_limit'] ?></td>
-                        <?php
-                            }
-                        }
-                        ?>
-                        <?php
-                        if ($enterprise_package['monthly'] != null) {
-                            foreach ($enterprise_package['monthly'] as $single_package) {
-                        ?>
-                                <td><?= $single_package['package_storage_limit'] ?></td>
-                        <?php
-                            }
-                        }
-                        ?>
-                    </tr>
-
-                    <tr>
-                        <td>Multiple content types (3D model, video, 360, Gif,CTA buttons)</td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        
-                    </tr>
-					<tr>
-                        <th class="th-head"><span>AR APP CREATOR</span></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>Custom AR App Creation
-                        </td>
-						<?php
-
-                        if ($buisness_package['monthly'] != null) {
-                            foreach ($buisness_package['monthly'] as $single_package) {
-								if((int)$single_package['app_factory_project_count'])
-								{
-                        ?>
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<?php
-								}
-								else
-								{
-						?>
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <?php
-								}
-                            }
-                        }
-						
-						if ($enterprise_package['monthly'] != null) {
-                            foreach ($enterprise_package['monthly'] as $single_package) {
-								if((int)$single_package['app_factory_project_count'])
-								{
-                        ?>
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<?php
-								}
-								else
-								{
-						?>
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <?php
-								}
-                            }
-                        }
-                        ?>
-                    </tr>
-                     <tr>
-                        <td>White labelled AR App for Android</td>
+                    
+                            <td>2000</td>
+                            <td>10000</td>
+                         <td>Custom</td>
+                    
+                </tr>
+                <!-- <tr>
+                        <td>Projects</td>
+                        <td><?= empty($standard_package['yearly']['package_project_limit']) ? "" : $standard_package['yearly']['package_project_limit'] ?></td>
                         <?php
 
-                        if ($buisness_package['monthly'] != null) {
-                            foreach ($buisness_package['monthly'] as $single_package) {
+                        if ($buisness_package['yearly'] != null) {
+                            foreach ($buisness_package['yearly'] as $single_package) {
                         ?>
-                                <td><?= $single_package['app_factory_apk_count']; ?></td>
-                        <?php
+                                        <td><?= $single_package['package_project_limit']; ?></td>
+                            <?php
                             }
                         }
-                        ?>
+                            ?>
+                                <?php
+                                if ($enterprise_package['yearly'] != null) {
+                                    foreach ($enterprise_package['yearly'] as $single_package) {
+                                ?>
+                                    <td><?= $single_package['package_project_limit']; ?></td>
                         <?php
-                        if ($enterprise_package['monthly'] != null) {
-                            foreach ($enterprise_package['monthly'] as $single_package) {
+                                    }
+                                }
                         ?>
-                                <td><?= $single_package['app_factory_apk_count']; ?></td>
-                        <?php
-                            }
-                        }
-                        ?>
-                    </tr>
-                    <tr>
-                        <td>White labelled AR App for IOS</td>
-                        <?php
-
-                        if ($buisness_package['monthly'] != null) {
-                            foreach ($buisness_package['monthly'] as $single_package) {
-                        ?>
-                                <td><?= $single_package['app_factory_ios_count']; ?></td>
-                        <?php
-                            }
-                        }
-                        ?>
-                        <?php
-                        if ($enterprise_package['monthly'] != null) {
-                            foreach ($enterprise_package['monthly'] as $single_package) {
-                        ?>
-                                <td><?= $single_package['app_factory_ios_count']; ?></td>
-                        <?php
-                            }
-                        }
-                        ?>
-                    </tr>
-                   <tr>
-                        <td>Ground plane gallery on custom AR App</td>
-                        <?php
-
-                        if ($buisness_package['monthly'] != null) {
-                            foreach ($buisness_package['monthly'] as $single_package) {
-								if((int)$single_package['app_ground_plane_gallery'])
-								{
-                        ?>
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<?php
-								}
-								else
-								{
-						?>
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <?php
-								}
-                            }
-                        }
-                        ?>
-                        <?php
-                        if ($enterprise_package['monthly'] != null) {
-                            foreach ($enterprise_package['monthly'] as $single_package) {
-								if((int)$single_package['app_ground_plane_gallery'])
-								{
-                        ?>
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<?php
-								}
-								else
-								{
-						?>
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <?php
-								}
-                            }
-                        }
-                        ?>
-                    </tr>
-					<tr>
-                        <td>Multiple edit permission (3 times)</td>
-                        <?php
-
-                        if ($buisness_package['monthly'] != null) {
-                            foreach ($buisness_package['monthly'] as $single_package) {
-								if((int)$single_package['app_edit_permission'])
-								{
-                        ?>
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<?php
-								}
-								else
-								{
-						?>
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <?php
-								}
-                            }
-                        }
-						?>
-                        <?php
-                        if ($enterprise_package['monthly'] != null) {
-                            foreach ($enterprise_package['monthly'] as $single_package) {
-								if((int)$single_package['app_edit_permission'])
-								{
-                        ?>
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<?php
-								}
-								else
-								{
-						?>
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <?php
-								}
-                            }
-                        }
-                        ?>
-                    </tr>
-					 <tr>
-                        <th class="th-head"><span>IMAGE-BASED AR</span></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>Image detection</td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>Image detection with QR</td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>Image based WebAR experience
-                        </td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>Embed WebAR scanner</td>
-                        <?php
-
-                        if ($buisness_package['monthly'] != null) {
-                            foreach ($buisness_package['monthly'] as $single_package) {
-								if((int)$single_package['embedded_webar_access'])
-								{
-                        ?>
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<?php
-								}
-								else
-								{
-						?>
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <?php
-								}
-                            }
-                        }
-                        ?>
-                        <?php
-                        if ($enterprise_package['monthly'] != null) {
-                            foreach ($enterprise_package['monthly'] as $single_package) {
-								if((int)$single_package['embedded_webar_access'])
-								{
-                        ?>
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<?php
-								}
-								else
-								{
-						?>
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <?php
-								}
-                            }
-                        }
-                        ?>
-                    </tr>
-                     <tr>
-                        <th class="th-head"><span>PREMIUM FEATURES</span></th>
-                        <!-- <th>Ground-plane based AR</th> -->
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>Advanced Analytics dashboard</td>
-							 <?php
-
-                        if ($buisness_package['monthly'] != null) {
-                            foreach ($buisness_package['monthly'] as $single_package) {
-								if((int)$single_package['custom_analytics'])
-								{
-                        ?>
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<?php
-								}
-								else
-								{
-						?>
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <?php
-								}
-                            }
-                        }
-                        ?>
-                        <?php
-                        if ($enterprise_package['monthly'] != null) {
-                            foreach ($enterprise_package['monthly'] as $single_package) {
-								if((int)$single_package['custom_analytics'])
-								{
-                        ?>
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<?php
-								}
-								else
-								{
-						?>
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <?php
-								}
-                            }
-                        }
-                        ?>
-                    </tr>
-                    <tr>
-                        <td>Team Access</td>
-						<?php
-                        if ($buisness_package['monthly'] != null) {
-                            foreach ($buisness_package['monthly'] as $single_package) {
-								if((int)$single_package['no_of_team_members'])
-								{
-                        ?>
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<?php
-								}
-								else
-								{
-						?>
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <?php
-								}
-                            }
-                        }
-                        ?>
-                        <?php
-                        if ($enterprise_package['monthly'] != null) {
-                            foreach ($enterprise_package['monthly'] as $single_package) {
-								if((int)$single_package['no_of_team_members'])
-								{
-                        ?>
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<?php
-								}
-								else
-								{
-						?>
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <?php
-								}
-                            }
-                        }
-                        ?>
-                    </tr>
-                    <tr>
-                        <td>Language translation integration (custom AR App)
-                        </td>
-                        <?php
-                        if ($buisness_package['monthly'] != null) {
-                            foreach ($buisness_package['monthly'] as $single_package) {
-								if((int)$single_package['app_language_translation'])
-								{
-                        ?>
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<?php
-								}
-								else
-								{
-						?>
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <?php
-								}
-                            }
-                        }
-                        ?>
-                        <?php
-                        if ($enterprise_package['monthly'] != null) {
-                            foreach ($enterprise_package['monthly'] as $single_package) {
-								if((int)$single_package['app_language_translation'])
-								{
-                        ?>
-									<td><img src="resources/img/tick (1).svg" alt=""></td>
-						<?php
-								}
-								else
-								{
-						?>
-									<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <?php
-								}
-                            }
-                        }
-                        ?>
-                    </tr>
-					<tr>
-                        <td>Onboarding Training for the entire team</td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-						<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                    </tr>
-                    <!--<tr>
-                            <th>Adding Team</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>Option to adding multiple users</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><img src="resources/img/shery.png" alt=""></td>
-                            <td><img src="resources/img/shery.png" alt=""></td>
-                        </tr>
-                        <tr>
-                            <td>No. of users allowed</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>5</td>
+                    </tr> -->
+                <tr>
+                    <td>Target images</td>
+                    <!-- <td><?= empty($standard_package['yearly']['package_target_image_limit']) ? "" : $standard_package['yearly']['package_target_image_limit'] ?></td> -->
+                   
                             <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>Provision to divide account features</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><img src="resources/img/shery.png" alt=""></td>
-                            <td><img src="resources/img/shery.png" alt=""></td>
-                        </tr>-->
-                    <tr>
-                        <th class="th-head"><span>OTHER FEATURES</span></th>
-                        <!-- <th>Customer Support</th> -->
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>Email support</td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-						<td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>Chat support</td>
-						<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>Dedicated account manager</td>
-						<td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td>AR App launching support</td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/layer1.svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                        <td><img src="resources/img/tick (1).svg" alt=""></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-        </div>
+                            <td>40</td>
+                   
+                           <td>Custom</td>
+                    
+                </tr>
+                <tr>
+                    <td>Account storage</td>
+                    <!-- <td><?= empty($standard_package['yearly']['package_storage_limit']) ? "" : $standard_package['yearly']['package_storage_limit'] ?></td> -->
+                    
+                            <td>250MB</td>
+                            <td>1GB</td>
+                   
+                           <td>Custom</td>
+                   
+                </tr>
 
-    <div class="video-modal d-flex " v-if="offer_popup" @click="offer_popup=false;" @close="offer_popup=false;">
-    <div class="popup-offer" @click.stop>
-        <img src="resources/img/popup close.svg" alt="" style="top:-15px;right:-15px;" class="videomodal-close" @click="offer_popup=false">
-        <img src="resources/img/News.jpg" alt="" class="img-fluid mx-auto d-block">
-        <div class="con-off">
-            <h1 class="head-enjoy">YEAR ENDING OFFER</h1>
-            <h1 class="head-off">50%OFF</h1>
-            <p class="off-para-head">WITH 2 YEARS VALIDITY FOR YEARLY PLANS</p>
-            <div>
-                <input type="text" class="form-control" placeholder="Enter Your Email"v-model="email" @keyup="validate_user_email();">
-                <div style="height: 50px;">
-                    <p class="red-text-error">{{email_error}}</p>
-                </div>
-            </div>
-            <button v-if="offer_button_loader"class=" btn-unitear head-btn w-100 mt-0" >
-                                <i class="fa fa-circle-o-notch fa-spin"></i>
-                                </button>
-            <button v-else class="btn-unitear head-btn w-100 mt-0" @click="$emit('close');email_add();">YES, I'M INTERESTED</button>
+                <!-- <tr>
+                    <td>Multiple content types (3D model, video, 360, Gif,CTA buttons)</td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                  
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    
+                </tr> -->
+                <tr>
+                    <th class="th-head"><span>AR - App creator</span></th>
+                    <!-- <th></th> -->
+                    <th></th>
+                    <!-- <th></th> -->
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Custom AR App Creation</td>
+                    
+                              
+                    
+                                <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                                <td>1</td>
+                    
+                                <td>Custom</td>
+                    
+                </tr>
+                <tr>
+                    <td>White labelled AR App for Android</td>
+                   
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                    <td>1</td>
+        
+                    <td>Custom</td>
+                   
+                </tr>
+                <tr>
+                    <td>White labelled AR App for IOS</td>
+                  
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                    <td>1</td>
+        
+                    <td>Custom</td>
+                   
+                </tr>
+                <tr>
+                    <td>Ground plane gallery on custom AR App</td>
+                    
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                    <td>1</td>
+        
+                    <td>Custom</td>
+                    
+                </tr>
+                <tr>
+                    <td>Multiple edit permission (3 times)</td>
+                    
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                    <td>1</td>
+        
+                    <td>Custom</td>
+                   
+                </tr>
+                <tr>
+                    <th class="th-head"><span>IMAGE-BASED AR</span></th>
+                    <th></th>
+                    <!-- <th></th> -->
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Image detection</td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Image detection with QR</td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Image based WebAR experience
+                    </td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Custom WebAR plugin / URL</td>
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                                <td><img src="resources/img/tick (1).svg" alt=""></td>
+                                <td><img src="resources/img/tick (1).svg" alt=""></td>
+                   
+                               
+                    
+                                <!-- <td><img src="resources/img/layer1.svg" alt=""></td> -->
+                   
+                </tr>
+                <tr>
+                    <th class="th-head"><span>PREMIUM FEATURES</span></th>
+                    <!-- <th>Ground-plane based AR</th> -->
+                    <th></th>
+                    <!-- <th></th> -->
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Advanced Analytics dashboard</td>
+                        
+                                <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                   
+                                <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                                <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    
+                                <td><img src="resources/img/tick (1).svg" alt=""></td>
+                 
+                </tr>
+                <tr>
+                    <td>Team Access</td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                   
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+        
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                   
+                </tr>
+                <tr>
+                    <td>Language translation integration (custom AR App)
+                    </td>
+                  
+                                <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                   
+                                <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                   
+                                <td><img src="resources/img/layer1.svg" alt=""></td>
+                                <td><img src="resources/img/tick (1).svg" alt=""></td>
+
+                    
+                </tr>
+                <tr>
+                    <td>Onboarding Training for the entire team</td>
+                     <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                   
+                     <td><img src="resources/img/layer1.svg" alt=""></td>
+                   
+                   
+                     <td><img src="resources/img/layer1.svg" alt=""></td>
+                     <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <!--<tr>
+                        <th>Adding Team</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>Option to adding multiple users</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><img src="resources/img/shery.png" alt=""></td>
+                        <td><img src="resources/img/shery.png" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td>No. of users allowed</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>5</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Provision to divide account features</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><img src="resources/img/shery.png" alt=""></td>
+                        <td><img src="resources/img/shery.png" alt=""></td>
+                    </tr>-->
+                <tr>
+                    <th class="th-head"><span>OTHER FEATURES</span></th>
+                    <!-- <th>Customer Support</th> -->
+                    <th></th>
+                    <!-- <th></th> -->
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Email support</td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <!-- <td><img src="resources/img/tick (1).svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Chat support</td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <!-- <td><img src="resources/img/layer1.svg" alt=""></td> -->
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>Dedicated account manager</td>
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <!-- <td><img src="resources/img/layer1.svg" alt=""></td> -->
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>AR App launching support</td>
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <!-- <td><img src="resources/img/layer1.svg" alt=""></td> -->
+                    <td><img src="resources/img/layer1.svg" alt=""></td>
+                    <td><img src="resources/img/tick (1).svg" alt=""></td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
-<!-- <div class="video-modal d-flex " v-if="offer_code_send" >
-    <div class="popup-offer">
-        <div>
-            <img src="resources/img/popup close.svg" alt="" style="top:-15px;right:-15px;" class="videomodal-close" @click="offer_code_send=false">
-            <img src="resources/img/Security.svg" alt="" class="img-fluid mx-auto d-block">
-            <div class="con-off">
+    </div>
 
-                <h1 class="head-off-green mt-3">SUCCESS</h1>
-                <p class="off-para-head mt-3">Thank you for your interest. We will contact you soon.</p>
-    
-                <button class="btn-unitear head-btn btn-loader w-100" @click="offer_code_send=false">CLOSE</button>
+<div class="video-modal d-flex " v-if="offer_popup" @click="offer_popup=false;" @close="offer_popup=false;">
+<div class="popup-offer" @click.stop>
+    <img src="<?php echo base_url(''); ?>/resources/img/popup close.svg" alt="" style="top:-15px;right:-15px;" class="videomodal-close" @click="offer_popup=false">
+    <img src="<?php echo base_url(''); ?>/resources/img/News.jpg" alt="" class="img-fluid mx-auto d-block">
+    <div class="con-off">
+        <h1 class="head-enjoy">YEAR ENDING OFFER</h1>
+        <h1 class="head-off">50%OFF</h1>
+        <p class="off-para-head">WITH 2 YEARS VALIDITY FOR YEARLY PLANS</p>
+        <div>
+            <input type="text" class="form-control" placeholder="Enter Your Email"v-model="email" @keyup="validate_user_email();">
+            <div style="height: 50px;">
+                <p class="red-text-error">{{email_error}}</p>
             </div>
         </div>
+        <button v-if="offer_button_loader"class=" btn-unitear head-btn w-100 mt-0" >
+                            <i class="fa fa-circle-o-notch fa-spin"></i>
+                            </button>
+        <button v-else class="btn-unitear head-btn w-100 mt-0" @click="$emit('close');email_add();">YES, I'M INTERESTED</button>
     </div>
+</div>
+</div>
+<!-- <div class="video-modal d-flex " v-if="offer_code_send" >
+<div class="popup-offer">
+    <div>
+        <img src="<?php echo base_url(''); ?>/resources/img/popup close.svg" alt="" style="top:-15px;right:-15px;" class="videomodal-close" @click="offer_code_send=false">
+        <img src="<?php echo base_url(''); ?>/resources/img/Security.svg" alt="" class="img-fluid mx-auto d-block">
+        <div class="con-off">
+
+            <h1 class="head-off-green mt-3">SUCCESS</h1>
+            <p class="off-para-head mt-3">Thank you for your interest. We will contact you soon.</p>
+
+            <button class="btn-unitear head-btn btn-loader w-100" @click="offer_code_send=false">CLOSE</button>
+        </div>
+    </div>
+</div>
 </div> -->
 
 
 </div>
 <section class="sec-blue">
-    <div>
-        <div class="text-center text-white">
-            <h2 class="h3">Let’s take the next step today</h2>
-            <p  style="max-width: 890px; margin: 10px auto 20px;">You might be wondering how augmented reality fits for your needs or how AR can help to grow your business. Our experts can help you with all your queries.</p>
-            <a href="https://calendly.com/unitear-meetings/15min?month=2021-08"><button class="btn-home btn-2 btn-loader">Schedule a meeting</button></a>
-        </div>
+<div>
+    <div class="text-center text-white">
+        <h2 class="h3">Let’s take the next step today</h2>
+        <p  style="max-width: 890px; margin: 10px auto 20px;">You might be wondering how augmented reality fits for your needs or how AR can help to grow your business. Our experts can help you with all your queries.</p>
+        <a href="https://calendly.com/unitear-meetings/15min?month=2021-08"><button class="btn-home btn-2 btn-loader">Schedule a meeting</button></a>
     </div>
+</div>
 </section>
 
 
@@ -1697,55 +1763,55 @@
                         
                          <!--<a href="<?php echo base_url("unitear-app");?>" target="_blank">UniteAR App</a>-->
                         
-                        <a href="" target="_blank">About UniteAR</a>
-                        <a href="" target="_blank">WebAR</a>
+                        <a href="https://www.unitear.com/about" target="_blank">About UniteAR</a>
+                        <a href="https://www.unitear.com/WebAR" target="_blank">WebAR</a>
                        
                         <a href="https://www.unitear.com/contact" target="_blank">Contact us</a>
-                        <a href="" target="_blank">Pricing</a>
+                        <a href="https://www.iboson.io/about-us" target="_blank">About us</a>
                        
-                        <a href="" target="_blank">Terms and conditions</a>
-                        <a href=">" target="_blank">Privacy Policy</a>
-                        <a href="" target="_blank">GDPR</a>
+                        <a href="https://www.unitear.com/terms" target="_blank">Terms and conditions</a>
+                        <a href="https://www.unitear.com/privacy-policy" target="_blank">Privacy Policy</a>
+                        <a href="https://www.unitear.com/gdpr" target="_blank">GDPR</a>
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <h3>Resources</h3>
                     
                         <a href="https://www.unitear.com/gallery" target="_blank">AR Gallery</a>
-                        <a href="" target="_blank">Augmented Reality</a>
+                        <a href="https://www.unitear.com/augmented-reality" target="_blank">Augmented Reality</a>
                          
                          <a href="https://www.unitear.com/tutorial" target="_blank">Tutorial Videos</a>
                         
                          <!-- <a href="<?= WEBSITE_BASE_URL."help";?>" target="_blank">Help
                             </a> -->
                          <a onclick="forum()" target="_blank">Forum</a>
-                        <a href="" target="_blank">Create AR</a>
+                        <a href="https://www.unitear.com/how-to-make-ar" target="_blank">Create AR</a>
                     
                          
                          <a href="https://www.unitear.com/blog" target="_blank">Blog</a>
                        
                            <!-- <a href="<?php echo base_url("forum");?>" target="_blank">Community</a>-->
-                           <a href="" target="_blank">More About Target Images</a>
+                           <a href="https://www.unitear.com/target-image" target="_blank">More About Target Images</a>
                       
                          
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <h3>Use cases</h3>
-                        <a href="" target="_blank">
+                        <a href="https://www.unitear.com/augmented-reality-for-e-commerce-and-retail" target="_blank">
                             E-commerce & Retail</a>
                 
-                        <a href="" target="_blank">
+                        <a href="https://www.unitear.com/augmented-reality-for-training-and-support" target="_blank">
                             Training & support</a>
                     
-                        <a href="" target="_blank">
+                        <a href="https://www.unitear.com/augmented-reality-in-marketing" target="_blank">
                             Advertisement & Marketing</a>
                     
-                        <a href="" target="_blank">
+                        <a href="https://www.unitear.com/augmented-reality-in-education" target="_blank">
                                 Education</a>
                     
-                        <a href="" target="_blank">
+                        <a href="https://www.unitear.com/augmented-reality-for-books-and-publishing-use-case" target="_blank">
                             Publishing & Books</a>
                     
-                        <a href="" target="_blank">
+                        <a href="https://www.unitear.com/augmented-reality-for-museums-and-art-use-case" target="_blank">
                             Museums & Art galleries</a>
                     
                         <!-- <a href=" <?= WEBSITE_BASE_URL."use-case-art";?>" target="_blank">
@@ -1970,9 +2036,9 @@ datas={
     })
 
     /******************* email add*********************/ 
-    var base_urls_8093 = 'https://api.dev.unitear.com/'; //'http://localhost:8093/';
-    var base_urls_8100 = 'https://api.dev.unitear.com/'; //'http://localhost:8100/';//forum
-    var base_urls_8090='https://api.dev.unitear.com/'; //'http://localhost:8090/';//profile
+    var base_urls_8093 = 'https://api-dev.unitear.com/'; //'http://localhost:8093/';
+    var base_urls_8100 = 'https://api-dev.unitear.com/'; //'http://localhost:8100/';//forum
+    var base_urls_8090='https://api-dev.unitear.com/'; //'http://localhost:8090/';//profile
 function update_member_role()
   {
 	datas.offer_button_loader=true;

@@ -729,12 +729,11 @@
                                     <img :src="profile.user_image!=''?profile.user_image:'resources/editor_new/img/pro.svg'" class="img-fluid" alt=""> 
                                     
                                                 <div class="btn-pro"@click="openFile()"style="cursor: pointer;">
-                                                   
+                                                 
                                                     <file-upload
                                                     ref="upload"
                                                     v-model="files"
-                                                    :post-action="upload_url" 
-            
+									            
                                                     @input-file="inputFile"
                                                     @input-filter="inputFilter"
                                                     v-show="true"
@@ -804,9 +803,23 @@
                                                     <p>Industry</p>
                                                     <select name="" id="profile_purpose_id_account_page" class="form-control" v-model="profile_purpose_account_page">
                                                         <option value="">Select...</option>
-                                                       
+                                                        <option value="">Marketing & Advertising</option>
+                                                        <option value="">Education</option>
+                                                        <option value="">Print & Publishing</option>
+                                                        <option value="">Travel & Tourism</option>
+                                                        <option value="">Packaging</option>
+                                                        <option value="">Fashion</option>
+                                                        <option value="">Manufacturing</option>        
+                                                        <option value="">Art</option>
+                                                        <option value="">Entertainment</option>
+                                                        <option value="">Reat Estate</option>
+                                                        <option value="">Design</option>
+                                                        <option value="">IT</option>
+                                                        <option value="">Training & Support</option>
+                                                        <option value="">Retail & Ecommerce</option>
+                                                        <option value="">Other Industry</option>
                                                     </select>
-                                                    <span class="error_log">{{profile_purpose_account_page_error}}</span>
+                                                    <!-- <span class="error_log">{{profile_purpose_account_page_error}}</span> -->
                                                 </div>
                                                 
                                                 <!--code added by Vishnu M R-2020-12-10-->
@@ -1457,6 +1470,7 @@
 
     
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js" integrity="sha512-NCiXRSV460cHD9ClGDrTbTaw0muWUBf/zB/yLzJavRsPNUl9ODkUVmUHsZtKu17XknhsGlmyVoJxLg/ZQQEeGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     <!--code added by Vishnu M R-->
     <!--google translator-->
@@ -1465,20 +1479,20 @@
             new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
         }
         var base_url='http://localhost/unitear-editor-live/'; //'http://localhost/unitear-editor-live/';
-        var base_urls = 'https://api.dev.unitear.com/';
+        var base_urls = 'https://api-dev.unitear.com/';
         var user_id='9741';
-        var base_urls_8082='http://localhost:8082/'; //'http://localhost:8082/';
-        var base_urls_8084= 'http://localhost:8084/'; //'http://localhost:8084/';
-        var base_urls_8087='http://localhost:8087/'; //'http://localhost:8087/';
-        var base_urls_8088= 'http://localhost:8088/'; //'http://localhost:8088/';//campaign
-        var base_urls_8094='http://localhost:8094/'; //'http://localhost:8094/';
-        var base_urls_8095='http://localhost:8095/'; //'http://localhost:8095/';
-        var base_url_8099='http://localhost:8099/'; //'http://localhost:8099/';
-        var base_urls_8097='http://localhost:8097/'; //'http://localhost:8097/';
-        var base_urls_8081='http://localhost:8081/'; //'http://localhost:8081/';
-        var base_urls_8089='http://localhost:8089/'; //'http://localhost:8089/';//invite
-        var base_urls_8090='http://localhost:8090/'; //'http://localhost:8090/';//profile
-        var base_urls_8093='http://localhost:8093/'; //'http://localhost:8093/';//pricing
+        var base_urls_8082='https://api-dev.unitear.com/'; //'http://localhost:8082/';
+        var base_urls_8084= 'https://api-dev.unitear.com/'; //'http://localhost:8084/';
+        var base_urls_8087='https://api-dev.unitear.com/'; //'http://localhost:8087/';
+        var base_urls_8088= 'https://api-dev.unitear.com/'; //'http://localhost:8088/';//campaign
+        var base_urls_8094='https://api-dev.unitear.com/'; //'http://localhost:8094/';
+        var base_urls_8095='https://api-dev.unitear.com/'; //'http://localhost:8095/';
+        var base_url_8099='https://api-dev.unitear.com/'; //'http://localhost:8099/';
+        var base_urls_8097='https://api-dev.unitear.com/'; //'http://localhost:8097/';
+        var base_urls_8081='https://api-dev.unitear.com/'; //'http://localhost:8081/';
+        var base_urls_8089='https://api-dev.unitear.com/'; //'http://localhost:8089/';//invite
+        var base_urls_8090='https://api-dev.unitear.com/'; //'http://localhost:8090/';//profile
+        var base_urls_8093='https://api-dev.unitear.com/'; //'http://localhost:8093/';//pricing
         //code added by Vishnu M R
         var profile_data=JSON.stringify({"user_profile_data_id":"2329","user_id":"9741","user_profile_purpose_id":"4","user_profile_category_id":"2","user_profile_demo_status":"2","oncreate":"2020-08-11 12:20:43","onupdate":"2022-05-10 10:54:13","user_profile_industry_id":"16","user_profile_customer_industry":"customer","user_profile_role_id":"21","user_profile_company_name":"Parvathyvvv","user_profile_website":"","user_profile_company_size":"112233","purpose_name":"Other Industry","category_name":"Developer"})
         window._mfq = window._mfq || [];

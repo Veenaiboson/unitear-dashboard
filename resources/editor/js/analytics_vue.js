@@ -253,22 +253,22 @@ async function add_campaign(target_category_id) {
 					{
 						if(datas.profile.user_version==1)
 						{
-							location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor/";	
+							// location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor/";	
 						}
 						else
 						{
-							location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor2/";	
+							// location.href="https://unitear-node-html.ibosoninnovations.com/unitear-editor2/";	
 						}
 					}
 					else
 					{
 						if(detect_mob())
 						{
-							location.href="https://unitear-node-html.ibosoninnovations.com/unitear-webar-mobile-editor/";	
+							// location.href="https://unitear-node-html.ibosoninnovations.com/unitear-webar-mobile-editor/";	
 						}
 						else
 						{
-							location.href="https://unitear-node-html.ibosoninnovations.com/webar-editor/";	
+							// location.href="https://unitear-node-html.ibosoninnovations.com/webar-editor/";	
 						}
 					}
                 }

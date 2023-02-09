@@ -117,7 +117,7 @@
 }
 
 .price-box22 {
-    min-height: 635px;
+    min-height: 669px;
 }
 
 .help-tabs .col-md-6 {
@@ -133,6 +133,7 @@
     margin-left: 5px;
     font-size: 14px;
     font-weight: 600;
+    display: none;
 }
 
 .btn-signup {
@@ -407,7 +408,7 @@ input:checked+.slider:before {
 }
 
 .table-comparison .table tr:nth-child(2) td {
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 
@@ -743,7 +744,7 @@ input:checked+.slider:before {
 }
 
 .monthly-p .price-box {
-    min-height: 405px;
+    min-height: 465px;
 }
 .save-20-offer{
     color:#a2a2a2 ;
@@ -786,6 +787,11 @@ input:checked+.slider:before {
         position: relative;
         bottom: 0;
         left: unset;
+    }
+    .starter-plan .new-p-box {
+        
+        display: block;
+      
     }
     .stikey-buy-mobile {
         display: block;
@@ -841,5 +847,15 @@ input:checked+.slider:before {
         position: absolute;
         width: 300px;
         top: 18px;
+    }
+    .table-comparison .table td, .table-comparison .table th {
+        padding: 10px 5px;
+        vertical-align: top;
+        border-top: 0px solid #dee2e6;
+        text-align: center;
+        vertical-align: middle;
+        min-width: 80px;
+        color: #54606C;
+        font-size: 12px;
     }
 }

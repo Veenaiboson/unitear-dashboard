@@ -22,7 +22,7 @@ $(document).ready(function(){
 	  files:[],
 	  target_files:[],
 	  account_settings:{},
-	  upload_url:base_url+"profile/profile_pic_upload",
+	  upload_url:base_urls_8084+"profile/profile-pic-upload",
 	  old_password:"",
 	  new_password:"",
 	  confirm_password:"",
@@ -182,7 +182,7 @@ $(document).ready(function(){
 					
 					
 					localStorage.campaign_category=datas.campaign_category;
-					location.href=base_url+"editor";
+					location.href=base_url+"editor.html";
 				},		
 		redeem_points(points)
 		{
@@ -436,26 +436,24 @@ $(document).ready(function(){
 					  
 					  this.$refs.upload2.$children[0].$el.click()
 				  },
+				 
 				  inputFile(newFile, oldFile) {
 					  // this.$refs.upload.active = true
 					  
-					 
-					  
-						if (newFile && !oldFile) {
-								  // Add file
-								  // this.$store.state.showTargetImageUploader=true;//show target upload modal
-  
-								   //newFile.weakImage=false;
-						}
+					 console.log(datas.files)
+					  console.log(oldFile)
+
+					
   
 						if (newFile && oldFile) 
 						{
 						  // Update file
+						  console.log(newFile)
   
 						  // Start upload
 						  datas.photo_upload_button_loader=true;
 						  if (newFile.active !== oldFile.active) {
-							// console.log('Start upload', newFile.active, newFile)
+							console.log('Start upload', newFile.active, newFile)
   
 									  // min size
 									  // console.log("FILE SIZE",newFile.size)
@@ -471,81 +469,114 @@ $(document).ready(function(){
 									  }
 									  if(!newFile.active)
 									  {
+										console.log("not active")
 										if(!newFile.active && newFile.error!="")
 										{
 											app.$snotify.error(newFile.error);
 										}
 									  }
+									
+									
   
 						  }
-  
+						  if(datas.files[0].size > 2*1024*1024)
+						  {
+
+							  newFile = this.$refs.upload.update(datas.files[0], {error: 'Image size should be below 2MB'})
+							  datas.profile_pic_message="Image size should be below 2MB";
+							  
+						  }
 						  // Upload progress
-						  if (newFile.progress !== oldFile.progress) {
-							// console.log('progress', newFile.progress, newFile)
-						  }
+						//   if (newFile.progress !== oldFile.progress) {
+						// 	// console.log('progress', newFile.progress, newFile)
+						//   }
   
-						  // Upload error
-						  if (newFile.error !== oldFile.error) {
-							// console.log('error', newFile.error, newFile)
+						//   // Upload error
+						//   if (newFile.error !== oldFile.error) {
+						// 	// console.log('error', newFile.error, newFile)
 							
-						  }
+						//   }
   
-						  // Uploaded successfully
-						  if (newFile.success !== oldFile.success) {
-							  response=JSON.parse(newFile.response);
-							  if(response.status)
-							  {
-								datas.profile.user_image=datas.files[0].blob;
-								app.$snotify.success(response.message);
-							  }
-							  else
-							  {
-								  app.$snotify.error(response.message);
-							  }
-								datas.profile_pic_message=response.message;
+						//   // Uploaded successfully
+						//   if (newFile.success !== oldFile.success) {
+						// 	  response=JSON.parse(newFile.response);
+						// 	  if(response.status)
+						// 	  {
+						// 		datas.profile.user_image=datas.files[0].blob;
+						// 		app.$snotify.success(response.message);
+						// 	  }
+						// 	  else
+						// 	  {
+						// 		  app.$snotify.error(response.message);
+						// 	  }
+						// 		datas.profile_pic_message=response.message;
 								
 							  
-							  /*
-									  // console.log('success', newFile.success, newFile)
-									  var data=JSON.parse(newFile.response);
-									  newFile.weakImage=!data.status;//image weak for augmenting or not
-									  if(data.status)
-									  {
-									  //	newFile.weakImage=true;
+						// 	  /*
+						// 			  // console.log('success', newFile.success, newFile)
+						// 			  var data=JSON.parse(newFile.response);
+						// 			  newFile.weakImage=!data.status;//image weak for augmenting or not
+						// 			  if(data.status)
+						// 			  {
+						// 			  //	newFile.weakImage=true;
 									  
   
 									  
-									  }else{
+						// 			  }else{
   
-										  newFile = this.$refs.upload.update(newFile, {error: 'Image is too weak to augment'})//update error message shpw over image
-									  }
-										  */
-										 datas.photo_upload_button_loader=false;
-						  }
+						// 				  newFile = this.$refs.upload.update(newFile, {error: 'Image is too weak to augment'})//update error message shpw over image
+						// 			  }
+						// 				  */
+						// 				 datas.photo_upload_button_loader=false;
+						//   }
 						}
   
-						if (!newFile && oldFile)
-						  {
-						  // Remove file
-  
-						  // Automatically delete files on the server
-						  if (oldFile.success && oldFile.response.id) {
-							// $.ajax({
-							//   type: 'DELETE',
-							//   url: '/file/delete?id=' + oldFile.response.id,
-							// });
-						  }
-						}
   
 		// Automatic upload
-					if (Boolean(newFile) !== Boolean(oldFile) || oldFile.error !== newFile.error) {
-					  if (!this.$refs.upload.active) {
-						this.$refs.upload.active = true
-					  }
-					}
-					datas.photo_upload_button_loader=false;
+		const headers = {
+    
+			'Authorization': localStorage.getItem('token')
+			// 'Authorization':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5NzQxLCJ1c2VyX25hbWUiOiJpYm9zb25pbm5vdiIsInVzZXJfZW1haWwiOiJwYXJ2YXRoeXZAaWJvc29uaW5ub3YuY29tIiwidXNlcl9pbWFnZSI6IiIsInVzZXJfY291bnRyeSI6IkluZGlhIiwiY3JlYXRlX2RhdGUiOiIyMDIzLTAyLTA2IDEzOjU0OjI1IiwiZXhwaXJ5X2RhdGUiOiIyMDIzLTAyLTExIDEzOjU0OjMwIiwiaWF0IjoxNjc1NjkxNjcwfQ.xCHBGXojY4avNmMWgnoY5P5bYwDrzd4pWcganxtvphE'
+		
+		  } 
+		   let formdata = new FormData();  
+		  //  console.log(f.files[0])
+		  //       formdata.append("file", f.files[0]);
+			  formdata.append("file",datas.files[0].file);
+		  // console.log(formdata)
+		
+		 
+		  return $.ajax({
+			
+			
+			url: base_urls_8090+"profile/profile-pic-upload",
+			type: 'put',
+			headers: headers,
+			data: formdata,
+			processData: false,
+			contentType: false,
+			success: function(data, status) {  
+				let resp_data=JSON.parse(data)
+				datas.profile.user_image=datas.files[0].blob;
+				app.$snotify.success(resp_data.message);
+				datas.profile_pic_message=resp_data.message;
+				datas.photo_upload_button_loader=false;
+
+				
+			},
+			error: function(err, status) {  
+				let resp_error=JSON.parse(data)
+
+				app.$snotify.error(resp_error.message);
+				datas.profile_pic_message=resp_error.message;
+				datas.photo_upload_button_loader=false;
+
+				
+			}
+
+		  })
 	  },
-		  
+	
 		  
 		   inputFilter: function (newFile, oldFile, prevent) {
 		  
@@ -794,35 +825,44 @@ $(document).ready(function(){
 	} ,
 	change_settings:function()
 	{
+		var data = {monthly_bill:datas.account_settings.monthly_bill?1:0,
+		news_letter:datas.account_settings.news_letter?1:0,
+		notification:datas.account_settings.notification?1:0,
+		save_popup:datas.account_settings.save_popup?1:0,}
+		const form = new FormData()
+		for (const key in data) {
+			form.append(key, data[key]);
+		}
+		const headers = {
+	
+		 'Authorization': localStorage.getItem('token')
+		//  'Authorization':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5NzQxLCJ1c2VyX25hbWUiOiJpYm9zb25pbm5vdiIsInVzZXJfZW1haWwiOiJwYXJ2YXRoeXZAaWJvc29uaW5ub3YuY29tIiwidXNlcl9pbWFnZSI6IiIsInVzZXJfY291bnRyeSI6IkluZGlhIiwiY3JlYXRlX2RhdGUiOiIyMDIzLTAyLTA2IDEzOjU0OjI1IiwiZXhwaXJ5X2RhdGUiOiIyMDIzLTAyLTExIDEzOjU0OjMwIiwiaWF0IjoxNjc1NjkxNjcwfQ.xCHBGXojY4avNmMWgnoY5P5bYwDrzd4pWcganxtvphE'
+	
+	   }
+	
+	   axios(base_urls_8094+"account/update-account-settings", {
+		 method: 'PUT',
+		 headers: headers,
+		 data: form
+		 
+	
+	 }).then(function (data) {
+		var resp_data=data;
+		console.log(resp_data);
+		if(resp_data.status)
+		{	
+			console.log(resp_data.data.message);
+			datas.profile_message=resp_data.data.message;
+			console.log(datas.profile_message);
+		}
+		else
+		{
+			datas.profile_message=resp_data.data.message;
+		}
+	 }).catch(function (err) {
 
-	  $.ajax({
-			url: base_urls_8094+"account/update-account-settings",
-			type: "PUT",
-			headers: {
-				'Content-Type': 'application/json',
-				'Authorization': localStorage.getItem('token')
-			},
-			data: JSON.stringify({
-				"monthly_bill":datas.account_settings.monthly_bill?1:0,
-				"news_letter":datas.account_settings.news_letter?1:0,
-				"notification":datas.account_settings.notification?1:0,
-				"save_popup":datas.account_settings.save_popup?1:0,}),
-			success: function(data, status) {  
-				var resp_data=data;
-				if(resp_data.status)
-				{	
-					
-					datas.profile_message=resp_data.message;
-				}
-				else
-				{
-					datas.profile_message=resp_data.message;
-				}
-			},
-			error:function(data, status) {  
-			
-			},
 	})
+	  
 	},
 	
 	reset_password:function()
@@ -1030,18 +1070,26 @@ $(document).ready(function(){
 						// 		datas.updateName=false; 
 						// 	}
 						// });
-
-						    $.ajax({
-								url: base_urls_8090+"profile/",
-								type: "POST",
-								headers: {
-								'Authorization': localStorage.getItem('token')
-								},
-								data: JSON.stringify({
-									"user_name":datas.profile.update_user_name,  
-								}),
-								success: function(data, status) {  
-									var resp_data=JSON.parse(data);
+						var data = {user_name:datas.profile.update_user_name}
+						const form = new FormData()
+						for (const key in data) {
+							form.append(key, data[key]);
+						}
+						const headers = {
+          
+							'Authorization': localStorage.getItem('token')
+							// 'Authorization':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5NzQxLCJ1c2VyX25hbWUiOiJpYm9zb25pbm5vdiIsInVzZXJfZW1haWwiOiJwYXJ2YXRoeXZAaWJvc29uaW5ub3YuY29tIiwidXNlcl9pbWFnZSI6IiIsInVzZXJfY291bnRyeSI6IkluZGlhIiwiY3JlYXRlX2RhdGUiOiIyMDIzLTAyLTA2IDEzOjU0OjI1IiwiZXhwaXJ5X2RhdGUiOiIyMDIzLTAyLTExIDEzOjU0OjMwIiwiaWF0IjoxNjc1NjkxNjcwfQ.xCHBGXojY4avNmMWgnoY5P5bYwDrzd4pWcganxtvphE'
+					  
+						  }
+					  
+						  axios( base_urls_8090+"profile/", {
+							method: 'POST',
+							headers: headers,
+							data: form
+							
+					  
+						}).then(function (data) {
+							var resp_data=JSON.parse(data);
 									if(resp_data.status)
 									{
 										$(".message-text").show();
@@ -1057,11 +1105,9 @@ $(document).ready(function(){
 										datas.profile_message=resp_data.message;
 										datas.updateName=false; 
 									}
-								},
-								error:function(data, status) {  
-								
-								},
-							})
+						}).catch(function (err) {
+						})
+						   
 					},
 					
 					
@@ -1254,7 +1300,7 @@ $(document).ready(function(){
 										profile_company_size:datas.profile_company_size_account_page,
 									}),
 									success: function(data, status) {  
-										resp_data=JSON.parse(data);
+										resp_data=data;
 										// console.log(resp_data);
 										if(resp_data.status)
 										{	
@@ -1731,9 +1777,11 @@ $(document).ready(function(){
 			console.log(data);
 
 			if (resp_data.status) {
-				console.log(data);
-				datas.profile = resp_data.data[0];
+				console.log(resp_data.data);
+				datas.profile = resp_data.data;
+				datas.profile.user_image=resp_data.data.user_image
 				console.log(datas.profile);
+				console.log(resp_data.data.user_image);
 			} else {
 
 			}
@@ -1935,28 +1983,41 @@ $(document).ready(function(){
 		return false;
 	}
 	datas.invite_button_loader=true;
-	$.ajax({
-		url: base_urls_8089+"invite/",
-		type: "POST",
-		headers: {
-			'Authorization': localStorage.getItem('token')
-		},
-		data: JSON.stringify({"refferal_emails":datas.refferal_emails}),
-		success: function(data, status) { 
-					
-					 var resp_data=JSON.parse(data);
-						if(resp_data.status)
-						{
-							datas.refferal_emails=[];
-							app.add_refferal_email_template();
-							app.$snotify.success="Invitation sent";
-						}
-						else
-						{
-							
-						}
-						datas.invite_button_loader=false;
-					}});	
+console.log(datas.refferal_emails)
+	var data = {refferal_emails:JSON.stringify(datas.refferal_emails)}
+	const form = new FormData()
+	for (const key in data) {
+		form.append(key, data[key]);
+	}
+	const headers = {
+
+	 'Authorization': localStorage.getItem('token')
+	//  'Authorization':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5NzQxLCJ1c2VyX25hbWUiOiJpYm9zb25pbm5vdiIsInVzZXJfZW1haWwiOiJwYXJ2YXRoeXZAaWJvc29uaW5ub3YuY29tIiwidXNlcl9pbWFnZSI6IiIsInVzZXJfY291bnRyeSI6IkluZGlhIiwiY3JlYXRlX2RhdGUiOiIyMDIzLTAyLTA2IDEzOjU0OjI1IiwiZXhwaXJ5X2RhdGUiOiIyMDIzLTAyLTExIDEzOjU0OjMwIiwiaWF0IjoxNjc1NjkxNjcwfQ.xCHBGXojY4avNmMWgnoY5P5bYwDrzd4pWcganxtvphE'
+
+   }
+
+   axios(base_urls_8089+"invite/", {
+	 method: 'POST',
+	 headers: headers,
+	 data: form
+	 
+
+ }).then(function (data) {
+	var resp_data=JSON.parse(data);
+	if(resp_data.status)
+	{
+		datas.refferal_emails=[];
+		app.add_refferal_email_template();
+		app.$snotify.success="Invitation sent";
+	}
+	else
+	{
+		
+	}
+	datas.invite_button_loader=false;
+ }).catch(function (err) {
+})
+
 	
 }
   /*******************Invite reffral section*******************/
@@ -2026,35 +2087,12 @@ function remove_profile_pic()
 	datas.photo_remove_button_loader=true;
 	datas.redeem_button_status=true;
 	
-					$.post(base_url+"profile/remove_profile_pic",
-					{
+					// $.post(base_url+"profile/remove_profile_pic",
+					// {
 						
-					},
-					function(data,status){
-					 var resp_data=JSON.parse(data);
-						if(resp_data.status)
-						{
-							
-							app.$snotify.success(resp_data.message);
-							datas.profile.user_image="";
-						}
-						else
-						{
-							app.$snotify.success(resp_data.message);
-						}
-					datas.photo_remove_button_loader=false;
-
-					});	
-
-					// $.ajax({
-					// 	url: base_urls_8081+"profile/remove_profile_pic",
-					// 	type: "GET",
-					// 	headers: {
-					// 	  'Authorization': localStorage.getItem('token')
-					// 	},
-					// 	data: {},
-					// 	success: function(data, status) {  
-					// 		var resp_data=JSON.parse(data);
+					// },
+					// function(data,status){
+					//  var resp_data=JSON.parse(data);
 					// 	if(resp_data.status)
 					// 	{
 							
@@ -2066,11 +2104,34 @@ function remove_profile_pic()
 					// 		app.$snotify.success(resp_data.message);
 					// 	}
 					// datas.photo_remove_button_loader=false;
-					// 	},
-					// 	error:function(data, status) {  
+
+					// });	
+
+					$.ajax({
+						url: base_urls_8081+"profile/remove-profile-pic",
+						type: "DELETE",
+						headers: {
+						  'Authorization': localStorage.getItem('token')
+						},
+						data: {},
+						success: function(data, status) {  
+							var resp_data=data;
+						if(resp_data.status)
+						{
+							
+							app.$snotify.success(resp_data.message);
+							datas.profile.user_image="";
+						}
+						else
+						{
+							app.$snotify.success(resp_data.message);
+						}
+					datas.photo_remove_button_loader=false;
+						},
+						error:function(data, status) {  
 						  
-					// 	},
-					// })
+						},
+					})
 	datas.redeem_button_status=false;
 }
   /*******************Remove profile pic*******************/

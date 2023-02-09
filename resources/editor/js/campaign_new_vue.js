@@ -75,7 +75,7 @@ var datas = {
     campaign_category: 3,
     sort_analytic_area: false,
     read_count: 0,
-    web_ar_experience:  "https://app.unitear.com/webscanner/",
+    web_ar_experience:  "https://web.unitear.com/",
     show_new_feature_info_modal: false,
     package_error_modal: false,
     delete_campaign_button_click: false,
@@ -1266,7 +1266,7 @@ async function add_campaign(target_category_id, update_campaign_name_and_image) 
             datas.new_campaign_thumbnail_file = "";
             datas.new_campaign_name = "";
         }
-        formData.append("campaign_image", datas.new_campaign_thumbnail_file);
+        formData.append("file", datas.new_campaign_thumbnail_file);
         formData.append("target_category_id", target_category_id);
         formData.append("campaign_name", datas.new_campaign_name);
         formData.append("update_campaign_name_and_image", update_campaign_name_and_image);
