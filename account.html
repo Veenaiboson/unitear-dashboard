@@ -336,7 +336,7 @@
    
 </head>
 <body>
-    <div id="app" >
+    <div id="app" v-cloak>
         <header class="header">
             <div class="ar-platform">
                 <div class=" df-center">
@@ -403,9 +403,11 @@
 						<a href="./book_your_session.html" class="menu-sm-hide">
                         <button type="button" class="btn btn-primary">Book Your Demo</button>
                     </a>
-						<div id="google_translate_element"></div>
+						<!-- <div id="google_translate_element"></div> -->
                        
-						
+						<a href="./pricing.html" class="btn-upgrade menu-sm-hide">
+                            Upgrade Now
+                        </a>
 						<div class="dropdown menu-sm-hide" v-if="user_as_team_member_status">
 							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							{{switch_team_name}}
@@ -566,12 +568,13 @@
                             <div class="head-account">
                                 <div class="row">
                                     <div class="col-md-6 left-sm-center">
-                                   
+                                        <p class="packge-name-pro">Enterprise Package</p>
+                                        <p >16 Apr 2020 - 16 May 2020</p>
                                     </div>
                                     <div class="col-md-6">
                                     <div class="right-sm-center">
                                        
-                                            <button v-if ="!is_ultimate_package" class="btn-moreview" onclick="location.href='./pricing.html'">Upgrade Now</button>
+                                        <button v-if ="!is_ultimate_package" class="btn-moreview" onclick="location.href='./pricing.html'">Upgrade Now</button>
                                        
                                        
                                     </div>
@@ -613,8 +616,8 @@
                                                 <p>Target Images</p>
                                                 <hr>
                                                 <div class="account-rate">
-                                                    <h3>385</h3>
-                                                    <h4>/3000</h4>
+                                                    <h3>2182</h3>
+                                                    <h4>/30000</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -633,7 +636,7 @@
                                                 <p>storage</p>
                                                 <hr>
                                                 <div class="account-rate">
-                                                    <h3>3.05 GB</h3>
+                                                    <h3>7.23 GB</h3>
                                                     <h4>/10 GB</h4>
                                                 </div>
                                             </div>
@@ -643,8 +646,8 @@
                                                 <p>plan views</p>
                                                 <hr>
                                                 <div class="account-rate">
-                                                    <h3>9458</h3>
-                                                    <h4>/3000000</h4>
+                                                    <h3>42505</h3>
+                                                    <h4>/200000</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -665,7 +668,7 @@
                                                 <p>storage</p>
                                                 <hr>
                                                 <div class="account-rate">
-                                                    <h3>1.06 GB</h3>
+                                                    <h3>2.16 GB</h3>
                                                     <h4>/10 GB</h4>
                                                 </div>
                                             </div>
@@ -675,8 +678,8 @@
                                                 <p>plan views</p>
                                                 <hr>
                                                 <div class="account-rate">
-                                                    <h3>140</h3>
-                                                    <h4>/3000000</h4>
+                                                    <h3>3203</h3>
+                                                    <h4>/200000</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -690,8 +693,8 @@
                                                 <p>android apps</p>
                                                 <hr>
                                                 <div class="account-rate">
-                                                    <h3>180</h3>
-                                                    <h4>/1</h4>
+                                                    <h3>373</h3>
+                                                    <h4>/2</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -702,8 +705,8 @@
                                                 <p>iOS apps</p>
                                                 <hr>
                                                 <div class="account-rate">
-                                                    <h3>42</h3>
-                                                    <h4>/1</h4>
+                                                    <h3>81</h3>
+                                                    <h4>/5</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -1045,13 +1048,13 @@
                                                     <div class="form-group">
                                                         <input type="text"@keyup="form_validation(refferal_email)" v-model="refferal_email.email"class="form-control">
                                                         <p class="error_log">{{refferal_email.error!='Enter email address'?refferal_email.error:''}}<p>
-                                                        <div v-if="refferal_email.error==''">
-                                                        <img src="resources/editor_new/img/close-2.svg" class="ref-close" alt=""@click="remove_refferal_email_template(index)">
+                                                        <!-- <div v-if="refferal_email.error==''">
+                                                        <img src="resources/editor_new/img/close-2.svg" class="ref-close" id="closeicon" alt=""@click="remove_refferal_email_template(index)">
                                                         <img src="resources/editor_new/img/shery.svg" class="shery" alt="">
-                                                        </div>
-                                                        <div v-else>
-                                                        <img v-if="refferal_email.id!=0"src="resources/editor_new/img/close-2.svg" class="ref-close" alt="" @click="remove_refferal_email_template(refferal_email.id)">
-                                                        <img v-if="refferal_email.error!='Enter email address'"src="resources/editor_new/img/thet.svg" class="thet" alt="">
+                                                        </div> -->
+                                                        <div v-if="refferal_email.error !=''">
+                                                        <img v-if="refferal_email.id!=0"src="resources/editor_new/img/close-2.svg" class="ref-close" id="closeicon" alt="" @click="remove_refferal_email_template(refferal_email.id)">
+                                                        <img v-if="refferal_email.error!='Enter email address'"src="resources/editor_new/img/thet.svg" class="thet" alt="" @click="remove_refferal_email_template(refferal_email.id)">
                                                         </div>
                                                     </div>
                                                 </div>     

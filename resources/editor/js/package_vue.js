@@ -237,9 +237,10 @@ $(document).ready(function(){
 		  },
 		remove_refferal_email_template(index)
 		  {
-			  // console.log(" input"+index+" deleted");
-			
+			  console.log(" input"+index+" deleted");
+			console.log(datas.refferal_emails)
 			  datas.refferal_emails.splice(index,1);
+
 		  },
 		  form_validation:function(refferal_email)
 		  {
@@ -1047,7 +1048,7 @@ $(document).ready(function(){
 						{
 							return true;
 						}
-						
+						console.log("update");
 						// $.post(base_url+"profile/update_profile",
 						// {
 						// 	"user_name":datas.profile.update_user_name,  
@@ -1256,9 +1257,10 @@ $(document).ready(function(){
 									return true;
 								}
 							}
-							
 							if(update_status == 1)
 							{
+							console.log("update_profile_data")
+
 								// console.log(datas.profile_company_name_account_page);
 								// $.post(base_url+"editor/save_profile_data",
 								// {
