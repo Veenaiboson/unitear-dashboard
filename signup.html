@@ -22,7 +22,75 @@
     <link rel="stylesheet" type="text/css" href="resources/css/responsive.css">
     <link rel="stylesheet" type="text/css" href="resources/css/extra.css">
     <script src="resources/editor_new/js/vue_v2.6.14.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lc3PvMUAAAAAAi54ks7ez6FbnSRULDLAj_8N3xg"></script>
+	<script>
+	grecaptcha.ready(function() {
+		grecaptcha.execute('6Lc3PvMUAAAAAAi54ks7ez6FbnSRULDLAj_8N3xg', {action: 'homepage'}).then(function(token) {
+			$("#v3_captcha").val(token);
+            console.log("hii")
+            console.log(document.getElementById("v3_captcha"));
+            localStorage.setItem('captcha',document.getElementById("v3_captcha").value);
+		});
+	});
+	</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-806149778"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
+	gtag('config', 'AW-806149778');
+	</script>
+	<!-- Event snippet for Sign-up - 7 june 1.48 pm conversion page -->
+	<script>
+	gtag('event', 'conversion', {'send_to': 'AW-806149778/aBtnCNbPjL0CEJK9s4AD'});
+	</script>
+	<!-- Global site tag (gtag.js) - Google Ads: 806149778 -->
+	<!--code added by Vishnu M R-->
+
+
+	<!--code added by Vishnu M R-2021-06-16-->
+	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '711212635973617');
+	fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=711212635973617&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Facebook Pixel Code -->
+	<!--code added by Vishnu M R-2021-06-16-->
+
+    <!--code added by Anju-2022-03-22-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-223586665-1"></script>
+    <script>
+        var base_urls_8083 = 'https://api-dev.unitear.com/'; //'http://localhost:8083/'
+        var base_urls_8090='https://api-dev.unitear.com/'; //'http://localhost:8090/';//profile
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-223586665-1');
+    </script>
+    <script type='text/javascript'>
+            window._tfa = window._tfa || [];
+            window._tfa.push({notify: 'event', name: 'page_view', id: 1501723});
+            !function (t, f, a, x) {
+                    if (!document.getElementById(x)) {
+                        t.async = 1;t.src = a;t.id=x;f.parentNode.insertBefore(t, f);
+                    }
+            }(document.createElement('script'),
+            document.getElementsByTagName('script')[0],
+            '//cdn.taboola.com/libtrc/unip/1501723/tfa.js',
+            'tb_tfa_script');
+        </script>
 	<style>
 			[v-cloak]{
 				display:none;
@@ -176,14 +244,7 @@
         box-shadow:none!important;
     }
         </style>
-	<script src="https://www.google.com/recaptcha/api.js?render=6Lc3PvMUAAAAAAi54ks7ez6FbnSRULDLAj_8N3xg"></script>
-	<script>
-	grecaptcha.ready(function() {
-		grecaptcha.execute('6Lc3PvMUAAAAAAi54ks7ez6FbnSRULDLAj_8N3xg', {action: 'homepage'}).then(function(token) {
-			$("#v3_captcha").val(token);
-		});
-	});
-	</script>
+	
  
 	
 </head>
@@ -223,7 +284,7 @@
                 </div>
             </div>
             <div class="col-lg-6 p-0">
-                <div style="display: flex;align-items: center;justify-content: center;height: 100vh;margin: 0;" >
+                <form  action="javascript:void(0);" style="display: flex;align-items: center;justify-content: center;height: 100vh;margin: 0;" >
                     <div class="login-area">
 
                         <h3 style="color:#08f;font-size:23px;font-weight:600;text-align:center;">SIGN UP</h3>
@@ -263,7 +324,7 @@
                            
                             <span class="password" @click="change_password_field_type();"><i class="fas fa-eye"></i></span>
                         </div>
-                        <input type="hidden" id="v3_captcha" name="v3_captcha" value=""/>
+                        <input type="hidden" id="v3_captcha" name="v3_captcha" value="" v-model="captchavalue" />
 						<h5 class="login-error"> 
                         </h5>
                         <div class="text-center">
@@ -302,63 +363,22 @@
                         </div>
                     </div>
 					<input type="text" hidden name="gmail_button_status" value="">
-                </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js" integrity="sha512-NCiXRSV460cHD9ClGDrTbTaw0muWUBf/zB/yLzJavRsPNUl9ODkUVmUHsZtKu17XknhsGlmyVoJxLg/ZQQEeGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
  <script type="text/javascript" src="resources/editor/js/signup_vue.js"></script>
-   
+   <script>
+    
+    // localStorage.setItem('catch',)
+   </script>
     <!-- --------------------script--------------------->
     <!--code added by Vishnu M R-->
 	<!-- Global site tag (gtag.js) - Google Ads: 806149778 -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-806149778"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'AW-806149778');
-	</script>
-	<!-- Event snippet for Sign-up - 7 june 1.48 pm conversion page -->
-	<script>
-	gtag('event', 'conversion', {'send_to': 'AW-806149778/aBtnCNbPjL0CEJK9s4AD'});
-	</script>
-	<!-- Global site tag (gtag.js) - Google Ads: 806149778 -->
-	<!--code added by Vishnu M R-->
-
-
-	<!--code added by Vishnu M R-2021-06-16-->
-	<!-- Facebook Pixel Code -->
-	<script>
-	!function(f,b,e,v,n,t,s)
-	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-	n.queue=[];t=b.createElement(e);t.async=!0;
-	t.src=v;s=b.getElementsByTagName(e)[0];
-	s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-	fbq('init', '711212635973617');
-	fbq('track', 'PageView');
-	</script>
-	<noscript><img height="1" width="1" style="display:none"
-	src="https://www.facebook.com/tr?id=711212635973617&ev=PageView&noscript=1"
-	/></noscript>
-	<!-- End Facebook Pixel Code -->
-	<!--code added by Vishnu M R-2021-06-16-->
-
-    <!--code added by Anju-2022-03-22-->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-223586665-1"></script>
-    <script>
-        var base_urls_8083 = 'https://api-dev.unitear.com/'; //'http://localhost:8083/'
-        var base_urls_8090='https://api-dev.unitear.com/'; //'http://localhost:8090/';//profile
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-223586665-1');
-    </script>
- 
+	
     
 
     <!-- --------------------script--------------------->

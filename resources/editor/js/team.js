@@ -106,7 +106,7 @@ app = new Vue({
         // console.log("created");
         // this.get_profile();
         this.check_team_exists();
-         this.list_members();
+        // this.list_members();
         this.list_roles();
         // this.list_team();
         this.total_team_members_allowed = no_of_team_members;
@@ -642,7 +642,7 @@ function remove_member() {
             success: function(data, status) {  
                 datas.remove_member_button_loader = false;
 
-                var resp_data = JSON.parse(data);
+                var resp_data =data;
                 if (resp_data.status) {
                     list_members();
                 } else {
@@ -744,7 +744,7 @@ function list_members() {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.getItem('token')
             },
-            data: JSON.stringify({id: 55}),
+            data: JSON.stringify({id: datas.selected_team_id}),
             success: function(data, status) {  
                 var resp_data = JSON.parse(data);
                 console.log(resp_data);

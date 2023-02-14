@@ -167,7 +167,7 @@
                 </div>
 			
 					<div class="col-lg-6 p-0">
-						  <form onsubmit="signIn();" action="javascript:void(0);"  style="display: flex;align-items: center;justify-content: center;height: 100vh;margin: 0;"> 
+						  <form  action="javascript:void(0);"  style="display: flex;align-items: center;justify-content: center;height: 100vh;margin: 0;"> 
 						<div class="login-area">
 							<!-- <a href="<?php echo base_url();?>"><img src="resources/img/logo-color.svg" alt="" class="img-fluid logo-login"></a>   
 							<p class="login-head"> <span>LET'S START</span><br>
@@ -230,9 +230,9 @@
 
                             <!--code added by Vishnu M R-2021-06-30 to hide google option in ios device-->
                            
-							    <a class="btn login-btn relative" style="background-color:#e23e2c;" href="">
+							    <a class="btn login-btn relative" style="background-color:#e23e2c;" href="#">
 							        <img src="resources/img/g.svg" alt="">
-							        <span v-if="!g_button_click" @click="g_button_click=true">SIGN IN WITH GOOGLE</span> <span v-else class="btn-load mt-0"></span>
+							        <span v-if="!g_button_click" @click="g_button_click=true;signInGoogle()">SIGN IN WITH GOOGLE</span> <span v-else class="btn-load mt-0"></span>
                                 </a>
                            
                             <!--code added by Vishnu M R-2021-06-30 to hide google option in ios device-->

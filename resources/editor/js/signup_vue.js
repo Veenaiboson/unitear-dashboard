@@ -26,6 +26,7 @@ var datas = {
 	f_button_click:false,
 	g_button_click:false,
 	captcha_validation_status:"false",
+	captchavalue: ""
   }
 
 app = new Vue({
@@ -71,46 +72,58 @@ watch:
 					}
 				},
 				signUp(){
-					alert("hi")
-					$.ajax({
-						url:base_urls_8083+"user/register" ,
-						type: "POST",
-						headers: {
-							'Content-Type': 'application/json'
-						},
-						data: JSON.stringify({
-							user_name: datas.user_name,
-							user_email: datas.user_email,
-							user_password: datas.user_password
-						}),
-						success: function(data, status) {  
-							var resp_data = JSON.parse(data);
+					// alert("hi")
+					console.log(localStorage.getItem('captcha'))
+					var data = {user_name: datas.user_name,
+						user_email: datas.user_email,
+						user_password: datas.user_password,
+						captcha:localStorage.getItem('captcha')}
+						const form = new FormData()
+						for (const key in data) {
+							form.append(key, data[key]);
+						}
+						const headers = {
+          
+							'Authorization': localStorage.getItem('token')
+							// 'Authorization':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5NzQxLCJ1c2VyX25hbWUiOiJpYm9zb25pbm5vdiIsInVzZXJfZW1haWwiOiJwYXJ2YXRoeXZAaWJvc29uaW5ub3YuY29tIiwidXNlcl9pbWFnZSI6IiIsInVzZXJfY291bnRyeSI6IkluZGlhIiwiY3JlYXRlX2RhdGUiOiIyMDIzLTAyLTA2IDEzOjU0OjI1IiwiZXhwaXJ5X2RhdGUiOiIyMDIzLTAyLTExIDEzOjU0OjMwIiwiaWF0IjoxNjc1NjkxNjcwfQ.xCHBGXojY4avNmMWgnoY5P5bYwDrzd4pWcganxtvphE'
+					  
+						  }
+					  
+						  axios( base_urls_8083+"user/register", {
+							method: 'POST',
+							headers: headers,
+							data: form
 							
-							},
-						error:function(data, status) {  
-							   console.log(data)     
-						},
-							})
+					  
+						}).then(function (data) {
+							var resp_data = JSON.parse(data);
+							console.log(resp_data);
+						}).catch(function (err) {
+						})
+					
 				},
 				signUpGoogle(){
-					alert("hi")
-					$.ajax({
-						url:base_urls_8083+"user/sign-in-google" ,
-						type: "POST",
-						headers: {
-							'Content-Type': 'application/json'
-						},
-						data: JSON.stringify({
+					var data = {client_id: '694411712911-474ph2p0gmcnq10o700dj5k5kj3ilblc.apps.googleusercontent.com',
+						token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5NzQxLCJ1c2VyX25hbWUiOiJpYm9zb25pbm5vdnNkZmYiLCJ1c2VyX2VtYWlsIjoicGFydmF0aHl2QGlib3Nvbmlubm92LmNvbSIsInVzZXJfaW1hZ2UiOiIiLCJ1c2VyX2NvdW50cnkiOiJJbmRpYSIsImNyZWF0ZV9kYXRlIjoiMjAyMy0wMi0xMCAxMTowNDo1NCIsImV4cGlyeV9kYXRlIjoiMjAyMy0wMi0xNSAxMTowNDo1NSIsImlhdCI6MTY3NjAyNzA5NX0.eNYM1JKt-mQ_AVJ9ByHoFyyHDwl9Uoh41kdPYVWHhOc'}
+						const form = new FormData()
+						for (const key in data) {
+							form.append(key, data[key]);
+						}
+						
+					  
+						  axios( base_urls_8083+"user/sign-in-google", {
+							method: 'POST',
+						
+							data: form
 							
-						}),
-						success: function(data, status) {  
+					  
+						}).then(function (data) {
 							var resp_data = JSON.parse(data);
-							
-							},
-						error:function(data, status) {  
-							   console.log(data)     
-						},
-							})
+							console.log(resp_data);
+						}).catch(function (err) {
+						})
+					
+					
 				},
 				form_validation:function(field_name,field_value)
 				{
@@ -341,6 +354,7 @@ function expired_captche()
 /***********************Common validation functions ************************************/
  
 var loadCaptcha = function(){
+	console.log("captcha")
 	grecaptcha.render('copec__captcha',         {
 		'sitekey' : '6LejGt0UAAAAAIRszCKDvzQQAAV780-7gCSAS7Nl'
 	});

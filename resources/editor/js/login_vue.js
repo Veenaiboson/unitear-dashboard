@@ -311,7 +311,44 @@ app = new Vue({
 									}	
 					}			
  } 
- 
+ function signInGoogle(){
+	var data = {client_id: '694411712911-474ph2p0gmcnq10o700dj5k5kj3ilblc.apps.googleusercontent.com',
+		token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5NzQxLCJ1c2VyX25hbWUiOiJpYm9zb25pbm5vdnNkZmYiLCJ1c2VyX2VtYWlsIjoicGFydmF0aHl2QGlib3Nvbmlubm92LmNvbSIsInVzZXJfaW1hZ2UiOiIiLCJ1c2VyX2NvdW50cnkiOiJJbmRpYSIsImNyZWF0ZV9kYXRlIjoiMjAyMy0wMi0xMCAxMTowNDo1NCIsImV4cGlyeV9kYXRlIjoiMjAyMy0wMi0xNSAxMTowNDo1NSIsImlhdCI6MTY3NjAyNzA5NX0.eNYM1JKt-mQ_AVJ9ByHoFyyHDwl9Uoh41kdPYVWHhOc'}
+		const form = new FormData()
+		for (const key in data) {
+			form.append(key, data[key]);
+		}
+		
+	  
+		  axios( base_urls_8083+"user/sign-in-google", {
+			method: 'POST',
+		
+			data: form
+			
+	  
+		}).then(function (data) {
+			var resp_data = JSON.parse(data);
+			console.log(resp_data);
+		}).catch(function (err) {
+		})
+		// $.ajax({
+		// 	url:base_urls_8083+"user/sign-in-google" ,
+		// 	type: "POST",
+		// 	headers: {
+		// 		'Content-Type': 'application/json'
+		// 	},
+		// 	data: JSON.stringify({client_id: '694411712911-474ph2p0gmcnq10o700dj5k5kj3ilblc.apps.googleusercontent.com',
+		// 	token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5NzQxLCJ1c2VyX25hbWUiOiJpYm9zb25pbm5vdnNkZmYiLCJ1c2VyX2VtYWlsIjoicGFydmF0aHl2QGlib3Nvbmlubm92LmNvbSIsInVzZXJfaW1hZ2UiOiIiLCJ1c2VyX2NvdW50cnkiOiJJbmRpYSIsImNyZWF0ZV9kYXRlIjoiMjAyMy0wMi0xMCAxMTowNDo1NCIsImV4cGlyeV9kYXRlIjoiMjAyMy0wMi0xNSAxMTowNDo1NSIsImlhdCI6MTY3NjAyNzA5NX0.eNYM1JKt-mQ_AVJ9ByHoFyyHDwl9Uoh41kdPYVWHhOc'}),
+		// 	success: function(data, status) {  
+		// 		var resp_data = JSON.parse(data);
+				
+		// 		},
+		// 	error:function(data, status) {  
+		// 		   console.log(data)     
+		// 	},
+		// 		})
+	
+}
  
 /***********************Common validation functions ************************************/
  
