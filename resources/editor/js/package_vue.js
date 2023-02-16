@@ -881,24 +881,46 @@ $(document).ready(function(){
 		   datas.reset_password_message="Your password must have at least 6 characters.";
 		   return;
 	   }
-		$.post(base_url+"profile/reset_password",
-	  {
-		  "old_password":datas.old_password,
-		  "new_password":datas.new_password,
-		  "confirm_password":datas.confirm_password,
-	  },
-	  function(data,status){
-	   var resp_data=JSON.parse(data);
-		  if(resp_data.status)
-		  {
-			  
-			   datas.reset_password_message=resp_data.message;
-		  }
-		  else
-		  {
-			   datas.reset_password_message=resp_data.message;
-		  }
-	  });
+	
+	  var data = {old_password:datas.old_password,
+		new_password:datas.new_password,
+		confirm_password:datas.confirm_password,}
+	  const form = new FormData()
+	  for (const key in data) {
+		  form.append(key, data[key]);
+	  }
+	const headers = {
+	'Authorization': localStorage.getItem('token')
+	}
+
+	axios(base_urls_8094+"profile/change-password", {
+	method: 'PUT',
+	headers: headers,
+	data: form
+	   
+  
+   }).then(function (data) {
+		var resp_data=data;
+		if(resp_data.data.status)
+		{
+			$(".message-text").show();
+			$(".profile-message").html("Password updated");
+			datas.reset_password_message=resp_data.data.message;
+		}
+		else
+		{
+
+			if(resp_data.data.message=="Old password is inccorrect"){
+				datas.reset_password_message=resp_data.data.message;
+
+			}else{
+				datas.reset_password_message=resp_data.data.message;
+
+			}
+		}
+   }).catch(function (err) {
+
+})
 	} ,
 	
 	delete_notification:function(id)
@@ -1500,33 +1522,39 @@ $(document).ready(function(){
 						//code added by Vishnu M R	
 						Download:function(package_id)
 						{
-							$.ajax({
-								url: base_urls_8093+"pricing/download-invoice",
-								type: "POST",
-								headers: {
-									'Content-Type': 'application/json',
-									'Authorization': localStorage.getItem('token')
-								},
-								data: JSON.stringify({
-									package_id:691,
-									purchase_id:11,
-									payment_date:10-09-2021
-								}),
-								success: function(data, status) {  
-									var resp_data=JSON.parse(data);
-									if(resp_data.status)
-									{
-										console.log(resp_data.data);
-									}
-									else
-									{
-										
-									}
-									},
-								error:function(data, status) {  
-									   console.log(data);     
-								},
-									})
+							var data = {package_id:package_id,
+								purchase_id:634,
+								payment_date:"10-09-2021"}
+							  const form = new FormData()
+							  for (const key in data) {
+								  form.append(key, data[key]);
+							  }
+							const headers = {
+								'Authorization': localStorage.getItem('token')
+							}
+						
+							axios( base_urls_8093+"pricing/download-invoice", {
+							method: 'POST',
+							headers: headers,
+							data: form
+							   
+						  
+						   }).then(function (data) {
+								var resp_data=data;
+								if(resp_data.data.status)
+								{
+									localStorage.setItem('download_invoice', resp_data.data.data.download_content);
+									window.location.href = "download_invoice.html";
+									
+								}
+								else
+								{
+									
+								}
+						   }).catch(function (err) {
+
+						})
+							
 						},
 					  
 					  
@@ -1540,55 +1568,41 @@ $(document).ready(function(){
 					   datas.reset_password_message="Please fill all fields";
 					   return;
 				   }
-					$.post(base_url+"profile/reset_password",
-				  {
-					  "old_password":datas.old_password,
-					  "new_password":datas.new_password,
-					  "confirm_password":datas.confirm_password,
-				  },
-				  function(data,status){
-				   var resp_data=JSON.parse(data);
-					  if(resp_data.status)
-					  {
-						  $(".message-text").show();
-						  $(".profile-message").html("Password updated");
-						   datas.reset_password_message=resp_data.message;
-					  }
-					  else
-					  {
-						   datas.reset_password_message=resp_data.message;
-					  }
-				  });
+					
+				  var data = {old_password:datas.old_password,
+					new_password:datas.new_password,
+					confirm_password:datas.confirm_password,}
+				  const form = new FormData()
+				  for (const key in data) {
+					  form.append(key, data[key]);
+				  }
+				const headers = {
+				'Authorization': localStorage.getItem('token')
+				}
+			
+				axios(base_urls_8083+"profile/change-password", {
+				method: 'PUT',
+				headers: headers,
+				data: form
+				   
+			  
+			   }).then(function (data) {
+					var resp_data=data;
+					if(resp_data.status)
+					{
+						console.log("gfdf")
+						$(".message-text").show();
+						$(".profile-message").html("Password updated");
+						datas.reset_password_message=resp_data.message;
+					}
+					else
+					{
+						datas.reset_password_message=resp_data.message;
+					}
+			   }).catch(function (err) {
 
-				//     $.ajax({
-				// 		url: base_urls_8083+"user/change-password",
-				// 		type: "PUT",
-				// 		headers: {
-					// 'Content-Type': 'application/json',
-				// 		'Authorization': localStorage.getItem('token')
-				// 		},
-				// 		data: {
-				// 			"old_password":datas.old_password,
-				// 			"new_password":datas.new_password,
-				// 			"confirm_password":datas.confirm_password,
-				// 		},
-				// 		success: function(data, status) {  
-				// 			var resp_data=JSON.parse(data);
-				// 			if(resp_data.status)
-				// 			{
-				// 				$(".message-text").show();
-				// 				$(".profile-message").html("Password updated");
-				// 				datas.reset_password_message=resp_data.message;
-				// 			}
-				// 			else
-				// 			{
-				// 				datas.reset_password_message=resp_data.message;
-				// 			}
-				// 		},
-				// 		error:function(data, status) {  
-						
-				// 		},
-				// });
+			})
+				   
 				} ,
 		
   })
@@ -1740,7 +1754,7 @@ $(document).ready(function(){
 	  },
 	  function(data,status){
 		  console.log(data)
-	   var resp_data=JSON.parse(data);
+	//    var resp_data=JSON.parse(data);
 		  
 	  });
 	}
@@ -1985,7 +1999,7 @@ $(document).ready(function(){
 		return false;
 	}
 	datas.invite_button_loader=true;
-console.log(datas.refferal_emails)
+	console.log(datas.refferal_emails)
 	var data = {refferal_emails:JSON.stringify(datas.refferal_emails)}
 	const form = new FormData()
 	for (const key in data) {
@@ -1994,31 +2008,33 @@ console.log(datas.refferal_emails)
 	const headers = {
 
 	 'Authorization': localStorage.getItem('token')
-	//  'Authorization':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5NzQxLCJ1c2VyX25hbWUiOiJpYm9zb25pbm5vdiIsInVzZXJfZW1haWwiOiJwYXJ2YXRoeXZAaWJvc29uaW5ub3YuY29tIiwidXNlcl9pbWFnZSI6IiIsInVzZXJfY291bnRyeSI6IkluZGlhIiwiY3JlYXRlX2RhdGUiOiIyMDIzLTAyLTA2IDEzOjU0OjI1IiwiZXhwaXJ5X2RhdGUiOiIyMDIzLTAyLTExIDEzOjU0OjMwIiwiaWF0IjoxNjc1NjkxNjcwfQ.xCHBGXojY4avNmMWgnoY5P5bYwDrzd4pWcganxtvphE'
 
    }
 
-   axios(base_urls_8089+"invite/", {
-	 method: 'POST',
-	 headers: headers,
-	 data: form
+   	axios(base_urls_8089+"invite/", {
+		method: 'POST',
+		headers: headers,
+		data: form
 	 
 
- }).then(function (data) {
-	var resp_data=JSON.parse(data);
-	if(resp_data.status)
-	{
-		datas.refferal_emails=[];
-		app.add_refferal_email_template();
-		app.$snotify.success="Invitation sent";
-	}
-	else
-	{
-		
-	}
-	datas.invite_button_loader=false;
- }).catch(function (err) {
-})
+ 	}).then(function (data) {
+		var resp_data=data;
+		console.log(resp_data);
+		if(resp_data.data.status)
+		{
+		console.log(resp_data);
+
+			datas.refferal_emails=[];
+			app.add_refferal_email_template();
+			app.$snotify.success(resp_data.data.message);
+		}
+		else
+		{
+			
+		}
+		datas.invite_button_loader=false;
+	}).catch(function (err) {
+	})
 
 	
 }
@@ -2082,6 +2098,7 @@ console.log(datas.refferal_emails)
   function logout() {
     localStorage.removeItem('token');
 	localStorage.removeItem('user_email');
+	window.location.href="login.html";
 }
 
 function remove_profile_pic()

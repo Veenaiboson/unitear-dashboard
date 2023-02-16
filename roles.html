@@ -9,20 +9,15 @@
     <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png">
     <title>UniteAR</title>
     <link rel="stylesheet" href="resources/editor_new/css/bootstrap.min.css">
-    <script src="resources/editor_new/js/jquery.min.js"></script>
-    <script src="resources/editor_new/js/popper.min.js"></script>
-    <script src="resources/editor_new/js/bootstrap.min.js"></script>
+   
     <link href="resources/editor_new/css/font_lato_swap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="resources/editor_new/css/style.css">
-	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="resources/editor_new/js/vue_v2.6.14.js"></script>
-    <script type="text/javascript" src="resources/editor_new/js/vue-snotifyv3.2.1.min.js"></script>
-    <link rel="stylesheet"href="resources/editor_new/css/vue-snotify3.2.1.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-223586665-1"></script>
-    <script src="resources/editor_new/js/main.js"></script>
+    <script src="resources/editor_new/js/vue_v2.6.14.js" defer></script>
+   <script src="resources/editor_new/js/jquery.min.js" ></script>
+    
 	
     <style>
     [v-cloak] {
@@ -407,19 +402,19 @@
 						</div>
 						
                         <a href="#" class="noty"
-                            v-on:click="notification_read_status=true;change_notification_read_status(); open_notification=true;">
+                            v-on:click="notification_read_status=true;change_notification_read_status();open_notifications_roles=true;">
                             <img src="resources/editor_new/img/noty-bell.svg" class="menu-sm-hide" alt="">
                             <img src="resources/editor_new/img/white-bell.png" class="menu-sm-show" alt="">
                             <span v-if="read_entire_status">{{read_count}}</span>
                         </a>
 
 
-                        <a href="#" class="user menu-sm-hide" v-on:click="open_profile = true;">
+                        <a href="#" class="user menu-sm-hide" v-on:click="open_profile_roles = true;">
                             <img style=""
                                 src="resources/editor_new/img/businessman-avatar-icon-01-.svg"
                                 alt="">
                         </a>
-                        <div class="my-menu" id="my-menu">
+                        <div class="my-menu" id="my-menu-roles">
                             <ul>
                                 <li> <a href="./pricing.html"> Upgrade Plan</a></li>
                                 <li> <a href="./account.html"> My Account </a></li>
@@ -433,7 +428,7 @@
 
                             </div>
                         </div>
-                        <div class="my-noty" id="my-noty">
+                        <div class="my-noty" id="my-noty-roles">
                             <ul>
                                 <div v-if="no_of_notification_records>0" class="ul-first">
                                     <div class="row ">
@@ -869,10 +864,16 @@
 
     gtag('config', 'UA-223586665-1');
    </script>
- 
-   <script type="text/javascript" src="resources/editor/js/role.js"></script>
-  
-
+   <script src="resources/editor_new/js/popper.min.js" defer></script>
+   <script src="resources/editor_new/js/bootstrap.min.js" defer></script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+   <script type="text/javascript" src="resources/editor_new/js/vue-snotifyv3.2.1.min.js" defer></script>
+   <link rel="stylesheet"href="resources/editor_new/css/vue-snotify3.2.1.css">
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-223586665-1" defer></script>
+   <script src="resources/editor_new/js/main.js" defer></script>
+   <script type="text/javascript" src="resources/editor/js/role.js" defer></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js" integrity="sha512-NCiXRSV460cHD9ClGDrTbTaw0muWUBf/zB/yLzJavRsPNUl9ODkUVmUHsZtKu17XknhsGlmyVoJxLg/ZQQEeGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
   
 </body>
 

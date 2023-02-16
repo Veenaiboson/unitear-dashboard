@@ -56,7 +56,9 @@ var datas = {
 	remove_role_error:"",
 	user_as_team_member_status:false,
 	//code added by Vishnu M R
-
+	open_notifications_roles:false,
+	open_profile_roles:false,
+	notification_read_status_roles: false,
   }
 
 app = new Vue({
@@ -102,41 +104,45 @@ app = new Vue({
                     datas.send_permissions=datas.permissions;
                     datas.create_role_name=datas.selected_role.role_name;
                     datas.role_id=datas.selected_role.role_id;
+					var data = {role_name:datas.create_role_name,
+						permissions:datas.send_permissions,
+						role_id:datas.role_id,}
+					const form = new FormData()
+					for (const key in data) {
+						form.append(key, data[key]);
+					}
+					const headers = {
+						'Authorization': localStorage.getItem('token')
+					}
                     // insert_roles();
-					$.ajax({
-						url: base_urls_8085+"roles/"+datas.role_id,
-						type: "PUT",
-						headers: {
-							'Content-Type': 'application/json',
-							'Authorization': localStorage.getItem('token')
-						},
-						data: JSON.stringify({
-							role_name:datas.create_role_name,
-							permissions:datas.send_permissions,
-							role_id:datas.role_id,
-						}),
-						success: function(data, status) {  
-							var resp_data=data;
-							if(resp_data.status)
-							{
-								
-								// datas.create_roll=false;
 
-							}
-							else
-							{
-								app.$snotify.error(resp_data.message);
-							}
-							list_roles();
-							datas.create_role_button_loader=false;
-							datas.role_name="";
-							datas.create_roll=false;
-							},
-						error:function(data, status) {  
-							   console.log(data)   
-							   app.$snotify.error(resp_data.message);  
-						},
-							})
+					axios(base_urls_8085+"roles/"+datas.role_id, {
+						method: 'PUT',
+						headers: headers,
+						data: form
+					
+
+					}).then(function (data) {
+						var resp_data=data;
+						if(resp_data.status)
+						{
+							
+							// datas.create_roll=false;
+
+						}
+						else
+						{
+							app.$snotify.error(resp_data.message);
+						}
+						list_roles();
+						datas.create_role_button_loader=false;
+						datas.role_name="";
+						datas.create_roll=false;
+					}).catch(function (err) {
+						console.log(data)   
+						app.$snotify.error(resp_data.message);  
+					})
+					
 				},
 				check_role_name()
 				{
@@ -176,18 +182,24 @@ app = new Vue({
 					datas.remove_role_button_loader=true;
 					datas.role_id=datas.selected_role.role_id;
 					// console.log(datas.role_id);
+					var data = {role_id:datas.role_id}
+					const form = new FormData()
+					for (const key in data) {
+						form.append(key, data[key]);
+					}
+					const headers = {
+						'Authorization': localStorage.getItem('token')
+					}
+                    // insert_roles();
+
+					axios(base_urls_8085+"roles/is-role-used", {
+						method: 'POST',
+						headers: headers,
+						data: form
 					
 
-					$.ajax({
-						url: base_urls_8085+"roles/is-role-used",
-						type: "POST",
-						headers: {
-							'Content-Type': 'application/json',
-							'Authorization': localStorage.getItem('token')
-						},
-						data: JSON.stringify({role_id:datas.role_id}),
-						success: function(data, status) {  
-							var resp_data=data;
+					}).then(function (data) {
+						var resp_data=data;
 							if(resp_data.status)
 							{
 								datas.role_id=datas.selected_role.role_id;
@@ -204,11 +216,10 @@ app = new Vue({
 								datas.member_delete=false;
 								app.$snotify.error(resp_data.message);
 							}
-							},
-						error:function(data, status) {  
-							   console.log(data)     
-						},
-							})
+					}).catch(function (err) {
+					})
+
+					
 				},
 				select_role(role,index)
 				{
@@ -329,12 +340,65 @@ app = new Vue({
 				},
 				//code added by Vishnu M R-2021-07-08
 
-			
+				change_notification_read_status: function() {
+
+
+					if (datas.notification_read_status_roles) {
+		
+						$(".text").toggleClass("show");
+		
+						$(".close").toggleClass("mm");
+		
+						setTimeout(function() {
+		
+							$(".notification").toggleClass("open");
+						}, 50)
+					 
+		
+							$.ajax({
+								url: base_urls_8085+"notification/change-notification-read-status",
+								type: "POST",
+								headers: {
+									'Content-Type': 'application/json',
+									'Authorization': localStorage.getItem('token')
+								},
+								data: JSON.stringify({user_id:9741}),
+								success: function(data, status) {  
+									var resp_data = data;
+									if(resp_data.status)
+										{
+										   list_notification();
+										}
+										
+								},
+								error:function(data, status) {  
+									console.log(data)     
+								},
+						})    
+						datas.notification_read_status_roles = false;
+					} else {
+		
+						$(".notification").toggleClass("open");
+		
+						$(".close").toggleClass("mm");
+		
+						datas.notification_read_status_roles = true;
+		
+						setTimeout(function() {
+							// image.classList.toggle('show');
+							// text.classList.toggle('show');
+							$(".text").toggleClass("show");
+						}, 150)
+		
+					}
+		
+		
+				},
 			} ,
-  	
+			
 		});
 /******************* remove_member*********************/ 
-
+list_notification();
 function remove_member()
   {
 	datas.remove_member_button_loader=true;
@@ -383,7 +447,7 @@ function list_roles()
 			var resp_data=data;
 		if(resp_data.status)
 		{
-			
+			console.log(resp_data);
 			datas.role_list=resp_data.data;
 			// alert(datas.selected_role_index);
             datas.selected_role=resp_data.data[datas.selected_role_index];
@@ -410,40 +474,43 @@ function insert_roles()
   {
 	datas.create_role_button_loader=true;
 	console.log(datas.send_permissions);
-	
-	$.ajax({
-		url: base_urls_8085+"roles/",
-		type: "POST",
-		headers: {
-			'Content-Type': 'application/json',
-			'Authorization': localStorage.getItem('token')
-		},
-		data: JSON.stringify({
-			role_name:datas.create_role_name,
-			permissions:datas.send_permissions,
-			role_id:datas.role_id,
-		}),
-		success: function(data, status) {  
-			var resp_data=data;
-			if(resp_data.status)
-			{
-				
-				// datas.create_roll=false;
+	var data = {role_name:datas.create_role_name,
+		permissions:datas.send_permissions,
+		role_id:datas.role_id,}
+					const form = new FormData()
+					for (const key in data) {
+						form.append(key, data[key]);
+					}
+					const headers = {
+						'Authorization': localStorage.getItem('token')
+					}
+                    // insert_roles();
 
-			}
-			else
-			{
-				app.$snotify.error(resp_data.message);
-			}
-			list_roles();
-			datas.create_role_button_loader=false;
-			datas.role_name="";
-			datas.create_roll=false;
-			},
-		error:function(data, status) {  
-			   console.log(data)     
-		},
-			});
+					axios(base_urls_8085+"roles/", {
+						method: 'POST',
+						headers: headers,
+						data: form
+					
+
+					}).then(function (data) {
+						var resp_data=data;
+						if(resp_data.status)
+						{
+							
+							// datas.create_roll=false;
+
+						}
+						else
+						{
+							app.$snotify.error(resp_data.message);
+						}
+						list_roles();
+						datas.create_role_button_loader=false;
+						datas.role_name="";
+						datas.create_roll=false;
+		}).catch(function (err) {
+		})
+	
   }
 /******************* insert_roles*********************/ 
 
@@ -597,3 +664,73 @@ function remove_role()
 	localStorage.removeItem('user_email');
 	window.location.href = "login.html";
 }
+function list_notification() {
+   
+	$.ajax({
+		url: base_urls_8085+"notification/",
+		type: "GET",
+		headers: {
+		  'Authorization': localStorage.getItem('token')
+		},
+		data: {},
+		success: function(data, status) {  
+			var resp_data = data;
+			if (resp_data.status) {
+				datas.read_entire_status = resp_data.read_entire_status;
+				datas.notification = resp_data.data;
+				datas.no_of_notification_records = datas.notification.length;
+				datas.read_count = resp_data.read_count;
+			} else {
+				datas.read_entire_status = resp_data.read_entire_status;
+				datas.notification = [];
+				datas.no_of_notification_records = datas.notification.length;
+				if (typeof(resp_data.redirect_url) != undefined && resp_data.redirect_url) {
+					datas.pro_msg = "Session expired.";
+					datas.pro_sub_msg = "Please login again.";
+					datas.session_expired = true;
+					location.href = resp_data.redirect_url;
+				}
+			}
+		},
+		error:function(data, status) {  
+		  
+		},
+	})
+}
+document.body.addEventListener("click", function (evt) {
+	console.log(datas.open_notifications_roles);
+   //  var notificationElement = evt.path[0].getAttribute("class");
+   //  var profileElement = evt.path[1].getAttribute("class");
+   //  console.log(profileElement)
+	if(datas.open_notifications_roles==true)
+	{console.log("evt11")
+	   //  if( datas.open_notification==false)
+	   // {
+		  document.getElementById("my-noty-roles").style.display="block";
+		  datas.open_notifications_roles=false;
+	   // }
+	}
+	else
+	{
+	   console.log("evt01")
+	  
+	   document.getElementById("my-noty-roles").style.display="none";
+	   
+	}
+	if( datas.open_profile_roles == true)
+	{console.log("evt31")
+	   
+		  document.getElementById("my-menu-roles").style.display="block";
+		   datas.open_profile_roles=false;
+
+	   
+	}
+	else
+	{
+	   console.log("evt41")
+	   document.getElementById("my-menu-roles").style.display="none";
+	   
+	}
+   
+  
+});

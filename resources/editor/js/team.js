@@ -83,7 +83,10 @@ var datas = {
 	user_as_team_member_status:false,
     //code added by Vishnu M R
     heading:'',
-    sub_heading:''
+    sub_heading:'',
+    notification_read_status_team:false,
+    open_notifications_team:false,
+    open_profile_team:false
 
 }
 
@@ -394,10 +397,65 @@ app = new Vue({
                 //     },
                 //         })
         },
+        change_notification_read_status: function() {
+
+
+            if (datas.notification_read_status_team) {
+
+                $(".text").toggleClass("show");
+
+                $(".close").toggleClass("mm");
+
+                setTimeout(function() {
+
+                    $(".notification").toggleClass("open");
+                }, 50)
+             
+
+                    $.ajax({
+                        url: base_urls_8085+"notification/change-notification-read-status",
+                        type: "POST",
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': localStorage.getItem('token')
+                        },
+                        data: JSON.stringify({user_id:9741}),
+                        success: function(data, status) {  
+                            var resp_data = data;
+                            if(resp_data.status)
+                                {
+                                   list_notification();
+                                }
+                                
+                        },
+                        error:function(data, status) {  
+                            console.log(data)     
+                        },
+                })    
+                datas.notification_read_status_team = false;
+            } else {
+
+                $(".notification").toggleClass("open");
+
+                $(".close").toggleClass("mm");
+
+                datas.notification_read_status_team = true;
+
+                setTimeout(function() {
+                    // image.classList.toggle('show');
+                    // text.classList.toggle('show');
+                    $(".text").toggleClass("show");
+                }, 150)
+
+            }
+
+
+        },
     },
 
 });
 /******************* list_team*********************/
+list_notification();
 
 function list_team() {//not using
     // datas.invite_button_loader=true;
@@ -964,3 +1022,73 @@ function logout() {
     localStorage.removeItem('user_email');
     window.location.href = "login.html";
 }
+function list_notification() {
+   
+	$.ajax({
+		url: base_urls_8085+"notification/",
+		type: "GET",
+		headers: {
+		  'Authorization': localStorage.getItem('token')
+		},
+		data: {},
+		success: function(data, status) {  
+			var resp_data = data;
+			if (resp_data.status) {
+				datas.read_entire_status = resp_data.read_entire_status;
+				datas.notification = resp_data.data;
+				datas.no_of_notification_records = datas.notification.length;
+				datas.read_count = resp_data.read_count;
+			} else {
+				datas.read_entire_status = resp_data.read_entire_status;
+				datas.notification = [];
+				datas.no_of_notification_records = datas.notification.length;
+				if (typeof(resp_data.redirect_url) != undefined && resp_data.redirect_url) {
+					datas.pro_msg = "Session expired.";
+					datas.pro_sub_msg = "Please login again.";
+					datas.session_expired = true;
+					location.href = resp_data.redirect_url;
+				}
+			}
+		},
+		error:function(data, status) {  
+		  
+		},
+	})
+}
+document.body.addEventListener("click", function (evt) {
+	console.log(datas.open_notifications_team);
+   //  var notificationElement = evt.path[0].getAttribute("class");
+   //  var profileElement = evt.path[1].getAttribute("class");
+   //  console.log(profileElement)
+	if(datas.open_notifications_team==true)
+	{console.log("evt11")
+	   //  if( datas.open_notification==false)
+	   // {
+		  document.getElementById("my-noty-team").style.display="block";
+		  datas.open_notifications_team=false;
+	   // }
+	}
+	else
+	{
+	   console.log("evt01")
+	  
+	   document.getElementById("my-noty-team").style.display="none";
+	   
+	}
+	if( datas.open_profile_team == true)
+	{console.log("evt31")
+	   
+		  document.getElementById("my-menu-team").style.display="block";
+		   datas.open_profile_team=false;
+
+	   
+	}
+	else
+	{
+	   console.log("evt41")
+	   document.getElementById("my-menu-team").style.display="none";
+	   
+	}
+   
+  
+});

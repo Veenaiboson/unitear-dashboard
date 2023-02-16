@@ -23,6 +23,8 @@
     <link rel="stylesheet" type="text/css" href="resources/css/extra.css">
     <script src="resources/editor_new/js/vue_v2.6.14.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?render=6Lc3PvMUAAAAAAi54ks7ez6FbnSRULDLAj_8N3xg"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <meta name="google-signin-client_id" content="747556176623-vllltr9rc4lhnoe41r0j1ikmb84pkpbn.apps.googleusercontent.com">
 	<script>
 	grecaptcha.ready(function() {
 		grecaptcha.execute('6Lc3PvMUAAAAAAi54ks7ez6FbnSRULDLAj_8N3xg', {action: 'homepage'}).then(function(token) {
@@ -351,9 +353,9 @@
                             <!--code added by Vishnu M R-2021-06-30 to hide google option in ios device-->
                            
                                 <a class="btn login-btn relative" style="background-color:#e23e2c;"
-                                    href="">
+                                   >
                                     <img src="resources/img/g.svg" alt="">
-                                    <span v-if="!g_button_click" @click="g_button_click=true" @click="signUpGoogle()">SIGN UP WITH GOOGLE</span> <span v-else class="btn-load mt-0"></span>
+                                    <span v-if="!g_button_click" @click="signUpGoogle();g_button_click=true;">SIGN UP WITH GOOGLE</span> <span v-else class="btn-load mt-0"></span>
                                 </a>
                            
                             <!--code added by Vishnu M R-2021-06-30 to hide google option in ios device-->
@@ -372,7 +374,30 @@
 
  <script type="text/javascript" src="resources/editor/js/signup_vue.js"></script>
    <script>
+    function renderButton() {
+
+    gapi.signin2.render('g-signin2', {
+        'scope': 'profile email',
+        'width': 250,
+        'height': 40,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSignIn,
+        'onfailure': onFailure
+    });
+    }
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+        var googleTockenId = profile.getId();
     
+    }
+    function onFailure(error) {
+        alert(error);
+    }
     // localStorage.setItem('catch',)
    </script>
     <!-- --------------------script--------------------->

@@ -13,25 +13,26 @@
 
 </div>
 <script>
-function printDiv(divName) {
-     var printContents = document.getElementById(divName).innerHTML;
-     var originalContents = document.body.innerHTML;
+    document.getElementById("printableArea").innerHTML=localStorage.getItem('download_invoice');
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
 
-     document.body.innerHTML = printContents;
+        document.body.innerHTML = printContents;
 
-     window.print();
+        window.print();
 
-     document.body.innerHTML = originalContents;
-}
-function printPDF()
-{
-	var printContents = document.getElementById("printableArea").innerHTML;
-    var w = window.open("about:blank");
-    w.document.write(printContents);
-    if (navigator.appName == 'Microsoft Internet Explorer') window.print();
-    else w.print();
-}
-printJS({printable:'printableArea',type:'html',documentTitle:'Unitear-Invoice'});
-document.title="Unitear-Invoice";
-</script>
+        document.body.innerHTML = originalContents;
+    }
+    function printPDF()
+    {
+        var printContents = document.getElementById("printableArea").innerHTML;
+        var w = window.open("about:blank");
+        w.document.write(printContents);
+        if (navigator.appName == 'Microsoft Internet Explorer') window.print();
+        else w.print();
+    }
+    printJS({printable:'printableArea',type:'html',documentTitle:'Unitear-Invoice'});
+    document.title="Unitear-Invoice";
+    </script>
 </html>

@@ -408,19 +408,19 @@
 						</div>
 						
                         <a href="#" class="noty"
-                            v-on:click="notification_read_status=true;change_notification_read_status();open_notification=true;">
+                            v-on:click="notification_read_status=true;change_notification_read_status();open_notifications_team=true;">
                             <img src="resources/editor_new/img/noty-bell.svg" class="menu-sm-hide" alt="">
                             <img src="resources/editor_new/img/white-bell.png" class="menu-sm-show" alt="">
                             <span v-if="read_entire_status">{{read_count}}</span>
                         </a>
 
 
-                        <a href="#" class="user menu-sm-hide" v-on:click="open_profile = true;">
+                        <a href="#" class="user menu-sm-hide" v-on:click="open_profile_team = true;">
                             <img style=""
                                 src="resources/editor_new/img/businessman-avatar-icon-01-.svg"
                                 alt="">
                         </a>
-                        <div class="my-menu" id="my-menu">
+                        <div class="my-menu" id="my-menu-team">
                             <ul>
                                 <li> <a href="./pricing.html"> Upgrade Plan</a></li>
                                 <li> <a href="./account.html"> My Account </a></li>
@@ -434,7 +434,7 @@
 
                             </div>
                         </div>
-                        <div class="my-noty" id="my-noty">
+                        <div class="my-noty" id="my-noty-team">
                             <ul>
                                 <div v-if="no_of_notification_records>0" class="ul-first">
                                     <div class="row ">

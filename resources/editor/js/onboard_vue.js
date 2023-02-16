@@ -270,19 +270,64 @@ $(document).ready(function(){
 						if(update_status == 1)
 						{
 							$('#spinner').removeClass("d-none");
-							$.post(base_url+"editor/save_profile_data",
-							{
-								profile_purpose:datas.profile_purpose,
+							// $.post(base_url+"editor/save_profile_data",
+							// {
+							// 	profile_purpose:datas.profile_purpose,
+							// 	profile_customer_industry:datas.profile_customer_industry,
+							// 	profile_category:datas.profile_category,
+							// 	profile_demo_status:datas.profile_demo_status,
+							// 	profile_company_name:datas.profile_company_name,
+							// 	profile_website:datas.profile_website,
+							// 	profile_company_size:datas.profile_company_size,
+							// },
+							// function(data,status){
+							// 	resp_data=JSON.parse(data);
+							// 	// console.log(resp_data);
+							// 	if(resp_data.status)
+							// 	{	
+							// 		//code commented by Vishnu M R 2021-02-08
+							// 		/* datas.profile=resp_data.data;
+							// 		app.skip_to_next('home','menu2');
+									
+							// 		datas.fnished_onboard_check=true;
+							// 		// console.log(base_url+"editor/index/1");
+							// 		location.href=base_url+"editor/index/1"; */
+							// 		//code commented by Vishnu M R 2021-02-08
+									
+							// 		$("#onboard_form").submit();
+							// 	}
+							// 	else
+							// 	{
+							// 		$('#spinner').addClass("d-none");
+							// 	}
+							// });
+
+							var data = {profile_purpose:3,
 								profile_customer_industry:datas.profile_customer_industry,
 								profile_category:datas.profile_category,
 								profile_demo_status:datas.profile_demo_status,
 								profile_company_name:datas.profile_company_name,
 								profile_website:datas.profile_website,
-								profile_company_size:datas.profile_company_size,
-							},
-							function(data,status){
-								resp_data=JSON.parse(data);
-								// console.log(resp_data);
+								profile_company_size:datas.profile_company_size,}
+							const form = new FormData()
+							for (const key in data) {
+								form.append(key, data[key]);
+							}
+							const headers = {
+
+							'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5NzQxLCJ1c2VyX25hbWUiOiJpYm9zb25pbm5vdnNkZmYiLCJ1c2VyX2VtYWlsIjoicGFydmF0aHl2QGlib3Nvbmlubm92LmNvbSIsInVzZXJfaW1hZ2UiOiIiLCJ1c2VyX2NvdW50cnkiOiJJbmRpYSIsImNyZWF0ZV9kYXRlIjoiMjAyMy0wMi0xNiAxMToyNToxMSIsImV4cGlyeV9kYXRlIjoiMjAyMy0wMi0yMSAxMToyNToxMiIsImlhdCI6MTY3NjU0NjcxMn0._BQvWCKnldpu7G9c0bw_332geNpMuSq4TXZba_Ypc64'
+
+						}
+
+							axios(base_url_8099+"profile/", {
+								method: 'PUT',
+								headers: headers,
+								data: form
+							
+
+							}).then(function (data) {
+								resp_data=data;
+								console.log(resp_data);
 								if(resp_data.status)
 								{	
 									//code commented by Vishnu M R 2021-02-08
@@ -300,7 +345,10 @@ $(document).ready(function(){
 								{
 									$('#spinner').addClass("d-none");
 								}
-							});
+							}).catch(function (err) {
+							})
+
+
 						}
 					},
 					initialize_value:function()
@@ -414,15 +462,20 @@ $(document).ready(function(){
 	/*******************Check Expiry *********************/ 
   function check_trial_expiry()
 	{
-		$.ajax({
-			url: base_url_8099+"editor/check-trial-expiry",
-			type: "post",
-			headers: {
-			  'Authorization': localStorage.getItem('token')
-			},
-			data: {},
-			success: function(data, status) {
-			var resp_data=JSON.parse(data);
+		const headers = {
+
+			'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5NzQxLCJ1c2VyX25hbWUiOiJpYm9zb25pbm5vdnNkZmYiLCJ1c2VyX2VtYWlsIjoicGFydmF0aHl2QGlib3Nvbmlubm92LmNvbSIsInVzZXJfaW1hZ2UiOiIiLCJ1c2VyX2NvdW50cnkiOiJJbmRpYSIsImNyZWF0ZV9kYXRlIjoiMjAyMy0wMi0xNiAxMToyNToxMSIsImV4cGlyeV9kYXRlIjoiMjAyMy0wMi0yMSAxMToyNToxMiIsImlhdCI6MTY3NjU0NjcxMn0._BQvWCKnldpu7G9c0bw_332geNpMuSq4TXZba_Ypc64'
+		
+		}
+		
+			axios(base_url_8099+"editor/check-trial-expiry", {
+				method: 'GET',
+				headers: headers,
+				
+			
+		
+			}).then(function (data) {
+				var resp_data=JSON.parse(data);
 				if(resp_data.status)
 				{
 					datas.trial_expired=resp_data.status
@@ -431,8 +484,28 @@ $(document).ready(function(){
 				{
 					datas.trial_expired=resp_data.status
 				}
-	  		}
-		});
+			}).catch(function (err) {
+
+			})
+		// $.ajax({
+		// 	url: base_url_8099+"editor/check-trial-expiry",
+		// 	type: "post",
+		// 	headers: {
+		// 	  'Authorization': localStorage.getItem('token')
+		// 	},
+		// 	data: {},
+		// 	success: function(data, status) {
+		// 	var resp_data=JSON.parse(data);
+		// 		if(resp_data.status)
+		// 		{
+		// 			datas.trial_expired=resp_data.status
+		// 		}
+		// 		else
+		// 		{
+		// 			datas.trial_expired=resp_data.status
+		// 		}
+	  	// 	}
+		// });
 	}
 	
    /*******************Check Expiry*********************/ 
@@ -468,11 +541,44 @@ $(document).ready(function(){
   
    function get_profile()
 	{
-		$.post(base_url+"profile/get_profile",
-	  {
-	  },
-	  function(data,status){
-	   var resp_data=JSON.parse(data);
+	// 	$.post(base_url+"profile/get_profile",
+	//   {
+	//   },
+	//   function(data,status){
+	//    var resp_data=JSON.parse(data);
+	// 	  if(resp_data.status)
+	// 	  {
+			  
+	// 		  datas.profile=resp_data.data;
+	// 		  if(datas.profile.user_version==1)
+	// 		  {
+	// 			  datas.show_new_feature_info_modal=true;
+	// 		  }
+	// 		  else{
+	// 		  datas.show_new_feature_info_modal=false;
+	// 		  }
+	// 	  }
+	// 	  else
+	// 	  {
+			  
+	// 	  }
+	//   });
+	 
+	
+	const headers = {
+
+	'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5NzQxLCJ1c2VyX25hbWUiOiJpYm9zb25pbm5vdnNkZmYiLCJ1c2VyX2VtYWlsIjoicGFydmF0aHl2QGlib3Nvbmlubm92LmNvbSIsInVzZXJfaW1hZ2UiOiIiLCJ1c2VyX2NvdW50cnkiOiJJbmRpYSIsImNyZWF0ZV9kYXRlIjoiMjAyMy0wMi0xNiAxMToyNToxMSIsImV4cGlyeV9kYXRlIjoiMjAyMy0wMi0yMSAxMToyNToxMiIsImlhdCI6MTY3NjU0NjcxMn0._BQvWCKnldpu7G9c0bw_332geNpMuSq4TXZba_Ypc64'
+
+}
+
+	axios(base_url_8099+"profile/", {
+		method: 'GET',
+		headers: headers,
+		
+	
+
+	}).then(function (data) {
+		var resp_data=JSON.parse(data);
 		  if(resp_data.status)
 		  {
 			  
@@ -489,7 +595,8 @@ $(document).ready(function(){
 		  {
 			  
 		  }
-	  });
+	}).catch(function (err) {
+	})
 	}
    /******************* Add Campaign*********************/
   async function add_campaign(target_category_id) {

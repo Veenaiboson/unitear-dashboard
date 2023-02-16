@@ -72,8 +72,6 @@ watch:
 					}
 				},
 				signUp(){
-					// alert("hi")
-					console.log(localStorage.getItem('captcha'))
 					var data = {user_name: datas.user_name,
 						user_email: datas.user_email,
 						user_password: datas.user_password,
@@ -82,40 +80,43 @@ watch:
 						for (const key in data) {
 							form.append(key, data[key]);
 						}
-						const headers = {
-          
-							'Authorization': localStorage.getItem('token')
-							// 'Authorization':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5NzQxLCJ1c2VyX25hbWUiOiJpYm9zb25pbm5vdiIsInVzZXJfZW1haWwiOiJwYXJ2YXRoeXZAaWJvc29uaW5ub3YuY29tIiwidXNlcl9pbWFnZSI6IiIsInVzZXJfY291bnRyeSI6IkluZGlhIiwiY3JlYXRlX2RhdGUiOiIyMDIzLTAyLTA2IDEzOjU0OjI1IiwiZXhwaXJ5X2RhdGUiOiIyMDIzLTAyLTExIDEzOjU0OjMwIiwiaWF0IjoxNjc1NjkxNjcwfQ.xCHBGXojY4avNmMWgnoY5P5bYwDrzd4pWcganxtvphE'
-					  
-						  }
-					  
+					
 						  axios( base_urls_8083+"user/register", {
 							method: 'POST',
-							headers: headers,
-							data: form
-							
+							data: form			
 					  
 						}).then(function (data) {
-							var resp_data = JSON.parse(data);
-							console.log(resp_data);
+							var resp_data = data;
+							if(resp_data.status)
+							{
+							
+								window.location.href = "verification.html";
+								localStorage.setItem('user_id') = resp_data.data.data.user_id;
+								localStorage.setItem('user_otp') = resp_data.data.data.user_otp;
+
+							}
+							else
+							{
+								
+								window.location.href = "error-page-bot.html"
+								
+							}
 						}).catch(function (err) {
 						})
 					
 				},
 				signUpGoogle(){
-					var data = {client_id: '694411712911-474ph2p0gmcnq10o700dj5k5kj3ilblc.apps.googleusercontent.com',
-						token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5NzQxLCJ1c2VyX25hbWUiOiJpYm9zb25pbm5vdnNkZmYiLCJ1c2VyX2VtYWlsIjoicGFydmF0aHl2QGlib3Nvbmlubm92LmNvbSIsInVzZXJfaW1hZ2UiOiIiLCJ1c2VyX2NvdW50cnkiOiJJbmRpYSIsImNyZWF0ZV9kYXRlIjoiMjAyMy0wMi0xMCAxMTowNDo1NCIsImV4cGlyeV9kYXRlIjoiMjAyMy0wMi0xNSAxMTowNDo1NSIsImlhdCI6MTY3NjAyNzA5NX0.eNYM1JKt-mQ_AVJ9ByHoFyyHDwl9Uoh41kdPYVWHhOc'}
+					console.log("google")
+					var data = {client_id: '747556176623-vllltr9rc4lhnoe41r0j1ikmb84pkpbn.apps.googleusercontent.com',
+						token:'yzJ9j0l-DG_LoSXLb-HhTlsz'}
 						const form = new FormData()
 						for (const key in data) {
 							form.append(key, data[key]);
 						}
-						
-					  
+				
 						  axios( base_urls_8083+"user/sign-in-google", {
 							method: 'POST',
-						
-							data: form
-							
+							data: form	
 					  
 						}).then(function (data) {
 							var resp_data = JSON.parse(data);
